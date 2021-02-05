@@ -1,0 +1,31 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'SeattleNightLife_home' %}">Home<span class="sr-only">(current)</span></a>
+                <!-- this reads as go find the url for the view definition 'seattle_night_life_home'-->
+                <!--goes back to main screen with the p lines-->
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'SeattleNightLife_create' %}">Create New Venue<span class="sr-only"></span></a>
+                <!-- this will read as go find the url for the view definition 'create'-->
+                <!--goes back to main screen with the p lines-->
+            </li>
+            <li class="nav-item">
+                <a class="nav-item nav-link" href="{% url 'SeattleNightLife_index' %}">Index</a>
+                <!-- this will read as go find the url for the view definition 'index'-->
+                <!--brings up the page Index where user can see a list all instances. Each instance has a link and thus
+                a click on any instance will bring on the detail page for that instance-->
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Reviews</a>
+                <!--this will bring up the page Reviews where user can see all the reviews,
+                search/add reviews for a venue-->
+            </li>
+
+
+        </ul>
+    </div>
+</nav>

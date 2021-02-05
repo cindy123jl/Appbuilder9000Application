@@ -1,0 +1,38 @@
+{% extends 'DestinationGoals/DestinationGoals_base.html' %}
+{% load staticfiles %}
+
+{% block title %}Update Information{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+
+<h1 xmlns="http://www.w3.org/1999/html">Have updated info? <br>Please, provide and submit below.</h1>
+<!--this page opens from the Detail page button-->
+<div class = "text-center">
+    <div class = "container">
+
+
+        <form method="post" action="">
+            <div class = "formObject">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                <table>
+                    {{ form.as_table }}
+                </table>
+
+                <Div class = "frmBtn">
+                <!-- submit sends changes to database-->
+
+                <input type="submit" class = "btn" value="Save" name="save_item">
+
+                <button type="button" class="btn">
+                    <a href = "../delete">Remove</a></button>
+                <!-- Delete brings up a DeleteConfirm page.-->
+            </div>
+            </div>
+        </form>
+    </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="https://www.marvel.com/" target="_blank">
+    <img src="{% static 'MarvelComicsApp/images/marvel-logo.jpg' %}" width="70" height="35" alt="" loading="lazy">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'MarvelComicsAppHome' %}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'MarvelComicsAppCreateCharacter' %}">Create</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'MarvelComicsAppCharacterIndex' %}">Index</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'MarvelComicsAppRandom' %}">Random Character</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          News
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'MarvelComicsAppComicNews' %}">Comics</a>
+          <a class="dropdown-item" href="{% url 'MarvelComicsAppMovieNews' %}">Movies</a>
+          <a class="dropdown-item" href="{% url 'MarvelComicsAppTVNews' %}">TV Shows</a>
+          <a class="dropdown-item" href="{% url 'MarvelComicsAppGameNews' %}">Games</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0" action="{% url 'MarvelComicsAppSearch' %}" method="GET">
+      {% csrf_token %}
+      <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search for a character!" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    {% if request.user.is_authenticated %}
+    <a href="{% url 'MarvelComicsAppLogout' %}">
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="button">Log out</button>
+    </a>>
+    {% else %}
+    <a href="{% url 'MarvelComicsAppRegister' %}">
+      <button class="btn btn-outline-success my-2 my-sm-0 nav-btn-margin" type="button">Register</button>
+    </a>
+    <a href="{% url 'MarvelComicsAppLogin' %}">
+      <button class="btn btn-outline-success my-2 my-sm-0 nav-btn-margin" type="button">Login</button>
+    </a>
+    {% endif %}
+  </div>
+</nav>

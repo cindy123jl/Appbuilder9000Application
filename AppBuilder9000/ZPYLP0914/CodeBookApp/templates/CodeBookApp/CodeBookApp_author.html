@@ -1,0 +1,16 @@
+{% extends "CodeBookApp/CodeBookApp_base.html" %}
+
+{% block title %}Add Code Book{% endblock %}
+
+{% block content %}
+<h1>Add an Author:</h1>
+<div class="author-form">
+    <form action="" class="form-container center" method="POST">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+{% endblock %}

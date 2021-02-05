@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VegRestaurant</title>
+</head>
+
+<body>
+<div class="dataTables" id="veggieOrders">
+{% for orders in order %}
+<div>
+
+    {{orders.first_name}}
+    {{orders.last_name}}
+    {{orders.dish_name}}
+    {{orders.phone_number}}
+    <a href="{%url 'VegDetails' orders.id%}">Details</a>
+</div>
+{% endfor %}
+
+
+</div>
+
+
+</body>
+</html>

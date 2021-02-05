@@ -1,0 +1,19 @@
+{% extends "MovieApp/movieapp_base.html" %}
+
+{% block content %}
+
+<form action="{% url 'movieapp_api' %}" class="form-inline justify-content-center" method="POST">
+    {% csrf_token %}
+        <div class="input-group">
+            <input type="text" class="form-control form-control-lg noborders" name="userMovie" placeholder="Search by Movie Title...">
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-light btn-lg font-weight-bold">Go</button>
+            </div>
+        </div>
+    </form>
+
+<h2 style="text-align: center;">{{title}}</h2>
+<h5 style="text-align: center;">{{release_date}}</h5>
+<p style="text-align: center;">{{overview}}</p>
+
+{% endblock %}

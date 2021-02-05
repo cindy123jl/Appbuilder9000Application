@@ -1,0 +1,24 @@
+{% extends "DandDApp/DandD_base.html" %}
+{% load static %}
+{% block title %}D&D | Delete Character{% endblock%}
+
+{% block header %}Remove Character From Party{% endblock %}
+
+
+{% block content %}
+
+<div class="form-container">
+    <form method="POST" action="">
+        <h4 >Are You Sure You Want to Delete "{{ character.name }}" From the Party?</h4>
+            <div>
+                {% csrf_token %}
+                {{ form.as_p }}
+            </div>
+            <div>
+                <input type="submit" class="btn" value="REMOVE CHARACTER">
+                <a href="{% url 'd_and_d_index' %}"><button type="button" class="btn">NO THE HERO STAYS</button></a>
+            </div>
+    </form>
+</div>
+
+{% endblock %}

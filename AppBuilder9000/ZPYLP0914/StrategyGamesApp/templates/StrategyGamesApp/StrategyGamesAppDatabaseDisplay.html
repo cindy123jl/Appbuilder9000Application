@@ -1,0 +1,32 @@
+{% extends 'StrategyGamesApp/base.html' %}
+{% load static %}
+{% block title %}Strategy Games Show data{% endblock %}
+
+{% block content %}
+<h1>Strategy Game Lookup</h1>
+
+    <div class="table-container">
+
+
+       </form>
+
+        <table class="table-class-style" >
+            <tr>
+                <th> Title: </th>
+                <th> Theme: </th>
+                <th> Date Released: </th>
+            </tr>
+        {% for game in games %}
+            <a href="{% url 'DetailedGames' game.id">
+
+            <tr>
+                <td>{{ game.Title }}</td>
+                <td>{{ game.Theme }}</td>
+                <td>{{ game.Date_Released }}</td>
+            </tr>
+                </a>
+        {% endfor %}
+        </table>
+
+    </div>
+{% endblock %}

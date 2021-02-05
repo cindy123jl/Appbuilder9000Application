@@ -1,0 +1,45 @@
+.form_wrapper {
+    background-color: rgb(60, 179, 113);
+    position : relative;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+    box-sizing: border-box;
+    align-items: center;
+    display: flex;
+
+}
+
+body {
+   background-color: rgb(60, 179, 113);
+}
+
+
+
+
+.submitBtn_container {
+    position : relative;
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    box-sizing: border-box;
+    cursor: pointer;
+    align-items: center;
+
+
+
+
+}
+.form_container {
+    background-color: light grey;
+}
+
+.submit_btn {
+    padding-left: 0px;
+    background-color: #0cb6f1;
+
+}
+
+.dataTable{
+
+}

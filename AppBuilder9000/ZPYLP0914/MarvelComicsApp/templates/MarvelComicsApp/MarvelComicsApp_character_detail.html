@@ -1,0 +1,38 @@
+{% extends 'MarvelComicsApp/MarvelComicsApp_base.html' %}
+
+{% block content %}
+
+<div class="w3-container w3-center w3-animate-top">
+    <div class= "detail-container">
+        <!--display the specified character's secret identity-->
+        <h1>Secret Identity: {{ characters.name }}</h1>
+        <!--display the specified character's hero name-->
+        <h3>Super Hero Name: {{ characters.hero_name }}</h3>
+        <!--display the specified character's date of birth-->
+        <h3>Date of Birth: {{ characters.dob }}</h3>
+        <!--display the specified character's super team-->
+        <h3>Team Affiliation: {{ characters.team }}</h3>
+        <!--display the specified character's morality-->
+        <h3>Morality: {{ characters.preference }}</h3>
+        <!--display the specified character's powers-->
+        <h3>Powers: {{ characters.powers }}</h3>
+        <!--display the specified character's story-->
+        <h3>Back Story: {{ characters.bio }}</h3>
+        <!--redirect user to the specific instance of the MarvelComicsEditSubscriber url using the primary key-->
+        <a href="{% url 'MarvelComicsAppEditCharacter' pk=characters.id %}">
+            <button type="button" class="btn btn-success btn-lg">Edit</button>
+        </a>
+        <!--redirect user to the specific instance of the MarvelComicsDeleteSubscriber url using the primary key-->
+        <a href="{% url 'MarvelComicsAppDeleteCharacter' pk=characters.id %}">
+            <button type="button" class="btn btn-danger btn-lg">Delete</button>
+        </a>
+        <!--redirect user to MarvelComicsCharacterIndex-->
+        <a href="{% url 'MarvelComicsAppCharacterIndex' %}">
+            <button type="button" class="btn btn-secondary btn-lg">Cancel</button>
+        </a>
+    </div>
+
+</div>
+
+
+{% endblock %}

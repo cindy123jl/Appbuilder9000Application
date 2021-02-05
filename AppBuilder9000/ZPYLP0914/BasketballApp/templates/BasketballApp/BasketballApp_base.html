@@ -1,0 +1,21 @@
+
+{% load staticfiles %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BasketballApp</title>
+    <link rel="stylesheet" href="{% static 'CSS/BasketballApp_style.css' %}">
+</head>
+<body>
+<nav class="navigation">
+        <a href="{% url 'BasketballApp_home' %}">Home</a>
+        <a class="nav-item nav-link" href="{% url 'add_player' %}">Add player</a>
+        <a class="nav-item nav-link" href="{% url 'BasketballApp_index' %}">Index</a>
+        <a href="#">Return to apps</a>
+</nav>
+{% block content %}{% endblock %}
+
+</body>
+</html>

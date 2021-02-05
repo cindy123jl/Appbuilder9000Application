@@ -1,0 +1,38 @@
+{% extends 'DestinationGoals/DestinationGoals_base.html' %}
+{% load static %}
+{% block title %}Index{% endblock %}
+{% block header %} {% endblock %}
+
+
+
+{% block content %}
+<h1>Destination Goals Index:</h1>
+
+<div class="container_list">
+    <table class ="center" border="2" >
+        <div class = "table-col">
+        <tr>
+            <th>Delete</th>
+            <th>Name</th>
+            <th>Language</th>
+            <th>Type</th>
+
+        </tr>
+        {% for item in all %}
+        <tr>
+            <td><a href="{% url 'DestinationGoals_delete' item.pk %}">Delete</a></td>
+            <!--link to delete page for this particular item-->
+            <td><a href="{% url 'DestinationGoals_details' item.pk %}">{{ item.name }}</a></td>
+            <!--link to detail page for this particular item-->
+            <td>{{ item.language }}</td>
+            <td>{{ item.type }}</td>
+        </tr>
+        {% endfor %}
+        </div>
+    </table>
+<h4>For additional information, click on the destinations's name</h4>
+
+</div>
+
+
+{% endblock %}

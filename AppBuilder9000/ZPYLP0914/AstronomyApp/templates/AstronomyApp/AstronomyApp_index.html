@@ -1,0 +1,17 @@
+{% extends 'AstronomyApp/AstronomyApp_base.html' %}
+{% load static %}
+{% block title %}Planet Index{% endblock %}
+{% block header %}<h1>Planets discovered:</h1>{% endblock %}
+
+{% block content %}
+<ul>
+    <br>
+    <br>
+    <h3><u>Planet Name</u></h3>
+        {% for planet in planets %}
+            <li class="list-group"><a href="{% url 'details' planet.pk %}">{{ planet.name|lower }}</li>
+        {% endfor %}
+
+</ul>
+{% endblock %}
+

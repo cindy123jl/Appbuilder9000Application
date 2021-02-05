@@ -1,0 +1,45 @@
+{% extends 'CocktailsApp/CocktailsApp_base.html' %}
+{% load static %}
+{% block title %}API{% endblock %}
+{% block header %} Cocktail API{% endblock %}
+
+
+
+{% block content %}
+<br>
+<br>
+<br>
+<center>
+    <div class="api-container">
+
+
+        <!-- Output for drink instructions from API -->
+        <!-- show JSON results for the drink instructions -->
+
+        <div class="inst">
+            {% if cocktail.drinks == 'yes' %}
+            <h3>Please enter a valid cocktail name</h3>
+            {% elif cocktail.drinks == None %}
+            <p>The name you entered is not in the API database</p>
+            {% elif cocktail.drinks != None %}
+                {% for i in cocktail.drinks %}
+                    {{ i.strDrink }}: <br>
+                    {{ i.strInstructions }}
+                {% endfor %}
+
+            {% endif %}
+        </div>
+        <!-- User input -->
+        <form method="get">
+        <input id="cocktail_name" type="text" name="cocktail_name" value="" placeholder="manhattan">
+        <button type="submit" name="action">Search</button>
+        </form>
+    </div>
+</center>
+
+
+{% endblock %}
+
+
+
+{% block footer %}{% endblock %}

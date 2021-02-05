@@ -1,0 +1,13 @@
+{% extends "CodeBookApp/CodeBookApp_base.html" %}
+
+{% block title %}Code Book List{% endblock %}
+
+{% block content %}
+<h1>Books Detail:</h1>
+<div class="book-form">
+   <h2>Title: {{book.title}}</h2>
+    <h2>Author: {{book.author}}</h2>
+    <h2>Published: {{book.date_published}}</h2>
+</div>
+
+{% endblock%}

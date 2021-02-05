@@ -1,0 +1,21 @@
+{% extends 'PlantApp/PlantApp_base.html' %}
+{% load static %}
+{% block title %}Add Plants{% endblock %}
+{% block header %}<h1>Tell us your favorite plant!</h1>{% endblock %}
+
+
+{% block content %}
+<!--Displayed form-->
+<br>
+    <div align="center">
+        <div class = "container_form">
+            <form method="POST">
+                {% csrf_token %}
+                <table>
+                    {{ form.as_table}}
+                </table>
+                <button type="submit" class="btn btn-success" name="Add Plant">Add Plant</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

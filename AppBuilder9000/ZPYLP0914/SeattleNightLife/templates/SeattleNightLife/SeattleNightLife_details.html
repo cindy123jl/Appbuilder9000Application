@@ -1,0 +1,26 @@
+{% extends 'SeattleNightLife/SeattleNightLife_base.html' %}
+{% load staticfiles %}
+{% block title %}More Info{% endblock %}
+{% block header %}{% endblock %}
+{% block content %}
+<br>
+<br>
+<h1>About the {{data.name | title }} : </h1>
+<br>
+<!--<h2>{{ data.name }}</h2><br/>-->
+<div class = "text-center">
+    <!--<div class = "container">-->
+    <p>
+    {{ data.type }}<br/>
+    {{ data.neighborhood }}<br/>
+    {{ data.street_address }}, {{ data.zip }}<br>
+    </p>
+
+    <!-- Edit button - sends user to the edit html page-->
+    <button class = "button" type="button">
+        <a href = "../edit" >Update Info</a></button>
+</div>
+
+
+
+{% endblock %}

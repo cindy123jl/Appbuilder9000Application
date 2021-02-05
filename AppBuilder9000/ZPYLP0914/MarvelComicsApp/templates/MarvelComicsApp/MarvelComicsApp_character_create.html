@@ -1,0 +1,25 @@
+{% extends 'MarvelComicsApp/MarvelComicsApp_base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+        <div class="container">
+            <!--grabbing the form from the MarvelComicsAppCreateCharacter url and will submit as a POST-->
+            <form action="{% url 'MarvelComicsAppCreateCharacter' %}" method="POST" class="form-container" id="createForm">
+                <!--passing the django required csrf token for forms-->
+                {% csrf_token %}
+                <table>
+                    <!--putting my form in table format using the built in django "as_table" function-->
+                    {{ form|crispy }}
+                </table>
+                <div class="btn_container">
+                    <!--button submits my form-->
+                    <button type="submit" class="btn-primary btn-lg">Submit</button>
+                    <!--button redirects user to the MarvelComicsAppHome url-->
+                    <a href="{% url 'MarvelComicsAppHome' %}">
+                        <button type="button" class="btn-secondary btn-lg"> Cancel</button>
+                    </a>
+                </div>
+            </form>
+        </div>
+{% endblock %}

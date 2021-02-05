@@ -1,0 +1,25 @@
+{% extends 'LABucketListApp/LABucketListApp_base.html' %}
+{% load static %}
+{% block title %}Add Destination{% endblock %}
+{% block header %}Add a Destination to the List {% endblock %}
+
+{% block content %}
+<!-- Add Destination Form -->
+
+    <div class="formContainer">
+        <form method="POST" action="{% url 'BucketList_create' %}">
+            <div class="frmObject_container">
+                <!-- Cross Site Request Forgery (csrf_token) protection -->
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                {{ form.as_p }}
+            </div>
+            <div>
+                <input type="submit"  value="Add Destination" name="Save_Item">
+                <a href="{% url 'BucketList_home' %}"><button type="button" value="Cancel">Cancel</button></a>
+            </div>
+        </form>
+    </div>
+
+
+{% endblock %}

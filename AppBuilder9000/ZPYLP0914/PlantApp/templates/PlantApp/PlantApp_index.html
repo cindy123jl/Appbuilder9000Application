@@ -1,0 +1,31 @@
+{% extends "PlantApp/PlantApp_base.html" %}
+{% load static %}
+{% block title %}Plant Index{% endblock %}
+{% block header %}<h1>Added Plant Names</h1>{% endblock %}
+
+{% block content %}
+<br>
+    <!-- display db contents to index page -->
+    <div class="index_display">
+        {% for plant in page_obj %}
+        <li><a href="{% url 'PlantApp_details' plant.pk %}">{{ value|capfirst }}{{ plant.plant_name }}</a></li>
+        {% endfor %}
+    </div>
+    <br>
+    <!-- Pagination, user friendly -->
+    <div class="page-direction">
+            <span class="previous">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">Back</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">Next</a>
+                {% endif %}
+            </span>
+    </div>
+{% endblock %}

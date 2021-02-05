@@ -1,0 +1,59 @@
+{% extends 'CocktailsApp/CocktailsApp_base.html' %}
+{% load static %}
+{% block title %}Index{% endblock %}
+{% block header %} Cocktail Index {% endblock %}
+
+
+
+{% block content %}
+
+<!-- Table for all Cocktails in database -->
+    <div class="indexContainer">
+        <table class="indexTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Spirit</th>
+                    <th>Flavor Profile</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cocktail in page_obj %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'CocktailsApp_details' cocktail.pk %}">{{ cocktail.name|title }}<br>
+                        </td>
+                        <td>
+                            {{ cocktail.spirit|title }}<br>
+                        </td>
+                        <td>
+                            {{ cocktail.flavor_profile|title }}<br>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- Pagination -->
+    <div class="changePage">
+        <span >
+        {% if page_obj.has_previous %}
+            <a class="prev" href="?page={{ page_obj.previous_page_number }}">&#10094;</a>
+        {% endif %}
+
+            <span class="current">
+                 {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+            </span>
+
+        {% if page_obj.has_next %}
+            <a class="next" href="?page={{ page_obj.next_page_number }}">&#10095;</a>
+        {% endif %}
+    </div>
+{% endblock %}
+
+
+
+{% block footer %}{% endblock %}

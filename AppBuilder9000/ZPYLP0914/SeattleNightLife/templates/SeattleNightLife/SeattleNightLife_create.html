@@ -1,0 +1,47 @@
+{% extends 'SeattleNightLife/SeattleNightLife_base.html' %}
+{% load staticfiles %}
+
+
+{% block title %}Create New Venue{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+<!-- on this page, we want 2 create FORMS: 1 for suggest a NEW VENUE, and 1 for ADD REVIEW-->
+
+
+<!--this is for the suggest venue button link from the details.html page-->
+<!-- brings the EstablishmentForm-->
+
+<h1>Suggest a new Venue</h1>
+<div class = "text-center">
+    <div class = "container">
+
+        <form method="post" action="">
+            <div class = "formObject">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                    <table>
+                        {{ form.as_table }}
+                    </table>
+                    <!--should bring an empty details form-->
+
+                <!-- SUBMIT Button for create new venue form-->
+                <Div class = "frmBtn">
+                    <input type="submit" class = "btn" value="Submit Suggestion" name="save_item">
+                <!-- sending the data to the database and sending the user to the index page-->
+                </Div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+

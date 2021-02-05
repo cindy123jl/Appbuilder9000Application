@@ -1,0 +1,22 @@
+{% extends "CodeBookApp/CodeBookApp_base.html" %}
+
+{% block title %}Add Code Book{% endblock %}
+
+{% block content %}
+<h1>Edit Code Book Details</h1>
+<div class="book-form">
+    <form action="" class="form-container center" method="POST">
+        <table>
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {{ form.as_table }}
+        </table>
+        <div class="frmBtn_container">
+            <input type="submit" value="Submit" class="btn">
+            <button class="btn"><a href="{% url 'CodeBookApp_books' %}">Cancel</a></button>
+            <button class="btn"><a href="../{{ form.pk }}delete/">Delete</a></button>
+        </div>
+
+    </form>
+</div>
+{% endblock %}

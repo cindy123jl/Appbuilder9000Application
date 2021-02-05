@@ -1,0 +1,23 @@
+
+
+{% extends 'AstronomyApp/AstronomyApp_base.html' %}
+{% load static %}
+{% block title %}Planet Details{% endblock %}
+{% block header %}<h1>Planet Characteristics:</h1>{% endblock %}
+
+{% block content %}
+
+<table style="border: 1px solid black">
+    <tr><td>Gravity factor vs. Earth:</td><td>{{ planet.gravity }}</td></tr>
+    <tr><td>Temperature(F):</td><td>{{ planet.temperature }}</td></tr>
+    <tr><td>Water Presence:</td><td>{{ planet.water }}</td></tr>
+    <tr><td>Atmosphere Composition:</td><td>{{ planet.atmosphere }} </td></tr>
+    <tr><td>Magnetic Field Presence:</td><td>{{ planet.magnetic_field }} </td></tr>
+</table>
+
+        <a href="{% url 'planet_index' %}">
+            <button type="button" class="btn btn-danger btn-lg">Back to Planets</button>
+        </a>
+
+
+{% endblock %}

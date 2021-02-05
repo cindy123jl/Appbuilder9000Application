@@ -1,0 +1,201 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page-title %}App Builder 9000{% endblock %}
+{% block page-subtitle %}Python Live Project{% endblock %}
+{% block button1 %}<a href="#apps" class="contact-btn">Portfolio</a>{% endblock %}
+{% block button2 %}<a href="#about" class="contact-btn">Contact Us</a>{% endblock %}
+
+{% block appcontent %}
+    <section class="masonry-grid" id="apps">
+        <br><br>
+        <h2 class="sub-title">App Directory</h2>
+          <div class="grid">
+
+              <a href="{% url 'StocksTraderHome' %}" class="grid-item app-image">
+                  <img src="{% static 'images/app-images/StockTraderApp.jpg' %}" alt="Stocks">
+                  <div class="fadedbox">
+                      <div class="title text"> Stocks Trader </div>
+                  </div>
+              </a>
+
+              <!-- classical Music -->
+              <a href="{% url 'ClassicalMusic_home' %}" class="grid-item app-image">
+                  <img src="{% static 'images/app-images/ClassicalMusic.jpg' %}" alt="Cello and sheet Music">
+                    <div class="fadedbox">
+                        <div class="title text"> Classical Music </div>
+                    </div>
+              </a>
+
+              <!-- FindPetApp -->
+              <a href="{% url 'find_pet_home' %}" class="grid-item app-image">
+                  <img src="{% static 'images/app-images/FindPet_App_Image.jpg' %}" alt="Rescued Pet">
+                    <div class="fadedbox">
+                        <div class="title text">Find a Pet</div>
+                    </div>
+              </a>
+
+              <!-- ChessApp -->
+              <a href="{% url 'chess_app_home' %}" class="grid-item app-image">
+                  <img src="{% static 'images/app-images/chessapp.jpg' %}" alt="Chess">
+                    <div class="fadedbox">
+                        <div class="title text">Chess</div>
+                    </div>
+              </a>
+
+              <!--TVshows -->
+              <a href="{% url 'TVshow_home' %}" class="grid-item app-image">
+                  <img src="{% static 'images/app-images/tvshows.jpg' %}" alt="Streaming TV">
+                    <div class="fadedbox">
+                        <div class="title text">TV Shows</div>
+                    </div>
+              </a>
+              <!-- HikingApp -->
+              <a href="{% url 'HikingApp_home' %}" class="grid-item app-image">
+                  <img src="{% static 'images/app-images/HikingTrails.jpg' %}" alt="Hiking Trail">
+                    <div class="fadedbox">
+                        <div class="title text">Hiking Trails</div>
+                    </div>
+              </a>
+
+              <!-- VideoGameApp -->
+              <a href="{% url 'VideoGameAppHome' %}" class="grid-item app-image">
+                  <img src="{% static 'images/app-images/MainPage-VideoGame.jpg' %}" alt="Video Game">
+                    <div class="fadedbox">
+                        <div class="title text">Video Games </div>
+                    </div>
+              </a>
+
+              <!-- MechKeyboards -->
+              <a href="{% url 'Mech_Keyboards_home' %}" class="grid-item app-image">
+                  <img src="{% static 'images/app-images/MechKeyboards.jpg' %}" alt="MechKeyboards">
+                    <div class="fadedbox">
+                        <div class="title text">MechKeyboards</div>
+                    </div>
+              </a>
+
+
+               <!-- ComicBooksApp -->
+              <a href="{% url 'ComicBooks_home' %}" class="grid-item app-image">
+                  <img src="{% static 'images/app-images/Dc_thumbnail.jpg' %}" alt="ComicBook">
+                    <div class="fadedbox">
+                        <div class="title text">DC Comics </div>
+                    </div>
+              </a>
+
+              <!-- WoWApp -->
+              <a href="{% url 'WoWApp_home' %}" class="grid-item app-image">
+                  <img src="{% static 'images/app-images/WoW.jpg' %}" alt="WoWApp">
+                    <div class="fadedbox">
+                        <div class="title text">World of Warcraft </div>
+                    </div>
+              </a>
+
+              <!-- CarPartsApp -->
+              <a href="{% url 'CarPartsApp_home' %}" class="grid-item app-image">
+                  <img src="{% static 'images/app-images/Racecar.gif' %}" alt="CarPartsApp">
+                    <div class="fadedbox">
+                        <div class="title text">CarPartsApp</div>
+                    </div>
+              </a>
+
+              <!-- MusicApp -->
+              <a href="{% url 'MusicApp_home' %}" class="grid-item app-image">
+                  <img src="{% static 'images/app-images/Music.jpg' %}" alt="Music App">
+                    <div class="fadedbox">
+                        <div class="title text"> Music</div>
+                    </div>
+              </a>
+
+              <!-- MetalGearApp -->
+              <a href="{% url 'MetalGearApp_Home' %}" class="grid-item app-image">
+                  <img src="{% static 'images/app-images/MetalGearApp.jpg' %}" alt="Metal-Gear-App">
+                  <div class="fadedbox">
+                      <div class="title text"> Metal Gear</div>
+                  </div>
+              </a>
+
+              <!-- Breweries App -->
+              <a href="{% url 'BA_home' %}" class="grid-item app-image">
+                  <img src="{% static 'images/app-images/breweriesapp.jpg' %}" alt="Breweries App">
+                    <div class="fadedbox">
+                        <div class="title text">Breweries App</div>
+                    </div>
+              </a>
+
+            <a href="{% url 'SIAHome' %}" class="grid-item app-image">
+                <img src="{% static 'images/app-images/SteamInterestAppLogo.jpg' %}" alt="Steam Interest App">
+                    <div class="fadedbox">
+                    <div class="title text">Steam Interest App</div>
+                </div>
+            </a>
+               <!-- StarWarsApp -->
+              <a href="{% url 'SW_Home' %}" class="grid-item app-image">
+                  <img src="{% static 'images/app-images/SW_logo.png' %}" alt="StarWars">
+                  <div class="fadedbox">
+                  <div class="title text">Star Wars </div>
+                    </div>
+              </a>
+        <!-- Speedster -->
+              <a href="{% url 'Speedster_home' %}" class="grid-item app-image">
+                  <img src="{% static 'images/app-images/mclaren.jpg' %}" alt="Mclaren">
+                  <div class="fadedbox">
+                  <div class="title text">Speedster</div>
+                    </div>
+              </a>
+
+              <!--Sports App-->
+              <a href="{% url 'SportsApp_home' %}" class="grid-item app-image">
+                <img src="{% static 'images/app-images/Sports_2_NBA.jpg' %}" alt="SportsApp">
+                    <div class="fadedbox">
+                        <div class="title text">Sports App</div>
+                    </div>
+              </a>
+
+               <!--HorseApp-->
+              <a href="{% url 'HorseApp_Home' %}" class="grid-item app-image">
+                  <img src="{% static 'images/app-images/HorseApp.png' %}" alt="HorseApp">
+                  <div class="fadedbox">
+                      <div class="title text">Horse App</div>
+                  </div>
+              </a>
+
+
+              <!--AlbumTracker App-->
+              <a href="{% url 'AlbumTracker_home' %}" class="grid-item app-image">
+                <img src="{% static 'images/app-images/AlbumTracker_app_icon.jpg' %}" alt="AlbumTracker_icon">
+                    <div class="fadedbox">
+                        <div class="title text">AlbumTracker</div>
+                    </div>
+              </a>
+
+              <!-- ReflectiveJournal -->
+              <a href="{% url 'RF_Home' %}" class="grid-item app-image">
+                  <img src="{% static 'images/app-images/ReflectiveJournal.jpg' %}" alt="ReflectiveJournal">
+                  <div class="fadedbox">
+                      <div class="title text">Reflective Journal</div>
+                  </div>
+              </a>
+
+          </div>
+
+    </section>
+
+    <section class="beating-heart" id="about">
+        <div class="wrapper">
+            <h2 class="sub-title">About Us</h2>
+            <p>We're creating software designed to help hobbyists keep track of their collections of items <br/>
+                as well as interact with APIs and use DataScraping to get up to date information on things <br/>
+                related to those collections and hobbies. This project is built using Python, Django, SQLite,
+                and HTML/CSS.</p>
+            <span>We</span>
+            <svg class="heart" viewBox="0 0 50 50">
+                <path style="fill:red;" d="M24.85,10.126c2.018-4.783,6.628-8.125,11.99-8.125c7.223,0,12.425,6.179,13.079,13.543
+                	c0,0,0.353,1.828-0.424,5.119c-1.058,4.482-3.545,8.464-6.898,11.503L24.85,48L7.402,32.165c-3.353-3.038-5.84-7.021-6.898-11.503
+                	c-0.777-3.291-0.424-5.119-0.424-5.119C0.734,8.179,5.936,2,13.159,2C18.522,2,22.832,5.343,24.85,10.126z"/>
+            </svg>
+            <span>Python</span>
+        </div>
+    </section>
+{% endblock %}
+

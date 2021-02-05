@@ -1,0 +1,19 @@
+{% extends 'PlantApp/PlantApp_base.html' %}
+{% load static %}
+{% block title %}Details{% endblock %}
+{% block header %}<h1>{{ plant.plant_name }}</h1>{% endblock %}
+
+
+{% block content %}
+<br>
+    <!-- Display as list info for selected plant -->
+    <ul class="plant_info">
+        <li><h4>Type of Growth: </h4>{{ plant.plant_growth }}</li>
+        <br>
+        <li><h4>Light Needed: </h4>{{ plant.plant_light }}</li>
+        <br>
+        <li><h4>Brief Description: </h4>{{ plant.plant_description }}</li>
+    </ul>
+
+
+{% endblock %}

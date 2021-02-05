@@ -1,0 +1,132 @@
+body, html {
+    margin: 0%
+    height: 100%;
+}
+
+.bg_img {
+    background-image: url('/static/images/SeattleNightLife.jpg');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: grayscale;
+    opacity: 0.85;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table-col {
+    column-width: 60px;
+
+}
+
+h1 {
+    padding: 2.5rem;
+    color: gold;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    margin-left: 0em;
+    font-family: Avant Garde, Helvetica;
+}
+h2 {
+    padding: 2.5rem;
+    color: yellow;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    margin-left: 0em;
+    font-family: Avant Garde, Helvetica;
+}
+
+h3 {
+    font-family: Avant Garde, Helvetica;
+    font-size: 8px;
+    text-align: left;
+    padding-left: 525px;
+}
+
+
+p {
+    padding-top:10px;
+    color: gold;
+    font-size: 20px;
+    text-align: center;
+    font-family: Avant Garde, Helvetica;
+}
+
+.container_list {
+    padding-top: 20px;
+    border-color: lightgray;
+    color: white;
+    font-weight: normal;
+    font-size: 16px;
+    height: 300px;
+    text-align: center;
+    font-family: Avant Garde, Helvetica;
+}
+
+.container {
+    align-content: center;
+    padding-top: 5%;
+    padding-left: 2%;
+    margin-left: 30%;
+    border-color: lightgray;
+    color: white;
+    font-weight: normal;
+    font-size: 16px;
+
+
+}
+.formObject {
+    display: block;
+    flex-wrap: wrap;
+    padding: 3%;
+    text-align: right;
+    margin-left: 0%;
+
+}
+
+.frmBtn {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: right;
+    width: 225px;
+    font-size: 6px;
+    padding: 3%;
+    padding-left: 3%px;
+    margin: 3%;
+
+
+}
+
+.button {
+    border-radius: 5px;
+}
+
+
+
+.btn {
+    flex-grow: 2;
+    justify-content: center;
+    text-align: center;
+    display: inline-block;
+    width: 50px;
+    margin: 2% 2% 2% 2%;
+    color: green;
+    padding: 2px 2px;
+    border: 2px solid silver;
+    border-radius: 5px;
+}
+
+
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    /*background-color: lightgray;*/
+    color: #fff;
+}

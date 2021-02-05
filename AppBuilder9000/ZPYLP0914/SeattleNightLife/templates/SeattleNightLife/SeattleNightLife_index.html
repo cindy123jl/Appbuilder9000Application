@@ -1,0 +1,45 @@
+{% extends 'SeattleNightLife/SeattleNightLife_base.html' %}
+{% load staticfiles %}
+
+{% block title %}All Venues{% endblock %}
+{% block header %}{% endblock %}
+{% block content %}
+<h1>Here is a few of our favorite spots:</h1>
+<div class="container_list">
+    <table class ="center" border="2" >
+        <div class = "table-col">
+        <tr>
+            <!--<td>More Info</td>-->
+            <td></td>
+            <td>Name</td>
+            <td>Venue Type</td>
+            <td>Neighborhood</td>
+            <td>Street Address</td>
+            <td>Zip</td>
+        </tr>
+        {% for item in all %}
+        <tr>
+            <td><a href="../{{item.pk}}/delete">Delete</a></td>
+            <!--link to delete page for this particular item-->
+            <td><a href="../{{item.pk}}/details">{{ item.name }}</a></td>
+            <!--link to detail page for this particular item-->
+            <td>{{ item.type }}</td>
+            <td>{{ item.neighborhood }}</td>
+            <td>{{ item.street_address }}</td>
+            <td>{{ item.zip }}</td>
+        </tr>
+        {% endfor %}
+        </div>
+    </table>
+    <h3>For additional Venue information, click on venue's name</h3>
+
+
+
+
+</div>
+{% endblock %}
+
+<!--<li><strong>Venue: </strong><br/>
+            Where: {{item.neighborhood}}<br>
+            Venue Type: {{item.type}}<br/>
+            <hr></li>-->

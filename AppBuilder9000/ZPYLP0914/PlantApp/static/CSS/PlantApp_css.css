@@ -1,0 +1,49 @@
+.base_background {
+    background-image: url('../image/Jungle_Pic.jpg');
+    background-position: center;
+    background-size: cover;
+    background-color: #228B22;
+}
+
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+footer {
+    text-align: center;
+    color: white;
+    position: fixed;
+    left: 38%;
+    bottom: 0;
+}
+
+.container_form {
+    background: #F0FFFF;
+    display: inline-block;
+    text-align: center;
+}
+
+.index_display{
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    list-style-type: none;
+    color: #F0FFFF;
+}
+
+.page-direction{
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    color: #F0FFFF;
+}
+
+.plant_info{
+    margin: auto;
+    width: 40%;
+    text-align: center;
+    list-style-type: none;
+    color: #F0FFFF;
+}

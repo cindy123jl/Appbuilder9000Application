@@ -1,0 +1,27 @@
+<form method="POST" action="">
+    {% csrf_token %}
+    <table hidden>
+        <td>
+            <input value="{{ hero_info.names }}" name="name">
+        </td>
+        <td>
+            <input value="{{ hero_info.descriptions }}" name="description">
+        </td>
+        <td>
+            <input value="{{ hero_info.paths }}" name="path">
+        </td>
+        <td>
+            <input value="{{ hero_info.extensions }}" name="extension">
+        </td>
+        <td>
+            <input value="{{ hero_info.id }}" name="api_id">
+        </td>
+        <td>
+            <input value="{{ hero_info.hero_link }}" name="link">
+        </td>
+    </table>
+    <br>
+    <div class="btn_container_save">
+        <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Save</button>
+    </div>
+</form>

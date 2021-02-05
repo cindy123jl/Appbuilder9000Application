@@ -1,0 +1,15 @@
+{% extends 'DuneApp/DuneApp_base.html' %}
+{% load staticfiles %}
+{% block title %}Book Details{% endblock %}
+{% block header %}Book Details{% endblock %}
+
+{% block content %}
+
+<div class="book_db">
+    <h2>Book Title</h2>{{ bookdtl.book_title }}<br/><br/>
+    <h6>Author</h6>{{ bookdtl.author }}<br/><br/>
+    <h6>Published</h6>{{ bookdtl.published }}<br/><br/>
+    <h6>Publisher</h6>{{ bookdtl.publisher }}<br/><br/>
+    <h6>Followed By:</h6>{{ bookdtl.followed_by }}<br/><br/>
+</div>
+{% endblock %}

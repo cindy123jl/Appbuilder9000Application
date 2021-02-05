@@ -1,0 +1,16 @@
+{% extends 'MarvelComicsApp/MarvelComicsApp_base.html' %}
+
+{% block content %}
+<div class="container">
+  {% for story in stories %}
+  <div class="card position card-color" style="width: 18rem;">
+    <img class="card-img-top" src="/static/MarvelComicsApp/images/image-not-available.jpg" alt="image not available">
+    <div class="card-body">
+      <p class="card-text news-card-text">{{ story.summary }}</p>
+      <a href="{{ story.link }}" class="btn btn-primary">Learn more!</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

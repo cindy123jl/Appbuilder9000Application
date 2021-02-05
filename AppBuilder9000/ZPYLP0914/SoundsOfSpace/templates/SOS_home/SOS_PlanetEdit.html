@@ -1,0 +1,22 @@
+{% extends 'SOS_home/SOS_Base.html' %}
+{% load staticfiles %}
+
+{% block pagetitle %}Edit The Data{% endblock %}
+        {% block content %}
+    <div class="maincontent">
+
+            <div class="form-container">
+                <form class="form-content" method="POST">
+                    {% csrf_token %}
+                        <table>
+                            {{ form.as_table }}
+                        </table>
+                    <input type="submit">Save</input>
+                </form>
+            </div>
+
+
+    </div>
+        {% endblock %}
+
+

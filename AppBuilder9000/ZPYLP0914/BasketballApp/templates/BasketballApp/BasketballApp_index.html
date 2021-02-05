@@ -1,0 +1,30 @@
+{% extends "BasketballApp/BasketballApp_base.html" %}
+{% load static %}
+{% block title %}Player{% endblock%}
+
+{% block header %}Players entered into Database{% endblock %}
+
+{% block content %}
+
+    <div class="index-display">
+    {% for player in page_obj %}
+        <ul class="list-group"><a href="{% url 'BasketballApp_details' player.pk %}">{% filter force_escape|upper %}{{player.name}}{% endfilter %}</a></ul><br>
+    {% endfor %}
+    </div>
+
+    <div class="change-page">
+        <span class="go_back">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+            {% endif %}
+        </span>
+    </div>
+{% endblock %}

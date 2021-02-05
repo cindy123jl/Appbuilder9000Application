@@ -1,0 +1,42 @@
+{% extends 'MarvelComicsApp/MarvelComicsApp_base.html' %}
+
+{% block content %}
+<br>
+<br>
+<br>
+
+
+{% for hero_info in heros_info %}
+
+
+
+<div class="container">
+    <br>
+    <div class="hero-info-container">
+        <div class="col-sm-6">
+            <div class="card" style="width: 35rem;">
+                <img class="card-img-top" src="{{ hero_info.paths }}.{{ hero_info.extensions }}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{ hero_info.names }}</h5>
+                    <p class="card-text">{{ hero_info.descriptions }}</p>
+                    {% if hero_info.hero_link == "" %}
+                    <a type="button" class="btn-lg btn-secondary disabled">Learn More!</a>
+                    {% else %}
+                    <a type="button" class="btn-lg btn-success" href="{{ hero_info.hero_link }}" target="_blank">Learn More!</a>
+                    {% endif %}
+                    <a type="button" class="btn-lg btn-success" href="http://marvel.com/comics/characters/{{ hero_info.id }}/{{ hero_info.names }}" target="_blank">See my comics!</a>
+                    <a type="button" class="btn-lg btn-success" href="{% url 'MarvelComicsAppRandom' %}">Next!</a>
+                    {% include 'MarvelComicsApp/MarvelComicsApp_search_hidden_form.html' %}
+                    <br>
+                    <br>
+                    <p class="text-muted">{{ hero_info.attriText }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
+
+{% endfor %}
+
+{% endblock %}

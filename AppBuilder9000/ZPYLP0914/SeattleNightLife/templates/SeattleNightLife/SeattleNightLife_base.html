@@ -1,0 +1,45 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" xmlns:font-size="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type = text/css href="/static/css/SeattleNightLife.css">
+
+</head>
+<body>
+    <div class = "bg_img"><!--for background picture-->
+        <!-- NAVBAR CONFIGURATION FROM BOOTSTRAP4-->
+        {% include 'SeattleNightLife/SeattleNightLife_Navbar.html' %}
+    <header class = "header-title">
+          {% block header %}{% endblock %}
+    </header>
+    {% block content %}{% endblock %}
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+{% include 'SeattleNightLife/SeattleNightLife_footer.html' %}
+
+
+
+</div>
+</body>
+</html>

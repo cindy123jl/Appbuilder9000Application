@@ -1,0 +1,61 @@
+{% extends 'LABucketListApp/LABucketListApp_base.html' %}
+{% load static %}
+{% block title %}Destination Details{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div id="demo" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="card" id="details-card">
+
+                    <!-- path/progress bar on top -->
+                    <div class="path">
+                        <a href="{% url 'BucketList_home' %}">HOME</a> /
+                         <a href="{% url 'BucketList_index' %}">MASTER LIST</a>
+                        / DETAILS
+                    </div>
+
+                    <div class="row">
+
+                        <!-- image class
+                        <div class="col-md-6 text-center align-self-center"> <img class="img-fluid" src="#"> </div>
+                        -->
+
+                        <div class="col-md-6 info">
+                            <div class="row title">
+                                <div class="col">
+                                    <h2>{{ destinations.name }}</h2>
+                                </div>
+                            </div>
+
+                            <p>{{ destinations.type }}</p>
+
+                            <span id="description">{{ destinations.description }}</span>
+
+                            <!-- price -->
+                            <div class="row price">
+                                <label class="radio"> <input type="radio" name="size1" value="small" checked>
+                                    <span>
+                                        <div class="row"><big><b>{{ destinations.price }}</b></big></div>
+                                    </span>
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row lower">
+                        <div class="col">
+                            <a class="carousel-control-prev" href="{% url 'BucketList_edit' destinations.pk %}">
+                                <button type="button" value="edit">Edit</button></a>
+                            <a class="carousel-control-next" href="#demo"></a>
+                        </div>
+                        <div class="col text-right align-self-center">{{ destinations.location }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

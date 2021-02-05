@@ -1,0 +1,26 @@
+{% extends 'DestinationGoals/DestinationGoals_base.html' %}
+{% load staticfiles %}
+{% block title %}More Info{% endblock %}
+{% block header %}{% endblock %}
+{% block content %}
+<h1>About {{data.name | title }} </h1>
+<br>
+<br>
+
+<br>
+
+<div class = "text-center">
+
+    <p>
+    Brief description: {{ data.description }}<br/>
+    Official Language: {{ data.language}}<br/>
+    Type: {{ data.type }}<br>
+    </p>
+
+    <button class = "button" type="button">
+        <a href = "../edit" >Edit Info</a></button>
+</div>
+
+
+
+{% endblock %}

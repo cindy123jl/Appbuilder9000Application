@@ -1,0 +1,26 @@
+{% extends "CodeBookApp/CodeBookApp_base.html" %}
+
+{% block title %}Code Book List{% endblock %}
+
+{% block content %}
+<h1>Books Index:</h1>
+<div class="book-form center">
+    <table class="index-form">
+       <tr><th>Title</th><th>Code</th><th>Author</th><th>Published</th><th></th></tr>
+        {% for book in books %}
+        <tr>
+            <td><a href="{{ book.pk }}/book_detail/">{{book.title}}</a></td>
+            <td>{{book.code_language}}</td>
+            <td>{{book.author}} </td>
+            <td>
+                {% filter force_escape|lower %}
+                {{book.date_published|date:"SHORT_DATE_FORMAT"}}
+                {% endfilter %}
+            </td>
+            <td><a href="{{ book.pk }}/book_edit/">Edit</a></td>
+        </tr>
+    {% endfor %}
+    </table>
+</div>
+
+{% endblock%}

@@ -1,0 +1,23 @@
+{% extends 'StrategyGamesApp/base.html' %}
+{% load static %}
+{% block title %}Strategy Games Add{% endblock %}
+{% block content %}
+<div class='container'></div>
+    <!--grabbing the form from StrategyGameApp url and will submit as a POST-->
+    <form action="{% url 'add game' %}" method="POST" class="form-container" id="createForm">
+        <!--passing the django required csrf token for forms-->
+        {% csrf_token %}
+        <table>
+            <!--putting my form in table format using the built in django "as_table" function-->
+                    {{ addgameform }}
+        </table>
+        <div class="btn_container">
+                    <!--button submits my form-->
+                    <button type="submit" class="btn-primary btn-lg" name="Add_Game">Submit</button>
+                    <!--button redirects user to the StrategyGamesApp homepage-->
+                    <a href="{% url 'StrategyGamesHome' %}">
+                        <button type="button" class="btn-secondary btn-lg"> Cancel</button>
+                    </a>
+                </div>
+            </form>
+{% endblock %}

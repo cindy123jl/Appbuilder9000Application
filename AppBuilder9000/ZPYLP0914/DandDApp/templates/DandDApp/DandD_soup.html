@@ -1,0 +1,27 @@
+{% extends "DandDApp/DandD_base.html" %}
+{% load static %}
+{% block title %}D&D | Articles{% endblock%}
+
+{% block header %}Check out the latest stories!{% endblock %}
+
+
+{% block content %}
+<table class="table" >
+      <thead class="index_display">
+        <tr>
+          <th scope="col">Author:</th>
+          <th scope="col">Summary:</th>
+        </tr>
+      </thead>
+      <tbody class="index_display">
+      <!--Loop through article/author list-->
+      {% for item in articleList %}
+        <tr>
+          <td>{{ item.Author }}</td>
+          <td>{{ item.Summary }}</td>
+       {% endfor %}
+        </tr>
+
+      </tbody>
+    </table>
+{% endblock %}

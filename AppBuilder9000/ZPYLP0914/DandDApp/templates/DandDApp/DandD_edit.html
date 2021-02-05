@@ -1,0 +1,25 @@
+{% extends "DandDApp/DandD_base.html" %}
+{% load static %}
+{% block title %}D&D | Edit Character{% endblock%}
+
+{% block header %}Level Up Your Adventurer{% endblock %}
+
+
+{% block content %}
+
+    <div class="form-container">
+        <form method="POST">
+            <div class="form-container">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                {{ form.as_p }}
+            </div>
+            <div >
+                <input type="submit" class="btn" value="Update Character" name="Update_Item">
+                <a href="{% url 'd_and_d_index' %}"><button type="button" class="btn">Cancel</button></a>
+            </div>
+        </form>
+    </div>
+
+
+{% endblock %}

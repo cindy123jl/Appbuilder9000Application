@@ -1,0 +1,48 @@
+{% extends 'SeattleNightLife/SeattleNightLife_base.html' %}
+{% load staticfiles %}
+
+{% block title %}Delete Confirmation{% endblock %}
+{% block header %}{% endblock %}
+{% block content %}
+
+<br>
+<br>
+<p>By clicking yes, all data for</p>
+
+    <p style="font-size: 30px; color: red;">
+        <strong>{{ item.name }}</strong>
+    </p>
+<p>will be permanently
+    deleted from the database. <br>Continue with deletion?</p>
+<div class = "text-center">
+<!--<div class = "container">-->
+    <form method="post" action=".">
+        <div class = "formObject">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <p>{{ venue_data.as_p }}</p>
+
+        </div>
+        <div class = "button"> <!-- SUBMIT and CANCEL Buttons for create new venue form-->
+
+            <input type="submit" value="Yes" name="save_item">
+            <!--by clicking Yes - page will close, row will be deleted from table,
+            and user is sent back to index page-->
+        </div>
+    </form>
+</div>
+
+
+
+
+<!--
+    <div class = "text-center">
+    <div class = "button">
+    SUBMIT "YES" button and return to index page
+        <input type="submit" class = "btn" value="Yes" name="save_item">
+        sending the data and re-rendering the add_venue page
+    </div>
+</div>
+</div>
+-->
+{% endblock %}

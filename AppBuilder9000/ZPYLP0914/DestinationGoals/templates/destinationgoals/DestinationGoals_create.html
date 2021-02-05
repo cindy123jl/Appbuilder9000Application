@@ -1,0 +1,32 @@
+{% extends 'DestinationGoals/DestinationGoals_base.html' %}
+{% load staticfiles %}
+
+
+{% block title %}Create New Destination{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+<h1>Add a new Destination</h1>
+<div class = "text-center">
+    <div class = "container">
+
+        <form method="post" action="">
+            <div class = "formObject">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                    <table>
+                        {{ form.as_table }}
+                    </table>
+                    <!--should bring an empty details form-->
+
+                <!-- SUBMIT Button for create new venue form-->
+                <Div class = "frmBtn">
+                    <input type="submit" class = "btn" value="Submit Destination" name="save_item">
+                <!-- sending the data to the database and sending the user to the index page-->
+                </Div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

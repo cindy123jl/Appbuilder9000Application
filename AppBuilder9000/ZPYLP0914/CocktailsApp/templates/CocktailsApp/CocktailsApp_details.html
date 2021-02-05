@@ -1,0 +1,41 @@
+{% extends 'CocktailsApp/CocktailsApp_base.html' %}
+{% load static %}
+{% block title %}Cocktail Details{% endblock %}
+{% block header %} Cocktail Details {% endblock %}
+
+
+
+{% block content %}
+    <!-- Table to show ingredients for a single cocktail -->
+    <div class="indexContainer">
+        <table class="indexTable">
+            <thead>
+                <tr>
+                    <th>{{ cocktail.name|title }} Ingredients</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                    <tr>
+                        <td>
+                            {{ cocktail.ingredients }}<br>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Button to back to Cocktails index -->
+    <div>
+        <center><a href="{% url 'CocktailsApp_index' %}">
+            <button type="button" class=" btn-dark">Back to Index</button> </a>
+            <a href="{% url 'CocktailsApp_edit' cocktail.pk %}"><button type="button" value="edit">Edit</button></a>
+            </center>
+    </div>
+
+
+{% endblock %}
+
+
+
+{% block footer %}{% endblock %}

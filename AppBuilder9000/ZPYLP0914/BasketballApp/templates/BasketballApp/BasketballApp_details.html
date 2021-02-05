@@ -1,0 +1,29 @@
+{% extends "BasketballApp/BasketballApp_base.html" %}
+{% load static %}
+{% block title %}Details{% endblock%}
+{% block header %}Player Specs{% endblock %}
+
+{% block content %}
+<!--Displaying all player specs-->
+<table class="table table-bordered">
+  <thead>
+    <tr class="detail_header">
+      <th scope="col">Player Name</th>
+      <th scope="col">Age</th>
+      <th scope="col">Position</th>
+      <th scope="col">Weight</th>
+      <th scope="col">Years Pro</th>
+    </tr>
+  </thead>
+<!--Getting player details and displaying below table header-->
+  <tbody>
+    <tr class="detail">
+      <td>{{ player.name }}</td>
+      <td>{{ player.age }}</td>
+      <td>{{ player.position }}</td>
+      <td>{{ player.weight }}</td>
+      <td>{{ player.years_pro }}</td>
+    </tr>
+  </tbody>
+</table>
+{% endblock %}

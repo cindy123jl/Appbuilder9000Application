@@ -1,0 +1,67 @@
+[
+  {
+    "model": "MarvelComicsApp.Character",
+    "pk": 1,
+    "fields": {
+      "name": "John Doe",
+      "hero_name": "Normal Man",
+      "dob": "1999-01-01",
+      "team": "Avengers",
+      "preference": "Hero",
+      "powers": "None",
+      "bio": "Totally normal life."
+    }
+  },
+  {
+    "model": "MarvelComicsApp.Character",
+    "pk": 2,
+    "fields": {
+      "name": "Jane Doe",
+      "hero_name": "Normal Person",
+      "dob": "1999-01-01",
+      "team": "Avengers",
+      "preference": "Hero",
+      "powers": "None",
+      "bio": "Totally normal life."
+    }
+  },
+  {
+    "model": "MarvelComicsApp.Character",
+    "pk": 3,
+    "fields": {
+      "name": "Zack Bonin",
+      "hero_name": "Junior Software Engineer",
+      "dob": "1986-10-03",
+      "team": "Avengers",
+      "preference": "Hero",
+      "powers": "Parenting skills",
+      "bio": "Happy dad."
+    }
+  },
+  {
+  "model": "MarvelComicsApp.Character",
+    "pk": 4,
+    "fields": {
+      "name": "Irine Fabrigas",
+      "hero_name": "Super Mom",
+      "dob": "1988-04-29",
+      "team": "Avengers",
+      "preference": "Hero",
+      "powers": "Parenting skills",
+      "bio": "Happy mom."
+    }
+  },
+  {
+    "model": "MarvelComicsApp.Character",
+    "pk": 5,
+    "fields": {
+      "name": "Joseph-Anthony Bonin",
+      "hero_name": "Super Kid",
+      "dob": "2018-03-22",
+      "team": "Avengers",
+      "preference": "Hero",
+      "powers": "Unbearably cute",
+      "bio": "Happy kid."
+    }
+  }
+]

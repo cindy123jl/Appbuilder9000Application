@@ -1,0 +1,29 @@
+<!--Here's where you want form to display
+going to create view method
+here is where going to pass that form as a context argument -->
+
+{% extends 'AstronomyApp/AstronomyApp_base.html' %}
+{% load static %}
+{% block title %}Discoveries{% endblock %}
+{% block header %}<h1>Fill in the name of your newly-discovered planet:</h1>{% endblock %}
+
+
+{% block content %}
+<!--Displayed form-->
+<br>
+    <div align="center">
+        <div class = "form_labels">
+            <form method="POST">
+                {% csrf_token %}
+                <table>
+                    {{ form.as_table }}
+                </table>
+                <button type="submit" class="btn btn-success" name="Add Planet">Add Planet</button>
+            </form>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+

@@ -1,0 +1,168 @@
+.base_background {
+    background-image: url('/static/images/LakeMoraine.jpg');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: grayscale;
+    opacity: 0.85;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    color: black;
+    text-align: center;
+
+}
+
+th, td {
+  padding: 5px;
+}
+
+.table-col {
+	display: block;
+    width: 80%;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    font-size: 25px;
+    background-color: white;
+
+}
+
+h1 {
+    padding: 10;
+    color: #A9A9A9;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    margin-left: 0em;
+    font-family: Avant Garde, Helvetica;
+    background-color: white;
+}
+h2 {
+    padding: 2.5rem;
+    color: #fefbd8;
+    font-weight: bold;
+    font-size: 80px;
+    text-align: center;
+    margin-left: 0em;
+    font-family: Avant Garde, Helvetica;
+}
+
+h3 {
+    font-family: Avant Garde, Helvetica;
+    font-size: 15px;
+    text-align: left;
+    padding-left: 525px;
+    color: #fefbd8;
+
+}
+
+h4 {
+    color: black;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+    font-family: Avant Garde, Helvetica;
+    background-color: white;
+    width: 400px;
+    margin-left: 35%;
+
+}
+
+
+p {
+    padding:10px;
+    color: black;
+    font-size: 20px;
+    text-align: left;
+    font-family: Avant Garde, Helvetica;
+    background-color: white;
+    width: 500px;
+    margin-left: 35%;
+
+}
+text-center {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: white;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.container_list {
+    padding-top: 20px;
+    border-color: lightgray;
+    color: #fefbd8;
+    font-weight: normal;
+    font-size: 16px;
+    height: 300px;
+    text-align: center;
+    font-family: Avant Garde, Helvetica;
+}
+
+.container {
+    align-content: center;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 30%;
+    border-color: lightgray;
+    color: white;
+    font-weight: normal;
+    font-size: 16px;
+    background-color: lightgray;
+    width: 550px;
+}
+
+
+.formObject {
+    display: block;
+    flex-wrap: wrap;
+    padding: 3%;
+    text-align: right;
+    margin-left: 0%;
+    color: white;
+}
+
+.frmBtn {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: right;
+    width: 225px;
+    font-size: 6px;
+    padding: 3%;
+    padding-left: 3%px;
+    margin: 3%;
+
+
+}
+
+.button {
+    border-radius: 5px;
+}
+
+
+
+.btn {
+    flex-grow: 2;
+    justify-content: center;
+    text-align: center;
+    display: inline-block;
+    width: 50px;
+    margin: 2% 2% 2% 2%;
+    color: black;
+    padding: 2px 2px;
+    border: 2px solid silver;
+    border-radius: 5px;
+}
+
+

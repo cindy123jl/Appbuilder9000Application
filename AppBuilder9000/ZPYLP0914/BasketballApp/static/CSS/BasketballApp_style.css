@@ -1,0 +1,73 @@
+body {
+    background-color: cyan;
+}
+
+.table-bordered{
+    color: black;
+    width: 80%;
+    text-align: center;
+    background-color: lightcyan;
+}
+
+.detail_header{
+    font-size: 25px;
+    table-layout: fixed;
+}
+
+.detail{
+    font-size: 20px;
+}
+
+.navigation {
+    background-color: yellow;
+    padding: 20px;
+    font-weight: bold;
+    word-spacing: normal;
+}
+
+
+
+a {
+    padding: 15px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.form-holder{
+    background-image: url('/static/images/basketball.jpg');
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: red;
+}
+
+table{
+    color: red;
+    font: bold;
+    padding: 5px;
+}
+
+input{
+    padding: 5px;
+}
+
+.index_display{
+    background-color: lightcyan;
+}
+
+.list-group{
+    margin: 17px;
+    height: 30px;
+    padding: 5px;
+    padding-top: 10px;
+}
+
+.change-page{
+    padding: 5px;
+    padding-left: 10px;
+    background-color: white;
+    color: black;
+}

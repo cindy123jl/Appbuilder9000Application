@@ -1,0 +1,44 @@
+{% extends 'SeattleNightLife/SeattleNightLife_base.html' %}
+{% load staticfiles %}
+
+{% block title %}Update Information{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+<!-- on this page, we want 2 create FORMS: 1 for suggest a NEW VENUE, and 1 for ADD REVIEW-->
+<!--this is for the suggest venue button link from the details.html page-->
+<!-- brings the EstablishmentForm-->
+<h1 xmlns="http://www.w3.org/1999/html">Have updated info? <br>Please, provide and submit below.</h1>
+<!--this page opens from the Detail page button-->
+<div class = "text-center">
+    <div class = "container">
+
+
+        <form method="post" action="">
+            <div class = "formObject">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                <table>
+                    {{ form.as_table }}
+                </table>
+                <!--should bring the details form filled with the data
+                the pk selected-->
+            <!--</div>-->
+                <!-- SUBMIT and Delete Buttons.-->
+                <Div class = "frmBtn">
+                <!-- submit sends changes to database-->
+
+                <input type="submit" class = "btn" value="Save" name="save_item">
+                <!-- sending the data and returning to the index.html page as defined in the views.py-->
+                <!-- Delete brings up a DeleteConfirm page.-->
+                <button type="button" class="btn">
+                    <a href = "../delete">Remove</a></button>
+                <!-- Delete brings up a DeleteConfirm page.-->
+            </div>
+            </div>
+        </form>
+    </div>
+    </div>
+
+{% endblock %}

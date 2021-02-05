@@ -1,0 +1,45 @@
+
+.register-container {
+    max-width: 50%;
+    color: whitesmoke;
+    padding: 20px;
+    overflow: hidden;
+    border: 1px solid black;
+    background-color: whitesmoke;
+    background: rgba(25,9,1,0.9);
+    border-radius: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    top: 50%;
+    transform: translateY(30%);
+    animation: fadeInAnimation ease 1.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.login-container {
+    max-width: 50%;
+    color: whitesmoke;
+    padding: 20px;
+    overflow: hidden;
+    border: 1px solid black;
+    background-color: whitesmoke;
+    background: rgba(25,9,1,0.9);
+    border-radius: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    top: 50%;
+    transform: translateY(110%);
+    animation: fadeInAnimation ease 1.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}

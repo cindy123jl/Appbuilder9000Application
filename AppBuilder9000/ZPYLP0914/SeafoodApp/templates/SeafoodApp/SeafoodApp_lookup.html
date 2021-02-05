@@ -1,0 +1,30 @@
+{% extends "SeafoodApp/SeafoodApp_base.html" %}
+{% block title %}Fresh Seafood{% endblock %}
+{% load static %}
+
+{% block content %}
+
+<h1>Seafood Lookup</h1>
+
+    <div class="table-container">
+
+        <form class="table-search-container" action="{% url 'SeafoodApp_search' %}" method='GET'>
+             <input name="searchbox" type="text" placeholder="Search for Seafood...">
+        </form>
+        <table class="table-class-style">
+            <tr>
+                <th>Seafood Name</th>
+                <th>Harvest Location</th>
+                <th>Wild or Farmed</th>
+            </tr>
+        {% for name in all_entries %}
+            <tr>
+                <td><a href="{% url 'SeafoodApp_details' name.pk %}">{{ name.name }}</a></td>
+                <td>{{ name.location }}</td>
+                <td id="table-bool">{{ name.wild_caught }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+{% endblock %}
+

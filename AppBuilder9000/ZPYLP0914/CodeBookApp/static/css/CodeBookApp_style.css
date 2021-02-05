@@ -1,0 +1,124 @@
+body {
+    background-image:url('../images/CodeBookApp.jpg');
+    background-repeat:no-repeat;
+    background-size:100%;
+}
+
+.nav-bar {
+    overflow: hidden;
+    background-color: blue;
+    border: 2px solid black;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.nav-bar a {
+    float: left;
+    display: block;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    background-color: purple;
+}
+
+.nav-bar a:hover {
+    background-color: #F4F4F4;
+    color: black;
+    font-weight: bold;
+}
+
+h1 {
+    display: block;
+    background-color: blue;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    border-radius: 25px;
+    border: solid black 2px;
+}
+
+.book-form {
+    display: block;
+    background-color: blue;
+    border-radius: 25px;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    padding: 10px;
+}
+
+.author-form {
+    display: block;
+    background-color: blue;
+    border-radius: 25px;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    width: 40%;
+    padding: 10px;
+}
+
+.book_list {
+    background-color: blue;
+}
+
+.center {
+    margin: 10px auto;
+    width: 50%;
+}
+.index-form {
+    margin: 10px auto;
+    width: 80%;
+}
+.index-form td, th {
+   padding:10px 15px;
+}
+
+.index-form th {
+    text-decoration: underline;
+}
+
+.index-form a {
+    decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.frmBtn_container {
+    display: flex;
+    flex-wrap: wrap
+    align-items: center;
+    width: 100%;
+}
+
+.btn {
+	flex-grow: 2;
+    justify-content: center;
+    text-align: center;
+    display: inline-block;
+    width: 150px; /* button size */
+    margin: 2% 2% 2% 2%;
+    color: white;
+    font-weight: bold;
+    padding: 10px 0px;
+    text-decoration: none;
+    font-size: 14px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+.btn a{
+    color: white;
+    font-weight: bold;
+}

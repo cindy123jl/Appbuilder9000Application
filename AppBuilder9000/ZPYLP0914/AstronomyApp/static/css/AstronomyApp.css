@@ -1,0 +1,29 @@
+body  {
+  background-image: url('/static/images/celestial_bodies.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+}
+
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: DarkSalmon;
+  color: white;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+.form_labels {
+	display: grid;
+	grid-template-columns: 390px 290px 10px;
+	grid-gap: 20px;
+	padding: 20px;
+	position: right;
+}
+
+.list-group {
+    font-size: 20px;
+    font-weight: bold;
+}

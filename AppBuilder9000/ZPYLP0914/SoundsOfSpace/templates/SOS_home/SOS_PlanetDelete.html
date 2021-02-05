@@ -1,0 +1,22 @@
+{% extends 'SOS_home/SOS_Base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="maincontent">
+
+            <div class="form-container">
+                <form class="form-content" method="POST">
+                    <h1>Press Submit to Delete</h1>
+                    {% csrf_token %}
+                        <table>
+                            {{ form.as_p }}
+                        </table>
+                    <input type="submit">Confirm Delete</input>
+                </form>
+            </div>
+
+
+    </div>
+
+{% endblock %}

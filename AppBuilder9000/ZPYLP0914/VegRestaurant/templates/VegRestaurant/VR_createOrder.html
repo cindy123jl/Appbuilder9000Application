@@ -1,0 +1,22 @@
+{% extends "VegRestaurant/VR_base.html" %}
+{% load static %}
+{% block title %}VegRestaurant{% endblock %}
+
+{% block content%}
+
+<div class="form_wrapper">
+        <form method="POST" action="{% url 'VegOrder' %}">
+            <div class="form_container">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                {{ form.as_table }}
+             </div>
+            <div class="submitBtn_container">
+                <input type="submit" class="btn submit_btn" value="Add Order" name="Save_Item">
+            </div>
+
+        </form>
+</div>
+
+
+{% endblock%}
