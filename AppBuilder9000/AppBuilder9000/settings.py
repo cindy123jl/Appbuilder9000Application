@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'AlbumTracker',
     'ReflectiveJournal',
     'HorseApp',
+    'BookClubApp',
 
 ]
 
