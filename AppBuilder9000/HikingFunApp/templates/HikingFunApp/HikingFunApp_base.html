@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg_img">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
@@ -8,9 +8,14 @@
     <link href="{% static 'css/layout.css' %}" rel="stylesheet" type="text/css">
 </head>
 <body>
-    {% include "HikingFunApp/navbar.html" %}
-    <h1>{% block header %}{% endblock %}</h1>
-    {% block content %} {% endblock %}
+    <div class="page_container">
+        {% include "HikingFunApp/navbar.html" %}
+        <header class="header-title">
+            <h1>{% block header %} {% endblock %}</h1>
+        </header>
+        {% block content %} {% endblock %}
+    </div>
+
     {% include "HikingFunApp/footer.html" %}
 </body>
 </html>
