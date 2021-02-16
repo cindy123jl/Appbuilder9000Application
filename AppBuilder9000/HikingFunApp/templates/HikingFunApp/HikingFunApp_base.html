@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'css/layout.css' %}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    {% include "HikingFunApp/navbar.html" %}
+    <h1>{% block header %}{% endblock %}</h1>
+    {% block content %} {% endblock %}
+    {% include "HikingFunApp/footer.html" %}
+</body>
+</html>

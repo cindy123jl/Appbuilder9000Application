@@ -47,6 +47,7 @@ urlpatterns = [
     path('AlbumTracker/', include('AlbumTracker.urls')),
     path('ReflectiveJournal/', include('ReflectiveJournal.urls')),
     path('HorseApp/', include('HorseApp.urls')),
+    path('HikingFunApp/', include('HikingFunApp.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
