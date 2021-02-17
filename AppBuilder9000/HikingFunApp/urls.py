@@ -4,5 +4,7 @@ from . import views
 
 
 urlpatterns = [
-    path("Hiking_home/", views.home, name="Hiking_home"),
+    # first argument goes in webaddress, last goes in django url reference
+    path("hiking_home/", views.home, name="hiking_home"),
+
 ]
