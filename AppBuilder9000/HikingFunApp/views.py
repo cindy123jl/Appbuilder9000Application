@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .forms import NewTrailForm
+from django.http import HttpResponse
+from django.shortcuts import redirect
 
 # Create your views here.
 def home(request):
@@ -7,14 +9,18 @@ def home(request):
 
 
 def new_trail(request):
-    # creaste object of form
+    # create object of form
     form = NewTrailForm(request.POST or None)
     # check if form data is valid
     if form.is_valid():
         #save the form data to model
         form.save()
+        return redirect('hiking_home') # is this the webaddress home/ or the name= home
+    else:
+        print(form.errors)
+        form = NewTrailForm()
 
-    context = {'form': form}
+    context = {'form': form, }
     return render(request, "HikingFunApp/new_trail.html", context)
 
 
