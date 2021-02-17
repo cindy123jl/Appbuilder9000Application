@@ -1,18 +1,41 @@
 {% extends "BookClubApp/BookClubApp_base.html" %}
-
+{% load static %}
 {% block title %}Book Club{% endblock %}
 
-{% block header %}Your Book Club Lists!{% endblock %}
-
 {% block content %}
-    <!--Books I read section-->
-    <div class="book-list">
-        <h2>My Books</h2>
-        <!--display books they've added to their read list-->
+    <!--Hero Section-->
+    <div class="jumbotron">
+        <p class="lead">How the pros track reading</p>
+        <h1 class="display-4">Book Club</h1>
+        <p class="lead button">
+            <a class="btn btn-outline-light" href="#" role="button">Get started</a>
+        </p>
     </div>
-    <!--Books I want to read section-->
-    <div class="book-list">
-        <h2>Wishlist</h2>
-        <!--display books they've added to their wishlist-->
+
+    <!--Call to Action Section-->
+    <div class="container book-list">
+      <div class="row">
+        <div class="col">
+            <h2>My Books</h2>
+          <div class="card" style="width: 75%;">
+                <img class="card-img-top" src="{% static 'images/booklist.png' %}" alt="book covers">
+                <div class="card-body">
+                    <p class="card-text">Add books you've read to your library.</p>
+                    <button type="button" class="btn btn-secondary">Add Titles</button>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h2>Wishlist</h2>
+            <div class="card" style="width: 75%;">
+                <img class="card-img-top" src="{% static 'images/short-titles.png' %}" alt="book covers">
+                <div class="card-body">
+                    <p class="card-text">Create a Wishlist of books you would like to read.</p>
+                    <button type="button" class="btn btn-secondary">Search Titles</button>
+                </div>
+            </div>
+        </div>
+      </div>
     </div>
+
 {% endblock %}
