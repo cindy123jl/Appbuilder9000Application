@@ -65,6 +65,8 @@ INSTALLED_APPS = [
     'ReflectiveJournal',
     'HorseApp',
     'UpcomingConcertsApp',
+    'HikingFunApp',
+
 ]
 
 MIDDLEWARE = [
