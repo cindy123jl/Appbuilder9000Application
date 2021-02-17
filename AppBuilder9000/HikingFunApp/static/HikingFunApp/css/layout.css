@@ -282,7 +282,7 @@ label {
 }
 .bg_img {
     background-color: lightblue;
-    background-image: url('/static/images/hotel_img3.jpg');
+    background-image: url('/static/HikingFunApp/images/background1.jpg');
     background-size: cover;
     background-attachment:fixed;
     background-position: center;

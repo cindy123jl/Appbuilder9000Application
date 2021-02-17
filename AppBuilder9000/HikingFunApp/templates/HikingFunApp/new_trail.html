@@ -1,0 +1,15 @@
+{% extends 'HikingFunApp/HikingFunApp_base.html' %}
+
+{%block header %} Add a new trail {% endblock %}
+
+{% block content %}
+<div>
+    <form action="" method="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+
+</div>
+
+{% endblock %}
