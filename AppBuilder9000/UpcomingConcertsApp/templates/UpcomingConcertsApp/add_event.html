@@ -1,0 +1,47 @@
+{% extends 'UpcomingConcertsApp\base.html' %}
+{% block title %}Add Event{% endblock %}
+{% block body-content%}
+
+<div class="jumbotron sub-background center">
+    <h1 class="display-1 sub-title">Add Event</h1>
+    <p class="lead subhead">Fill out the form below to add your event</p>
+</div>
+
+<!-- FORMS -->
+<div class="event_form">
+    <form method="POST">
+        {% csrf_token %}
+        {{ concert_form.as_p }}
+        <button id="new_event_button" type="submit" name="Save_Event">
+            Add Event
+        </button>
+    </form>
+</div>
+<div>
+    <form method="POST">
+        {% csrf_token %}
+        {{ orchestra_form.as_p }}
+        <button id="new_orchestra_button" type="submit" name="Save_Orchestra">
+            Add Orchestra
+        </button>
+    </form>
+</div>
+<div>
+    <form method="POST">
+        {% csrf_token %}
+        {{ piece_form.as_p }}
+        <button id="new_piece_button" type="submit" name="Save_Piece">Add Piece</button>
+    </form>
+</div>
+<div>
+    <form method="POST">
+        {% csrf_token %}
+        {{ conductor_form.as_p }}
+        <button id="new_conductor_button" type="submit" name="Save_Conductor">
+            Add Conductor
+        </button>
+    </form>
+</div>
+
+
+{% endblock %}
