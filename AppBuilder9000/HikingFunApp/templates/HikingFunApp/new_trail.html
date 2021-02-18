@@ -5,7 +5,7 @@
 {% block content %}
 
 <div>
-    <form action="" method="POST">
+    <form action="" method="POST"> # if action blank, django will default to url it is on
         {% csrf_token %}
         <table>
             {{ form.as_table }}
