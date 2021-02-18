@@ -64,8 +64,9 @@ INSTALLED_APPS = [
     'AlbumTracker',
     'ReflectiveJournal',
     'HorseApp',
+    'UpcomingConcertsApp',
+    'HikingFunApp',
     'BookClubApp',
-
 ]
 
 MIDDLEWARE = [
