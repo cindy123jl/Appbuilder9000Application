@@ -13,7 +13,7 @@ def new_trail(request):
     form = NewTrailForm(request.POST or None)
     # check if form data is valid
     if form.is_valid():
-        #save the form data to model
+        #save is like inserting into database
         form.save()
         return redirect('hiking_home') # is this the webaddress home/ or the name= home
     else:
