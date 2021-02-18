@@ -23,7 +23,7 @@ class Trails(models.Model):
 
     objects = models.Manager()
     def __str__(self):
-        return f"{self.name.title()}{self.location.title()}{self.difficulty}{self.roundtripMiles}"
+        return self.name
 
 DIFFICULTY_CHOICES = [
     ('easy', 'easy'),
