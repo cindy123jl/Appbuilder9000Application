@@ -5,14 +5,21 @@
 {% block header %} Trails {% endblock %}
 
 {% block content %}
-    <table>
-        {% for trail in trails %}
-             <tr>
-                {{ trail.name|lower|capfirst }}
+    <div>
+        <table>
+            <tr>
+                <th> Name </th>
+                <th> Location </th>
+                <th> Roundtrip Miles </th>
             </tr>
-            <br><br>
-
-        {% endfor %}}
-    </table>
+            {% for trail in trails %}
+                <tr>
+                    <td> - {{ trail.name|lower|title }} </td>
+                    <td> {{ trail.location|lower|title }} </td>
+                    <td> {{ trail.roundtripMiles }} </td>
+                </tr>
+             {% endfor %}}
+        </table>
+    </div>
 
 {% endblock %}
