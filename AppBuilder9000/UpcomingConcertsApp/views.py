@@ -1,6 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import ConcertForm, OrchestraForm, PieceForm, ConductorForm
-from .models import Concert, Orchestra, Piece, Conductor
 
 # Create your views here.
 
@@ -10,25 +9,32 @@ def home(request):
 
 
 def add_event(request):
-    concert_form = ConcertForm(request.POST or None)
-    if request.method == 'POST':
-        if concert_form.is_valid():
-            concert_form.save()
+    concert_form = ConcertForm(prefix='concert')
+    orchestra_form = OrchestraForm(prefix='orchestra')
+    piece_form = PieceForm(prefix='piece')
+    conductor_form = ConductorForm(prefix='conductor')
 
-    orchestra_form = OrchestraForm(request.POST or None)
     if request.method == 'POST':
-        if orchestra_form.is_valid():
-            orchestra_form.save()
-
-    piece_form = PieceForm(request.POST or None)
-    if request.method == 'POST':
-        if piece_form.is_valid():
-            piece_form.save()
-
-    conductor_form = ConductorForm(request.POST or None)
-    if request.method == 'POST':
-        if conductor_form.is_valid():
-            conductor_form.save()
+        if 'Save_Event' in request.POST:
+            concert_form = ConcertForm(request.POST, prefix='concert')
+            if concert_form.is_valid():
+                concert_form.save()
+                return redirect('add_event')
+        elif 'Save_Orchestra' in request.POST:
+            orchestra_form = OrchestraForm(request.POST, prefix='orchestra')
+            if orchestra_form.is_valid():
+                orchestra_form.save()
+                return redirect('add_event')
+        elif 'Save_Piece' in request.POST:
+            piece_form = PieceForm(request.POST, prefix='piece')
+            if piece_form.is_valid():
+                piece_form.save()
+                return redirect('add_event')
+        elif 'Save_Conductor' in request.POST:
+            conductor_form = ConductorForm(request.POST, prefix='conductor')
+            if conductor_form.is_valid():
+                conductor_form.save()
+                return redirect('add_event')
 
     content = {'concert_form': concert_form, 'orchestra_form': orchestra_form,
                'conductor_form': conductor_form, 'piece_form': piece_form}

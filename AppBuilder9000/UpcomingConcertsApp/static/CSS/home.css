@@ -52,6 +52,7 @@
 
 .event_form {
     margin-top: 10vh;
+
 }
 
 footer {
@@ -59,4 +60,14 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    background-color: #e6e6ff;
+}
+
+.flex-child {
+    padding: 50px;
 }
