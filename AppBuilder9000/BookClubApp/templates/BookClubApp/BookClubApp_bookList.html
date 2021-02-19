@@ -1,0 +1,12 @@
+{% extends "BookClubApp/BookClubApp_base.html" %}
+{% load static %}
+{% block title %}My Books{% endblock %}
+
+{% block content %}
+    <!-- iterate through books -->
+     <ul>
+        {% for book in books %}
+            <li>{{ book.title }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
