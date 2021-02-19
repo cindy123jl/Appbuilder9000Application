@@ -6,5 +6,7 @@ from . import views
 urlpatterns = [
     # first argument goes in webaddress, last goes in django url reference
     path("hiking_home/", views.home, name="hiking_home"),
+    path("new_trail/", views.new_trail, name="new_trail"),
+
 
 ]
