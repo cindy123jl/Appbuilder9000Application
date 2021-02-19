@@ -3,10 +3,19 @@
 {% block title %}My Books{% endblock %}
 
 {% block content %}
-    <!-- iterate through books -->
-     <ul>
-        {% for book in books %}
-            <li>{{ book.title }}</li>
-        {% endfor %}
-    </ul>
+    <div class="content">
+        <!-- iterate through books -->
+         <div class="booklist">
+            {% for book in books %}
+             <div class="card">
+                <h4 class="card-header">{{ book.title }}</h4>
+                 <div class="card-body">
+                    <p class="card-title"><em>{{ book.author }}</em></p>
+                 </div>
+             </div>
+            {% endfor %}
+        </div>
+        <button type="button" class="btn btn-secondary"><a href="{% url 'BookClubApp_AddBook' %}">Add Book</a></button>
+
+    </div>
 {% endblock %}
