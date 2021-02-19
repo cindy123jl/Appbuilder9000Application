@@ -6,4 +6,5 @@ urlpatterns = [
     path('', views.BookClubApp_home, name='BookClubApp_home'),
     path('booklist/', views.BookClubApp_booklist, name='BookClubApp_bookList'),
     path('wishlist/', views.BookClubApp_explore, name='BookClubApp_explore'),
+    path('addbook/', views.BookClubApp_AddBook, name='BookClubApp_AddBook'),
 ]
