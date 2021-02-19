@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
 from .forms import ConcertForm, OrchestraForm, PieceForm, ConductorForm
-
+from .models import Piece, Conductor, Orchestra, Concert
 # Create your views here.
 
 
 def home(request):
-    return render(request, 'UpcomingConcertsApp\\home.html')
+    return render(request, 'UpcomingConcertsApp/home.html')
 
 
 def add_event(request):
@@ -39,3 +39,12 @@ def add_event(request):
     content = {'concert_form': concert_form, 'orchestra_form': orchestra_form,
                'conductor_form': conductor_form, 'piece_form': piece_form}
     return render(request, 'UpcomingConcertsApp/add_event.html', content)
+
+
+def display_items(request):
+    all_events = Concert.concerts.all()
+    all_orchestras = Orchestra.orchestras.all()
+    all_pieces = Piece.pieces.all()
+    all_conductors = Conductor.conductors.all()
+
+    return render(request, 'UpcomingConcertsApp/display_items.html')
