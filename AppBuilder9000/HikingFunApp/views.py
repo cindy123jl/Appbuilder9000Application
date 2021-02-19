@@ -25,5 +25,9 @@ def new_trail(request):
     context = {'form': form, }
     return render(request, "HikingFunApp/new_trail.html", context)
 
+def see_trails(request):
 
+    trails = Trails.objects.all()
+    context = {'trails': trails}
+    return render(request, "HikingFunApp/see_trails.html", context)
 
