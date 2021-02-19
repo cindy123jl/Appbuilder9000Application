@@ -17,7 +17,7 @@ def new_trail(request):
         #save is like inserting into database
         form.save()
 
-        return redirect('hiking_home')
+        return redirect('added_trails')
     else:
         print(form.errors)
         # form = NewTrailForm()
@@ -25,5 +25,12 @@ def new_trail(request):
     context = {'form': form, }
     return render(request, "HikingFunApp/new_trail.html", context)
 
+def see_trails(request):
 
+    trails = Trails.objects.all()
+    context = {'trails': trails}
+    return render(request, "HikingFunApp/see_trails.html", context)
+
+def added_trails(request):
+    return render(request, "HikingFunApp/added_trails.html")
 
