@@ -43,8 +43,12 @@ def add_event(request):
 
 def display_items(request):
     all_events = Concert.concerts.all()
+    all_event_pieces = Concert.pieces.through.objects.all()
     all_orchestras = Orchestra.orchestras.all()
     all_pieces = Piece.pieces.all()
     all_conductors = Conductor.conductors.all()
+    context = {'all_events': all_events, 'all_orchestras': all_orchestras,
+               'all_pieces': all_pieces, 'all_conductors': all_conductors,
+               'all_event_pieces': all_event_pieces}
 
-    return render(request, 'UpcomingConcertsApp/display_items.html')
+    return render(request, 'UpcomingConcertsApp/display_items.html', context)
