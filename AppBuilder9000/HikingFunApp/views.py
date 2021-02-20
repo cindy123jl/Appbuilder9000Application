@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .forms import NewTrailForm
 from django.http import HttpResponse
 from django.shortcuts import redirect
@@ -6,7 +6,9 @@ from .models import Trails
 
 # This method takes to the homepage of the app.
 def home(request):
-    return render(request, "HikingFunApp/HikingFunApp_home.html")
+    trails = Trails.objects.all()
+    context = {'trails': trails}
+    return render(request, "HikingFunApp/HikingFunApp_home.html", context)
 
 # This method creates a form where the user can add a trail to the database.
 def new_trail(request):
@@ -33,4 +35,16 @@ def see_trails(request):
 
 def added_trails(request):
     return render(request, "HikingFunApp/added_trails.html")
+
+def details(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Trails, pk=pk)
+    context = {'item': item}
+    return render(request, "HikingFunApp/details.html", context)
+
+def side_bar(request):
+    trails = Trails.objects.all()
+    context = {'trails': trails}
+    return render(request, "HikingFunApp/side_bar.html", context)
+
 

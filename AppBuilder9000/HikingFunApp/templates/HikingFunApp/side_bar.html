@@ -1,0 +1,7 @@
+{% load static %}
+
+<ul class="side_bar">
+    {% for trail in trails %}
+        <li><a href="{% url 'details' pk=trail.pk %}"> {{ trail.name }} </a></li>
+    {% endfor %}
+</ul>
