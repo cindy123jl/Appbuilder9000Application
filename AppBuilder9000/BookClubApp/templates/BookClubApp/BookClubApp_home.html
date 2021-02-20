@@ -21,7 +21,7 @@
                 <img class="card-img-top" src="{% static 'images/booklist.png' %}" alt="book covers">
                 <div class="card-body">
                     <p class="card-text">Add books you've read to your library.</p>
-                    <button type="button" class="btn btn-secondary"><a href="{% url 'BookClubApp_AddBook' %}">Add Titles</a></button>
+                    <a class="btn btn-secondary" href="{% url 'BookClubApp_AddBook' %}">Add Titles</a>
                 </div>
             </div>
         </div>
@@ -31,7 +31,7 @@
                 <img class="card-img-top" src="{% static 'images/short-titles.png' %}" alt="book covers">
                 <div class="card-body">
                     <p class="card-text">Create a Wishlist of books you would like to read.</p>
-                    <button type="button" class="btn btn-secondary"><a href="{% url 'BookClubApp_explore' %}">Search Titles</a></button>
+                    <a class="btn btn-secondary" href="{% url 'BookClubApp_explore' %}">Search Titles</a>
                 </div>
             </div>
         </div>
