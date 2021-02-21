@@ -23,25 +23,32 @@ def new_trail(request):
     else:
         print(form.errors)
         # form = NewTrailForm()
+    trails = Trails.objects.all()
 
-    context = {'form': form, }
+    context = {'form': form, 'trails': trails, }
     return render(request, "HikingFunApp/new_trail.html", context)
 
+# This method helps the webpage to show all the trails in the database.
 def see_trails(request):
-
     trails = Trails.objects.all()
     context = {'trails': trails}
     return render(request, "HikingFunApp/see_trails.html", context)
 
+# This method renders to html page that shows a  message that you successfully added a trial.
 def added_trails(request):
-    return render(request, "HikingFunApp/added_trails.html")
+    trails = Trails.objects.all()
+    context = {'trails': trails}
+    return render(request, "HikingFunApp/added_trails.html", context)
 
+# This method shows the details of the trail link that is clicked from the side bar
 def details(request, pk):
     pk = int(pk)
     item = get_object_or_404(Trails, pk=pk)
-    context = {'item': item}
+    trails = Trails.objects.all()
+    context = {'item': item, 'trails': trails}
     return render(request, "HikingFunApp/details.html", context)
 
+# This method gives the trails info  to webpage that displays the sidebar.
 def side_bar(request):
     trails = Trails.objects.all()
     context = {'trails': trails}
