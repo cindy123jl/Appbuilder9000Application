@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import BookForm
+import requests, json
+from .forms import BookForm, SearchForm
 from BookClubApp.models import Book
+from django.conf.urls.static import static
 
 
 def BookClubApp_home(request):
@@ -22,8 +24,31 @@ def BookClubApp_book(request, pk):
 
 
 def BookClubApp_explore(request):
-    # will return wishlist books from database
+    if request.method == 'POST':
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            # get search term from form
+            searchTerm = form.cleaned_data['searchTerm']
+            # add search term to google books api url
+            api_response = requests.get('https://www.googleapis.com/books/v1/volumes?q=' + searchTerm)
+            # get json reponse
+            jsonData = api_response.json()
+
+            # open file and write json data to it
+            f = open("BookClubApp/static/tmp/temp.txt", "w")
+            f.write(json.dumps(jsonData, indent=1))
+            f.close()
+
+        else:
+            form = SearchForm()
+
     return render(request, 'BookClubApp/BookClubApp_explore.html')
+
+
+def BookClubApp_searchForm(request):
+    context = {}
+    context['form'] = SearchForm()
+    return render(request, 'BookClubApp/BookClubApp_search.html', context)
 
 
 # add new book

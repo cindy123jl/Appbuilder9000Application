@@ -12,3 +12,8 @@ class BookForm(forms.ModelForm):
     class Meta:
         model = Book
         fields = '__all__'
+
+
+# form to return an input from the user to use in the Google Books API search
+class SearchForm(forms.Form):
+    searchTerm = forms.CharField(label="Search for title or author", max_length=100)
