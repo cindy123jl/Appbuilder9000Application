@@ -38,7 +38,7 @@ class Concert(models.Model):
     orchestra = models.ForeignKey(Orchestra, on_delete=models.CASCADE,)
     pieces = models.ManyToManyField(Piece)
     conductor = models.ForeignKey(Conductor, on_delete=models.CASCADE,)
-    concert_date = models.DateField()
+    date = models.DateField()
 
     concerts = models.Manager()
 
