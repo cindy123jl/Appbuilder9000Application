@@ -8,14 +8,17 @@
          <div class="booklist">
             {% for book in books %}
              <div class="card">
-                <h4 class="card-header"><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></h4>
+                <h4 class="card-header">
+                    <a href="{{ book.get_absolute_url }}">{{ book.title }}</a>
+                    <a class="icon" href="{% url 'BookClubApp_delete' pk=book.pk %}"><i class="fas fa-minus-circle" title="Delete"></i></a>
+                    <a class="icon" id="delete-icon" href="{% url 'BookClubApp_edit' pk=book.pk %}"><i class="fas fa-edit" title="Edit"></i></a>
+                </h4>
                  <div class="card-body">
                     <p class="card-title"><em>{{ book.author }}</em></p>
                  </div>
              </div>
             {% endfor %}
         </div>
-        <button type="button" class="btn btn-secondary"><a href="{% url 'BookClubApp_AddBook' %}">Add Book</a></button>
-
+        <a class="btn btn-secondary" href="{% url 'BookClubApp_AddBook' %}">Add Book</a>
     </div>
 {% endblock %}

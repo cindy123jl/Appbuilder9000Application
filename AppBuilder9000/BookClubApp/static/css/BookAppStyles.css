@@ -45,7 +45,7 @@ p.lead.button {
     background-color: #062f4f;
     border-color: #062f4f;
 }
-button.btn.btn-secondary {
+.btn.btn-secondary {
     background: #813773;
     font-size: 20px;
     padding: .375rem 2rem;
@@ -97,6 +97,10 @@ label[for=id_comments] {
 /************** BookList Styles ***********************/
 .content .card {
     margin: 15px 0;
+}
+a.icon {
+    float: right;
+    margin: 0 5px;
 }
 
 /************** Typography Styles ***********************/

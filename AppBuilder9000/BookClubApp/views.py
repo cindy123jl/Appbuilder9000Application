@@ -26,6 +26,7 @@ def BookClubApp_explore(request):
     return render(request, 'BookClubApp/BookClubApp_explore.html')
 
 
+# add new book
 def BookClubApp_AddBook(request):
     form = BookForm(data=request.POST or None)
     if request.method == 'POST':
@@ -36,3 +37,30 @@ def BookClubApp_AddBook(request):
     content = {'form' : form}
     return render(request, 'BookClubApp/BookClubApp_AddBook.html', content)
 
+
+# edit book
+def BookClubApp_edit(request, pk):
+    book = get_object_or_404(Book, pk=pk)
+
+    if request.method == 'POST':
+        form = BookForm(request.POST, instance=book)
+        if form.is_valid():
+            form.save()
+            return redirect('BookClubApp_book', pk=book.pk)
+    else:
+        form = BookForm(instance=book)
+    return render(request, 'BookClubApp/BookClubApp_edit.html', {'form' : form})
+
+
+# delete book
+def BookClubApp_delete(request, pk):
+    book = get_object_or_404(Book, pk=pk)
+    # if method is post, then delete the book object
+    if request.method == 'POST':
+        book.delete()
+        # return to booklist page after deleting book
+        return redirect('BookClubApp_bookList')
+    context = {
+        "book" : book
+    }
+    return render(request, 'BookClubApp/BookClubApp_delete.html', context)
