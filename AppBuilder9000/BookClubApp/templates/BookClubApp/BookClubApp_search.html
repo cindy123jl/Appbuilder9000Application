@@ -1,15 +1,14 @@
 {% extends "BookClubApp/BookClubApp_base.html" %}
 {% load static %}
-{% block title %}Add Book{% endblock %}
+{% block title %}Explore New Books{% endblock %}
 
 {% block content %}
-<!-- Form to add read books to the database -->
 <div class="content">
     <div class="book-form">
-        <form method="POST">
+        <form action="{% url 'BookClubApp_explore' %}" method="post">
             {% csrf_token %}
             {{form.as_p}}
-            <button class="btn btn-secondary"  type="submit" name="Save_Book">Add Book</button>
+            <button class="btn btn-secondary"  type="submit" name="searchBook">Search</button>
         </form>
     </div>
 </div>
