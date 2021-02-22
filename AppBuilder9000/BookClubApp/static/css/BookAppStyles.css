@@ -2,7 +2,10 @@
 body{
     font-family: 'Archivo Narrow', sans-serif;
 }
-
+.content {
+    width: 80%;
+    margin: 25px auto;
+}
 /************** Homepage Styles ***********************/
 .jumbotron {
     background: url(../images/books-background-dark.png) no-repeat;
@@ -87,6 +90,11 @@ input[type=submit]:hover {
   padding: 20px;
   width: 80%;
   margin: 20px auto;
+}
+
+/************** BookList Styles ***********************/
+.content .card {
+    margin: 15px 0;
 }
 
 /************** Typography Styles ***********************/
