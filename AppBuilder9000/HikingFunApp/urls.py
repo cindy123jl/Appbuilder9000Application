@@ -9,6 +9,5 @@ urlpatterns = [
     path("new_trail/", views.new_trail, name="new_trail"),
     path("see_trails/", views.see_trails, name="see_trails"),
     path("added_trails/", views.added_trails, name="added_trails"),
-
-
+    path("<int:pk>/details/", views.details, name="details"),
 ]
