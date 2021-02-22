@@ -8,6 +8,22 @@
     position: relative;
 }
 
+.sub-background {
+    background-image: url("../imgs/bg-img.jpg");
+    max-height: 370px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.sub-title {
+    font-family: 'Lora', serif;
+    padding-top: 8vh;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
 .page-title {
     font-family: 'Lora', serif;
     padding-top: 70px;
@@ -32,4 +48,26 @@
 
 .custom-homepage-button {
     margin-top: 60px;
+}
+
+.event_form {
+    margin-top: 10vh;
+
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    background-color: #e6e6ff;
+}
+
+.flex-child {
+    padding: 50px;
 }
