@@ -2,7 +2,11 @@
 body{
     font-family: 'Archivo Narrow', sans-serif;
 }
-
+.content {
+    width: 80%;
+    margin: 25px auto;
+    min-height: 60vh;
+}
 /************** Homepage Styles ***********************/
 .jumbotron {
     background: url(../images/books-background-dark.png) no-repeat;
@@ -41,7 +45,7 @@ p.lead.button {
     background-color: #062f4f;
     border-color: #062f4f;
 }
-button.btn.btn-secondary {
+.btn.btn-secondary {
     background: #813773;
     font-size: 20px;
     padding: .375rem 2rem;
@@ -56,7 +60,7 @@ button a:hover {
 }
 
 /************** Form Styles ***********************/
-input[type=text], select {
+input[type=text], select, textarea {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -65,7 +69,6 @@ input[type=text], select {
   border-radius: 4px;
   box-sizing: border-box;
 }
-
 input[type=submit] {
   width: 100%;
   background-color: #4CAF50;
@@ -76,9 +79,11 @@ input[type=submit] {
   border-radius: 4px;
   cursor: pointer;
 }
-
 input[type=submit]:hover {
   background-color: #45a049;
+}
+label[for=id_comments] {
+    display: block;
 }
 
 .book-form {
@@ -89,9 +94,21 @@ input[type=submit]:hover {
   margin: 20px auto;
 }
 
+/************** BookList Styles ***********************/
+.content .card {
+    margin: 15px 0;
+}
+a.icon {
+    float: right;
+    margin: 0 5px;
+}
+
 /************** Typography Styles ***********************/
 h2 {
     font-family: 'Julius Sans One', sans-serif;
+}
+p{
+    font-size:20px;
 }
 
 /************** Footer Styles ***********************/

@@ -3,5 +3,14 @@
 {% block title %}Explore New Books{% endblock %}
 
 {% block content %}
-    <div>The API will be used on this page to search for books to add to the wishlist.</div>
+<div class="content">
+    <p>Your search results are in the text file: static/tmp/temp.txt</p>
+    <p>Next steps: This page will display the search results, calling on these elements from the json response:</p>
+    <ul>
+        <li>['items']['volumeInfo']['title']</li>
+        <li>['items']['volumeInfo']['authors']</li>
+        <li>['items']['volumeInfo']['industryIdentifiers']['imageLinks']</li>
+    </ul>
+    <p>Users will be able to click on an add icon to add the book it to their wishlist.</p>
+</div>
 {% endblock %}
