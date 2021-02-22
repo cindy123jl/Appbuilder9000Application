@@ -50,17 +50,13 @@
 <h2>Orchestras in the Database</h2>
 {% for orchestra in all_orchestras %}
 
-<h5>Orchestra:</h5>
 {{ orchestra.orchestra_name }}
-<h5>Address:</h5>
-{{ orchestra.address }}
 <hr/>
 
 {% endfor %}
 
 <h2>Conductors in the Database</h2>
 {% for conductor in all_conductors %}
-<h5>Conductors:</h5>
 {{ conductor.conductor_name }}<br/>
 <hr/>
 
