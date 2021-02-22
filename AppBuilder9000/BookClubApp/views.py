@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import BookForm
 from BookClubApp.models import Book
 
@@ -14,6 +14,11 @@ def BookClubApp_booklist(request):
         "books": data
     }
     return render(request, 'BookClubApp/BookClubApp_booklist.html', books)
+
+
+def BookClubApp_book(request, pk):
+    book = get_object_or_404(Book, pk=pk)
+    return render(request, 'BookClubApp/BookClubApp_book.html', context={'book': book})
 
 
 def BookClubApp_explore(request):
