@@ -12,6 +12,4 @@ urlpatterns = [
     path("<int:pk>/details/", views.details, name="details"),
     path("<int:pk>/delete/", views.delete, name="delete"),
     path('<int:pk>/confirmed/', views.confirmed, name="confirmed")
-
-
 ]
