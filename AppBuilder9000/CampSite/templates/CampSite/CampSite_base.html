@@ -6,6 +6,9 @@
         <meta charset="UTF-8">
         <title>{% block title %}{% endblock %}</title>
     </head>
+    <navbar>
+        {% include 'CampSite/CampSite_nav.html' %}
+    </navbar>
 
     <body>
     {% block content %}
