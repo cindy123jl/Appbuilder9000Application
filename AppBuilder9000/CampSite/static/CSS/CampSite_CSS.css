@@ -1,3 +1,7 @@
+
+/*====================
+       NAV BAR
+=====================*/
 .wrap {
     height: 100%;
     width: 100%;
@@ -6,4 +10,24 @@
     top: 0
     left: 0
     text-align: center;
+}
+
+.navbar {
+    max-height: 300px;
+    margin: 0% auto;
+    content: "";
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+}
+
+.menu li {
+    color: green;
+    background-color: antiquewhite;
+    display: inline-block;
+    margin: 0% auto;
+    position: relative;
+
+
+
 }
