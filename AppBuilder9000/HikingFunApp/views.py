@@ -74,7 +74,7 @@ def delete(request, pk):
     context = {"item": item, }
     return render(request, "HikingFunApp/confirm_delete.html", context)
 
-
+# This method confirms that the user wants to delete the trail item.
 def confirmed(request):
     if request.method == 'POST':
         # creates form instance and binds data to it
