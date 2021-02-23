@@ -61,3 +61,69 @@ def details(request, pk):
     return render(request, 'UpcomingConcertsApp/details.html',
                   {'event': event, 'all_event_pieces': all_event_pieces,
                    'all_pieces': all_pieces})
+
+
+def edit_event(request, pk):
+    event = get_object_or_404(Concert, pk=pk)
+    if request.method == 'POST':
+        if 'Save' in request.POST:
+            concert_form = ConcertForm(request.POST, instance=event)
+            if concert_form.is_valid():
+                concert_form.save()
+                return redirect('concerts_events_details', pk=pk)
+        elif 'Delete' in request.POST:
+            event.delete()
+            return redirect('see_database')
+    else:
+        concert_form = ConcertForm(instance=event)
+    context = {'concert_form': concert_form}
+    return render(request, 'UpcomingConcertsApp/edit.html', context)
+
+
+def edit_orchestra(request, pk):
+    orchestra = get_object_or_404(Orchestra, pk=pk)
+    if request.method == 'POST':
+        if 'Save' in request.POST:
+            orchestra_form = OrchestraForm(request.POST, instance=orchestra)
+            if orchestra_form.is_valid():
+                orchestra_form.save()
+                return redirect('see_database')
+        elif 'Delete' in request.POST:
+            orchestra.delete()
+            return redirect('see_database')
+    else:
+        orchestra_form = OrchestraForm(instance=orchestra)
+    return render(request, 'UpcomingConcertsApp/edit.html', {'orchestra_form': orchestra_form})
+
+
+def edit_piece(request, pk):
+    piece = get_object_or_404(Piece, pk=pk)
+    if request.method == 'POST':
+        if 'Save' in request.POST:
+            piece_form = PieceForm(request.POST, instance=piece)
+            if piece_form.is_valid():
+                piece_form.save()
+                return redirect('see_database')
+        elif 'Delete' in request.POST:
+            piece.delete()
+            return redirect('see_database')
+    else:
+        piece_form = PieceForm(instance=piece)
+    return render(request, 'UpcomingConcertsApp/edit.html', {'piece_form': piece_form})
+
+
+def edit_conductor(request, pk):
+    conductor = get_object_or_404(Conductor, pk=pk)
+    if request.method == 'POST':
+        if 'Save' in request.POST:
+            conductor_form = ConductorForm(request.POST, instance=conductor)
+            if conductor_form.is_valid():
+                conductor_form.save()
+                return redirect('see_database')
+        elif 'Delete' in request.POST:
+            conductor.delete()
+            return redirect('see_database')
+    else:
+        conductor_form = ConductorForm(instance=conductor)
+    return render(request, 'UpcomingConcertsApp/edit.html', {'conductor_form': conductor_form})
+
