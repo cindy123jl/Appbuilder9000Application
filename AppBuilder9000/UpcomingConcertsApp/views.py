@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ConcertForm, OrchestraForm, PieceForm, ConductorForm
 from .models import Concert, Piece, Conductor, Orchestra
 # Create your views here.
@@ -52,3 +52,12 @@ def display_items(request):
                'all_event_pieces': all_event_pieces}
 
     return render(request, 'UpcomingConcertsApp/display_items.html', context)
+
+
+def details(request, pk):
+    event = get_object_or_404(Concert, pk=pk)
+    all_event_pieces = Concert.pieces.through.objects.all()
+    all_pieces = Piece.pieces.all()
+    return render(request, 'UpcomingConcertsApp/details.html',
+                  {'event': event, 'all_event_pieces': all_event_pieces,
+                   'all_pieces': all_pieces})

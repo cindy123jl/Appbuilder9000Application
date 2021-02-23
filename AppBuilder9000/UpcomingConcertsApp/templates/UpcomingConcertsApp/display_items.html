@@ -3,6 +3,14 @@
 {% block page-title %}View Database Items{% endblock %}
 {% block sub-heading %}This page displays all database items{% endblock %}
 {% block sub-body %}
+
+<h2> Events 1.0 </h2>
+{% for event in all_events %}
+<ul>
+    <li><a href="{{ event.id }}/details">{{ event.event_name }}</a></li>
+</ul>
+{% endfor %}
+
 <div class="display-events">
     <h2> Events</h2>
     {% for event in all_events %}

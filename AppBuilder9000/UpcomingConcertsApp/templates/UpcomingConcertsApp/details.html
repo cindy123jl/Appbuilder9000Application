@@ -1,0 +1,19 @@
+{% extends 'UpcomingConcertsApp\sub_pages_base.html' %}
+{% block page-title %}Details{% endblock %}
+{% block sub-body %}
+<h3>{{ event.event_name }}</h3>
+<h4>{{ event.orchestra }}</h4>
+<h5>{{ event.conductor }}</h5>
+<h5>{{ event.date }}</h5>
+<h4>Program:</h4>
+{% for piece in all_event_pieces %}
+    {% if piece.concert_id == event.id %}
+        {% for names in all_pieces %}
+            {% if piece.piece_id == names.id %}
+                {{ names.piece_composer }}, {{ names.piece_name }}<br>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endfor %}
+
+{% endblock %}
