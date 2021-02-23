@@ -3,14 +3,22 @@
 {%block header %} Trail Details {% endblock %}
 
 {% block content %}
-    <div class="center">
-        <ul class="details">
-            <li class="list_item"> Name: {{ item.name }} </li>
-            <li class="list_item"> Location: {{ item.location }}</li>
-            <li class="list_item"> Roundtrip Miles: {{ item.roundtripMiles }}</li>
-            <li class="list_item"> Difficulty: {{ item.difficulty }}</li>
-            <li class="list_item"> Camping: {{ item.camping }} </li>
-        </ul>
+    <div>
+        <form method="POST" action="{% 'details' %}">
+            <table>
+                {% csrf_token %}
+                {{  form.non_field_errors }}
+                {{ form.as_table }}
+            </table>
+            <div>
+                <p> You can makes changes to the hike information and submit using the buttons below. </p>
+                <button class="btn" type="submit"> Submit Changes </button>
+            </div>
+        </form>
+            <div>
+                <p>To delete this trail, click below:</p>
+                <button class="btn"><a href="{% url 'delete' item.id %}"> Delete </a></button>
+            </div>
     </div>
 
 {% endblock %}

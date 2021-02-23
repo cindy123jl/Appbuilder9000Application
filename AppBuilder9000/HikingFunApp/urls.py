@@ -10,4 +10,8 @@ urlpatterns = [
     path("see_trails/", views.see_trails, name="see_trails"),
     path("added_trails/", views.added_trails, name="added_trails"),
     path("<int:pk>/details/", views.details, name="details"),
+    path("<int:pk>/delete/", views.delete, name="delete"),
+    path('<int:pk>/confirmed/', views.confirmed, name="confirmed")
+
+
 ]
