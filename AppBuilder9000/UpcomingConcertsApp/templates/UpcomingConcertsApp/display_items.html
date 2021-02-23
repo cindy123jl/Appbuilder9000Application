@@ -4,38 +4,21 @@
 {% block sub-heading %}This page displays all database items{% endblock %}
 {% block sub-body %}
 
-<h2> Events 1.0 </h2>
-{% for event in all_events %}
-<ul>
-    <li><a href="{{ event.id }}/details">{{ event.event_name }}</a></li>
-</ul>
-{% endfor %}
-
-<div class="display-events">
-    <h2> Events</h2>
+<h2>Events</h2>
+<div class="flex-box">
     {% for event in all_events %}
-    <h5>Event Name:</h5>
-    {{ event.event_name }}<br/>
-    <h5>Orchestra:</h5>
-    {{ event.orchestra }}<br/>
-    <h5>Pieces:</h5>
-    {% for piece in all_event_pieces %}
-        {% if piece.concert_id == event.id %}
-            {% for names in all_pieces %}
-                {% if piece.piece_id == names.id %}
-                    {{ names.piece_composer }}, {{ names.piece_name }}<br>
-                {% endif %}
-            {% endfor %}
-        {% endif %}
+    <div class="card">
+        <img class="card-img-top" src="../../static/imgs/card_image_bso.jpg" alt="Boston Symphony Orchestra">
+        <div class="card-body">
+            <h5 class="card-title">{{ event.event_name }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ event.date }}</h6>
+            <p class="card-text">{{ event.orchestra }}</p>
+            <a href="{{ event.id }}/details" class="btn btn-dark">View</a>
+        </div>
+    </div>
     {% endfor %}
-    <h5>Conductor:</h5>
-    {{ event.conductor }}<br/>
-    <h5>Date:</h5>
-    {{ event.date|date:"D d M Y" }}
-    <hr/>
-    {% endfor %}
-
 </div>
+
 <h2>Pieces in the Database:</h2>
 {% for piece in all_pieces %}
 <h5>Piece Name:</h5>
