@@ -14,6 +14,7 @@
             <h6 class="card-subtitle mb-2 text-muted">{{ event.date }}</h6>
             <p class="card-text">{{ event.orchestra }}</p>
             <a href="{{ event.id }}/details" class="btn btn-dark">View</a>
+            <a href="{% url 'edit_event' pk=event.id %}" class="btn btn-dark"">Edit</a>
         </div>
     </div>
     {% endfor %}
@@ -35,6 +36,7 @@
         {% endfor %}
     {% endif %}
 {% endfor %}
+<a href="{% url 'edit_piece' pk=piece.id %}" class="btn btn-dark">Edit</a>
 <hr/>
 {% endfor %}
 
@@ -42,6 +44,8 @@
 {% for orchestra in all_orchestras %}
 
 {{ orchestra.orchestra_name }}
+
+<a href="{% url 'edit_orchestra' pk=orchestra.id %}" class="btn btn-dark">Edit</a>
 <hr/>
 
 {% endfor %}
@@ -49,6 +53,7 @@
 <h2>Conductors in the Database</h2>
 {% for conductor in all_conductors %}
 {{ conductor.conductor_name }}<br/>
+<a href="{% url 'edit_conductor' pk=conductor.id %}" class="btn btn-dark">Edit</a>
 <hr/>
 
 {% endfor %}
