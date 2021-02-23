@@ -4,7 +4,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/CampSite.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'CSS/CampSite_CSS.css' %}">
         <title>{% block title %}{% endblock %}</title>
     </head>
     <navbar>
@@ -12,9 +12,19 @@
     </navbar>
 
     <body>
+        <div class="hero-image" >
+            <div class="hero-text">
+                <p>Find the best campsites for your next adventure!</p>
+            </div>
+        </div>
+
     {% block content %}
 
     {% endblock %}
     </body>
+
+    <footer>
+        {% include 'CampSite/CampSite_footer.html' %}
+    </footer>
 
 </html>
