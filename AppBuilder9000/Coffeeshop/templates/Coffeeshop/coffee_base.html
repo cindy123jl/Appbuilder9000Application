@@ -1,5 +1,5 @@
 {% load static %}
-<!DOCTYPE>
+
 <html lang="en" class="bg_img">
 	<head>
 	    <meta charset="UTF-8">
@@ -11,9 +11,9 @@
 	</head>
     <body>
         <div class="page_container">
-            {% include "navbar.html" %}
+            {% include "Coffeeshop/coffee_navbar.html" %}
             <header class="header-title">
-                <h1>{% block header %}{% endblock %}</h1>
+                <h1>{% block header %} {% endblock %}</h1>
 		    </header>
             {% block content %}{% endblock %}
         </div>
