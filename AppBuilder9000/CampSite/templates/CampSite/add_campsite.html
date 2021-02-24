@@ -1,0 +1,19 @@
+{% extends "CampSite/CampSite_base.html" %}
+{% load static %}
+
+{% block title %} Add New Campsite {% endblock %}
+
+{% block hero-text %} Discover the best campsites for your next Northwest adventure! {% endblock %}
+
+
+{% block content%}
+            <div class="new_site_form">
+				<form method="POST">
+					{% csrf_token %}
+					{{ form.as_p }}
+					<button id="new_site_button" type="submit" name="Save_Site">Add New Site!</button>
+				</form>
+				<br>
+			</div>
+
+{% endblock %}

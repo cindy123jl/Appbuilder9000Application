@@ -1,4 +1,5 @@
 from django.db import models
+from django import forms
 
 STATE_CHOICES = [
     ('CA', 'California'),
@@ -29,6 +30,16 @@ RATING_CHOICES = [
     ('10', '10'),
 ]
 
+AMENITIES_CHOICES = [
+    ('Bathrooms', 'Bathrooms'),
+    ('Water', 'Water'),
+    ('RV hook-ups', 'RV Hook-Ups'),
+    ('Trail access', 'Trail Access'),
+    ('Camp Host', 'Camp Host'),
+    ('Private', 'Private'),
+
+]
+
 
 class Campsite(models.Model):
 
@@ -37,6 +48,7 @@ class Campsite(models.Model):
     type = models.CharField(max_length=9, choices=TYPE_CHOICES)
     access = models.CharField(max_length=8, choices=ACCESS_CHOICES)
     description = models.CharField(max_length=500)
+    amenities = models.CharField(max_length=30, choices=AMENITIES_CHOICES, default='none')
     fee = models.DecimalField(max_digits=5, decimal_places=2)
     directions = models.CharField(max_length=500, null=True, blank=True)
 
@@ -51,8 +63,8 @@ class MySite(models.Model):
     state = models.CharField(max_length=2, choices=STATE_CHOICES)
     type = models.CharField(max_length=9, choices=TYPE_CHOICES)
     access = models.CharField(max_length=8, choices=ACCESS_CHOICES)
-    rating = models.IntegerField(max_length=2, choices=RATING_CHOICES)
-    notes = models.CharField(max_length=250, null=True, blank=True)
+    rating = models.IntegerField(choices=RATING_CHOICES)
+    notes = models.CharField(max_length=250)
 
     MySites = models.Manager()
 
