@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ConcertForm, OrchestraForm, PieceForm, ConductorForm
 from .models import Concert, Piece, Conductor, Orchestra
+import requests
 # Create your views here.
 
 
@@ -127,3 +128,17 @@ def edit_conductor(request, pk):
         conductor_form = ConductorForm(instance=conductor)
     return render(request, 'UpcomingConcertsApp/edit.html', {'conductor_form': conductor_form})
 
+
+def barbershop_tags(request):
+    url = "https://public-radio-apis.p.rapidapi.com/api/country/get/%7Bname%7D"
+
+    headers = {
+        'x-rapidapi-key': "9afece8438msh5f25fff510a60bbp1954d2jsn7f98f53b6d37",
+        'x-rapidapi-host': "public-radio-apis.p.rapidapi.com"
+    }
+
+    response = requests.request("GET", url, headers=headers)
+
+    print(response.text)
+
+    return render(request, 'UpcomingConcertsApp/barbershop_tags.html', {'response': response})
