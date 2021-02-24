@@ -40,7 +40,7 @@ class Campsite(models.Model):
     fee = models.DecimalField(max_digits=5, decimal_places=2)
     directions = models.CharField(max_length=500, null=True, blank=True)
 
-    Campsites = models.Model()
+    Campsites = models.Manager()
 
     def __str__(self):
         return self.name + "," + self.state
@@ -54,4 +54,7 @@ class MySite(models.Model):
     rating = models.IntegerField(max_length=2, choices=RATING_CHOICES)
     notes = models.CharField(max_length=250, null=True, blank=True)
 
-    MySites = models.Model()
+    MySites = models.Manager()
+
+    def __str__(self):
+        return self.name
