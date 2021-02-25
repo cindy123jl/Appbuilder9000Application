@@ -103,6 +103,36 @@ a.icon {
     margin: 0 5px;
 }
 
+/************** Results Styles ***********************/
+.search-results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.search-result {
+    width: 23%;
+    margin: 1%;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    position: relative;
+    padding-bottom: 20px;
+}
+img.book-image {
+    width: 100%;
+}
+i.far.fa-plus-square {
+    font-size: 30px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+.book-title, .book-authors {
+    padding: 5px 10px;
+}
 /************** Typography Styles ***********************/
 h2 {
     font-family: 'Julius Sans One', sans-serif;

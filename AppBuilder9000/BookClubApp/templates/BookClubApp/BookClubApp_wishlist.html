@@ -1,10 +1,10 @@
 {% extends "BookClubApp/BookClubApp_base.html" %}
 {% load static %}
-{% block title %}My Books{% endblock %}
+{% block title %}Wishlist{% endblock %}
 
 {% block content %}
     <div class="content">
-        <h1>Read Books</h1>
+        <h1>Wishlist</h1>
         <!-- iterate through books -->
          <div class="booklist">
             {% for book in books %}
@@ -16,12 +16,14 @@
                 </h4>
                  <div class="card-body">
                      {% for author in book.authors_as_list %}
+                        <!--some authors are returned in a format that looks like a list but is saved as a string,
+                        so the cut method removes extra characters-->
                         <p class="card-title"><em>{{ author|cut:","|cut:"["|cut:"]" }}</em></p>
                      {% endfor %}
                  </div>
              </div>
             {% endfor %}
         </div>
-        <a class="btn btn-secondary" href="{% url 'BookClubApp_AddBook' %}">Add Book</a>
+        <a class="btn btn-secondary" href="{% url 'BookClubApp_searchForm' %}">Add Book</a>
     </div>
 {% endblock %}
