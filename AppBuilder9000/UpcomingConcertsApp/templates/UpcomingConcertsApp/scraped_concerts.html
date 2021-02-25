@@ -1,0 +1,27 @@
+{% extends 'UpcomingConcertsApp\sub_pages_base.html' %}
+
+{% block title %}Potential Concerts{% endblock %}
+{% block page-title %}Potential Concerts{% endblock %}
+{% block sub-body %}
+
+{% for concert in concerts %}
+<h2>Title:</h2>
+{{ concert.title }}<br>
+<h2>Date:</h2>
+{{ concert.date }}<br>
+<h2>Artists</h2>
+
+{% for artist in concert.artists %}
+{{ artist }}<br>
+{% endfor %}
+
+<h2>Stars:</h2>
+<!--{% for star in concert.stars %}-->
+{{ concert.stars }}
+<!--{% endfor %}-->
+<h2>Works</h2>
+{% for work in concert.work_list %}
+{{ work }}<br>
+{% endfor %}
+{% endfor %}
+{% endblock %}
