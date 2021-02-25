@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Campsite, MySite
+from .models import Campsite
 
 
 class CampsiteForm(ModelForm):
@@ -13,7 +13,4 @@ class CampsiteForm(ModelForm):
         }
 
 
-class MySiteForm(ModelForm):
-    class Meta:
-        model = MySite
-        fields = '__all__'
+

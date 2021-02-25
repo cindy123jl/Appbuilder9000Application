@@ -47,15 +47,3 @@ class Campsite(models.Model):
 
 
 
-class MySite(models.Model):
-    name = models.ForeignKey(Campsite, on_delete=models.CASCADE)
-    state = models.CharField(max_length=2, choices=STATE_CHOICES)
-    type = models.CharField(max_length=9, choices=TYPE_CHOICES)
-    access = models.CharField(max_length=8, choices=ACCESS_CHOICES)
-    rating = models.IntegerField(choices=RATING_CHOICES)
-    notes = models.CharField(max_length=250)
-
-    MySites = models.Manager()
-
-    def __str__(self):
-        return self.name
