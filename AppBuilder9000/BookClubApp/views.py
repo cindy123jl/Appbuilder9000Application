@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 import requests, json
 from .forms import BookForm, SearchForm, WishlistForm
 from BookClubApp.models import Book
-from django.http import HttpResponse
 from django import template
 
 register = template.Library()
@@ -11,6 +10,11 @@ register = template.Library()
 # display home page template
 def BookClubApp_home(request):
     return render(request, 'BookClubApp/BookClubApp_home.html')
+
+
+# display about page template
+def BookClubApp_about(request):
+    return render(request, 'BookClubApp/BookClubApp_about.html')
 
 
 # display a list of books that the user has read (read=True)
@@ -136,6 +140,24 @@ def BookClubApp_delete(request, pk):
         "book" : book
     }
     return render(request, 'BookClubApp/BookClubApp_delete.html', context)
+
+
+# edit book from the database
+def BookClubApp_MarkRead(request, pk, read):
+    book = get_object_or_404(Book, pk=pk, read=read)
+    print(book.read)
+    if book.read == False:
+        book.read = True
+        print(book.read)
+        book.save()
+        context = {
+            'book':book
+        }
+        return redirect('BookClubApp_book', pk=book.pk)
+    context = {
+        'book': book
+    }
+    return render(request, 'BookClubApp/BookClubApp_book.html', context)
 
 
 # add new book to wishlist

@@ -12,5 +12,7 @@ urlpatterns = [
     path('book/<int:pk>/delete/', views.BookClubApp_delete, name='BookClubApp_delete'),
     path('search/', views.BookClubApp_searchForm, name='BookClubApp_searchForm'),
     path('wishlist/', views.BookClubApp_wishlist, name='BookClubApp_wishlist'),
-    path('addwishlist/', views.BookClubApp_AddBookWishlist, name='BookClubApp_AddBookWishlist')
+    path('addwishlist/', views.BookClubApp_AddBookWishlist, name='BookClubApp_AddBookWishlist'),
+    path('book/<int:pk>/markread/<read>/', views.BookClubApp_MarkRead, name='BookClubApp_MarkRead'),
+    path('about/', views.BookClubApp_about, name='BookClubApp_about'),
 ]
