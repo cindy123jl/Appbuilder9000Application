@@ -8,8 +8,8 @@ class CampsiteForm(ModelForm):
         model = Campsite
         fields = '__all__'
         widgets = {
-            'description': forms.Textarea,
-            'directions': forms.Textarea
+            'description': forms.Textarea(),
+            'directions': forms.Textarea(),
         }
 
 

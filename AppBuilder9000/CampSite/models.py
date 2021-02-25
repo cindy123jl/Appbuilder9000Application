@@ -33,7 +33,7 @@ RATING_CHOICES = [
 
 class Campsite(models.Model):
 
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=100)
     state = models.CharField(max_length=2, choices=STATE_CHOICES)
     type = models.CharField(max_length=9, choices=TYPE_CHOICES)
     access = models.CharField(max_length=8, choices=ACCESS_CHOICES)

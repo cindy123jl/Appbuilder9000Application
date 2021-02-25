@@ -51,8 +51,10 @@ body {
     position: absolute;
     text-align: center;
     margin-top: 12.5%;
-    margin-left: 7.5%;
-    font-size: 3vw;
+    margin-left: 4.5%;
+    font-family: fantasy;
+    font-variant: small-caps;
+    font-size: 3.2vw;
     font-weight: bolder;
     text-shadow: 3px 3px 1px rgb(72, 57, 3);
     color: white;
@@ -71,9 +73,16 @@ body {
         FORM CONTAINERS
 ================================*/
 
+.add_form_header {
+    text-align: center;
+    color: darkgreen;
+    font-family: fantasy;
+    font-variant: small-caps;
+}
+
 .form_container {
     width: 60%;
-    margin: 10vw auto 200px auto;
+    margin: 4vw auto 200px auto;
     text-align: center;
     display: block;
     border: #3c2c05 1vw;
@@ -86,8 +95,14 @@ body {
 .add_campsite {
     padding-top: 3vw;
     color: darkgreen;
-    font-family: fantasy;
+    font-family: aria;
     font-variat: small-caps;
     font-weight: bold;
     font-size: 1.5vw;
+}
+
+#new_site_button {
+    background-color: #3c2c05;
+    color: white;
+    height: 8vh;
 }
