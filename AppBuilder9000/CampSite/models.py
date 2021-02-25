@@ -2,7 +2,6 @@ from django.db import models
 from django import forms
 
 STATE_CHOICES = [
-    ('CA', 'California'),
     ('OR', 'Oregon'),
     ('WA', 'Washington'),
 ]
