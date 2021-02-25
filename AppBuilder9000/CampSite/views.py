@@ -18,8 +18,13 @@ def add_campsite(request):
     content = {'form': form}
     return render(request, 'CampSite/add_campsite.html', content)
 
+
 def browse(request):
     campsite = Campsite.Campsites.all()
     content = {'campsite': campsite}
     return render(request, 'CampSite/browse_campsites.html', content)
+
+
+def details(request, pk):
+    campsite = get_object_or_404(Campsite, pk=pk)
 

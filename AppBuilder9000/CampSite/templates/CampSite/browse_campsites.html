@@ -20,11 +20,11 @@
 				</tr>
 				{% for campsite in campsite %}
 				<tr>
-					<td class="cell1">{{ campsite.name }}</td>
-					<td class="cell2">{{ campsite.state }}</td>
+					<td>{{ campsite.name }}</td>
+					<td>{{ campsite.state }}</td>
 					<td>{{ campsite.type }}</td>
 					<td>{{ campsite.access }}</td>
-					<td> more info </td>
+					<td><a href="{% url 'details' campsite.id %}"></a> Details </td>
 				</tr>
 				{% endfor %}
 			</table>
