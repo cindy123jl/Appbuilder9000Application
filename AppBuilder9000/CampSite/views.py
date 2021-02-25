@@ -9,7 +9,9 @@ def campsite_home(request):
 def add_campsite(request):
     form = CampsiteForm(data=request.POST or None)
     if request.method == 'POST':
+        print('method is POST')
         if form.is_valid():
+            print('form is valid')
             form.save()
             return redirect('home')
     content = {'form': form}

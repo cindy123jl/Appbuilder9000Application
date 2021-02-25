@@ -9,7 +9,6 @@ class CampsiteForm(ModelForm):
         fields = '__all__'
         widgets = {
             'description': forms.Textarea,
-            'amenities': forms.CheckboxSelectMultiple,
             'directions': forms.Textarea
         }
 

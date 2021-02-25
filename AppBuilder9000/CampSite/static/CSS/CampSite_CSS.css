@@ -1,4 +1,6 @@
-
+body {
+    background-image: url('/static/images/mountain2.jpg')
+}
 /*====================
        NAV BAR
 =====================*/
@@ -7,6 +9,7 @@
     margin: 0% auto;
     margin-right: 0px;
     background-color: antiquewhite;
+    border-bottom: ridge #3c2c05 .2vw;
     width: 100%;
     height: 4vw;
     top: 0px;
@@ -18,7 +21,7 @@
     float: left;
     display: block;
     color: darkgreen;
-    padding: .75vw;
+    padding: .15vw;
     height: 4vw;
     text-decoration: none;
     font-size: 1.7vw;
@@ -27,7 +30,7 @@
     font-variant: small-caps;
     text-shadow: 1px 1px 2px darkslategray;
     text-align: center;
-    position: relative:
+    position: relative;
     letter-spacing: .2vw;
 }
 
@@ -37,7 +40,7 @@
 .hero-image {
     position: relative;
     background-image: url('/static/images/CampSite2.jpg');
-    height: 700px;
+    height: 50vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -48,8 +51,8 @@
     position: absolute;
     text-align: center;
     margin-top: 12.5%;
-    margin-left: 10.5%;
-    font-size: 2.9vw;
+    margin-left: 7.5%;
+    font-size: 3vw;
     font-weight: bolder;
     text-shadow: 3px 3px 1px rgb(72, 57, 3);
     color: white;
@@ -62,4 +65,29 @@
     text-shadow: 2px 2px 8px 0 (0,0,0,0.4);
     padding: 20px 50px 20px 50px;
     text-align: center;
+}
+
+/*===============================
+        FORM CONTAINERS
+================================*/
+
+.form_container {
+    width: 60%;
+    margin: 10vw auto 200px auto;
+    text-align: center;
+    display: block;
+    border: #3c2c05 1vw;
+    background-color: antiquewhite;
+    color: darkgreen
+    text-shadow: 2px 2px 4px darkslategray;
+    box-shadow: 5px 5px 5px 1px lightgray;
+}
+
+.add_campsite {
+    padding-top: 3vw;
+    color: darkgreen;
+    font-family: fantasy;
+    font-variat: small-caps;
+    font-weight: bold;
+    font-size: 1.5vw;
 }

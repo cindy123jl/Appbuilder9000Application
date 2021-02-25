@@ -7,8 +7,8 @@
 
 
 {% block content%}
-            <div class="new_site_form">
-				<form method="POST">
+            <div class="form_container">
+				<form class='add_campsite' method="POST" action="">
 					{% csrf_token %}
 					{{ form.as_p }}
 					<button id="new_site_button" type="submit" name="Save_Site">Add New Site!</button>
