@@ -142,24 +142,21 @@ def berlin_scrape(request):
     span = soup.new_tag('span')
     span['br'] = '\\n'
     for concert in list_of_concerts:
-        artist_entries = []
-        star_entries = []
         title = concert.find(class_='concertTitle').get_text()
         date = concert.find_all(class_='ajaxtime-localtime')
         artists = concert.find(class_='head')
         artists_h2 = list(artists.children)[0]
-        [artist_entries.append(person.get_text()) for person in artists_h2]
+        artist_entries = [person.get_text() for person in artists_h2]
         # for br in artists_h2.find_all('br'):
         #     br.replace_with('')
         # [artist_entries.append(person) for person in list(artists_h2.children)]
 
-        stars = concert.find(class_='stars').get_text()
-        # stars_p = list(stars.children)
-        # [star_entries.append(person.get_text()) for person in stars]
+        stars = concert.find_all(class_='stars')
+        star_entries = [person.get_text() for person in stars]
         work_html = concert.find_all(class_='work')
         work_list = [concert.get_text() for concert in work_html]
         concert_info = {'title': title, 'date': date, 'artists': artist_entries,
-                        'stars': stars, 'work_list': work_list}
+                        'stars': star_entries, 'work_list': work_list}
         concerts.append(concert_info)
 
     return render(request, 'UpcomingConcertsApp/scraped_concerts.html', {'concerts': concerts})

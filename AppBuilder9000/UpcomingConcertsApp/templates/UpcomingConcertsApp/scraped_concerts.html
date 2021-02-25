@@ -16,9 +16,9 @@
 {% endfor %}
 
 <h2>Stars:</h2>
-<!--{% for star in concert.stars %}-->
-{{ concert.stars }}
-<!--{% endfor %}-->
+{% for star in concert.stars %}
+{{ star }}<br>
+{% endfor %}
 <h2>Works</h2>
 {% for work in concert.work_list %}
 {{ work }}<br>
