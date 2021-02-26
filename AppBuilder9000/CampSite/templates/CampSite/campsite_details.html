@@ -8,22 +8,29 @@
 
 {% block content%}
 
-<div class="card" style="width: 18rem;">
+<div class="card">
   <img src="..." class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">{{ campsite.name }}, {{ campsite.state }}</h5>
+    <h4 class="card-title">{{ campsite.name }}, {{ campsite.state }}</h4>
     <p class="card-text">{{ campsite.description }}</p>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">{{ campsite.type }}</li>
-    <li class="list-group-item">{{ campsite.access }}</li>
-    <li class="list-group-item">Fee: {{ campsite.fee }}</li>
+    <li class="list-group-item">Type: &nbsp  {{ campsite.type }}</li>
+    <li class="list-group-item">Access: &nbsp  {{ campsite.access }}</li>
+    <li class="list-group-item">Fee: &nbsp  {{ campsite.fee }}</li>
   </ul>
   <div class="card-body">
+      <h5 class="card-text directions">Directions:</h5>
       <p class="card-text">{{ campsite.directions }}</p>
+  </div>
+    <div class="card-body text-center">
       <a href="#" class="btn btn-primary">Edit</a>
       <a href="#" class="btn btn-primary">Delete</a>
-  </div>
+    </div>
+    <div class="card-body text-center">
+      <a href="{% url 'browse' %}" class="btn btn-primary">Back to Browse</a>
+
+    </div>
 </div>
 
 {% endblock %}

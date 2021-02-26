@@ -4,6 +4,7 @@ body {
 /*====================
        NAV BAR
 =====================*/
+
 .navbar {
     overflow: hidden;
     margin: 0% auto;
@@ -150,14 +151,33 @@ body {
        CAMPSITE DETAILS
 ================================*/
 
-.details_container {
-    width: 75%;
-    margin: 4vw auto 200px auto;
-    text-align: center;
-    display: block;
-    border: #3c2c05 1vw;
-    background-color: antiquewhite;
-    color: darkgreen
-    text-shadow: 2px 2px 4px darkslategray;
+.card {
+    width: 35%;
+    float: center;
+    margin-left: 30vw;
+    margin-top: 4vw;
+    margin-bottom: 4vw;
+    background-color: rgba(250,235,215,0.8);
+    color: darkgreen;
+    text-shadow: 1px 1px 1px 2px darkslategray;
     box-shadow: 1px 5px 5px 1px lightgray;
+}
+
+.card-title {
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #3c2c05;
+    color: white;
+    border: white;
+    align-content: center;
+}
+
+.list-group-item{
+    text-align: center;
+}
+
+.list-group-item {
+    background-color: rgba(249,244,238,0.8);
 }
