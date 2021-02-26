@@ -130,6 +130,24 @@ def edit_conductor(request, pk):
 
 
 def open_opus(request):
-    response = requests.get('https://api.openopus.org/composer/list/epoch/Early Romantic.json')
+    composer_data = {}
+    work_data = {}
+    if 'find_composer' in request.GET:
+        search_criteria = request.GET['composer']
+        url = 'https://api.openopus.org/composer/list/search/' + search_criteria + '.json'
+        response = requests.get(url)
+        search_result = response.json()
+        composer_data = search_result['composers']
+    elif 'find_works' in request.GET:
+        works = request.GET['works']
+        composer = request.GET['work_composer']
+        url = 'https://api.openopus.org/work/list/composer/' + composer + \
+              '/genre/all/search/' + works + '.json'
+        response = requests.get(url)
+        search_result = response.json()
+        composer_data = [search_result['composer']]
+        work_data = search_result['works']
 
-    return render(request, 'UpcomingConcertsApp/api_classical_music.html', {'response': response})
+    return render(request, 'UpcomingConcertsApp/api_classical_music.html',
+                  {'composer_data': composer_data, 'work_data': work_data})
+
