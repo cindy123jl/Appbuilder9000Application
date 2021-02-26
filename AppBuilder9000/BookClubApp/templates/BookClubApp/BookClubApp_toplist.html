@@ -1,0 +1,11 @@
+{% extends "BookClubApp/BookClubApp_base.html" %}
+{% load static %}
+{% block title %}Wishlist{% endblock %}
+
+{% block content %}
+<div class="content">
+    {% for key, value in returnList.items %}
+        <div>{{key}}: {{value}}</div>
+    {% endfor %}
+</div>
+{% endblock %}
