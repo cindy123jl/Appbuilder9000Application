@@ -103,9 +103,68 @@ a.icon {
     margin: 0 5px;
 }
 
+/************** Results Styles ***********************/
+.search-results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.search-result {
+    width: 23%;
+    margin: 1%;
+    min-height: 400px;
+    border: 1px solid #ccc;
+}
+.search-result form {
+    padding-bottom: 20px;
+    display: block;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100%;
+}
+img.book-image {
+    width: 100%;
+}
+i.far.fa-plus-square {
+    font-size: 30px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+.book-title, .book-authors {
+    padding: 5px 10px;
+}
+
+/************** Book Page Styles ***********************/
+i.far.fa-check-square.book-checkmark {
+    float: right;
+    color: #444;
+}
+i.far.fa-check-square.book-checkmark:hover {
+    color:#0056b3;
+}
+i.far.fa-check-square.book-checkmark.green-icon{
+    color: green;
+}
+.book-page-image {
+    float: right;
+    margin: 0 0 20px 20px;
+}
+a.book-icon {
+    float: right;
+    margin: 0 5px;
+    font-size: 34px;
+    color: #444;
+}
+a.book-icon:hover {
+    color:#0056b3;
+}
 /************** Typography Styles ***********************/
 h2 {
     font-family: 'Julius Sans One', sans-serif;
+    margin: 20px 0 10px 0;
 }
 p{
     font-size:20px;
