@@ -7,7 +7,7 @@ class Piece(models.Model):
     piece_name = models.CharField(max_length=50)
     piece_composer = models.CharField(max_length=25)
 
-    pieces = models.Manager
+    pieces = models.Manager()
 
     def __str__(self):
         return self.piece_name + ' ' + self.piece_composer
@@ -38,6 +38,7 @@ class Concert(models.Model):
     orchestra = models.ForeignKey(Orchestra, on_delete=models.CASCADE,)
     pieces = models.ManyToManyField(Piece)
     conductor = models.ForeignKey(Conductor, on_delete=models.CASCADE,)
+    date = models.DateField()
 
     concerts = models.Manager()
 
