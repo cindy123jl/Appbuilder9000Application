@@ -44,9 +44,16 @@ def added_trails(request):
 def details(request, pk):
     pk = int(pk)
     item = get_object_or_404(Trails, pk=pk)
-    trails = Trails.objects.all()
-    context = {'item': item, 'trails': trails}
-    return render(request, "HikingFunApp/details.html", context)
+    form = NewTrailForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        if form.is_valid():
+            form2 = form.save(commit=False)
+            form2.save()
+            return redirect('see_trails')
+        else:
+            print(form.errors)
+    else:
+        return render(request, "HikingFunApp/details.html", {'form': form, 'item': item})
 
 # This method gives the trails info  to webpage that displays the sidebar.
 def side_bar(request):
@@ -55,3 +62,25 @@ def side_bar(request):
     return render(request, "HikingFunApp/side_bar.html", context)
 
 
+
+# If the item with this pk doesn't exist, throw error, if it exists, and method of submitting is POST
+# delete and go back to trails list. Else go to confirm deletion from the user.
+def delete(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Trails, pk=pk)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('see_trails')
+    context = {"item": item, }
+    return render(request, "HikingFunApp/confirm_delete.html", context)
+
+# This method confirms that the user wants to delete the trail item.
+def confirmed(request):
+    if request.method == 'POST':
+        # creates form instance and binds data to it
+        form = NewTrailForm(request.POST or None)
+        if form.is_valid():
+            form.delete()
+            return redirect('hiking_home')
+    else:
+        return redirect("see_trails")

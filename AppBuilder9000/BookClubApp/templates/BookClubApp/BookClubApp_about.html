@@ -1,0 +1,19 @@
+{% extends "BookClubApp/BookClubApp_base.html" %}
+{% load static %}
+{% block title %}Book Club{% endblock %}
+
+{% block content %}
+<div class="content">
+    <h1>Get Started</h1>
+    <p>This is the place for you to keep up with all the books you want to read and the ones you've already read!</p>
+    <h2>Read List</h2>
+    <p>Keep up with the books you've read by adding them to your read list.</p>
+    <a class="btn btn-secondary" href="{% url 'BookClubApp_AddBook' %}">Add Titles</a>
+
+    <h2>Wishlist</h2>
+    <p>Search our book database to add items to your wishlist.</p>
+    <a class="btn btn-secondary" href="{% url 'BookClubApp_searchForm' %}">Search Titles</a>
+
+</div>
+
+{% endblock %}

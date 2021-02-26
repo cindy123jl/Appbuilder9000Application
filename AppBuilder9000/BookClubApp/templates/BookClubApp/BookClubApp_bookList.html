@@ -4,6 +4,7 @@
 
 {% block content %}
     <div class="content">
+        <h1>Read Books</h1>
         <!-- iterate through books -->
          <div class="booklist">
             {% for book in books %}
@@ -14,7 +15,9 @@
                     <a class="icon" id="delete-icon" href="{% url 'BookClubApp_edit' pk=book.pk %}"><i class="fas fa-edit" title="Edit"></i></a>
                 </h4>
                  <div class="card-body">
-                    <p class="card-title"><em>{{ book.author }}</em></p>
+                     {% for author in book.authors_as_list %}
+                        <p class="card-title"><em>{{ author|cut:","|cut:"["|cut:"]" }}</em></p>
+                     {% endfor %}
                  </div>
              </div>
             {% endfor %}
