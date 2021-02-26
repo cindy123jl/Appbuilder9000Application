@@ -1,11 +1,32 @@
 {% extends "BookClubApp/BookClubApp_base.html" %}
 {% load static %}
-{% block title %}Wishlist{% endblock %}
+{% block title %}Top Books{% endblock %}
 
 {% block content %}
 <div class="content">
+    <h1>Top 20 Selling Books</h1>
+    <p>The following are the top 20 selling books from Barnes and Noble. Visit this page often to see the updated list.</p>
+    <div class="top-books">
     {% for key, value in returnList.items %}
-        <div>{{key}}: {{value}}</div>
+        <div class="top-book card">
+            <div class="top-number">{{ key|add:'1'}}</div>
+            {% for key2, value2 in value.items %}
+                {% if key2 == 'formatted_link' %}
+                <a class="top-book-inner-div" href="{{value2}}">
+                    {% elif key2 == 'formatted_image' %}
+                        <div class="top-book-image card-img-top" style="background:url({{value2}}) no-repeat; background-size:cover; background-position:center;"></div>
+                        <div class="card-body">
+                            {% elif key2 == 'title' %}
+                                <h5 class="card-title">{{value2}}</h5>
+                            {% elif key2 == 'authors' %}
+                                <p>{{value2}}</p>
+                        </div>
+                </a>
+                {% endif %}
+            {% endfor %}
+        </div>
     {% endfor %}
+    </div>
+    <p>To see more top sellers, see the <a href="https://www.barnesandnoble.com/b/books/_/N-1fZ29Z8q8" target="_blank">Barnes and Noble Top 100 list</a>.</p>
 </div>
 {% endblock %}
