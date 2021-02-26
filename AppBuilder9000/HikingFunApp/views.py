@@ -90,19 +90,13 @@ def confirmed(request):
 
 # This method uses a website and scrapes the relevant information to pass to web_scraping.html
 def web_scraping(request):
-    page = requests.get("https://theurbanoutdoors.com/hiking-in-near-seattle/")
+    page = requests.get("https://seattle.curbed.com/maps/seattle-easy-hiking-trails-for-beginners")
     soup = BeautifulSoup(page.content, 'html.parser')
     soup.prettify()
-    trail_names = soup.find_all('h3', class_='')
-    trail_info = soup.select('body ul li strong')
-
-    # print(trail_info[0]).get_text()
-    # print(trail_info[1]).get_text()
-    # for i in range(len(trail_names)):
-    #     print("/********************************/")
-    #     print(trail_names[i])
-    #     print(trail_info[i])
-    #     print(trail_info[i+1])
-
-    context = {'trail_names': trail_names, 'trail_info': trail_info}
+    trail_names = soup.find_all('h1')
+    mylist= []
+    for i in range(len(trail_names)):
+        print(trail_names[i].get_text())
+        mylist.append(trail_names[i].get_text())
+    context = {'trail_names': mylist, }
     return render(request, "HikingFunApp/web_scraping.html", context)
