@@ -4,10 +4,25 @@
 
 {% block content %}
 <div class="content">
-    <h1>{{book.title}}</h1>
-    <h5><em>{{book.author}}</em></h5>
+    <h1>{{book.title}}
+        {% if book.read == True %}
+            <i class="far fa-check-square book-checkmark green-icon"></i>
+        {% else %}
+        <a class="icon" href="{% url 'BookClubApp_MarkRead' pk=book.pk read=book.read %}"><i class="far fa-check-square book-checkmark" title="Mark Read"></i></a>
+        {% endif %}
+        <a class="book-icon" id="delete-icon" href="{% url 'BookClubApp_edit' pk=book.pk %}"><i class="fas fa-edit" title="Edit"></i></a>
+
+    </h1>
+     {% for author in book.authors_as_list %}
+        <h5><em>{{ author|cut:","|cut:"["|cut:"]" }}</em></h5>
+     {% endfor %}
+    {% if book.image %}
+        <div class="book-page-image"><img src="{{book.image}}"/></div>
+    {% endif %}
     {% if book.comments %}
-        <p>{{book.comments}}</p>
+        <div class="book-page-comments">
+            <p>{{book.comments}}</p>
+        </div>
     {% endif %}
 </div>
 
