@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CampsiteForm
+from .models import Campsite
 
 
 def campsite_home(request):
@@ -16,3 +17,9 @@ def add_campsite(request):
             return redirect('home')
     content = {'form': form}
     return render(request, 'CampSite/add_campsite.html', content)
+
+def browse(request):
+    campsite = Campsite.Campsites.all()
+    content = {'campsite': campsite}
+    return render(request, 'CampSite/browse_campsites.html', content)
+
