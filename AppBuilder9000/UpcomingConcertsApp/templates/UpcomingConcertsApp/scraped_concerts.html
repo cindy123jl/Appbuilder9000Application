@@ -4,28 +4,54 @@
 {% block page-title %}Potential Concerts{% endblock %}
 {% block sub-body %}
 
+
+
+<div class="row">
 {% for concert in concerts %}
-<h2>Title:</h2>
-{{ concert.title }}<br>
+    <div class="col-lg-3">
+        <div class="card " style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ concert.title }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">
+                    {% for artist in concert.artists %}
+                    {{ artist }}<br>
+                    {% endfor %}
+                    {% for star in concert.stars %}
+                    {{ star }}<br>
+                    {% endfor %}
+                </h6>
+                <p class="card-text">
+                    {% for work in concert.work_list %}
+                    <div class="works">
+                    {{ work }}<br>
+                    </div>
+                    {% endfor %}
 
-<h2>Artists</h2>
-
-{% for artist in concert.artists %}
-{{ artist }}<br>
+                </p>
+                <a href="https://www.digitalconcerthall.com/{{ concert.link }}" class="btn btn-primary">View Concert</a>
+            </div>
+        </div>
+    </div>
 {% endfor %}
-
-<h2>Stars:</h2>
-{% for star in concert.stars %}
-{{ star }}<br>
-{% endfor %}
-<h2>Works</h2>
-{% for work in concert.work_list %}
-{{ work }}<br>
-{% endfor %}
-<br>
-<hr>
-<br>
-
-{% endfor %}
-
+</div>
 {% endblock %}
+
+
+
+
+
+<!--<h2>Title:</h2>-->
+<!--<br>-->
+
+<!--<h2>Artists</h2>-->
+
+<!--<h2>Stars:</h2>-->
+
+<!--<h2>Works</h2>-->
+
+<!--<br>-->
+<!--<hr>-->
+<!--<br>-->
+
+
+
