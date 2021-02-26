@@ -14,7 +14,7 @@ def add_campsite(request):
         if form.is_valid():
             print('form is valid')
             form.save()
-            return redirect('home')
+            return redirect('browse')
     content = {'form': form}
     return render(request, 'CampSite/add_campsite.html', content)
 
@@ -25,6 +25,8 @@ def browse(request):
     return render(request, 'CampSite/browse_campsites.html', content)
 
 
-def details(request, pk):
-    campsite = get_object_or_404(Campsite, pk=pk)
+def campsite_details(request, campsite_id):
+    campsite = get_object_or_404(Campsite, pk=campsite_id)
+    content = {'campsite': campsite}
+    return render(request, 'Campsite/campsite_details.html', content)
 
