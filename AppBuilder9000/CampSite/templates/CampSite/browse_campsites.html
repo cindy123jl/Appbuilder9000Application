@@ -16,7 +16,7 @@
 					<th>State</th>
 					<th>Type</th>
 					<th>Access</th>
-					<th>More info</th>
+					<th>More Info</th>
 				</tr>
 				{% for campsite in campsite %}
 				<tr>
@@ -24,7 +24,7 @@
 					<td>{{ campsite.state }}</td>
 					<td>{{ campsite.type }}</td>
 					<td>{{ campsite.access }}</td>
-					<td><a href="{% url 'details' campsite.id %}"></a> Details </td>
+					<td><a href="{% url 'campsite_details' %}"> Details </a></td>
 				</tr>
 				{% endfor %}
 			</table>

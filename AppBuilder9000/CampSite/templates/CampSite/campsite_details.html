@@ -1,10 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "CampSite/CampSite_base.html" %}
+{% load static %}
 
-</body>
-</html>
+{% block title %} Browse Campsites {% endblock %}
+
+{% block hero-text %} Discover the best campsites for your next Northwest adventure! {% endblock %}
+
+
+{% block content%}
+<br><br>
+        <div class="details_container">
+            <h2 class="details_header">{{ campsite.name }}, {{ campsite.state }}</h2>
+            <br>
+            <p>This campsite is {{ campsite.type }}, and access is {{ campsite.access }}</p>
+
+
+
+			<table class="details_table">
+				<tr>
+					<th>Details:</th>
+                </tr>
+                <tr>
+                    <td>{{ campsite.details }}</td>
+                </tr>
+			</table>
+            <table class="details_table">
+				<tr>
+					<th>Directions:</th>
+                </tr>
+                <tr>
+                    <td>{{ campsite.directions }}</td>
+                </tr>
+			</table>
+        </div>
+{% endblock %}
+
