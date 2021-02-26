@@ -129,16 +129,7 @@ def edit_conductor(request, pk):
     return render(request, 'UpcomingConcertsApp/edit.html', {'conductor_form': conductor_form})
 
 
-def barbershop_tags(request):
-    url = "https://public-radio-apis.p.rapidapi.com/api/country/get/%7Bname%7D"
+def open_opus(request):
+    response = requests.get('https://api.openopus.org/composer/list/epoch/Early Romantic.json')
 
-    headers = {
-        'x-rapidapi-key': "9afece8438msh5f25fff510a60bbp1954d2jsn7f98f53b6d37",
-        'x-rapidapi-host': "public-radio-apis.p.rapidapi.com"
-    }
-
-    response = requests.request("GET", url, headers=headers)
-
-    print(response.text)
-
-    return render(request, 'UpcomingConcertsApp/barbershop_tags.html', {'response': response})
+    return render(request, 'UpcomingConcertsApp/api_classical_music.html', {'response': response})

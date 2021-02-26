@@ -10,5 +10,5 @@ urlpatterns = [
     path('<int:pk>/edit_event', views.edit_event, name="edit_event"),
     path('<int:pk>/edit_piece', views.edit_piece, name="edit_piece"),
     path('<int:pk>/edit_conductor', views.edit_conductor, name="edit_conductor"),
-    path('barbershop', views.barbershop_tags, name="barbershop")
+    path('classical_music', views.open_opus, name="open_opus")
 ]
