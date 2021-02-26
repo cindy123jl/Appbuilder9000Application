@@ -4,6 +4,7 @@
 
 {% block content %}
 <div class="content">
+    <h1>Search Results</h1>
     <h2>Results for: {{searchTerm}}</h2>
     <p>Add titles to your Wishlist!</p>
     <p><a href="{% url 'BookClubApp_searchForm' %}">Back to search form</a></p>
@@ -17,7 +18,7 @@
                     <input type="hidden" name="read" value="False" id="id_read">
                     {% for key2, value2 in value.items %}
                         {% if key2 == 'imageLink' %}
-                            <img class="book-image" src="{{value2}}">
+                            <div class="book-image" style="background:url({{value2}}) no-repeat; background-size: cover; background-position:center;"></div>
                             <input type="hidden" name="image" maxlength="250" required="" id="id_image" value="{{value2}}">
                         {% elif key2 == 'title' %}
                             <div class="book-title">

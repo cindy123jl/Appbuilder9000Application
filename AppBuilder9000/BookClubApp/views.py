@@ -3,6 +3,9 @@ import requests, json
 from .forms import BookForm, SearchForm, WishlistForm
 from BookClubApp.models import Book
 from django import template
+from bs4 import BeautifulSoup
+
+
 
 register = template.Library()
 
@@ -181,8 +184,53 @@ def BookClubApp_wishlist(request):
     }
     return render(request, 'BookClubApp/BookClubApp_wishlist.html', books)
 
+
 # authors returned from the api can be a list,
 # so this method allows you cut characters from the string in the template
 def cut(value, arg):
     """Removes all values of arg from the given string"""
     return value.replace(arg, '')
+
+
+# Scrap Barnes and Noble top books list page to display the top 20 books in the app
+def BookClubApp_scraping(request):
+    # get url
+    page = requests.get("https://www.barnesandnoble.com/b/books/_/N-1fZ29Z8q8")
+    # parse html with Beautiful Soup
+    soup = BeautifulSoup(page.content, 'html.parser')
+    # Find list items
+    listItems = soup.find_all('li', class_="record")
+    # create overall dictionary for response
+    returnList = {}
+    # iterate through list items
+    for i in range(len(listItems)):
+        # create dictionary for current list item
+        item_response = {}
+        # get purchase link
+        purchase_link = listItems[i].h3.a['href']
+        item_response['formatted_link'] = 'https://www.barnesandnoble.com' + purchase_link
+        # get image link
+        image = listItems[i].img['src']
+        # add https: to image link and add it to the dictionary
+        item_response['formatted_image'] = 'https:' + image
+        # add title to dictionary
+        item_response['title'] = listItems[i].h3.a.text
+        # add authors to dictionary
+        item_response['authors'] = listItems[i].find('div', class_="product-shelf-author").text
+
+        # add current list item to the overall dictionary
+        returnList[i] = item_response
+
+    # create dictionary for display on BookClubApp_toplist.html
+    context = {
+        'returnList': returnList,
+    }
+
+    return render(request, 'BookClubApp/BookClubApp_toplist.html', context)
+
+
+# add one to the key value
+def add(value):
+    newValue = value + 1
+
+    return newValue

@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ConcertForm, OrchestraForm, PieceForm, ConductorForm
 from .models import Concert, Piece, Conductor, Orchestra
 import requests
+from bs4 import BeautifulSoup
+
+
 # Create your views here.
 
 
@@ -129,6 +132,49 @@ def edit_conductor(request, pk):
     return render(request, 'UpcomingConcertsApp/edit.html', {'conductor_form': conductor_form})
 
 
+def berlin_scrape(request):
+    page = requests.get('https://www.digitalconcerthall.com/en/live')
+    soup = BeautifulSoup(page.content, 'html.parser')
+    concert_list = soup.find(id="results")
+    list_of_concerts = concert_list.find_all(class_="live")
+    concerts = []
+
+    for concert in list_of_concerts:
+        title = concert.find(class_='concertTitle').get_text()
+
+        artists = concert.find(class_='head')
+        artists_h2 = list(artists.children)[0]
+        artist_entries = [person.get_text() for i, person in enumerate(artists_h2) if i % 2 == 0]
+        # The following accomplishes the same purpose as the above code. Neither is perfect,
+        # as the below has nested loops. Above, it grabs the h2 element below the class called "head"
+        # and then loops through the list skipping every other entry, which happens to be a <br> tag.
+        # artist_entries = []
+        # artist_list = concert.find_all('div', class_='head')
+        # for artists in artist_list:
+        #     artist = artists.select('h2 span')
+        #     for i in artist:
+        #         artist_entries.append(i.get_text())
+
+        stars = concert.find_all(class_='stars')
+        star_entries = [person.get_text() for person in stars]
+
+        work_list = []
+        work_html = concert.find_all(class_='work')
+        for works in work_html:
+            work = works.select('h3')
+            for w in work:
+                work_list.append(w.get_text())
+
+        a_tag = concert.find_all('a')
+        link = a_tag[0].get('href')
+
+        concert_info = {'title': title, 'artists': artist_entries,
+                        'stars': star_entries, 'work_list': work_list, 'link': link}
+        concerts.append(concert_info)
+
+    return render(request, 'UpcomingConcertsApp/scraped_concerts.html', {'concerts': concerts})
+
+
 def open_opus(request):
     composer_data = {}
     work_data = {}
@@ -150,4 +196,3 @@ def open_opus(request):
 
     return render(request, 'UpcomingConcertsApp/api_classical_music.html',
                   {'composer_data': composer_data, 'work_data': work_data})
-
