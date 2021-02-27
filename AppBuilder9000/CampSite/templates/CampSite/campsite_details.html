@@ -1,0 +1,37 @@
+{% extends "CampSite/CampSite_base.html" %}
+{% load static %}
+
+{% block title %} Browse Campsites {% endblock %}
+
+{% block hero-text %} Discover the best campsites for your next Northwest adventure! {% endblock %}
+
+
+{% block content%}
+
+<div class="card">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h4 class="card-title">{{ campsite.name }}, {{ campsite.state }}</h4>
+    <p class="card-text">{{ campsite.description }}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Type: &nbsp  {{ campsite.type }}</li>
+    <li class="list-group-item">Access: &nbsp  {{ campsite.access }}</li>
+    <li class="list-group-item">Fee: &nbsp  {{ campsite.fee }}</li>
+  </ul>
+  <div class="card-body">
+      <h5 class="card-text directions">Directions:</h5>
+      <p class="card-text">{{ campsite.directions }}</p>
+  </div>
+    <div class="card-body text-center">
+      <a href="#" class="btn btn-primary">Edit</a>
+      <a href="#" class="btn btn-primary">Delete</a>
+    </div>
+    <div class="card-body text-center">
+      <a href="{% url 'browse' %}" class="btn btn-primary">Back to Browse</a>
+
+    </div>
+</div>
+
+{% endblock %}
+
