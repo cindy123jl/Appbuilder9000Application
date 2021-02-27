@@ -1,7 +1,7 @@
 {% extends "CampSite/CampSite_base.html" %}
 {% load static %}
 
-{% block title %} Browse Campsites {% endblock %}
+{% block title %} Details {% endblock %}
 
 {% block hero-text %} Discover the best campsites for your next Northwest adventure! {% endblock %}
 
@@ -24,7 +24,7 @@
       <p class="card-text">{{ campsite.directions }}</p>
   </div>
     <div class="card-body text-center">
-      <a href="#" class="btn btn-primary">Edit</a>
+      <a href="{% url 'edit_campsite' campsite.id %}" class="btn btn-primary">Edit</a>
       <a href="#" class="btn btn-primary">Delete</a>
     </div>
     <div class="card-body text-center">

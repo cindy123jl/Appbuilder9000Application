@@ -1,0 +1,37 @@
+{% load crispy_forms_tags %}
+    <div class="form_container">
+        <h1 class="add_form_header">Campsite Info</h1>
+        <form class='add_campsite' method="POST" action="">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group col-md-6 mb-0">
+                    {{ form.name|as_crispy_field }}
+                </div>
+                <div class="form-group col-md-2 mb-0">
+                    {{ form.state|as_crispy_field }}
+                </div>
+            </div>
+            <div class="form-row text-center">
+                <div class="form-group col-md-4 mb-0">
+                    {{ form.access|as_crispy_field }}
+                </div>
+                <div class="form-group col-md-4 mb-0">
+                    {{ form.type|as_crispy_field }}
+                </div>
+                <div class="form-group col-md-2 mb-0">
+                    {{ form.fee|as_crispy_field }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Description:</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">{{ form.description|as_crispy_field }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Directions:</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">{{ form.directions|as_crispy_field }}</textarea>
+            </div>
+            {{ form|crispy }}
+            <button id="new_site_button" type="submit" name="Save_Site">Add New Site!</button>
+        </form>
+        <br>
+    </div>
