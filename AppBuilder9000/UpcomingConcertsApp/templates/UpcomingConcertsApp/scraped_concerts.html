@@ -5,7 +5,7 @@
 {% block sub-body %}
 
 
-
+<h2>Upcoming Concerts at the Berlin Philharmonic</h2>
 <div class="row">
 {% for concert in concerts %}
     <div class="col-lg-3">
@@ -28,7 +28,7 @@
                     {% endfor %}
 
                 </p>
-                <a href="https://www.digitalconcerthall.com/{{ concert.link }}" class="btn btn-primary">View Concert</a>
+                <a href="https://www.digitalconcerthall.com/{{ concert.link }}" target="_blank" class="btn btn-primary">View Concert</a>
             </div>
         </div>
     </div>

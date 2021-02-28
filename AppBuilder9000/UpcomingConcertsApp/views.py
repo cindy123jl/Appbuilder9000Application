@@ -214,6 +214,13 @@ def open_opus(request):
                       "If so, try more general search criteria for the works, or " \
                       "leave it empty. "
 
+    elif 'list_by_period' in request.GET:
+        composers = request.GET['period']
+        url = 'https://api.openopus.org/composer/list/epoch/' + composers + '.json'
+        response = requests.get(url)
+        search_result = response.json()
+        composer_data = search_result['composers']
+
     return render(request, 'UpcomingConcertsApp/api_classical_music.html',
                   {'composer_data': composer_data, 'work_data': work_data,
                    'popular_composers': p_composers, 'success': success})
