@@ -178,21 +178,42 @@ def berlin_scrape(request):
 def open_opus(request):
     composer_data = {}
     work_data = {}
+    success = ""
+    pc_response = requests.get('https://api.openopus.org/composer/list/pop.json')
+    pc_result = pc_response.json()
+    popular_composers = pc_result['composers']
+    count = 0
+    p_composers = []
+    for composer in popular_composers:
+        if count < 5:
+            p_composers.append(composer)
+            count += 1
+
     if 'find_composer' in request.GET:
-        search_criteria = request.GET['composer']
-        url = 'https://api.openopus.org/composer/list/search/' + search_criteria + '.json'
-        response = requests.get(url)
-        search_result = response.json()
-        composer_data = search_result['composers']
+        try:
+            search_criteria = request.GET['composer']
+            url = 'https://api.openopus.org/composer/list/search/' + search_criteria + '.json'
+            response = requests.get(url)
+            search_result = response.json()
+            composer_data = search_result['composers']
+        except KeyError:
+            success = "That didn't return a valid response. Try a more general search"
     elif 'find_works' in request.GET:
-        works = request.GET['works']
-        composer = request.GET['work_composer']
-        url = 'https://api.openopus.org/work/list/composer/' + composer + \
-              '/genre/all/search/' + works + '.json'
-        response = requests.get(url)
-        search_result = response.json()
-        composer_data = [search_result['composer']]
-        work_data = search_result['works']
+        try:
+            works = request.GET['works']
+            composer = request.GET['work_composer']
+            url = 'https://api.openopus.org/work/list/composer/' + composer + \
+                  '/genre/all/search/' + works + '.json'
+            response = requests.get(url)
+            search_result = response.json()
+            composer_data = [search_result['composer']]
+            work_data = search_result['works']
+        except KeyError:
+            success = "That didn't return a valid response.\n" \
+                      "Did you look up the composer first and enter their id?\n" \
+                      "If so, try more general search criteria for the works, or " \
+                      "leave it empty. "
 
     return render(request, 'UpcomingConcertsApp/api_classical_music.html',
-                  {'composer_data': composer_data, 'work_data': work_data})
+                  {'composer_data': composer_data, 'work_data': work_data,
+                   'popular_composers': p_composers, 'success': success})
