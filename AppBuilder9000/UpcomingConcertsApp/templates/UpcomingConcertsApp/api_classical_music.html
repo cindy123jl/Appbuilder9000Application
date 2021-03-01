@@ -1,0 +1,60 @@
+{% extends 'UpcomingConcertsApp\sub_pages_base.html' %}
+
+{% block title %}Classical Music{% endblock %}
+{% block page-title %}Classical Music{% endblock %}
+{% block sub-body %}
+<h2>Find a Composer</h2>
+<p>Please type in as much of the composer's name as you remember.
+    You can even only do the first few letters</p>
+<form method="GET">
+    <input type="text" name="composer">
+    <button type="submit" name="find_composer">Find Composer</button>
+</form>
+<h2>Find Works</h2>
+<form method="GET">
+    <input type="text" name="works" placeholder="Piece name or type (ie: sonata)"><br><br>
+    <input type="text" name="work_composer" placeholder="composer id#">
+    <p>To find the composer's ID number, first look them up using the
+    "Find a composer" form</p>
+    <button type="submit" name="find_works">Find Works</button>
+</form>
+
+{% if composer_data %}
+{% if work_data %} <!-- if we are displaying a work, I wanted a title for the composer-->
+<h2>Composer</h2>
+{% endif %}
+
+{% for dict in composer_data %}
+<h4>Complete Name/ID #</h4>
+<p>{{ dict.complete_name }}
+    <br>ID#: {{ dict.id }}<br>
+</p>
+<h4>Birth</h4>
+{{ dict.birth }}<br>
+<h4>Death</h4>
+{{ dict.death }}<br>
+<h4>Epoch</h4>
+{{ dict.epoch }}<br>
+<h4>Portrait</h4>
+<a href="{{ dict.portrait }}" target="_blank">{{ dict.portrait }}</a>
+{% endfor %}
+{% endif %}
+
+{% if work_data %}
+<h2>Pieces:</h2>
+{% for dict in work_data %}
+<h4>Title</h4>
+{{ dict.title }}<br>
+{% if dict.subtitle %}
+<h4>Subtitle</h4>
+{{ dict.subtitle }}<br>
+{% endif %}
+<h4>Genre</h4>
+{{ dict.genre }}<br>
+<br>
+<hr>
+<br>
+{% endfor %}
+{% endif %}
+
+{% endblock %}
