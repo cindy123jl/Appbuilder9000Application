@@ -4,8 +4,10 @@
 
 {% block content %}
     <div class="content">
+        <h1>Read Books</h1>
         <!-- iterate through books -->
          <div class="booklist">
+             <p>Keep track of the books you've read by simply adding them to your list. To add books, click on the Add Book button. </p>
             {% for book in books %}
              <div class="card">
                 <h4 class="card-header">
@@ -14,7 +16,9 @@
                     <a class="icon" id="delete-icon" href="{% url 'BookClubApp_edit' pk=book.pk %}"><i class="fas fa-edit" title="Edit"></i></a>
                 </h4>
                  <div class="card-body">
-                    <p class="card-title"><em>{{ book.author }}</em></p>
+                     {% for author in book.authors_as_list %}
+                        <p class="card-title"><em>{{ author|cut:","|cut:"["|cut:"]" }}</em></p>
+                     {% endfor %}
                  </div>
              </div>
             {% endfor %}

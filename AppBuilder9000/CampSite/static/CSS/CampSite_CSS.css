@@ -1,0 +1,183 @@
+body {
+    background-image: url('/static/images/mountain2.jpg')
+}
+/*====================
+       NAV BAR
+=====================*/
+
+.navbar {
+    overflow: hidden;
+    margin: 0% auto;
+    margin-right: 0px;
+    background-color: antiquewhite;
+    border-bottom: ridge #3c2c05 .2vw;
+    width: 100%;
+    height: 4vw;
+    top: 0px;
+    position: fixed;
+    z-index: 1;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: darkgreen;
+    height: 4vw;
+    text-decoration: none;
+    font-size: 1.7vw;
+    font-weight: bold;
+    font-family: fantasy;
+    font-variant: small-caps;
+    text-shadow: 1px 1px 2px darkslategray;
+    text-align: center;
+    position: relative;
+    letter-spacing: .1vw;
+}
+
+.navbar li {
+    text-decoration: none;
+
+}
+
+/*=======================
+        HERO IMAGE
+========================*/
+.hero-image {
+    position: relative;
+    background-image: url('/static/images/CampSite2.jpg');
+    height: 60vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: .8;
+
+}
+.hero-text {
+    position: absolute;
+    text-align: center;
+    margin-top: 12.5%;
+    margin-left: 4.5%;
+    font-family: fantasy;
+    font-variant: small-caps;
+    font-size: 3.2vw;
+    font-weight: bolder;
+    text-shadow: 3px 3px 1px rgb(72, 57, 3);
+    color: white;
+    z-index: 2;
+}
+
+/*===============================
+            FOOTER
+================================*/
+.footer {
+    background-color: #3c2c05;
+    color:antiquewhite;
+    text-shadow: 2px 2px 8px 0 (0,0,0,0.4);
+    padding: 20px 50px 20px 50px;
+    text-align: center;
+    width: 100%;
+    height: 4vw;
+    position: sticky;
+    bottom: 0;
+    z-index: 2;
+
+}
+
+/*===============================
+        FORM CONTAINERS
+================================*/
+
+.add_form_header {
+    text-align: center;
+    color: darkgreen;
+    font-family: fantasy;
+    font-variant: small-caps;
+}
+
+.form_container {
+    width: 60%;
+    margin: 4vw auto 200px auto;
+    text-align: center;
+    display: block;
+    border: #3c2c05 1vw;
+    background-color: antiquewhite;
+    color: darkgreen
+    text-shadow: 2px 2px 4px darkslategray;
+    box-shadow: 1px 5px 5px 1px lightgray;
+}
+
+.add_campsite {
+    padding-top: 3vw;
+    color: darkgreen;
+    font-family: aria;
+    font-variat: small-caps;
+    font-weight: bold;
+    font-size: 1.5vw;
+}
+
+#new_site_button {
+    background-color: #3c2c05;
+    color: white;
+    height: 8vh;
+}
+
+/*===============================
+        BROWSE CAMPSITES
+================================*/
+
+.table_header {
+    text-align: center;
+    font-family: fantasy;
+    color: darkgreen;
+    font-variant: small-caps;
+    font-weight: bolder;
+    font-size: 6vh;
+ }
+
+ #header_row {
+    font-family: fantasy;
+    color: darkgreen;
+    font-variant: small-caps;
+    font-weight: bolder;
+    font-size: 3.5vh;
+ }
+
+ #browse_table {
+    margin-left: 25%;
+    margin-bottom: 15vh;
+ }
+
+/*===============================
+       CAMPSITE DETAILS
+================================*/
+
+.card {
+    width: 35%;
+    float: center;
+    margin-left: 30vw;
+    margin-top: 4vw;
+    margin-bottom: 4vw;
+    background-color: rgba(250,235,215,0.8);
+    color: darkgreen;
+    text-shadow: 1px 1px 1px 2px darkslategray;
+    box-shadow: 1px 5px 5px 1px lightgray;
+}
+
+.card-title {
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #3c2c05;
+    color: white;
+    border: white;
+    align-content: center;
+}
+
+.list-group-item{
+    text-align: center;
+}
+
+.list-group-item {
+    background-color: rgba(249,244,238,0.8);
+}

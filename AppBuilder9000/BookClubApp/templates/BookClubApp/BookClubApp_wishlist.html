@@ -1,0 +1,30 @@
+{% extends "BookClubApp/BookClubApp_base.html" %}
+{% load static %}
+{% block title %}Wishlist{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <h1>Wishlist</h1>
+        <!-- iterate through books -->
+         <div class="booklist">
+             <p>Have a book you want to read but don't have time right now? Add it to your wishlist so you can access it later! To add books, click on the Add Book button.</p>
+            {% for book in books %}
+             <div class="card">
+                <h4 class="card-header">
+                    <a href="{{ book.get_absolute_url }}">{{ book.title }}</a>
+                    <a class="icon" href="{% url 'BookClubApp_delete' pk=book.pk %}"><i class="fas fa-minus-circle" title="Delete"></i></a>
+                    <a class="icon" href="{% url 'BookClubApp_MarkRead' pk=book.pk read=book.read %}"><i class="far fa-check-square" title="Mark Read"></i></a>
+                </h4>
+                 <div class="card-body">
+                     {% for author in book.authors_as_list %}
+                        <!--some authors are returned in a format that looks like a list but is saved as a string,
+                        so the cut method removes extra characters-->
+                        <p class="card-title"><em>{{ author|cut:","|cut:"["|cut:"]" }}</em></p>
+                     {% endfor %}
+                 </div>
+             </div>
+            {% endfor %}
+        </div>
+        <a class="btn btn-secondary" href="{% url 'BookClubApp_searchForm' %}">Add Book</a>
+    </div>
+{% endblock %}

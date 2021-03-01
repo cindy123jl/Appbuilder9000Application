@@ -71,3 +71,38 @@ footer {
 .flex-child {
     padding: 50px;
 }
+
+.works {
+    margin-top: 15px;
+}
+
+.details_block {
+    margin: auto;
+    width: 50%;
+    padding: 40px 100px;
+    background-color: #d6d6c2;
+}
+
+.details_program {
+    margin-top: 30px;
+}
+
+.details_button {
+    margin-top: 30px;
+}
+
+.card {
+    margin: 20px;
+    width: 18rem;
+}
+
+.flex-box {
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 800px) {
+  .flex-box {
+    flex-direction: column;
+  }
+}
