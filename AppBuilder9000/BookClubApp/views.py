@@ -248,6 +248,7 @@ def BookClubApp_scraping(request):
     # create dictionary for display on BookClubApp_toplist.html
     context = {
         'returnList': returnList,
+        'form': WishlistForm(),
     }
 
     return render(request, 'BookClubApp/BookClubApp_toplist.html', context)
