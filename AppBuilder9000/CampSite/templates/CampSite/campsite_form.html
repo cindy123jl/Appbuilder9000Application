@@ -23,14 +23,11 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="exampleFormControlTextarea1">Description:</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">{{ form.description|as_crispy_field }}</textarea>
+                {{ form.description|as_crispy_field }}
             </div>
             <div class="form-group">
-                <label for="exampleFormControlTextarea1">Directions:</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">{{ form.directions|as_crispy_field }}</textarea>
+                {{ form.directions|as_crispy_field }}
             </div>
-            {{ form|crispy }}
             <button id="new_site_button" type="submit" name="Save_Site">Add New Site!</button>
         </form>
         <br>
