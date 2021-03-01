@@ -4,6 +4,7 @@ from .forms import BookForm, SearchForm, WishlistForm
 from BookClubApp.models import Book
 from django import template
 from bs4 import BeautifulSoup
+from django.core.paginator import Paginator
 
 
 
@@ -24,8 +25,19 @@ def BookClubApp_about(request):
 def BookClubApp_booklist(request):
     # will return read book items from database
     data = Book.objects.filter(read=True)
+    # get current page number
+    page = request.GET.get('page', 1)
+    # set max results to show per page
+    paginator = Paginator(data, 3)
+    # set paginator attributes
+    try:
+        books = paginator.page(page)
+    except PageNotAnInteger:
+        books = paginator.page(1)
+    except EmptyPage:
+        books = paginator.page(paginator.num_pages)
     books = {
-        "books": data
+        "books": books
     }
     return render(request, 'BookClubApp/BookClubApp_booklist.html', books)
 
@@ -45,7 +57,7 @@ def BookClubApp_explore(request):
             # get search term from form
             searchTerm = form.cleaned_data['searchTerm']
             # add search term to google books api url
-            api_response = requests.get('https://www.googleapis.com/books/v1/volumes?q=' + searchTerm + '&maxResults=20')
+            api_response = requests.get('https://www.googleapis.com/books/v1/volumes?q=' + searchTerm + '&maxResults=18')
             # get json response
             jsonData = api_response.json()['items']
 
@@ -179,9 +191,21 @@ def BookClubApp_AddBookWishlist(request):
 def BookClubApp_wishlist(request):
     # will return book items from database where read is false
     data = Book.objects.filter(read=False)
+    # get current page number
+    page = request.GET.get('page', 1)
+    # set max results to show per page
+    paginator = Paginator(data, 3)
+    # set paginator attributes
+    try:
+        books = paginator.page(page)
+    except PageNotAnInteger:
+        books = paginator.page(1)
+    except EmptyPage:
+        books = paginator.page(paginator.num_pages)
     books = {
-        "books": data
+        "books": books
     }
+
     return render(request, 'BookClubApp/BookClubApp_wishlist.html', books)
 
 

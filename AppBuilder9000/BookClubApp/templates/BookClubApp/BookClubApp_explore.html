@@ -1,13 +1,15 @@
 {% extends "BookClubApp/BookClubApp_base.html" %}
 {% load static %}
 {% block title %}Explore New Books{% endblock %}
-
+{% block header%}Search Results{% endblock %}
 {% block content %}
 <div class="content">
-    <h1>Search Results</h1>
-    <h2>Results for: {{searchTerm}}</h2>
-    <p>Add titles to your Wishlist!</p>
-    <p><a href="{% url 'BookClubApp_searchForm' %}">Back to search form</a></p>
+    <div class="section">
+        <p class="eighty">Add titles you'd like to read in future to your wishlist by clicking on the Add to Wishlist button. Books added will appear on the <a href="{% url 'BookClubApp_AddBookWishlist' %}">Wishlist</a> page.</p>
+    </div>
+    <h2 class="eighty" style="margin-top:50px;">Results for: {{searchTerm}}</h2>
+
+    <p class="eighty"><a href="{% url 'BookClubApp_searchForm' %}">Back to search form</a></p>
 
     <div class="search-results">
         {% for key, value in responseData.items %}
@@ -44,4 +46,5 @@
         {% endfor %}
     </div>
 </div>
+
 {% endblock %}
