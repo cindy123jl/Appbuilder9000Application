@@ -3,21 +3,57 @@
 {% block title %}Classical Music{% endblock %}
 {% block page-title %}Classical Music{% endblock %}
 {% block sub-body %}
-<h2>Find a Composer</h2>
-<p>Please type in as much of the composer's name as you remember.
-    You can even only do the first few letters</p>
-<form method="GET">
-    <input type="text" name="composer">
-    <button type="submit" name="find_composer">Find Composer</button>
-</form>
-<h2>Find Works</h2>
-<form method="GET">
-    <input type="text" name="works" placeholder="Piece name or type (ie: sonata)"><br><br>
-    <input type="text" name="work_composer" placeholder="composer id#">
-    <p>To find the composer's ID number, first look them up using the
-    "Find a composer" form</p>
-    <button type="submit" name="find_works">Find Works</button>
-</form>
+<div class="row">
+    <div class="col-lg-8">
+        {% if success %}
+        <div class="alert alert-warning" role="alert">
+            {{ success }}
+        </div>
+        {% endif %}
+        <h2>Find a Composer</h2>
+        <p>Please type in as much of the composer's name as you remember.
+            You can even only do the first few letters</p>
+        <form method="GET">
+            <input type="text" name="composer">
+            <button type="submit" name="find_composer">Find Composer</button>
+        </form>
+        <h2 class="find_works">Find Works</h2>
+        <form method="GET">
+            <input type="text" name="works" placeholder="Piece name or type (ie: sonata)"><br><br>
+            <input type="text" name="work_composer" placeholder="composer id#">
+            <p>To find the composer's ID number, first look them up using the
+            "Find a composer" form</p>
+            <button type="submit" name="find_works">Find Works</button>
+        </form>
+        <h2 class="find_works">List composers by period</h2>
+        <form method="GET">
+            <label for="period">Choose a period:</label>
+            <select name="period" id="period">
+                <option value="Medieval">Medieval</option>
+                <option value="Renaissance">Renaissance</option>
+                <option value="Baroque">Baroque</option>
+                <option value="Early Romantic">Early Romantic</option>
+                <option value="Romantic">Romantic</option>
+                <option value="Late Romantic">Late Romantic</option>
+                <option value="20th Century">20th Century</option>
+                <option value="Post-War">Post-War</option>
+                <option value="21st Century">21st Century</option>
+            </select>
+          <br><br>
+          <input type="submit" name="list_by_period" value="Submit">
+        </form>
+
+    </div>
+    <div clas="col-lg-4">
+        <h2>Popular Composers</h2>
+        {% for dict in popular_composers %}
+        <p><strong>Name:</strong> {{ dict.complete_name }}<br>
+        <strong>Era:</strong> {{ dict.epoch }}</p>
+        <hr>
+        {% endfor %}
+    </div>
+
+</div>
 
 {% if composer_data %}
 {% if work_data %} <!-- if we are displaying a work, I wanted a title for the composer-->
@@ -37,11 +73,15 @@
 {{ dict.epoch }}<br>
 <h4>Portrait</h4>
 <a href="{{ dict.portrait }}" target="_blank">{{ dict.portrait }}</a>
+<br><br>
+<hr>
+<br>
 {% endfor %}
 {% endif %}
 
 {% if work_data %}
-<h2>Pieces:</h2>
+<p></p>
+<h2 cass="find_works">Pieces:</h2>
 {% for dict in work_data %}
 <h4>Title</h4>
 {{ dict.title }}<br>
