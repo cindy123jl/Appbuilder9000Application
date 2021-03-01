@@ -207,16 +207,22 @@ body {
     margin-left: 30vw;
     margin-top: 4vw;
     margin-bottom: 4vw;
-    color: white;
+    color: darkgreen;
     text-shadow: 2px 2px 2px 2px darkslategray;
     box-shadow: 1px 5px 5px 1px darkgray;
     border-radius: 20px;
     font-size: 3.5vh;
 }
 
+.card-inner{
+    background-color: white;
+    border-radius: 20px;
+    margin: 4vh;
+}
+
 .card-title {
     text-align: center;
-    font-size: 6vh;
+    font-size: 5vh;
 }
 
 .card-text directions{
@@ -231,12 +237,32 @@ body {
     padding-top: 2.5vh;
 }
 
+#edit {
+    background-color: darkgreen;
+    width: 9vw;
+    height: 8vh;
+    padding-top: 2.2vh
+}
+
+#delete {
+    width: 9vw;
+    height: 8vh;
+}
+
+#browse {
+    width: 18vw;
+    height: 8vh;
+    margin-top: 1vh;
+    padding-top: 2vh
+}
+
 .btn-primary {
     background-color: #3c2c05;
     color: white;
     border: white;
     align-content: center;
 }
+
 
 .cancelBtn {
     background-color: red;
