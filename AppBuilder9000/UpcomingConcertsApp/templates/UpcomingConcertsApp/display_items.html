@@ -14,7 +14,7 @@
             <h6 class="card-subtitle mb-2 text-muted">{{ event.date }}</h6>
             <p class="card-text">{{ event.orchestra }}</p>
             <a href="{{ event.id }}/details" class="btn btn-dark">View</a>
-            <a href="{% url 'edit_event' pk=event.id %}" class="btn btn-dark"">Edit</a>
+            <a href="{% url 'edit_event' pk=event.id %}" class="btn btn-dark">Edit</a>
         </div>
     </div>
     {% endfor %}
