@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import JsonResponse
 from .forms import CampsiteForm
 from .models import Campsite
+from bs4 import BeautifulSoup
+import requests
+
 
 
 def campsite_home(request):
@@ -52,6 +54,21 @@ def delete_campsite(request, campsite_id):
     campsite = get_object_or_404(Campsite, pk=campsite_id)
     campsite.delete()
     return redirect('browse')
+
+def bs_scrape(request):
+    # Get forest service page with list of campsites
+    page = requests.get("https://www.fs.usda.gov/activity/mthood/recreation/camping-cabins/?recid=52770&actid=29")
+    # Use Beautiful Soup to parse html
+    soup = BeautifulSoup(page.content, 'html.parser')
+    # Find all unordered lists (campsites will be one of them)
+    lists = soup.find_all('ul')
+    # Using index, single out list of campsites
+    campsites_list = list(lists)[5]
+    # Find all 'a' elements in campsites_list to get campsite names
+    campsites = campsites_list.find_all('a')
+    print(campsites)
+    return render(request, 'CampSite/CampSite_nationalForest.html')
+
 
 
 
