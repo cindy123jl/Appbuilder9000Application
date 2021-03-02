@@ -4,4 +4,4 @@ from django.http import HttpResponse
 # Create your views here.
 
 def index(request):
-    return HttpResponse("Hiiii you are in the index.")
+    return render(request, 'quantumapp/quantumapp_home.html')
