@@ -56,14 +56,18 @@ def delete_campsite(request, campsite_id):
     return redirect('browse')
 
 def bs_scrape(request):
-    # Get forest service page with list of campsites, assign to variable
+    # Get forest service page with list of campsites
     page = requests.get("https://www.fs.usda.gov/activity/mthood/recreation/camping-cabins/?recid=52770&actid=29")
-    print(page.status_code)
     # Use Beautiful Soup to parse html
     soup = BeautifulSoup(page.content, 'html.parser')
-
-    print(soup.prettify)
-    return render(request, 'CampSite_nationalForest')
+    # Find all unordered lists (campsites will be one of them)
+    lists = soup.find_all('ul')
+    # Using index, single out list of campsites
+    campsites_list = list(lists)[5]
+    # Find all 'a' elements in campsites_list to get campsite names
+    campsites = campsites_list.find_all('a')
+    print(campsites)
+    return render(request, 'CampSite/CampSite_nationalForest.html')
 
 
 
