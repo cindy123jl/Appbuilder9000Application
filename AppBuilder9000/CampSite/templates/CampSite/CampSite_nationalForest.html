@@ -8,6 +8,21 @@
 
 
 {% block content%}
-
-
+    <h2 class="table_header">National Forest Sites:</h2>
+    <table class="table table-responsive">
+        <tr id="header_row">
+            <th>Site Name</th>
+            <th>Access</th>
+            <th>Type</th>
+            <th>Link</th>
+        </tr>
+        <tr>
+            {% for key, value in sites_info.items %}
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            {% endblock %}
+        </tr>
+    </table>
 {% endblock %}
