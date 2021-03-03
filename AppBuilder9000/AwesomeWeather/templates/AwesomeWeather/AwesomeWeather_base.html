@@ -1,13 +1,15 @@
 {% load static %}
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>What's the weather like?</title>
+    <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
 </head>
+
+    {% include 'AwesomeWeather/AwesomeWeather_navbar.html' %}
 
 
 <body>
@@ -15,7 +17,7 @@
         <div class="hero-body">
             <div class="container">
                 <h1 class="title">
-                    What's the weather like?
+                   {% block header %}{% endblock %}
                 </h1>
             </div>
         </div>
@@ -24,20 +26,7 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-offset-4 is-4">
-                    <form method="POST">
-                        {% csrf_token %}
-                        <div class="field has-addons">
-                            <div class="control is-expanded">
-                                    {{ form.name }}
-
-                            </div>
-                            <div class="control">
-                                <button type="submit" class="button is-info">
-                                    Add City
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    {% block content %}{% endblock %}
                 </div>
             </div>
         </div>
@@ -51,7 +40,7 @@
                         <article class="media">
                             <div class="media-left">
                                 <figure class="image is-50x50">
-                                    <img src="http://openweathermap.org/img/w/{{ city_weather.icon }}.png" alt="Image">
+                                    <img src="http://openweathermap.org/img/w/10d.png" alt="Image">
                                 </figure>
                             </div>
                             <div class="media-content">
