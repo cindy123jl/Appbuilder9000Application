@@ -1,7 +1,74 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
+from .forms import CampsiteForm
+from .models import Campsite
+from bs4 import BeautifulSoup
+import requests
 
 
-def CampSite_home(request):
+
+def campsite_home(request):
     return render(request, 'CampSite/CampSite_home.html')
 
-# Create your views here.
+# Add a new campsite to the dB
+def add_campsite(request):
+    form = CampsiteForm(request.POST or None, request.FILES)
+    if request.method == 'POST':
+        print('method is POST')
+        if form.is_valid():
+            print('form is valid')
+            form.save()
+            return redirect('browse')
+    context = {'form': form}
+    return render(request, 'CampSite/add_campsite.html', context)
+
+# Show list of all campsites in dB
+def browse(request):
+    campsite = Campsite.Campsites.all()
+    context = {'campsite': campsite}
+    return render(request, 'CampSite/browse_campsites.html', context)
+
+# Get campsite details from browse page
+def campsite_details(request, campsite_id):
+    campsite = get_object_or_404(Campsite, pk=campsite_id)
+    context = {'campsite': campsite}
+    return render(request, 'Campsite/campsite_details.html', context)
+
+# Edit campsite from details page
+def edit_campsite(request, campsite_id):
+    # Get campsite object from dB via id
+    campsite = get_object_or_404(Campsite, pk=campsite_id)
+    if request.method == 'POST':
+        # Display info for campsite instance as form
+        form = CampsiteForm(data=request.POST, instance=campsite)
+        if form.is_valid():
+            # Save changes if form is valid and redirect back to details page (w/ updates)
+            form.save()
+            return redirect('campsite_details', campsite.id)
+    else:
+        form = CampsiteForm(instance=campsite)
+    context = {'form': form}
+    return render(request, 'CampSite/edit_campsite.html', context)
+
+
+def delete_campsite(request, campsite_id):
+    campsite = get_object_or_404(Campsite, pk=campsite_id)
+    campsite.delete()
+    return redirect('browse')
+
+def bs_scrape(request):
+    # Get forest service page with list of campsites
+    page = requests.get("https://www.fs.usda.gov/activity/mthood/recreation/camping-cabins/?recid=52770&actid=29")
+    # Use Beautiful Soup to parse html
+    soup = BeautifulSoup(page.content, 'html.parser')
+    # Find all unordered lists (campsites will be one of them)
+    lists = soup.find_all('ul')
+    # Using index, single out list of campsites
+    campsites_list = list(lists)[5]
+    # Find all 'a' elements in campsites_list to get campsite names
+    campsites = campsites_list.find_all('a')
+    print(campsites)
+    return render(request, 'CampSite/CampSite_nationalForest.html')
+
+
+
+

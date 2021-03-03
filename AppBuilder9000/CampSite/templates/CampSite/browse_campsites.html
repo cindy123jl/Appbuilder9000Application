@@ -1,0 +1,32 @@
+{% extends "CampSite/CampSite_base.html" %}
+{% load static %}
+
+{% block title %} Browse Campsites {% endblock %}
+
+{% block jumbotron-text %} Find <br> Your <br> Spot {% endblock %}
+
+
+{% block content%}
+<br><br>
+			<h2 class="table_header">All Campsites:</h2>
+
+			<table class="table table-responsive" id ="browse_table">
+				<tr id="header_row">
+					<th>Name</th>
+					<th>State</th>
+					<th>Type</th>
+					<th>Access</th>
+					<th>More Info</th>
+				</tr>
+				{% for campsite in campsite %}
+				<tr>
+					<td>{{ campsite.name }}</td>
+					<td>{{ campsite.state }}</td>
+					<td>{{ campsite.type }}</td>
+					<td>{{ campsite.access }}</td>
+					<td><a href="{% url 'campsite_details' campsite.id %}"> Details </a></td>
+				</tr>
+				{% endfor %}
+			</table>
+
+{% endblock %}

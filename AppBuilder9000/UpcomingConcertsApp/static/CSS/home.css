@@ -72,6 +72,14 @@ footer {
     padding: 50px;
 }
 
+.find_works {
+    margin-top: 30px;
+}
+
+.works {
+    margin-top: 15px;
+}
+
 .details_block {
     margin: auto;
     width: 50%;
