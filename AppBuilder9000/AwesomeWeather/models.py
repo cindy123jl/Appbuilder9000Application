@@ -11,4 +11,4 @@ class City(models.Model):
     objects = models.Manager()
 
     class Meta:
-        verbose_name_plural = 'cites'
+        verbose_name_plural = 'cities'
