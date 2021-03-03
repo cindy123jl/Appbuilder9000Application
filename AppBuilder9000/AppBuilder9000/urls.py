@@ -52,6 +52,7 @@ urlpatterns = [
     path('BookClubApp/', include('BookClubApp.urls')),
     path('Coffeeshop/', include('Coffeeshop.urls')),
     path('CampSite/', include('CampSite.urls')),
+    path('quantumapp/', include('quantumapp.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()

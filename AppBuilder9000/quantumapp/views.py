@@ -3,5 +3,5 @@ from django.http import HttpResponse
 
 # Create your views here.
 
-def index(request):
-    return render(request, 'quantumapp/quantumapp_home.html')
+def quantumapp_home(request):
+    return render(request, 'quantumapp/quantum_home.html')
