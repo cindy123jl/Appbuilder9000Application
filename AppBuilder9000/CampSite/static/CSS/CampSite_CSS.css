@@ -299,4 +299,12 @@ body {
     margin-bottom: 2vh;
 }
 
+/*===============================
+            scraped table
+================================*/
+
+#scraped_table {
+    height: 50vh;
+}
+
 

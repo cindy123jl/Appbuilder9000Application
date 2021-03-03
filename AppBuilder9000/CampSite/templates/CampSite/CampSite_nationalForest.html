@@ -9,7 +9,7 @@
 
 {% block content%}
     <h2 class="table_header">National Forest Sites:</h2>
-    <table class="table table-responsive">
+    <table class="table table-responsive" id="scraped_table">
         <tr id="header_row">
             <th>Site Name</th>
             <th>Access</th>
@@ -18,11 +18,11 @@
         </tr>
         <tr>
             {% for key, value in sites_info.items %}
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            {% endblock %}
+            <td>{{ key 0}}:{{ value 0 }}</td>
+            <td>{{ key.access }}</td>
+            <td>{{ key.type }}</td>
+            <td>{{ key.link }}</td>
+            {% endfor %}
         </tr>
     </table>
 {% endblock %}
