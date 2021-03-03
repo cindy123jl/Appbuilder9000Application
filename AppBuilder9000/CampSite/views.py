@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.core.paginator import Paginator
 from .forms import CampsiteForm
 from .models import Campsite
 from bs4 import BeautifulSoup
 import requests
+
 
 
 def campsite_home(request):
@@ -25,7 +27,11 @@ def add_campsite(request):
 # Show list of all campsites in dB
 def browse(request):
     campsite = Campsite.Campsites.all()
-    context = {'campsite': campsite}
+    # Set up pagination
+    paginator = Paginator(campsite, 15)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context = {'page_obj': page_obj}
     return render(request, 'CampSite/browse_campsites.html', context)
 
 
@@ -69,7 +75,7 @@ def bs_scrape(request):
     # Find all 'a' elements in campsites_list to get campsite names and links
     campsites = campsites_list.find_all('a')
     # Dictionary to hold all info about all sites
-    sites_info = {}
+    sites_info = []
 
     for i in range(len(campsites)):
         # Dictionary to hold info about individual sites
@@ -78,11 +84,11 @@ def bs_scrape(request):
         site_details['name'] = campsites[i].get_text()
         # Set campsite type depending on text in site name
         if 'Campground' in site_details['name']:
-            site_type = 'developed'
-            site_access = 'drive-up'
+            site_type = 'Developed'
+            site_access = 'Drive-Up'
         elif 'Trail' in site_details['name']:
-            site_type = 'dispersed'
-            site_access = 'hike-in'
+            site_type = 'Dispersed'
+            site_access = 'Hike-in'
         else:
             site_type = ''
             site_access = ''
@@ -101,12 +107,17 @@ def bs_scrape(request):
             pass
         # Set full links to sites as values of dictionary key 'link'
         site_details['full_link'] = site_full_link
-        sites_info[i] = site_details
+        # Add site details to sites_info array
+        sites_info.append(site_details)
 
+    # Set up pagination
+    paginator = Paginator(sites_info, 15)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
 
     # Dictionary to display NF campsite info on page
     context = {
-        'sites_info': sites_info,
+        'page_obj': page_obj
     }
     print(context)
 
