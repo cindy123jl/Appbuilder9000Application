@@ -21,3 +21,16 @@ quantum_navbar {
     width: 100%;
     float: left;
 }
+
+.background {
+    background-color: dark gray;
+    background-image: url('/static/images/quantum_bit.jpg');
+    background-size: cover;
+    background-attachment:fixed;
+    background-position: center;
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
