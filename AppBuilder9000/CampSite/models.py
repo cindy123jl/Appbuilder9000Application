@@ -45,3 +45,6 @@ class Campsite(models.Model):
         return self.name + "," + self.state
 
 
+
+
+
