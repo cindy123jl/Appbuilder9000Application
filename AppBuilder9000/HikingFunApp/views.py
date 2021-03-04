@@ -4,6 +4,9 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from .models import Trails
 
+from bs4 import BeautifulSoup
+import requests
+
 # This method takes to the homepage of the app.
 def home(request):
     trails = Trails.objects.all()
@@ -84,3 +87,16 @@ def confirmed(request):
             return redirect('hiking_home')
     else:
         return redirect("see_trails")
+
+# This method uses a website and scrapes the relevant information to pass to web_scraping.html
+def web_scraping(request):
+    page = requests.get("https://seattle.curbed.com/maps/seattle-easy-hiking-trails-for-beginners")
+    soup = BeautifulSoup(page.content, 'html.parser')
+    soup.prettify()
+    trail_names = soup.find_all('h1')
+    mylist= []
+    for i in range(len(trail_names)):
+        print(trail_names[i].get_text())
+        mylist.append(trail_names[i].get_text())
+    context = {'trail_names': mylist, }
+    return render(request, "HikingFunApp/web_scraping.html", context)

@@ -68,6 +68,8 @@ INSTALLED_APPS = [
     'HikingFunApp',
     'BookClubApp',
     'Coffeeshop',
+    'CampSite',
+    'AwesomeWeather',
 ]
 
 MIDDLEWARE = [
