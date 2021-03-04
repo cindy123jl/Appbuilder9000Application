@@ -34,3 +34,16 @@ quantum_navbar {
     -o-background-size: cover;
     background-size: cover;
 }
+
+.page_container {
+    flex: 1 1 auto;
+    max-width: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: overlay;  /*--for scrollbar--*/
+  overflow-x: hidden;
+}

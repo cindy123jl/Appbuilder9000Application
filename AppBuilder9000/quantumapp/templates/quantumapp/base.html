@@ -4,15 +4,17 @@
 <html lang="en" class="background">
     <head>
         <meta charset="UTF-8">
-        <title>Quantum Computers</title>
+        <title>{% block title %}{% endblock %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="{% static 'css/quantum_layout.css' %}"
     </head>
 
     <body>
-    {% include "quantumApp/quantum_navbar.html" %}
-    <div class="page_container">
-        <header>
-            <h1>Discover the new generation of computers with new development in technologies</h1>
-        </header>
-
+        {% include "quantumApp/quantum_navbar.html" %}
+        <div class="page_container">
+            <header>
+                <h1>{% block header %}{% endblock %}</h1>
+            </header>
+        {% block content %} {% endblock %}
+    </body>
+</html>
