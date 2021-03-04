@@ -16,7 +16,7 @@ class Drink(models.Model):
     description = models.TextField(max_length=300, default="", blank=True)
     price = models.DecimalField(default=0.00, max_digits=100, decimal_places=2)
 
-    drink = models.Manager()
+    object = models.Manager()
 
     def __str__(self):
         return self.name
