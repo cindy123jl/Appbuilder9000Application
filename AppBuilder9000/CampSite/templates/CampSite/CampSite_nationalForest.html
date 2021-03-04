@@ -21,7 +21,7 @@
             <td>{{ page_obj.name }}</td>
             <td>{{ page_obj.access }}</td>
             <td>{{ page_obj.type }}</td>
-            <td>{{ page_obj.full_link }}</td>
+            <td><a href="{{ page_obj.full_link }}">Details</a></td>
             {% endfor %}›
         </tr>
         <tr>
