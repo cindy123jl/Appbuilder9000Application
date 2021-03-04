@@ -191,10 +191,16 @@ body {
     font-size: 3.5vh;
  }
 
- #browse_table {
-    margin-left: 25%;
-    margin-bottom: 15vh;
+ .browse_table {
+    margin-left: 17.5%;
+
+    background-color: white;
+    width: 65%
  }
+
+#info_column{
+    width: 13vw;
+}
 
 /*===============================
        CAMPSITE DETAILS
@@ -297,6 +303,20 @@ body {
 
 .btn-modal{
     margin-bottom: 2vh;
+}
+
+/*===============================
+            PAGINATION
+================================*/
+
+.pagination {
+    background-color: white;
+    width: 65%;
+    margin-left: 17.5%;
+    margin-bottom: 15vh;
+    padding-left: 22%;
+    align-content: center;
+
 }
 
 
