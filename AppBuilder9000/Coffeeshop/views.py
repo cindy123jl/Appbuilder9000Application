@@ -9,11 +9,8 @@ def coffee_home(request):
 
 
 def current_drinks(request):
-    form = DrinkForm()
-    posts = Drink.objects.all()
-    print(posts)
-
-    return render(request, "Coffeeshop/current_drinks.html")
+    data = Drink.object.all()
+    return render(request, "Coffeeshop/current_drinks.html", {"data": data})
 
 
 def drink_menu(request):
