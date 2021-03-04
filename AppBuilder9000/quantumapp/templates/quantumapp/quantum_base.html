@@ -6,19 +6,15 @@
         <meta charset="UTF-8">
         <title>{% block title %}{% endblock %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/HikingApp_layout.css' %}"
+        <link rel="stylesheet" type="text/css" href="{% static 'css/quantum_layout.css' %}"
     </head>
     <body>
-    {% include "HikingApp/HikingApp_navbar.html" %}
+    {% include "quantumapp/quantum_navbar.html" %}
     <div class="page_container">
         <header>
             <h1>{% block header %}{% endblock %}</h1>
         </header>
         {% block content %} {% endblock %}
-
     </div>
-    {% block footer %}
-    {% include "HikingApp/HikingApp_footer.html" %}
-    {% endblock %}
     </body>
 </html>
