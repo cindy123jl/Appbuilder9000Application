@@ -6,11 +6,11 @@ body {
 =====================*/
 
 .navbar {
-    background-image: url('/static/images/pines.jpg');
+
     overflow: hidden;
     margin: 0% auto;
     margin-right: 0px;
-    background-color: antiquewhite;
+    background-color: rgba(255,255,255,0);
     opacity: 0.9;
     width: 100%;
     height: 4vw;
@@ -26,7 +26,7 @@ body {
     color: white;
     height: 4vw;
     text-decoration: none;
-    font-size: 2.5vw;
+    font-size: 4vh;
     font-weight: bolder;
     font-family: fantasy;
     font-variant: small-caps;
@@ -59,7 +59,7 @@ body {
 .display-4 {
     position: relative;
     text-align: right;
-    margin-top: 17.5%;
+    margin-top: 25.5%;
     font-family: fantasy;
     font-variant: small-caps;
     font-size: 3.2vw;
@@ -73,13 +73,13 @@ body {
             FOOTER
 ================================*/
 .footer {
-    background-color: #3c2c05;
+    background-color: rgba(60,44,5, 0.8);
     color:antiquewhite;
     text-shadow: 2px 2px 8px 0 (0,0,0,0.4);
-    padding: 20px 50px 20px 50px;
+    padding-top: 1vh;
     text-align: center;
     width: 100%;
-    height: 4vw;
+    height: 3vw;
     position: sticky;
     bottom: 0;
     z-index: 2;
@@ -135,7 +135,7 @@ body {
     text-align: center;
     display: block;
     border: #3c2c05 3px;
-    background-image: url('/static/images/bark.jpg');
+    background-color: rgba(60,44,5, 0.8);
     color: white;
     text-shadow: 2px 2px 4px darkslategray;
     box-shadow: 1px 5px 5px 1px darkbrown;
@@ -190,16 +190,27 @@ body {
     font-weight: bolder;
     font-size: 3.5vh;
  }
+  .header_column {
+    padding-left: 4vw;
+  }
 
  .browse_table {
     margin-left: 17.5%;
-
-    background-color: white;
+    padding-left: 12%;
+    background-color: rgba(255,255,255,0.9);
     width: 65%
  }
 
 #info_column{
     width: 13vw;
+}
+#new_site_button2 {
+    background-color: #3c2c05;
+    color: white;
+    height: 8vh;
+    border-radius: 0px;
+    margin-left: 45%;
+    margin-bottom: 6vh;
 }
 
 /*===============================
@@ -207,7 +218,7 @@ body {
 ================================*/
 
 .card {
-    background-image: url('/static/images/bark.jpg');
+    background-color: rgba(60,44,5, 0.8);
     width: 45%;
     float: center;
     margin-left: 30vw;
@@ -221,7 +232,7 @@ body {
 }
 
 .card-inner{
-    background-color: white;
+    background-color: rgba(255,255,255,0.9);
     border-radius: 20px;
     margin: 4vh;
 }
@@ -306,17 +317,36 @@ body {
 }
 
 /*===============================
-            PAGINATION
+          PAGINATION
 ================================*/
 
 .pagination {
-    background-color: white;
+    background-color: rgba(255,255,255,0.9);
     width: 65%;
     margin-left: 17.5%;
-    margin-bottom: 15vh;
-    padding-left: 22%;
-    align-content: center;
+    margin-bottom: 5vh;
+    padding-left: 29%;
+
 
 }
+.current{
+    align-content: center;
+}
+
+/*===============================
+              SEARCH
+================================*/
+.search {
+    text-align: center;
+    height: 40vh;
+    width: 40%;
+    margin-left: 30%;
+    margin-bottom: 6vh;
+    background-color: rgba(255,255,255,0.9);
+    color: darkgreen;
+
+    padding-top: 4%;
+}
+
 
 

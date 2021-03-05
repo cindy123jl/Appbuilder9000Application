@@ -11,17 +11,17 @@
     <h2 class="table_header">National Forest Sites:</h2>
     <table class="table table-responsive browse_table">
         <tr id="header_row">
-            <th>Site Name</th>
-            <th>Access</th>
-            <th>Type</th>
-            <th>Link</th>
+            <th class="header_column">Site Name</th>
+            <th class="header_column">Access</th>
+            <th class="header_column">Type</th>
+            <th class="header_column">Link</th>
         </tr>
-        {% for page_obj in page_obj %}
+        {% for campsite in page_obj %}
         <tr>
-            <td>{{ page_obj.name }}</td>
-            <td>{{ page_obj.access }}</td>
-            <td>{{ page_obj.type }}</td>
-            <td><a href="{{ page_obj.full_link }}">Details</a></td>
+            <td class="header_column"><strong>{{ campsite.name }}</strong></td>
+            <td class="header_column">{{ campsite.access }}</td>
+            <td>{{ campsite.type }}</td>
+            <td><a href="{{ campsite.full_link }}" target="_blank">Details</a></td>
             {% endfor %}›
         </tr>
         <tr>
@@ -36,7 +36,7 @@
             {% endif %}
 
             <span class="current">
-                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
             </span>
 
             {% if page_obj.has_next %}

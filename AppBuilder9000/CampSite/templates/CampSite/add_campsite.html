@@ -38,7 +38,8 @@
             <div class="form-group textarea">
                 {{ form.directions|as_crispy_field }}
             </div>
-            <button id="new_site_button" type="submit" name="Save_Site">Add New Site!</button>
+            <button id="new_site_button" type="submit" name="Save_Site">Save New Site</button><br>
+            <a href="{% url 'browse' %}" class="btn btn-primary" id="browse">Back to Browse</a>
         </form>
         <br>
     </div>
