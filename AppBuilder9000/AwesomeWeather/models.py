@@ -12,3 +12,22 @@ class City(models.Model):
 
     class Meta:
         verbose_name_plural = 'cities'
+
+class Facts(models.Model):
+    state = models.CharField(max_length=200)
+    city = models.CharField(max_length=200)
+    date = models.CharField(max_length=50)
+    event = models.CharField(max_length=200)
+
+
+
+
+
+    fact = models.Manager()
+
+
+
+
+
+
+

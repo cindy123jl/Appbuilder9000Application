@@ -1,0 +1,23 @@
+{% load static %}
+
+<html>
+<body>
+
+
+<form action="" method="POST">
+            {% csrf_token %}
+    <label for="state">State:</label>
+    <input id="state" type="text" name="State">
+    <label for="city">City:</label>
+    <input id="city" type="text" name="City">
+    <label for="date">Date:</label>
+    <input id="date" type="text" name="Date">
+    <label for="event">Event:</label>
+    <input id="event" type="text" name="Event">
+    <input type="submit" value="OK">
+</form>
+
+
+</body>
+</html>
+
