@@ -1,13 +1,32 @@
 import requests
 from django.shortcuts import render
-from .models import City
-from .forms import CityForm
+from .models import City, Facts
+from .forms import CityForm, FactForm
 
 # Create your views here.
+def about(request):
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    return render(request, 'AwesomeWeather/AwesomeWeather_about.html')
 
 
 
 def home(request):
+
+
 
     url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=84ed84d576a60dbcbf4149fa354c5cfe'
 
