@@ -23,7 +23,7 @@ quantum_navbar {
 }
 
 .background {
-    background-color: dark gray;
+    background-color: white;
     background-image: url('/static/images/quantum_bit.jpg');
     background-size: cover;
     background-attachment:fixed;
