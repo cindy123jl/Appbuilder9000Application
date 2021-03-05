@@ -5,18 +5,11 @@ from .forms import CityForm, FactForm
 
 # Create your views here.
 def about(request):
+    if request.method == 'POST':
+        form = FactForm(request.POST)
+        form.save()
 
-
-
-
-
-
-
-
-
-
-
-
+    form = FactForm()
 
 
 

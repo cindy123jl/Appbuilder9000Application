@@ -19,6 +19,9 @@ class Facts(models.Model):
     date = models.CharField(max_length=50)
     event = models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.
+
 
 
 
