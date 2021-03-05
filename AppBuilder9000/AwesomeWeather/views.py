@@ -9,7 +9,13 @@ def about(request):
         form = FactForm(request.POST)
         form.save()
 
-    form = FactForm()
+    form = FactForm
+
+    fact = Facts.fact.all()
+
+
+
+
 
 
 

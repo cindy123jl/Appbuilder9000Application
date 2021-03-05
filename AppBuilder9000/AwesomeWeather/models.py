@@ -20,13 +20,15 @@ class Facts(models.Model):
     event = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.
+        return self.state + self.city + self.date + self.event
 
 
 
 
 
     fact = models.Manager()
+
+
 
 
 
