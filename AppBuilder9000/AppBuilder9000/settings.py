@@ -70,6 +70,7 @@ INSTALLED_APPS = [
     'quantumapp',
     'Coffeeshop',
     'CampSite',
+    'AwesomeWeather',
 ]
 
 MIDDLEWARE = [

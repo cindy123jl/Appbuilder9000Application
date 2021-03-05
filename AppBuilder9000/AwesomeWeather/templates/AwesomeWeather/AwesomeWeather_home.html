@@ -1,0 +1,21 @@
+{% extends "AwesomeWeather\AwesomeWeather_base.html" %}
+{% load static %}
+
+
+{% block title %} AwesomeWeather{% endblock %}
+{% block header %} Enter a city and see the AwesomeWeather app in action!! {% endblock %}
+
+                {% block content %}<form method="POST">
+                        {% csrf_token %}
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                                    {{ form.name }}
+                                <input class="input" type="text" placeholder="City Name">
+                            </div>
+                            <div class="control">
+                                <button class="button is-info">
+                                    Add City
+                                </button>
+                            </div>
+                        </div>
+                    </form>{% endblock %}

@@ -8,6 +8,7 @@ class BookForm(forms.ModelForm):
     read = forms.BooleanField(widget=forms.HiddenInput(), initial=True, required=False)
     # comments is not required on form
     comments = forms.CharField(widget=forms.Textarea, required=False)
+    image = forms.URLField(label="Image Link", required=False)
 
     class Meta:
         model = Book
