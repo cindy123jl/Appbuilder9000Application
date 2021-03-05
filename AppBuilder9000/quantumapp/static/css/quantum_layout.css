@@ -47,3 +47,7 @@ body {
   overflow: overlay;  /*--for scrollbar--*/
   overflow-x: hidden;
 }
+
+block title {
+    color: white;
+}
