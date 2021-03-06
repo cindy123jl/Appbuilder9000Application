@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
-from .forms import CampsiteForm
+from .forms import CampsiteForm, SearchForm
 from .models import Campsite
 from bs4 import BeautifulSoup
 import requests
-
+import json
 
 
 def campsite_home(request):
@@ -74,7 +74,7 @@ def bs_scrape(request):
     campsites_list = list(soup.find_all('ul'))[5]
     # Find all 'a' elements in campsites_list to get campsite names and links
     campsites = campsites_list.find_all('a')
-    # Dictionary to hold all info about all sites
+    # Array to hold all info about all sites
     sites_info = []
 
     for i in range(len(campsites)):
@@ -122,3 +122,54 @@ def bs_scrape(request):
     print(context)
 
     return render(request, 'CampSite/CampSite_nationalForest.html', context)
+
+
+def search_api(request):
+    # variable to hold value of user input
+    user_input = []
+    form = SearchForm(request.POST or None)
+    # Process form data
+    if request.method == 'POST':
+        # Check from validity
+        if form.is_valid():
+            # Set value of user input to a variable, make lower case for error avoidance
+            search_terms = request.POST.get('searchTerms').lower()
+            # Add value of user input to variable for use outside this function
+            user_input.append(search_terms)
+            print(user_input)
+    else:
+        form = SearchForm()
+    if len(user_input) == 0:
+        context = {'form': form}
+
+        return render(request, 'CampSite/CampSite_searchAPI.html', context)
+    else:
+        # Split user input string into individual words
+        split_input = user_input[0].split()
+        # If statement for one-word input to get park code
+        park_code = []
+        if len(split_input) == 1:
+            np_name = split_input[0]
+            np_code = np_name[0:4]
+            park_code.append(np_code)
+        # If statement for multi-word user input to get park code
+        elif len(split_input) >= 2:
+            np_name = split_input[0:2]
+            first_name = np_name[0]
+            second_name = np_name[1]
+            np_code = first_name[0:2] + second_name[0:2]
+            park_code.append(np_code)
+        park_code = park_code[0]
+        key = 'mJEOpAw6zq2D9gtJbecpvFkPecgRhHkf8HEWRLDH'
+        path = 'https://developer.nps.gov'
+        response = requests.get('{}/api/v1/campgrounds?parkCode={}&api_key={}'.format(path, park_code, key))
+        all_sites = response.json()
+        all_sites_pretty = json.dumps(all_sites, sort_keys=True, indent=4)
+
+        # From JSON I will pull out campsite name, description, directions, and lat/long(to display map)
+        print(all_sites_pretty)
+
+        context = {'form': form}
+
+        return render(request, 'CampSite/CampSite_searchAPI.html', context)
+
