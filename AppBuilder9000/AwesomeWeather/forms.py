@@ -1,5 +1,7 @@
 from django.forms import ModelForm, TextInput
 from .models import City, Facts
+from django import forms
+
 
 class CityForm(ModelForm):
     class Meta:
@@ -7,11 +9,14 @@ class CityForm(ModelForm):
         fields = ['name']
         widgets = {'name': TextInput(attrs={'class': 'input', 'placeholder': 'City Name'})}
 
-class FactForm(ModelForm):
+
+class FactForm(forms.ModelForm):
     class Meta:
         model = Facts
         fields = '__all__'
-        widgets = {'__all__': TextInput()}
+
+
+
 
 
 
