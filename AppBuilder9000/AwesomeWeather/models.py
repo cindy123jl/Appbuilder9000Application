@@ -41,6 +41,52 @@ class Facts(models.Model):
     event = models.CharField(max_length=200)
 
     def __str__(self):
+        return self.state
+    objects = models.Manager()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Town = [
+    ("Boaz", "Boaz"),
+    ("Portland", "Portland"),
+    ("Seattle", "Seattle"),
+    ("Miami", "Miami"),
+    ("Hilo", "Hilo"),
+    ("El Paso", "El Paso"),
+        ]
+
+States = [
+    ("AL", "AL"),
+    ("OR", "OR"),
+    ("WA", "WA"),
+    ("FL", "FL"),
+    ("HI", "HI"),
+    ("TX", "TX"),
+
+         ]
+
+
+class Facts(models.Model):
+    state = models.CharField(max_length=200, default="", blank=True, null=False, choices=States)
+    town = models.CharField(max_length=200, choices=Town)
+    date = models.CharField(max_length=50,)
+    event = models.CharField(max_length=200)
+
+    def __str__(self):
         return self.state, self.town, self.date, self.event
     objects = models.Manager()
 

@@ -9,7 +9,7 @@ from .forms import CityForm, FactForm
 def about(request):
     context = {}
     # create object of from
-    form = FactForm(request.POST or None, request.FILES or None)
+    form = FactForm(request.POST)
     # check if form data is valid
     if form.is_valid():
 
@@ -20,7 +20,7 @@ def about(request):
 
 
 def home(request):
-    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=271d1234d3f497eed5b1d80a07b3fcd1'
+    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=84ed84d576a60dbcbf4149fa354c5cfe'
 
     err_msg = ''
     message = ''
@@ -80,6 +80,9 @@ def home(request):
 def delete_city(request, city_name):
     City.objects.get(name=city_name).delete()
 
-    return redirect(request, 'home')
+    return redirect('home')
+
+
+
 
 
