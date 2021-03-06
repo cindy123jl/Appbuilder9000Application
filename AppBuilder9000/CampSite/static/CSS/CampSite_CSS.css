@@ -48,7 +48,7 @@ body {
 ========================*/
 .jumbotron{
     position: relative;
-    background-image: url('/static/images/camp.jpg');
+    background-image: url('/static/images/camp2.jpg');
     height: 80vh;
     background-position: center bottom;
     background-repeat: no-repeat;
