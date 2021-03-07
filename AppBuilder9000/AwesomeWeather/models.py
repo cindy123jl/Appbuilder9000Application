@@ -35,13 +35,12 @@ States = [
 
 
 class Facts(models.Model):
-    state = models.CharField(max_length=200, default="", blank=True, null=False, choices=States)
-    town = models.CharField(max_length=200, choices=Town)
+    state = models.CharField(max_length=200,)
+    town = models.CharField(max_length=200,)
     date = models.CharField(max_length=50,)
     event = models.CharField(max_length=200)
 
-    def __str__(self):
-        return self.state
+
     objects = models.Manager()
 
 

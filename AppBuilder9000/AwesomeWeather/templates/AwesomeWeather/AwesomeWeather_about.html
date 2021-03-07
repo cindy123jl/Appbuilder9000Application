@@ -9,7 +9,6 @@
         <header class="page-header">
             <div class="container">
                 <a href="{% url 'post_new' %}" class="top-menu">
-
                 </a>
                 <h1><a>Awesome Weather Events</a></h1>
             </div>
@@ -17,9 +16,9 @@
         <main class="content container">
             <div class="row">
                 <div class="col">
-                    <h2></h2>
+                    <h2>Awesome Weather Events!</h2>
     <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
+                {{ form.as_p }}
         <button type="submit" class="save btn btn-default">Save</button>
     </form>
                 </div>

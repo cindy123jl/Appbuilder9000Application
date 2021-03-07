@@ -7,16 +7,14 @@ from .forms import CityForm, FactForm
 
 
 def about(request):
-    context = {}
-    # create object of from
-    form = FactForm(request.POST)
-    # check if form data is valid
-    if form.is_valid():
-
-        # save the form data to model
-        form.save()
-    context['form'] = form
-    return render(request, 'AwesomeWeather/AwesomeWeather_about.html', context)
+    if request.method == 'POST':
+        form = FactForm(request.POST)
+        if form.is_valid():
+            post = form.save()
+            post.save()
+    else:
+        form = FactForm()
+    return render(request, 'AwesomeWeather/AwesomeWeather_about.html', {'form': form})
 
 
 def home(request):
