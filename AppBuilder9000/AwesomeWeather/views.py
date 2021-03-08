@@ -1,5 +1,5 @@
 import requests
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from .models import City, Facts
 from .forms import CityForm, FactForm
 
@@ -10,12 +10,15 @@ def about(request):
     if request.method == 'POST':
         form = FactForm(request.POST)
         if form.is_valid():
-            post = form.save()
-            post.save()
+            form = form.save(commit=True)
+            form.save()
+            return HttpResponse("data submitted successfully")
+        else:
+            return render(request, 'AwesomeWeather/AwesomeWeather_about.html', {'form': form})
     else:
-        form = FactForm()
+        form = FactForm(None)
     return render(request, 'AwesomeWeather/AwesomeWeather_about.html', {'form': form})
-
+    
 
 def home(request):
     url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=84ed84d576a60dbcbf4149fa354c5cfe'

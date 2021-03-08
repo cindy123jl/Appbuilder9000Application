@@ -13,7 +13,9 @@ class CityForm(ModelForm):
 class FactForm(forms.ModelForm):
     class Meta:
         model = Facts
-        fields = '__all__'
+        fields = "__all__"
+
+
 
 
 
