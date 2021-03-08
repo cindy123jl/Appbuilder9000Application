@@ -37,9 +37,10 @@ States = [
 class Facts(models.Model):
     state = models.CharField(max_length=200, choices=States)
     town = models.CharField(max_length=200, choices=Town)
-    date = models.CharField(max_length=50,)
+    date = models.CharField(max_length=200)
     event = models.CharField(max_length=200)
 
+    objects = models.Manager()
     db_table = "Facts"
 
 
