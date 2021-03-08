@@ -10,7 +10,7 @@ def about(request):
     if request.method == 'POST':
         form = FactForm(request.POST)
         if form.is_valid():
-            form = form.save(commit=True)
+            form = form.save(commit=False)
             form.save()
             return HttpResponse("data submitted successfully")
         else:
@@ -18,7 +18,7 @@ def about(request):
     else:
         form = FactForm(None)
     return render(request, 'AwesomeWeather/AwesomeWeather_about.html', {'form': form})
-    
+
 
 def home(request):
     url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=84ed84d576a60dbcbf4149fa354c5cfe'
