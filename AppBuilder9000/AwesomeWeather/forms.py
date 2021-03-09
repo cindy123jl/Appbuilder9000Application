@@ -1,4 +1,5 @@
 from django.forms import ModelForm, TextInput
+from django.forms.widgets import DateInput
 from .models import City, Facts
 from django import forms
 
@@ -15,10 +16,8 @@ class FactForm(forms.ModelForm):
         model = Facts
         fields = "__all__"
 
-
-
-
-
+        widgets = {
+            'date': DateInput(attrs={'type': 'date'})}
 
 
 
