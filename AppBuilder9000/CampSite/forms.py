@@ -13,4 +13,9 @@ class CampsiteForm(ModelForm):
         }
 
 
+class SearchForm(forms.Form):
+    searchTerms = forms.CharField(label='National Park:', max_length=50)
+
+
+
 
