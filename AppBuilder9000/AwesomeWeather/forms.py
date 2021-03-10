@@ -15,9 +15,11 @@ class FactForm(forms.ModelForm):
     class Meta:
         model = Facts
         fields = "__all__"
-
         widgets = {
             'date': DateInput(attrs={'type': 'date'})}
+
+
+
 
 
 
