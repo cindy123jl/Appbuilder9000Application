@@ -84,6 +84,10 @@ def delete_city(request, city_name):
     return redirect('home')
 
 
-
+def create(request):
+    objects = Facts.objects.all()
+    context = {'objects': objects}
+    
+    return render(request, 'AwesomeWeather/AwesomeWeather_create.html', context)
 
 

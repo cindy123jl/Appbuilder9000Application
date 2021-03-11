@@ -38,11 +38,16 @@ class Facts(models.Model):
     state = models.CharField(max_length=200, choices=States)
     town = models.CharField(max_length=200, choices=Town)
     date = models.DateField()
-    event = models.CharField(max_length=200)
+    event = models.TextField(max_length=2000)
 
+    def __str__(self):
+        return self.state
     objects = models.Manager()
     db_table = "Facts"
 
+
+
+    
 
 
 
