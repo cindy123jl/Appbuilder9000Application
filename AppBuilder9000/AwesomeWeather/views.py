@@ -1,5 +1,5 @@
 import requests
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from .models import City, Facts
 from .forms import CityForm, FactForm
 
@@ -91,3 +91,8 @@ def create(request):
     return render(request, 'AwesomeWeather/AwesomeWeather_create.html', context)
 
 
+def weather_details(request):
+    queryset = Facts.objects.all()
+    context = {'object_list': queryset}
+
+    return render(request, "AwesomeWeather/AwesomeWeather_details.html", context)
