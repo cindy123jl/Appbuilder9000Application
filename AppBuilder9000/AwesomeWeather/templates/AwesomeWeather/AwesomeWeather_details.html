@@ -3,12 +3,10 @@
 {% block title %}Awesome Weather Events{% endblock %}
 
 {% block content %}
-<h1>Awesome Weather Events!!</h1>
-
-{% for instance in object_list %}
-<p>{{ instance.id }} - {{ instance.state }}</p>
-<p>{{ instance.id }} - {{ instance.date }}</p>
-<p>{{ instance.id }} - {{ instance.town }}</p>
-<p>{{ instance.id }} - {{ instance.event }}</p>
-{% endfor %}
+<ul>
+    <li>{{ facts.state }}</li>
+    <li>{{ facts.town }}</li>
+    <li>{{ facts.date }}</li>
+    <li>{{ facts.event }}</li>
+</ul>
 {% endblock %}

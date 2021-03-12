@@ -1,3 +1,4 @@
+{% url 'weather_home' as home_url %}
 {% url 'create' as create_url %}
 {% url 'about' as about_url %}
 {% url 'weather_details' as details_url %}
@@ -17,9 +18,6 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{%url 'create_event' %}">Events</a>
-      </li>
-      <li class="nav-item">
-      <a class="nav-link" href="{%url 'weather_details' %}">Details</a>
       </li>
     </ul>
   </div>
