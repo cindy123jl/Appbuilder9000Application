@@ -1,7 +1,9 @@
 import requests
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from .models import City, Facts
 from .forms import CityForm, FactForm
+from django.template import loader
+
 
 # Create your views here.
 
@@ -80,14 +82,24 @@ def home(request):
 
 def delete_city(request, city_name):
     City.objects.get(name=city_name).delete()
-
     return redirect('home')
 
 
 def create(request):
     objects = Facts.objects.all()
     context = {'objects': objects}
-    
     return render(request, 'AwesomeWeather/AwesomeWeather_create.html', context)
+
+
+def weather_details(request, pk):
+    facts = get_object_or_404(Facts, pk=pk)
+    context = {'facts': facts}
+    return render(request, 'AwesomeWeather/AwesomeWeather_details.html', context)
+
+
+
+
+
+
 
 

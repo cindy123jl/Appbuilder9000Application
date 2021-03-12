@@ -18,7 +18,9 @@
 <td>{{ Facts.town }}</td>
 <td>{{ Facts.date }}</td>
 <td>{{ Facts.event }}</td>
+<td><a href="{% url 'weather_details' Facts.id  %}">Details {{ Facts.id }}</a></td>
 </tr>
+
 {% endfor %}
 </table>
 {% endblock %}
