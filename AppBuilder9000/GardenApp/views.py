@@ -3,10 +3,13 @@ from django.http import HttpResponse
 
 # Create your views here.
 def home(request):
-    return HttpResponse('hello')
+    context = {}
+    return render(request, 'GardenApp/garden_home.html', context)
 
 def gardenplanner(request):
-   return HttpResponse('hello')
+    context = {}
+    return render(request, 'GardenApp/garden_gardenplanner.html', context)
 
 def contact(request):
-   return HttpResponse('hello from contact')
+    context = {}
+    return render(request, 'GardenApp/garden_contact.html', context)
