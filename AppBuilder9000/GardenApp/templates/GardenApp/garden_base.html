@@ -4,16 +4,24 @@
 
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>GardenApp</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="{% static '/css/gardenapp.css' %}" rel="stylesheet" type="text/css">
     </head>
 
     <body>
         {% include 'GardenApp/garden_navbar.html' %}
-        {% block content %}{% endblock %}
-    </body>
+
+          <div class="container">
+              <div class="row justify-content-center">
+                  <div class="col-7">
+                    <h1>Planning</h1>
+                    <hr class="mt-0 mb-4">
+                    {% block content %}
+                    {% endblock %}
+                  </div>
+              </div>
+          </div>
 
 </html>
