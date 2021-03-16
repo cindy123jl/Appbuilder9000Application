@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 # Create your views here.
 def home(request):
-    render(request, 'GardenApp/home.html')
+    return HttpResponse('hello')
 
 def gardenplanner(request):
    return HttpResponse('hello')
