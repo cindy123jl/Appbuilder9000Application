@@ -12,4 +12,4 @@ def gardenplanner(request):
 
 def contact(request):
     context = {}
-    return render(request, 'GardenApp/garden_contact.html', context)
+    return render(request, 'GardenApp/garden_care.html', context)
