@@ -6,7 +6,7 @@ from crispy_forms.layout import Submit
 
 
 class PlannerForm(forms.ModelForm):
-    zone = forms.ChoiceField(choices= zone_type, widget=forms.RadioSelect)
+    zone = forms.ChoiceField(choices= zone_type)
 
 
     class Meta:
@@ -19,3 +19,5 @@ class PlannerForm(forms.ModelForm):
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('save_plan', 'Save Garden Plan'))
         self.helper.add_input(Submit('cancel', 'Cancel', css_class='btn btn-dnager'))
+
+
