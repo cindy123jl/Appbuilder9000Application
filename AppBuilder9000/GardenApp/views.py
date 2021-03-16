@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import PlannerForm
+
 
 
 # Create your views here.
@@ -9,7 +10,7 @@ def home(request):
 
 
 def gardenplanner(request):
-    context = {}
+    context= {}
     return render(request, 'GardenApp/garden_gardenplanner.html', context)
 
 
@@ -19,5 +20,11 @@ def care(request):
 
 
 def createplanner(request):
-    form = PlannerForm()  # instance of planner form
-    return render(request, 'GardenApp/garden_gardenplanner.html', {'form': form})  # pass form to render on gardenplanner.html
+    if request.method == 'POST':
+        form = PlannerForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('gardenplanner')
+    else:
+        form = PlannerForm()
+        return render(request, 'GardenApp/garden_gardenplanner.html', {'form': form})  # pass form to render on gardenplanner.html

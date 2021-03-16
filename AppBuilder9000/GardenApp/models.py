@@ -9,9 +9,17 @@ zone_type = [('1a', '1a'), ('1b', '1b'), ('2a', '2a'), ('2b', '2b'), ('3a', '3a'
 
 
 class Planner(models.Model):
-    zone = models.CharField(max_length=30)
-    name = models.CharField(max_length=30, default='', blank=True, null=False)
-    sowtime = models.CharField(max_length=10, default='', blank=True, null=False)
+    Growing_Zone = models.CharField(max_length=30)
+    Vegetable_Name = models.CharField(max_length=30, default='', blank=True, null=False)
+    Sowing_Time_Frame = models.CharField(max_length=30, default='', blank=True, null=False)
+    Harvest_Notes = models.TextField(max_length=300, default='', blank=True, null=False)
+    General_Care_Notes = models.TextField(max_length=500, default='', blank=True, null=False)
 
     class Meta:
-        db_table = "planner"
+        db_table = "Garden Planner"
+
+    # objects manager
+    objects = models.Manager()
+
+    def __str__(self):
+        return self.Growing_Zone

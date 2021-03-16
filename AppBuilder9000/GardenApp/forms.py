@@ -6,8 +6,9 @@ from crispy_forms.layout import Submit
 
 
 class PlannerForm(forms.ModelForm):
-    zone = forms.ChoiceField(choices= zone_type)
-
+    Growing_Zone = forms.ChoiceField(choices= zone_type)
+    Sowing_Time_Frame = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Months (i.e. March-April)'}))
+    Harvest_Notes = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Time, look, and how to harvest'}))
 
     class Meta:
         model = Planner
