@@ -29,7 +29,8 @@ urlpatterns = [
     path('Coffeeshop/', include('Coffeeshop.urls')),
     path('CampSite/', include('CampSite.urls')),
     path('quantumapp/', include('quantumapp.urls')),
-    path('AwesomeWeather/', include('AwesomeWeather.urls'))
+    path('AwesomeWeather/', include('AwesomeWeather.urls')),
+    path('GardenApp/', include('GardenApp.urls'))
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
