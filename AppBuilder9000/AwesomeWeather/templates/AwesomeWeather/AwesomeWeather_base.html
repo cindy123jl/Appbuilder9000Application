@@ -1,68 +1,26 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
-</head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/AwesomeWeather.css' %}">
 
-    {% include 'AwesomeWeather/AwesomeWeather_navbar.html' %}
-
-
-<body>
-    <section class="hero is-primary">
-        <div class="hero-body">
-            <div class="container">
-                <h1 class="title">
-                   {% block header %}{% endblock %}
-                </h1>
-            </div>
-        </div>
-    </section>
-    <section class="section">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-offset-4 is-4">
-                    {% block content %}{% endblock %}
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="section">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-offset-4 is-4">
-                    {% for city_weather in weather_data %}
-                    <div class="box">
-                        <article class="media">
-                            <div class="media-left">
-                                <figure class="image is-50x50">
-                                    <img src="http://openweathermap.org/img/w/10d.png" alt="Image">
-                                </figure>
-                            </div>
-                            <div class="media-content">
-                                <div class="content">
-                                    <p>
-                                        <span class="title">{{ city_weather.city}}</span>
-                                        <br>
-                                        <span class="subtitle">{{ city_weather.temperature}}° F</span>
-                                        <br> {{ city_weather.description }}
-                                    </p>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-    </section>
+    </head>
+<body style="padding-top: 60px;background-color: #f5f7f8 !important;">
+{% include 'AwesomeWeather/AwesomeWeather_navbar.html' %}
+{% block content %}{% endblock %}
     <footer class="footer">
     </footer>
 </body>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </html>
