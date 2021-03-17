@@ -8,23 +8,28 @@ class AccountInfo(models.Model):
 
     password = models.CharField(max_length=100)
 
+    user_budget = models.IntegerField()
+
     def __str__(self):
         return self.username
 
     account = models.Manager()
 
 # A class for the budget used by the user
+
+
 class BudgetInfo(models.Model):
 
-    expenses = models.IntegerField()
+    expense_name = models.CharField(max_length=30, default='Expense Name')
 
     cost = models.FloatField()
 
     date_added = models.DateTimeField()
 
-    user = models.ForeignKey(AccountInfo, on_delete=models.CASCADE)
+    username = models.CharField(max_length=20, default='Your Name!')
 
-    user_budget = models.IntegerField()
+    def __str__(self):
+        return self.expense_name
 
-    budget = models.Manager()
+    objects = models.Manager()
 
