@@ -38,4 +38,4 @@ def createevalform(request):
             return redirect('gardenplanner')
     else:
         form = EvalForm()
-        return render(request, 'GardenApp/garden_gardenplanner.html', {'form': form})
+        return render(request, 'GardenApp/garden_tracking.html', {'form': form})

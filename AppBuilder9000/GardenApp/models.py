@@ -10,9 +10,9 @@ zone_type = [('1a', '1a'), ('1b', '1b'), ('2a', '2a'), ('2b', '2b'), ('3a', '3a'
 
 
 class Planner(models.Model):
-    Growing_Year = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)])
+    Vegetable_Name = models.CharField(max_length=30)
+    Growing_Year = models.CharField(max_length=30, blank=True)
     Growing_Zone = models.CharField(max_length=30, blank=True)
-    Vegetable_Name = models.CharField(max_length=30, default='', blank=True, null=False)
     Sowing_Time_Frame = models.CharField(max_length=30, default='', blank=True, null=False)
     Harvest_Notes = models.TextField(max_length=300, default='', blank=True, null=True)
     General_Care_Notes = models.TextField(max_length=500, default='', blank=True, null=True)
@@ -20,15 +20,22 @@ class Planner(models.Model):
     objects = models.Manager()
 
     class Meta:
-        db_table = "Garden Planner"
+        db_table = "Garden_Planner"
 
     def __str__(self):
-        return self.Growing_Zone
+        return self.Vegetable_Name
 
 
 class Eval(models.Model):
-    Planner = models.ForeignKey(Planner, on_delete=models.CASCADE)
+    Vegetable_Name = models.ForeignKey(Planner, on_delete=models.CASCADE)
     Growing_Season_Observations = models.TextField(max_length=500, default='', blank=True, null=True)
-    Harvest_Weight = models.TextField(max_length=300, blank=True)
+    Harvest_Weight = models.CharField(max_length=30, blank=True)
     Harvest_Observations = models.TextField(max_length=500, default='', blank=True, null=True)
+
+    objects = models.Manager()
+
+    db_table = "Garden_Tracker"
+
+    def __str__(self):
+        return self.Vegetable_Name
 
