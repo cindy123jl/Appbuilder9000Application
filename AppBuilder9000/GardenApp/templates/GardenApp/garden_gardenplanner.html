@@ -3,13 +3,24 @@
 {% load crispy_forms_tags %}
 
 {% block title %}Garden Planner{%endblock %}
-{% block header %}Garden Planner{% endblock %}
 
 {% block content %}
-{% csrf_token %}
-{% crispy form %}
+    <div class="jumbotron col-xs-1 text-center">
+        <h1>ADD A VEGETABLE</h1>
+                <p>It's the beginning of the growing season!</p>
+                <p>Enter your pre-season stats and info below.</p>
+
+    </div>
+
+    <div class="form-container">
+        <div class="row justify-content-center">
+            <div class="col-7">
+                <hr class="mt-0 mb-4">
+                {% csrf_token %}
+                {% crispy form %}
+            </div>
+        </div>
+    </div>
 {% endblock content %}
-
-
 
 

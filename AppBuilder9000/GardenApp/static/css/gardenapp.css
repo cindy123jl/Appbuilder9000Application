@@ -11,19 +11,29 @@ body {
 }
 
 p {
-    font-size: 1.5 em;
-    color: whitesmoke;
+    font-size: 1.5em;
+    color: white;
+    weight: bold;
 }
 
 h1 {
+    font-size: 2em;
     color: white;
+    weight: bold;
+    text-align: center;
+    text-transform: uppercase;
 }
 
-.container {
-    width: 40%;
-    margin: 30px auto;
+.jumbotron {
+    background-image: url('/static/images/garden12.jpg');
+}
+
+.form-container {
+    display: block;
+    width: 50%;
     background: #F6FEDB;
     border-radius: 10px;
     box-shadow: 15px 10px 10px #f5f5f5;
+    margin: 2vw auto 50px auto;
+    opacity: .8;
 }
-
