@@ -1,0 +1,20 @@
+
+* {
+    margin: 0;
+}
+
+body {
+    background-color: #D8D174;
+    height: 100%;
+    margin: 0;
+	padding: 0;
+}
+
+p {
+    font-size: 1.5 em;
+    color: whitesmoke;
+}
+
+h1 {
+    color: white;
+}

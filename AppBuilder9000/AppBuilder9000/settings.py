@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'BookClubApp',
     'AwesomeWeather',
     'BudgetingApp',
+    'GardenApp',
 ]
 
 MIDDLEWARE = [
