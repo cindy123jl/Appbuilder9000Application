@@ -41,11 +41,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'crispy_forms',
     'UpcomingConcertsApp',
-    'HikingFunApp',
     'BookClubApp',
-    'quantumapp',
-    'Coffeeshop',
-    'CampSite',
     'AwesomeWeather',
     'BudgetingApp',
 ]
