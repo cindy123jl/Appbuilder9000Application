@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 zone_type = [('1a', '1a'), ('1b', '1b'), ('2a', '2a'), ('2b', '2b'), ('3a', '3a'), ('3b', '3b'), ('4a', '4a'),
@@ -9,11 +10,12 @@ zone_type = [('1a', '1a'), ('1b', '1b'), ('2a', '2a'), ('2b', '2b'), ('3a', '3a'
 
 
 class Planner(models.Model):
-    Growing_Zone = models.CharField(max_length=30)
+    Growing_Year = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)])
+    Growing_Zone = models.CharField(max_length=30, blank=True)
     Vegetable_Name = models.CharField(max_length=30, default='', blank=True, null=False)
     Sowing_Time_Frame = models.CharField(max_length=30, default='', blank=True, null=False)
-    Harvest_Notes = models.TextField(max_length=300, default='', blank=True, null=False)
-    General_Care_Notes = models.TextField(max_length=500, default='', blank=True, null=False)
+    Harvest_Notes = models.TextField(max_length=300, default='', blank=True, null=True)
+    General_Care_Notes = models.TextField(max_length=500, default='', blank=True, null=True)
 
     class Meta:
         db_table = "Garden Planner"
@@ -23,3 +25,5 @@ class Planner(models.Model):
 
     def __str__(self):
         return self.Growing_Zone
+
+
