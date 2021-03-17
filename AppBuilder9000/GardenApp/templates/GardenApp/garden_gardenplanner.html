@@ -6,8 +6,10 @@
 {% block header %}Garden Planner{% endblock %}
 
 {% block content %}
-   {% crispy form %}
+{% csrf_token %}
+{% crispy form %}
 {% endblock content %}
+
 
 
 

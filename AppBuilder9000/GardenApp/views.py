@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import PlannerForm
+from .forms import PlannerForm, EvalForm
 
 
 
@@ -28,3 +28,14 @@ def createplanner(request):
     else:
         form = PlannerForm()
         return render(request, 'GardenApp/garden_gardenplanner.html', {'form': form})  # pass form to render on gardenplanner.html
+
+
+def createevalform(request):
+    if request.method == 'POST':
+        form = EvalForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('gardenplanner')
+    else:
+        form = EvalForm()
+        return render(request, 'GardenApp/garden_gardenplanner.html', {'form': form})

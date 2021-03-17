@@ -1,5 +1,5 @@
 from django import forms
-from .models import Planner, zone_type
+from .models import Planner, zone_type, Eval
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 
@@ -23,4 +23,19 @@ class PlannerForm(forms.ModelForm):
         self.helper.add_input(Submit('save_plan', 'Save Garden Plan'))
         self.helper.add_input(Submit('cancel', 'Cancel', css_class='btn btn-dnager'))
 
+class EvalForm(forms.ModelForm):
+    Growing_Season_Observations = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'notes'}))
+    Harvest_Weight = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'weight in lbs'}))
+    Harvest_Observations = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'harvest notes i.e. rainfall/weather events, pest control, successes/failures'}))
+
+    def __init__(self, *args, **kwargs):    # overide forms.ModelForm
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('save_plan', 'Save Garden Plan'))
+        self.helper.add_input(Submit('cancel', 'Cancel', css_class='btn btn-dnager'))
+
+    class Meta:
+        model = Eval
+        fields = '__all__'
 
