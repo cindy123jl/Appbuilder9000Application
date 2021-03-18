@@ -1,4 +1,5 @@
 
+/*-------GENERAL STYLING--------*/
 * {
     margin: 0;
 }
@@ -24,25 +25,47 @@ h1 {
     text-transform: uppercase;
 }
 
-.jumbotron {
-    background-image: url('/static/images/garden12.jpg');
+
+/*-------NAVBAR--------*/
+.nav-link, .navbar-brand {
+    font-weight: bold;
+    transition: all .2s ease-in-out;
+    color: rgba(86, 46, 49, .5);
+}
+.nav-link:hover {
+    transform: scale(1.1);
+    color: rgba(86, 46, 49, 1);
 }
 
-.form-container {
-    display: block;
-    width: 50%;
-    background: rgb(246, 254, 219, 0.5);
-    border-radius: 10px;
+.navbar-brand:hover {
+    transform: scale(1.1);
+    color: rgba(86, 46, 49, 1);
+}
+
+/*-------BUTTONS--------*/
+
+.btn {
+    background-color: #C24A2B;
+    border: #C24A2B;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    margin: 2vw auto 50px auto;
+    font-weight: bold;
+    position: relative;
+    transition: all .2s ease-in-out;
+}
+
+.btn:hover {
+    background-color: rgba(194, 74, 43, .5);
+    transform: scale(1.1);
 }
 
 
+
+/*-------HOME PAGE: BOOTSTRAP CARDS--------*/
 .card-text {
     font-size: 1em;
     color: white;
-    font-weight: bold;
-    font-family: arial;
+    font-family: 'arial', sans-serif;
+    text-shadow:  2px 5px 5px rgba(88, 101, 51, 0.7);
 }
 
 .card {
@@ -69,21 +92,27 @@ h1 {
 .card-title2 {
     color: rgb(255, 255, 255, .87);
     font-size: 4em;
-    font-family: arial;
+    font-family: 'Arial', sans-serif;
     position: absolute;
 }
 
+/*-------BOOTSTRAP JUMBOTRON: GARDEN PLANNER & GARDEN TRACKER--------*/
+.jumbotron {
+    background-image: url('/static/images/garden12.jpg');
+}
 
-
-.btn {
-    background-color: #C24A2B;
-    border: #C24A2B;
+/*-------FORMS STYLING: GARDEN PLANNER & GARDEN TRACKER--------*/
+.form-container {
+    display: block;
+    width: 50%;
+    background: rgb(246, 254, 219, 0.5);
+    border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin: 2vw auto 50px auto;
     font-weight: bold;
-    position: relative;
+    font-color: #562E31;
 }
 
-.btn:hover {
-    background-color: rgba(194, 74, 43, .5);
-    font-size: 1.2em;
-}
+
+
+
