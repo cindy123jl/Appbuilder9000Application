@@ -24,12 +24,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('UpcomingConcertsApp/', include('UpcomingConcertsApp.urls')),
-    path('HikingFunApp/', include('HikingFunApp.urls')),
     path('BookClubApp/', include('BookClubApp.urls')),
-    path('Coffeeshop/', include('Coffeeshop.urls')),
-    path('CampSite/', include('CampSite.urls')),
-    path('quantumapp/', include('quantumapp.urls')),
     path('AwesomeWeather/', include('AwesomeWeather.urls')),
+    path('BudgetingApp/', include('BudgetingApp.urls')),
     path('GardenApp/', include('GardenApp.urls'))
 ]
 
