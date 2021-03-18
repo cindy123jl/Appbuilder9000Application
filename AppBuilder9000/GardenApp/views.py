@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import PlannerForm, EvalForm
-
+from .models import Planner
 
 
 # Create your views here.
@@ -25,10 +25,12 @@ def createplanner(request):
         if form.is_valid():
             form.save()
             return redirect('gardenplanner')
+        else:
+            form = PlannerForm(request.POST)
+            return render(request, 'GardenApp/garden_gardenplanner.html', {'form': form})  # pass form to render on gardenplanner.html
     else:
-        form = PlannerForm()
-        return render(request, 'GardenApp/garden_gardenplanner.html', {'form': form})  # pass form to render on gardenplanner.html
-
+        form = PlannerForm(None)
+        return render(request, 'GardenApp/garden_gardenplanner.html', {'form': form})
 
 def createevalform(request):
     if request.method == 'POST':
@@ -36,6 +38,10 @@ def createevalform(request):
         if form.is_valid():
             form.save()
             return redirect('gardenplanner')
+        else:
+            form = EvalForm()
+            return render(request, 'GardenApp/garden_tracking.html', {'form': form})
     else:
-        form = EvalForm()
+        form = EvalForm(None)
         return render(request, 'GardenApp/garden_tracking.html', {'form': form})
+

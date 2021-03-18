@@ -1,5 +1,4 @@
 from django.db import models
-from django.core.validators import MaxValueValidator, MinValueValidator
 
 zone_type = [('1a', '1a'), ('1b', '1b'), ('2a', '2a'), ('2b', '2b'), ('3a', '3a'), ('3b', '3b'), ('4a', '4a'),
              ('4b', '4b'), ('5a', '5a'), ('5b', '5b'), ('6a', '6a'), ('6b', '6b'), ('7a', '7a'), ('7b', '7b'),
@@ -28,9 +27,9 @@ class Planner(models.Model):
 
 class Eval(models.Model):
     Vegetable_Name = models.ForeignKey(Planner, on_delete=models.CASCADE)
-    Growing_Season_Observations = models.TextField(max_length=500, default='', blank=True, null=True)
+    Growing_Season_Observations = models.TextField(max_length=500, default='', blank=True)
     Harvest_Weight = models.CharField(max_length=30, blank=True)
-    Harvest_Observations = models.TextField(max_length=500, default='', blank=True, null=True)
+    Harvest_Observations = models.TextField(max_length=500, default='', blank=True)
 
     objects = models.Manager()
 
