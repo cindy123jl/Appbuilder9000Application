@@ -1,7 +1,7 @@
 from django import forms
 from .models import Planner, zone_type, Eval
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit
+from crispy_forms.layout import Submit, Layout, Row, Column
 
 
 
@@ -23,6 +23,17 @@ class PlannerForm(forms.ModelForm):
         self.helper.add_input(Submit('save', 'Save'))
         self.helper.add_input(Submit('cancel', 'Cancel', css_class='btn btn-dnager'))
 
+        self.helper.layout = Layout(
+            Column('Vegetable_Name'),
+            Row(
+                Column('Growing_Year'),
+                Column('Growing_Zone')
+            ),
+            Column('Sowing_Time_Frame'),
+            Column('Harvest_Notes'),
+            Column('General_Care_Notes')
+        )
+
 class EvalForm(forms.ModelForm):
     Growing_Season_Observations = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'seasonal notes: when did seeds sprout? new cover crop? new companion planting method?'}))
     Harvest_Weight = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'weight in lbs'}))
@@ -34,6 +45,13 @@ class EvalForm(forms.ModelForm):
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('save', 'Save'))
         self.helper.add_input(Submit('cancel', 'Cancel', css_class='btn btn-dnager'))
+
+        self.helper.layout = Layout(
+            Column('Vegetable_Name'),
+            Column('Growing_Season_Observations'),
+            Column('Harvest_Weight'),
+            Column('Harvest_Observations')
+        )
 
     class Meta:
         model = Eval
