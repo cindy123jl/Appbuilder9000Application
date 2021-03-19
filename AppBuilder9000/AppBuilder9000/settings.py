@@ -40,8 +40,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'bootstrap4',
     'crispy_forms',
-    'UpcomingConcertsApp',
-    'BookClubApp',
     'AwesomeWeather',
     'BudgetingApp',
     'GardenApp',
