@@ -4,6 +4,9 @@
 {% block title %}Garden Vegetables{%endblock %}
 
 {% block content %}
+<div>
     <h1>Your Garden is Growing!</h1>
     <p>Keep track of all your vegetables here</p>
+    <p>{% for p in preseason %} {{ p }} {{ p.Growing_Zone }} {{ p.Sowing_Time_Frame }} {% endfor %} <p>
+</div>
 {% endblock %}

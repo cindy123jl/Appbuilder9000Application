@@ -3,6 +3,7 @@ from .forms import PlannerForm, EvalForm
 from .models import Planner
 
 
+
 # Create your views here.
 def home(request):
     context = {}
@@ -14,9 +15,7 @@ def gardenplanner(request):
     return render(request, 'GardenApp/garden_gardenplanner.html', context)
 
 
-def care(request):
-    context = {}
-    return render(request, 'GardenApp/garden_care.html', context)
+
 
 
 def createplanner(request):
@@ -45,3 +44,9 @@ def createevalform(request):
         form = EvalForm(None)
         return render(request, 'GardenApp/garden_tracking.html', {'form': form})
 
+
+
+def get_gardenplanner(request):
+    preseason = Planner.objects.all()
+    context = {'preseason': preseason}
+    return render(request, 'GardenApp/garden_care.html', context)
