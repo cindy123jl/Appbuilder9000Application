@@ -8,7 +8,7 @@
     <h1>Your Garden is Growing!</h1>
     <p>Find your Planner and Tracker data here!</p>
     <table>
-    <p>{% for p in preseason %} {{ p }} {{ p.Growing_Zone }} {{ p.Sowing_Time_Frame }} {% endfor %} <p>
+    <p>{% for p in preseason %} {{ p }} {{ p.Growing_Zone }} {{ p.Harvest_Tips}} {% endfor %} {{ preseason.Growing_Zone}}<p>
     </table>
 </div>
 
@@ -16,34 +16,26 @@
         <table class="table table-hover">
           <thead>
             <tr>
-              <th scope="col">#</th>
               <th scope="col">Vegetable Name</th>
+              <th scope="col">Growing Year</th>
               <th scope="col">Growing Zone</th>
               <th scope="col">Sowing Time</th>
               <th scope="col">Harvesting Tips</th>
               <th scope="col">General Care Tips</th>
 
-
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
+                {% for p in preseason %}
+              <th scope="row">{{ p.Vegetable_Name }}</th>
+              <td>{{ p.Growing_Year }}</td>
+              <td>{{ p.Growing_Zone }}</td>
+              <td>{{ p.Sowing_Time_Frame }}</td>
+              <td>{{ p.Harvest_Tips }}</td>
+              <td>{{ p.General_Care_Tips }}</td>
             </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
-            </tr>
+            {% endfor %}
           </tbody>
         </table>
 </div>
