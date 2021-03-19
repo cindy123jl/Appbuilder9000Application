@@ -6,7 +6,47 @@
 {% block content %}
 <div>
     <h1>Your Garden is Growing!</h1>
-    <p>Keep track of all your vegetables here</p>
+    <p>Find your Planner and Tracker data here!</p>
+    <table>
     <p>{% for p in preseason %} {{ p }} {{ p.Growing_Zone }} {{ p.Sowing_Time_Frame }} {% endfor %} <p>
+    </table>
 </div>
+
+<div>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Vegetable Name</th>
+              <th scope="col">Growing Zone</th>
+              <th scope="col">Sowing Time</th>
+              <th scope="col">Harvesting Tips</th>
+              <th scope="col">General Care Tips</th>
+
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td colspan="2">Larry the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+</div>
+
+
 {% endblock %}
