@@ -4,12 +4,9 @@
 {% block title %}Garden Vegetables{%endblock %}
 
 {% block content %}
-<div>
+<div class="">
     <h1>Your Garden is Growing!</h1>
     <p>Find your Planner and Tracker data here!</p>
-    <table>
-    <p>{% for p in preseason %} {{ p }} {{ p.Growing_Zone }} {{ p.Harvest_Tips}} {% endfor %} {{ preseason.Growing_Zone}}<p>
-    </table>
 </div>
 
 <div>
@@ -28,12 +25,33 @@
           <tbody>
             <tr>
                 {% for p in preseason %}
-              <th scope="row">{{ p.Vegetable_Name }}</th>
-              <td>{{ p.Growing_Year }}</td>
-              <td>{{ p.Growing_Zone }}</td>
-              <td>{{ p.Sowing_Time_Frame }}</td>
-              <td>{{ p.Harvest_Tips }}</td>
-              <td>{{ p.General_Care_Tips }}</td>
+              <th scope="row">{{ p.Vegetable_Name| upper }}</th>
+              <td>{{ p.Growing_Year| lower }}</td>
+              <td>{{ p.Growing_Zone| lower }}</td>
+              <td>{{ p.Sowing_Time_Frame| lower }}</td>
+              <td>{{ p.Harvest_Tips| lower }}</td>
+              <td>{{ p.General_Care_Tips| lower }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+</div>
+            <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Vegetable Name</th>
+              <th scope="col">Growing Season Observations</th>
+              <th scope="col">Harvest Weight</th>
+              <th scope="col">Harvest Observations</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+                {% for h in harvest %}
+              <th scope="row">{{ h.Vegetable_Name | upper }}</th>
+              <td>{{ h.Growing_Season_Observations| lower }}</td>
+              <td>{{ h.Harvest_Weight| lower }}</td>
+              <td>{{ h.Harvest_Observations| lower }}</td>
             </tr>
             {% endfor %}
           </tbody>
