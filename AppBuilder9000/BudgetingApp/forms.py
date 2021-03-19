@@ -1,16 +1,16 @@
 from django import forms
 from django.forms import ModelForm
-from .models import AccountInfo, BudgetInfo
+from .models import BudgetInfo
 
 
+# Commenting out code that is not operational at this time.
+#class RegisterForm(ModelForm):
+    #username = forms.CharField(label='username', max_length=100)
+    #password = forms.CharField(label='password', widget=forms.PasswordInput)
 
-class RegisterForm(ModelForm):
-    username = forms.CharField(label='username', max_length=100)
-    password = forms.CharField(label='password', widget=forms.PasswordInput)
-
-    class Meta:
-        model = AccountInfo
-        fields = ["username", "password"]
+    #class Meta:
+        #model = AccountInfo
+        #fields = ["username", "password"]
 
 
 class BudgetForm(ModelForm):
