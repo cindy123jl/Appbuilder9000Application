@@ -114,10 +114,32 @@ h1 {
     font-color: #562E31;
 }
 
-/*-------GARDEN CARE PAGE STYLING-------*/
+/*-------TABLE FORMATTING--------*/
 
-.container-care {
-   background-color: blue;
+.table th{
+    text-transform: uppercase;
+    color: white;
 }
 
+.table tr {
+    color: white;
+}
 
+.table {
+    width: 75%;
+    border: 12px solid white;
+    border-radius: 8px;
+    background: rgba(194, 74, 43, .1);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin: 2vw auto 50px auto;
+}
+
+.container-care h1{
+    color: white;
+    transition: all .4s ease-in-out;
+    color: white;
+}
+.container-care h1:hover {
+    transform: scale(1.1);
+    color: rgba(86, 46, 49, 1);
+}
