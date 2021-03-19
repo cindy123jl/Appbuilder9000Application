@@ -4,12 +4,13 @@
 {% block title %}Garden Vegetables{%endblock %}
 
 {% block content %}
-<div class="">
-    <h1>Your Garden is Growing!</h1>
-    <p>Find your Planner and Tracker data here!</p>
+<div class="jumbotron col-xs-1 text-center">
+        <p>Find your Planner and Tracker data here!</p>
 </div>
-
-<div>
+        <div class="container-care">
+            <h1>GARDEN PLANNER</h1>
+        </div>
+        <br>
         <table class="table table-hover">
           <thead>
             <tr>
@@ -19,7 +20,6 @@
               <th scope="col">Sowing Time</th>
               <th scope="col">Harvesting Tips</th>
               <th scope="col">General Care Tips</th>
-
             </tr>
           </thead>
           <tbody>
@@ -35,7 +35,9 @@
             {% endfor %}
           </tbody>
         </table>
-</div>
+
+            <div class="container-care"><h1>GARDEN TRACKER</h1></div>
+            <br>
             <table class="table table-hover">
           <thead>
             <tr>
@@ -56,7 +58,6 @@
             {% endfor %}
           </tbody>
         </table>
-</div>
 
 
 {% endblock %}
