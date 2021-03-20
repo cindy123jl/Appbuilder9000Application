@@ -1,6 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import PlannerForm, EvalForm
 from .models import Planner, Eval
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 
 
 # Create your views here.
@@ -12,6 +14,14 @@ def home(request):
 def gardenplanner(request):
     context = {}
     return render(request, 'GardenApp/garden_gardenplanner.html', context)
+
+def gardensearch(request):
+    context = {}
+    return render(request, 'GardenApp/garden_search.html', context)
+
+def gardendetails(request):
+    context = {}
+    return render(request, 'GardenApp/garden_details.html', context)
 
 
 def createplanner(request):
@@ -48,3 +58,25 @@ def get_gardenplanner(request):
     harvest = Eval.objects.all()
     context = {'preseason': preseason, 'harvest': harvest}
     return render(request, 'GardenApp/garden_care.html', context)
+
+
+class SearchView(ListView):
+    model = Planner
+    template_name = 'GardenApp/garden_search.html'
+    context_object_name = 'all_search_results'
+
+    def get_queryset(self):
+        result = super(SearchView, self).get_queryset()
+        query = self.request.GET.get('search')
+        if query:
+            postresult = Planner.objects.filter(Vegetable_Name__contains=query)
+            result = postresult
+        else:
+            result = None
+        return result
+
+def vegetable_details(request, pk):
+    pk = int(pk)
+    vegetable = get_object_or_404(Planner, pk=pk)
+    context = {'vegetable': vegetable}
+    return render(request, 'GardenApp/garden_details.html', context)

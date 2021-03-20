@@ -6,6 +6,7 @@
 
 body {
     background-color: #D8D174;
+    background-image: url('/static/images/otis-redding.png');
     height: 100%;
     margin: 0;
 	padding: 0;
@@ -99,7 +100,7 @@ h1 {
 
 /*-------BOOTSTRAP JUMBOTRON: GARDEN PLANNER & GARDEN TRACKER--------*/
 .jumbotron {
-    background-image: url('/static/images/garden12.jpg');
+ background-image: url('/static/images/garden12.jpg');
 }
 
 /*-------FORMS STYLING: GARDEN PLANNER & GARDEN TRACKER--------*/
