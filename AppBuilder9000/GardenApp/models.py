@@ -13,8 +13,8 @@ class Planner(models.Model):
     Growing_Year = models.CharField(max_length=30, blank=True)
     Growing_Zone = models.CharField(max_length=30, blank=True)
     Sowing_Time_Frame = models.CharField(max_length=30, default='', blank=True, null=False)
-    Harvest_Notes = models.TextField(max_length=300, default='', blank=True, null=True)
-    General_Care_Notes = models.TextField(max_length=500, default='', blank=True, null=True)
+    Harvest_Tips = models.TextField(max_length=300, default='', blank=True, null=True)
+    General_Care_Tips = models.TextField(max_length=500, default='', blank=True, null=True)
 
     objects = models.Manager()
 

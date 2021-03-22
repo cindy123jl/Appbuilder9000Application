@@ -9,9 +9,9 @@ class PlannerForm(forms.ModelForm):
     Growing_Zone = forms.ChoiceField(choices=zone_type)
     Sowing_Time_Frame = forms.CharField(
         widget=forms.TextInput(attrs={'placeholder': 'months i.e. March-April or soil temp'}))
-    Harvest_Notes = forms.CharField(
+    Harvest_Tips = forms.CharField(
         widget=forms.TextInput(attrs={'placeholder': 'time, plant size, and how to harvest'}))
-    General_Care_Notes = forms.CharField(widget=forms.Textarea(
+    General_Care_Tips = forms.CharField(widget=forms.Textarea(
         attrs={'placeholder': 'sunshine/shade, watering needs, nutrient needs, weeding protocol'}))
 
     class Meta:
@@ -32,8 +32,8 @@ class PlannerForm(forms.ModelForm):
                 Column('Growing_Zone')
             ),
             Column('Sowing_Time_Frame'),
-            Column('Harvest_Notes'),
-            Column('General_Care_Notes')
+            Column('Harvest_Tips'),
+            Column('General_Care_Tips')
         )
 
 

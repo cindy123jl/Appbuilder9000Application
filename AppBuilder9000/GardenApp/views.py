@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import PlannerForm, EvalForm
-from .models import Planner
+from .models import Planner, Eval
 
 
 # Create your views here.
@@ -10,13 +10,8 @@ def home(request):
 
 
 def gardenplanner(request):
-    context= {}
-    return render(request, 'GardenApp/garden_gardenplanner.html', context)
-
-
-def care(request):
     context = {}
-    return render(request, 'GardenApp/garden_care.html', context)
+    return render(request, 'GardenApp/garden_gardenplanner.html', context)
 
 
 def createplanner(request):
@@ -27,10 +22,12 @@ def createplanner(request):
             return redirect('gardenplanner')
         else:
             form = PlannerForm(request.POST)
-            return render(request, 'GardenApp/garden_gardenplanner.html', {'form': form})  # pass form to render on gardenplanner.html
+            return render(request, 'GardenApp/garden_gardenplanner.html',
+                          {'form': form})  # pass form to render on gardenplanner.html
     else:
         form = PlannerForm(None)
         return render(request, 'GardenApp/garden_gardenplanner.html', {'form': form})
+
 
 def createevalform(request):
     if request.method == 'POST':
@@ -45,3 +42,9 @@ def createevalform(request):
         form = EvalForm(None)
         return render(request, 'GardenApp/garden_tracking.html', {'form': form})
 
+
+def get_gardenplanner(request):
+    preseason = Planner.objects.all()
+    harvest = Eval.objects.all()
+    context = {'preseason': preseason, 'harvest': harvest}
+    return render(request, 'GardenApp/garden_care.html', context)
