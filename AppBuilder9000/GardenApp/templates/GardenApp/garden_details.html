@@ -31,5 +31,27 @@
           </tbody>
  </table>
 
+    {% for h in harvest %}
+        {% if h.Vegetable_Name_id == vegetable.id %}
+            <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Growing Season Observations</th>
+              <th scope="col">Harvest Weight</th>
+              <th scope="col">Harvest Observations</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ h.Growing_Season_Observations| lower }}</td>
+              <td>{{ h.Harvest_Weight| lower }}</td>
+              <td>{{ h.Harvest_Observations| lower }}</td>
+            </tr>
+          </tbody>
+ </table>
+        {% endif %}
+    {% endfor %}
+
+
 
 {% endblock %}

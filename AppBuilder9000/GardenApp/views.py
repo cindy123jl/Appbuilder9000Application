@@ -60,23 +60,9 @@ def get_gardenplanner(request):
     return render(request, 'GardenApp/garden_care.html', context)
 
 
-class SearchView(ListView):
-    model = Planner
-    template_name = 'GardenApp/garden_search.html'
-    context_object_name = 'all_search_results'
-
-    def get_queryset(self):
-        result = super(SearchView, self).get_queryset()
-        query = self.request.GET.get('search')
-        if query:
-            postresult = Planner.objects.filter(Vegetable_Name__contains=query)
-            result = postresult
-        else:
-            result = None
-        return result
-
 def vegetable_details(request, pk):
     pk = int(pk)
     vegetable = get_object_or_404(Planner, pk=pk)
-    context = {'vegetable': vegetable}
+    harvest = Eval.objects.all()
+    context = {'vegetable': vegetable, 'harvest': harvest}
     return render(request, 'GardenApp/garden_details.html', context)
