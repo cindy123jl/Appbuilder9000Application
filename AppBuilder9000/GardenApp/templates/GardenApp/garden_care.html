@@ -5,10 +5,10 @@
 
 {% block content %}
 <div class="jumbotron col-xs-1 text-center">
-        <p>Find ALL your vegetables' Planner and Tracker data here!</p>
+        <p>Find ALL your vegetables' Planner and Tracker data here</p>
 </div>
         <div class="container-care">
-            <p>Just want planner and tracker data for one veggie? Click on it!</p>
+            <p>Just want planner and tracker data for one veggie? Click on the vegetable name!</p>
             <h1>GARDEN PLANNER</h1>
         </div>
         <table class="table table-hover">
@@ -20,7 +20,6 @@
               <th scope="col">Sowing Time</th>
               <th scope="col">Harvesting Tips</th>
               <th scope="col">General Care Tips</th>
-              <th scope="col">Harvest Weight</th>
             </tr>
           </thead>
           <tbody>
@@ -32,9 +31,8 @@
               <td>{{ p.Sowing_Time_Frame| lower }}</td>
               <td>{{ p.Harvest_Tips| lower }}</td>
               <td>{{ p.General_Care_Tips| lower }}</td>
-              <td>{{ h.Harvest_Weight| lower }}</td>
             </tr>
-            {% endfor %}
+                {% endfor %}
           </tbody>
         </table>
 
