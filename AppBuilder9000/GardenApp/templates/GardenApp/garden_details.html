@@ -1,0 +1,63 @@
+{% extends "GardenApp\garden_base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="jumbotron col-xs-1 text-center">
+</div>
+
+
+<h1>{{ vegetable.Vegetable_Name }}</h1>
+
+<aside class="actions">
+    <a class="btn btn-default" href="{% url 'post_edit' pk=vegetable.pk %}">
+      {% include './icons/pencil-fill.svg' %}
+    </a>
+</aside>
+
+ <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Growing Year</th>
+              <th scope="col">Growing Zone</th>
+              <th scope="col">Sowing Time</th>
+              <th scope="col">Harvesting Tips</th>
+              <th scope="col">General Care Tips</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ vegetable.Growing_Year| lower }}</td>
+              <td>{{ vegetable.Growing_Zone| lower }}</td>
+              <td>{{ vegetable.Sowing_Time_Frame| lower }}</td>
+              <td>{{ vegetable.Harvest_Tips| lower }}</td>
+              <td>{{ vegetable.General_Care_Tips| lower }}</td>
+            </tr>
+          </tbody>
+ </table>
+
+    {% for h in harvest %}
+        {% if h.Vegetable_Name_id == vegetable.id %}
+            <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Growing Season Observations</th>
+              <th scope="col">Harvest Weight</th>
+              <th scope="col">Harvest Observations</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ h.Growing_Season_Observations| lower }}</td>
+              <td>{{ h.Harvest_Weight| lower }}</td>
+              <td>{{ h.Harvest_Observations| lower }}</td>
+            </tr>
+          </tbody>
+ </table>
+        {% endif %}
+    {% endfor %}
+
+
+
+{% endblock %}
