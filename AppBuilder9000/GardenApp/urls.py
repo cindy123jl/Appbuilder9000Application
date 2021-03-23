@@ -7,5 +7,6 @@ urlpatterns = [
     path('gardenplanner/', views.createplanner, name='gardenplanner'),
     path('gardentracker/', views.createevalform, name='gardentracker'),
     path('gardencare/', views.get_gardenplanner, name='gardencare'),
-    path('<int:pk>/gardendetails/', views.vegetable_details, name='gardendetails')
+    path('<int:pk>/gardendetails/', views.vegetable_details, name='gardendetails'),
+    path('<int:pk>/gardenedit/', views.vegetable_edit, name='gardenedit'),
 ]

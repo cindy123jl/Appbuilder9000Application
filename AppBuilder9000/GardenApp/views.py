@@ -23,6 +23,10 @@ def gardendetails(request):
     context = {}
     return render(request, 'GardenApp/garden_details.html', context)
 
+def gardenedit(request):
+    context = {}
+    return render(request, 'GardenApp/garden_edit.html', context)
+
 
 def createplanner(request):
     if request.method == 'POST':
@@ -44,10 +48,10 @@ def createevalform(request):
         form = EvalForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('gardenplanner')
+            return redirect('gardentracker')
         else:
             form = EvalForm()
-            return render(request, 'GardenApp/garden_tracking.html', {'form': form})
+            return render(request, 'gardentracker', {'form': form})
     else:
         form = EvalForm(None)
         return render(request, 'GardenApp/garden_tracking.html', {'form': form})
@@ -66,3 +70,17 @@ def vegetable_details(request, pk):
     harvest = Eval.objects.all()
     context = {'vegetable': vegetable, 'harvest': harvest}
     return render(request, 'GardenApp/garden_details.html', context)
+
+
+def vegetable_edit(request, pk):
+    pk = int(pk)
+    vegetable = get_object_or_404(Planner, pk=pk)
+    form = PlannerForm(request.POST or None, instance=vegetable)
+    if request.method == "POST":
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.save()
+            return redirect('gardendetails', pk)
+    else:
+        return render(request, 'GardenApp/garden_edit.html', {'vegetable':vegetable, 'form': form})
+

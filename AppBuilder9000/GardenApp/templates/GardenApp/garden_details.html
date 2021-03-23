@@ -8,13 +8,15 @@
 </div>
 
 
-<h1>{{ vegetable.Vegetable_Name }}</h1>
-
 <aside class="actions">
-    <a class="btn btn-default" href="{% url 'post_edit' pk=vegetable.pk %}">
-      {% include './icons/pencil-fill.svg' %}
+    <a class="btn btn-default" href="{% url 'gardenedit' vegetable.pk %}">EDIT
     </a>
 </aside>
+
+
+
+<h1>{{ vegetable.Vegetable_Name }}</h1>
+
 
  <table class="table table-hover">
           <thead>
