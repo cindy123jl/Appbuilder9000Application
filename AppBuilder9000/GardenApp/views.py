@@ -1,31 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import PlannerForm, EvalForm
-from .models import Planner, Eval
-from django.views.generic.list import ListView
-from django.views.generic.detail import DetailView
+from .forms import PlannerForm, TrackerForm
+from .models import Planner, Tracker
+
 
 
 # Create your views here.
 def home(request):
     context = {}
     return render(request, 'GardenApp/garden_home.html', context)
-
-
-def gardenplanner(request):
-    context = {}
-    return render(request, 'GardenApp/garden_gardenplanner.html', context)
-
-def gardensearch(request):
-    context = {}
-    return render(request, 'GardenApp/garden_search.html', context)
-
-def gardendetails(request):
-    context = {}
-    return render(request, 'GardenApp/garden_details.html', context)
-
-def gardenedit(request):
-    context = {}
-    return render(request, 'GardenApp/garden_edit.html', context)
 
 
 def createplanner(request):
@@ -36,51 +18,51 @@ def createplanner(request):
             return redirect('gardenplanner')
         else:
             form = PlannerForm(request.POST)
-            return render(request, 'GardenApp/garden_gardenplanner.html',
+            return render(request, 'GardenApp/garden_planner.html',
                           {'form': form})  # pass form to render on gardenplanner.html
     else:
         form = PlannerForm(None)
-        return render(request, 'GardenApp/garden_gardenplanner.html', {'form': form})
+        return render(request, 'GardenApp/garden_planner.html', {'form': form})
 
 
-def createevalform(request):
+def createtracker(request):
     if request.method == 'POST':
-        form = EvalForm(request.POST)
+        form = TrackerForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('gardentracker')
         else:
-            form = EvalForm()
-            return render(request, 'gardentracker', {'form': form})
+            form = TrackerForm()
+            return render(request, 'GardenApp/garden_tracker.html', {'form': form})
     else:
-        form = EvalForm(None)
-        return render(request, 'GardenApp/garden_tracking.html', {'form': form})
+        form = TrackerForm(None)
+        return render(request, 'GardenApp/garden_tracker.html', {'form': form})
 
 
-def get_gardenplanner(request):
-    preseason = Planner.objects.all()
-    harvest = Eval.objects.all()
-    context = {'preseason': preseason, 'harvest': harvest}
-    return render(request, 'GardenApp/garden_care.html', context)
+def allvegetables(request):
+    plan = Planner.objects.all()
+    track = Tracker.objects.all()
+    context = {'plan': plan, 'track': track}
+    return render(request, 'GardenApp/garden_allvegetables.html', context)
 
 
-def vegetable_details(request, pk):
+def vegetabledetails(request, pk):
     pk = int(pk)
-    vegetable = get_object_or_404(Planner, pk=pk)
-    harvest = Eval.objects.all()
-    context = {'vegetable': vegetable, 'harvest': harvest}
+    plan = get_object_or_404(Planner, pk=pk)
+    track = Tracker.objects.all()
+    context = {'plan': plan, 'track': track}
     return render(request, 'GardenApp/garden_details.html', context)
 
 
-def vegetable_edit(request, pk):
+def vegetableedit(request, pk):
     pk = int(pk)
-    vegetable = get_object_or_404(Planner, pk=pk)
-    form = PlannerForm(request.POST or None, instance=vegetable)
+    plan = get_object_or_404(Planner, pk=pk)
+    form = PlannerForm(request.POST or None, instance=plan)
     if request.method == "POST":
         if form.is_valid():
             form = form.save(commit=False)
             form.save()
-            return redirect('gardendetails', pk)
+            return redirect('vegetabledetails', pk)
     else:
-        return render(request, 'GardenApp/garden_edit.html', {'vegetable':vegetable, 'form': form})
+        return render(request, 'GardenApp/garden_edit.html', {'plan':plan, 'form': form})
 

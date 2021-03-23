@@ -3,10 +3,10 @@ from .import views
 
 
 urlpatterns = [
-    path('gardenhome/', views.home, name='garden_home'),
+    path('gardenhome/', views.home, name='gardenhome'),
     path('gardenplanner/', views.createplanner, name='gardenplanner'),
-    path('gardentracker/', views.createevalform, name='gardentracker'),
-    path('gardencare/', views.get_gardenplanner, name='gardencare'),
-    path('<int:pk>/gardendetails/', views.vegetable_details, name='gardendetails'),
-    path('<int:pk>/gardenedit/', views.vegetable_edit, name='gardenedit'),
+    path('gardentracker/', views.createtracker, name='gardentracker'),
+    path('allvegetables/', views.allvegetables, name='allvegetables'),
+    path('<int:pk>/gardendetails/', views.vegetabledetails, name='gardendetails'),
+    path('<int:pk>/gardenedit/', views.vegetableedit, name='gardenedit'),
 ]

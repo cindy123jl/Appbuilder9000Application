@@ -1,5 +1,5 @@
 from django import forms
-from .models import Planner, zone_type, Eval
+from .models import Planner, zone_type, Tracker
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout, Row, Column
 from crispy_forms.bootstrap import FormActions
@@ -44,7 +44,7 @@ class PlannerForm(forms.ModelForm):
         )
 
 
-class EvalForm(forms.ModelForm):
+class TrackerForm(forms.ModelForm):
     Growing_Season_Observations = forms.CharField(widget=forms.Textarea(
         attrs={'placeholder': 'seasonal notes: when did seeds sprout? new cover crop? new companion planting method?'}))
     Harvest_Weight = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'weight in lbs'}))
@@ -55,8 +55,6 @@ class EvalForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
-
-
         self.helper.layout = Layout(
             'Vegetable_Name',
             'Growing_Season_Observations',
@@ -70,5 +68,5 @@ class EvalForm(forms.ModelForm):
 
 
     class Meta:
-        model = Eval
+        model = Tracker
         fields = '__all__'

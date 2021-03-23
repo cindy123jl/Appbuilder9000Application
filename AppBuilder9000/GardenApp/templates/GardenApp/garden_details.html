@@ -9,13 +9,13 @@
 
 
 <aside class="actions">
-    <a class="btn btn-default" href="{% url 'gardenedit' vegetable.pk %}">EDIT
+    <a class="btn btn-default" href="{% url 'gardenedit' plan.pk %}">EDIT
     </a>
 </aside>
 
 
 
-<h1>{{ vegetable.Vegetable_Name }}</h1>
+<h1>{{ plan.Vegetable_Name }}</h1>
 
 
  <table class="table table-hover">
@@ -30,17 +30,17 @@
           </thead>
           <tbody>
             <tr>
-              <td>{{ vegetable.Growing_Year| lower }}</td>
-              <td>{{ vegetable.Growing_Zone| lower }}</td>
-              <td>{{ vegetable.Sowing_Time_Frame| lower }}</td>
-              <td>{{ vegetable.Harvest_Tips| lower }}</td>
-              <td>{{ vegetable.General_Care_Tips| lower }}</td>
+              <td>{{ plan.Growing_Year| lower }}</td>
+              <td>{{ plan.Growing_Zone| lower }}</td>
+              <td>{{ plan.Sowing_Time_Frame| lower }}</td>
+              <td>{{ plan.Harvest_Tips| lower }}</td>
+              <td>{{ plan.General_Care_Tips| lower }}</td>
             </tr>
           </tbody>
  </table>
 
-    {% for h in harvest %}
-        {% if h.Vegetable_Name_id == vegetable.id %}
+    {% for t in track %}
+        {% if t.Vegetable_Name_id == plan.id %}
             <table class="table table-hover">
           <thead>
             <tr>
@@ -51,9 +51,9 @@
           </thead>
           <tbody>
             <tr>
-              <td>{{ h.Growing_Season_Observations| lower }}</td>
-              <td>{{ h.Harvest_Weight| lower }}</td>
-              <td>{{ h.Harvest_Observations| lower }}</td>
+              <td>{{ t.Growing_Season_Observations| lower }}</td>
+              <td>{{ t.Harvest_Weight| lower }}</td>
+              <td>{{ t.Harvest_Observations| lower }}</td>
             </tr>
           </tbody>
  </table>

@@ -24,7 +24,7 @@
           </thead>
           <tbody>
             <tr>
-                {% for p in preseason %}
+                {% for p in plan %}
               <th scope="row"><a href="{% url 'gardendetails' p.id %}">{{ p.Vegetable_Name| upper }}</a></th>
               <td>{{ p.Growing_Year| lower }}</td>
               <td>{{ p.Growing_Zone| lower }}</td>
@@ -48,11 +48,11 @@
               </thead>
               <tbody>
                 <tr>
-                    {% for h in harvest %}
-                    <th scope="row">{{ h.Vegetable_Name | upper }}</th>
-                  <td>{{ h.Growing_Season_Observations| lower }}</td>
-                  <td>{{ h.Harvest_Weight| lower }}</td>
-                  <td>{{ h.Harvest_Observations| lower }}</td>
+                    {% for t in track %}
+                    <th scope="row">{{ t.Vegetable_Name | upper }}</th>
+                  <td>{{ t.Growing_Season_Observations| lower }}</td>
+                  <td>{{ t.Harvest_Weight| lower }}</td>
+                  <td>{{ t.Harvest_Observations| lower }}</td>
                 </tr>
                 {% endfor %}
               </tbody>
