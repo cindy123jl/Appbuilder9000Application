@@ -25,7 +25,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('AwesomeWeather/', include('AwesomeWeather.urls')),
     path('BudgetingApp/', include('BudgetingApp.urls')),
-    path('GardenApp/', include('GardenApp.urls'))
+    path('GardenApp/', include('GardenApp.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
