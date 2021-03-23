@@ -2,18 +2,19 @@ from django.db import models
 
 
 # A class for the accounts in our app
-class AccountInfo(models.Model):
+# Commenting out code that's not operational for later use.
+#class AccountInfo(models.Model):
 
-    username = models.CharField(max_length=100)
+    #username = models.CharField(max_length=100)
 
-    password = models.CharField(max_length=100)
+    #password = models.CharField(max_length=100)
 
-    user_budget = models.IntegerField()
+    #user_budget = models.IntegerField()
 
-    def __str__(self):
-        return self.username
+    #def __str__(self):
+        #return self.username
 
-    account = models.Manager()
+    #account = models.Manager()
 
 # A class for the budget used by the user
 

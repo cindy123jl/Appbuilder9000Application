@@ -9,6 +9,7 @@ from .forms import BudgetForm, BudgetInfo
 def home(request):
     return render(request, 'BudgetingApp/BudgetingApp_home.html')
 
+
 def login(request):
     return render(request, 'BudgetingApp/BudgetingApp_login.html')
 
@@ -31,6 +32,22 @@ def create_budget(request):
     }
 
     return render(request, 'BudgetingApp/BudgetingApp_budget.html', context)
+
+
+def account(request):
+    items = BudgetInfo.objects.all()
+
+    context = {
+        'items': items
+    }
+
+    return render(request, 'BudgetingApp/BudgetingApp_account.html', context)
+
+
+
+
+
+
 
 
 
