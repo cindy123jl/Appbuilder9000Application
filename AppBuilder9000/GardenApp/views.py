@@ -66,3 +66,11 @@ def vegetableedit(request, pk):
     else:
         return render(request, 'GardenApp/garden_edit.html', {'plan':plan, 'form': form})
 
+def vegetabledelete(request, pk):
+    pk = int(pk)
+    plan = get_object_or_404(Planner, pk=pk)
+    if request.method == 'POST':
+        plan.delete()
+        return redirect('allvegetables')
+    context = {'plan': plan}
+    return render(request, 'GardenApp/garden_delete.html', context)
