@@ -72,7 +72,8 @@ def planneredit(request, pk):
             form.save()
             return redirect('plannerdetails', pk)
     else:
-        return render(request, 'GardenApp/planner_edit.html', {'plan':plan, 'form': form})
+        form = PlannerForm()
+    return render(request, 'GardenApp/planner_edit.html', {'plan':plan, 'form': form})
 
 
 def trackeredit(request, pk):
@@ -85,7 +86,8 @@ def trackeredit(request, pk):
             form.save()
             return redirect('trackerdetails', pk)
     else:
-        return render(request, 'GardenApp/tracker_edit.html', {'track':track, 'form': form})
+        form = TrackerForm()
+    return render(request, 'GardenApp/tracker_edit.html', {'track':track, 'form': form})
 
 def plannerdelete(request, pk):
     pk = int(pk)
