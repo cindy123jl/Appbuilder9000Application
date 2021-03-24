@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'AwesomeWeather',
     'BudgetingApp',
     'GardenApp',
+    'CryptoApp',
 ]
 
 MIDDLEWARE = [
