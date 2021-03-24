@@ -6,17 +6,19 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/CryptoApp.css' %}">  <!-- Not working -->
-
+        <link rel="stylesheet" type="text/css" href="{% static 'css/CryptoApp.css' %}">
+        <!-- Placeholder for individual page titles -->
         <title>{% block title %}{% endblock %}</title>
     </head>
 
     <header>
+        <!-- Inserting navbar from separate file -->
         {% include "CryptoApp/CryptoApp_navbar.html" %}
     </header>
 
     <body>
         <div class="cryptoapp-container">
+            <!-- Placeholder for individual page content -->
             {% block content %}{% endblock %}
         </div>
 
@@ -25,6 +27,7 @@
         </navbar>
 
         <footer>
+            <!-- Link back to project main page -->
             <a href="{% url 'home' %}">Back to AppBuilder9000</a>
             <p> &#169; 2021 The Cryptocurrency App</p>
         </footer>
