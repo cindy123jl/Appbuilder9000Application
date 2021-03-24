@@ -9,7 +9,6 @@ def gardenhome(request):
     context = {}
     return render(request, 'GardenApp/garden_home.html', context)
 
-
 def createplanner(request):
     if request.method == 'POST':
         form = PlannerForm(request.POST)
@@ -24,7 +23,6 @@ def createplanner(request):
         form = PlannerForm(None)
         return render(request, 'GardenApp/garden_planner.html', {'form': form})
 
-
 def createtracker(request):
     if request.method == 'POST':
         form = TrackerForm(request.POST)
@@ -38,14 +36,12 @@ def createtracker(request):
         form = TrackerForm(None)
         return render(request, 'GardenApp/garden_tracker.html', {'form': form})
 
-
 def allvegetables(request):
     plan = Planner.objects.all()
     track = Tracker.objects.all()
     context = {'plan': plan, 'track': track}
     return render(request, 'GardenApp/garden_allvegetables.html', context)
 
-#pulls both planner and tracker data
 def plannerdetails(request, pk):
     pk = int(pk)
     plan = get_object_or_404(Planner, pk=pk)
@@ -53,14 +49,12 @@ def plannerdetails(request, pk):
     context = {'plan': plan, 'track': track}
     return render(request, 'GardenApp/planner_details.html', context)
 
-#pulls tracker data only
 def trackerdetails(request, pk):
     pk = int(pk)
     track = get_object_or_404(Tracker, pk=pk)
     plan = Planner.objects.all()
     context = {'track': track, 'plan': plan}
     return render(request, 'GardenApp/tracker_details.html', context)
-
 
 def planneredit(request, pk):
     pk = int(pk)
@@ -74,7 +68,6 @@ def planneredit(request, pk):
     else:
         form = PlannerForm()
     return render(request, 'GardenApp/planner_edit.html', {'plan':plan, 'form': form})
-
 
 def trackeredit(request, pk):
     pk = int(pk)
