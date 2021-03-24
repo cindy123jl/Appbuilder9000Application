@@ -25,7 +25,7 @@
           <tbody>
             <tr>
                 {% for p in plan %}
-              <th scope="row"><a href="{% url 'gardendetails' p.id %}">{{ p.Vegetable_Name| upper }}</a></th>
+              <th scope="row"><a href="{% url 'plannerdetails' p.id %}">{{ p.Vegetable_Name| upper }}</a></th>
               <td>{{ p.Growing_Year| lower }}</td>
               <td>{{ p.Growing_Zone| lower }}</td>
               <td>{{ p.Sowing_Time_Frame| lower }}</td>
@@ -48,13 +48,18 @@
               </thead>
               <tbody>
                 <tr>
-                    {% for t in track %}
-                    <th scope="row">{{ t.Vegetable_Name | upper }}</th>
+                    {% if track %}
+                        {% for t in track %}
+                    <th scope="row"><a href="{% url 'trackerdetails' t.id %}">{{ t.Vegetable_Name | upper }}</a></th>
                   <td>{{ t.Growing_Season_Observations| lower }}</td>
                   <td>{{ t.Harvest_Weight| lower }}</td>
                   <td>{{ t.Harvest_Observations| lower }}</td>
                 </tr>
-                {% endfor %}
+                    {% endfor %}
+                  {% endif %}
+
+
+
               </tbody>
             </table>
 

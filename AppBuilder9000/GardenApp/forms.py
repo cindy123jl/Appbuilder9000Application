@@ -39,7 +39,7 @@ class PlannerForm(forms.ModelForm):
             'General_Care_Tips',
             FormActions(
                 Submit('save', 'Save'),
-                HTML('<a class="btn btn-primary" href="{% url "gardenplanner" %}">Cancel</a>')
+                HTML('<a class="btn btn-primary" onclick="window.history.back();">Cancel</a>')
             )
         )
 
@@ -62,7 +62,7 @@ class TrackerForm(forms.ModelForm):
             'Harvest_Observations',
             FormActions(
                 Submit('save', 'Save'),
-                HTML('<a class="btn btn-primary" href="{% url "gardentracker" %}">Cancel</a>')
+                HTML('<a class="btn btn-primary" onclick="window.history.back();">Cancel</a>')
             )
         )
 

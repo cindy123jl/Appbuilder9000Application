@@ -6,8 +6,11 @@
 
 {% block content %}
 
+<div class="jumbotron col-xs-1 text-center">
+</div>
+
 <div class="form-container">
-    <form method="POST" action="{% url 'gardenedit' plan.pk %}">
+    <form method="POST" action="{% url 'trackeredit' track.pk %}">
          <div class="row justify-content-center">
             <div class="col-7">
                 <hr class="mt-0 mb-4">
@@ -17,9 +20,6 @@
          </div>
     </form>
 </div>
-
-
-
 
 
 {% endblock %}

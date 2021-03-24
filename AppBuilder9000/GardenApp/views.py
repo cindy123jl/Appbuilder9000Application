@@ -5,7 +5,7 @@ from .models import Planner, Tracker
 
 
 # Create your views here.
-def home(request):
+def gardenhome(request):
     context = {}
     return render(request, 'GardenApp/garden_home.html', context)
 
@@ -45,16 +45,24 @@ def allvegetables(request):
     context = {'plan': plan, 'track': track}
     return render(request, 'GardenApp/garden_allvegetables.html', context)
 
-
-def vegetabledetails(request, pk):
+#pulls both planner and tracker data
+def plannerdetails(request, pk):
     pk = int(pk)
     plan = get_object_or_404(Planner, pk=pk)
     track = Tracker.objects.all()
     context = {'plan': plan, 'track': track}
-    return render(request, 'GardenApp/garden_details.html', context)
+    return render(request, 'GardenApp/planner_details.html', context)
+
+#pulls tracker data only
+def trackerdetails(request, pk):
+    pk = int(pk)
+    track = get_object_or_404(Tracker, pk=pk)
+    plan = Planner.objects.all()
+    context = {'track': track, 'plan': plan}
+    return render(request, 'GardenApp/tracker_details.html', context)
 
 
-def vegetableedit(request, pk):
+def planneredit(request, pk):
     pk = int(pk)
     plan = get_object_or_404(Planner, pk=pk)
     form = PlannerForm(request.POST or None, instance=plan)
@@ -62,15 +70,37 @@ def vegetableedit(request, pk):
         if form.is_valid():
             form = form.save(commit=False)
             form.save()
-            return redirect('vegetabledetails', pk)
+            return redirect('plannerdetails', pk)
     else:
-        return render(request, 'GardenApp/garden_edit.html', {'plan':plan, 'form': form})
+        return render(request, 'GardenApp/planner_edit.html', {'plan':plan, 'form': form})
 
-def vegetabledelete(request, pk):
+
+def trackeredit(request, pk):
+    pk = int(pk)
+    track = get_object_or_404(Tracker, pk=pk)
+    form = TrackerForm(request.POST or None, instance=track)
+    if request.method == "POST":
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.save()
+            return redirect('trackerdetails', pk)
+    else:
+        return render(request, 'GardenApp/tracker_edit.html', {'track':track, 'form': form})
+
+def plannerdelete(request, pk):
     pk = int(pk)
     plan = get_object_or_404(Planner, pk=pk)
     if request.method == 'POST':
         plan.delete()
         return redirect('allvegetables')
     context = {'plan': plan}
-    return render(request, 'GardenApp/garden_delete.html', context)
+    return render(request, 'GardenApp/planner_delete.html', context)
+
+def trackerdelete(request, pk):
+    pk = int(pk)
+    track = get_object_or_404(Tracker, pk=pk)
+    if request.method == 'POST':
+        track.delete()
+        return redirect('allvegetables')
+    context = {'track': track}
+    return render(request, 'GardenApp/tracker_delete.html', context)

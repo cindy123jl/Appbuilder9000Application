@@ -7,16 +7,13 @@
 <div class="jumbotron col-xs-1 text-center">
 </div>
 
-<div class="container">
-        <a class="btn btn-default" href="{% url 'gardenedit' plan.pk %}">EDIT</a>
-        <a class="btn btn-default" href="{% url 'gardendelete' plan.pk %}">DELETE</a>
-
-</div>
-
 
 
 <h1>{{ plan.Vegetable_Name }}</h1>
-
+    <div class="btn-container text-center">
+        <a class="btn btn-default" href="{% url 'planneredit' plan.pk %}">EDIT</a>
+        <a class="btn btn-default" href="{% url 'plannerdelete' plan.pk %}">DELETE</a>
+    </div>
 
  <table class="table table-hover">
           <thead>
@@ -39,8 +36,14 @@
           </tbody>
  </table>
 
+    {% if track %}
     {% for t in track %}
         {% if t.Vegetable_Name_id == plan.id %}
+
+         <div class="btn-container text-center">
+            <a class="btn btn-default" href="{% url 'trackeredit' t.id %}">EDIT</a>
+            <a class="btn btn-default" href="{% url 'trackerdelete' t.id %}">DELETE</a>
+         </div>
             <table class="table table-hover">
           <thead>
             <tr>
@@ -59,6 +62,8 @@
  </table>
         {% endif %}
     {% endfor %}
+    {% endif %}
+
 
 
 
