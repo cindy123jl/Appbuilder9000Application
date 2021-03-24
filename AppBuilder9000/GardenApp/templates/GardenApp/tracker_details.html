@@ -8,13 +8,10 @@
 </div>
 
 <h1>{{ track.Vegetable_Name }}</h1>
-    <div class="btn-container text-center">
-        <a class="btn btn-default" href="{% url 'trackeredit' track.pk %}">EDIT</a>
-         <a class="btn btn-default" href="{% url 'trackerdelete' track.pk %}">DELETE</a>
-    </div>
-
-
-            <table class="table table-hover">
+<div class="container">
+  <div class="row">
+    <div class="col-10">
+        <table class="table table-hover">
           <thead>
             <tr>
               <th scope="col">Growing Season Observations</th>
@@ -29,18 +26,27 @@
               <td>{{ track.Harvest_Observations| lower }}</td>
             </tr>
           </tbody>
- </table>
-
+        </table>
+    </div>
+    <div class="col-2">
+        <div class="details-header">
+            <p>Garden Tracker</p>
+            <div class="btn-container text-center">
+                <a class="btn btn-default" href="{% url 'trackeredit' track.pk %}">EDIT</a>
+                <a class="btn btn-default" href="{% url 'trackerdelete' track.pk %}">DELETE</a>
+            </div>
+        </div>
+    </div>
+</div>
 
     {% if plan %}
     {% for p in plan %}
         {% if p.id == track.Vegetable_Name_id %}
-      <div class="btn-container text-center">
-            <a class="btn btn-default" href="{% url 'planneredit' p.id %}">EDIT</a>
-            <a class="btn btn-default" href="{% url 'plannerdelete' p.id %}">DELETE</a>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-10">
 
- <table class="table table-hover">
+        <table class="table table-hover">
           <thead>
             <tr>
               <th scope="col">Growing Year</th>
@@ -59,7 +65,21 @@
               <td>{{ p.General_Care_Tips| lower }}</td>
             </tr>
           </tbody>
- </table>
+        </table>
+    </div>
+    <div class="col-2">
+
+        <div class="details-header">
+            <p>Garden Planner</p>
+        <div class="btn-container text-center">
+                <a class="btn btn-default" href="{% url 'planneredit' p.id %}">EDIT</a>
+                <a class="btn btn-default" href="{% url 'plannerdelete' p.id %}">DELETE</a>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
         {% endif %}
     {% endfor %}
     {% endif %}

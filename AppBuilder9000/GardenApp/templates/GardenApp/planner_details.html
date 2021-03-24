@@ -10,12 +10,10 @@
 
 
 <h1>{{ plan.Vegetable_Name }}</h1>
-    <div class="btn-container text-center">
-        <a class="btn btn-default" href="{% url 'planneredit' plan.pk %}">EDIT</a>
-        <a class="btn btn-default" href="{% url 'plannerdelete' plan.pk %}">DELETE</a>
-    </div>
-
- <table class="table table-hover">
+<div class="container">
+  <div class="row">
+    <div class="col-10">
+        <table class="table table-hover">
           <thead>
             <tr>
               <th scope="col">Growing Year</th>
@@ -34,17 +32,28 @@
               <td>{{ plan.General_Care_Tips| lower }}</td>
             </tr>
           </tbody>
- </table>
+        </table>
+    </div>
+    <div class="col-2">
+        <div class="details-header">
+            <p>Garden Planner</p>
+            <div class="btn-container text-center">
+                <a class="btn btn-default" href="{% url 'planneredit' plan.pk %}">EDIT</a>
+                <a class="btn btn-default" href="{% url 'plannerdelete' plan.pk %}">DELETE</a>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
 
     {% if track %}
     {% for t in track %}
         {% if t.Vegetable_Name_id == plan.id %}
-
-         <div class="btn-container text-center">
-            <a class="btn btn-default" href="{% url 'trackeredit' t.id %}">EDIT</a>
-            <a class="btn btn-default" href="{% url 'trackerdelete' t.id %}">DELETE</a>
-         </div>
-            <table class="table table-hover">
+<div class="container">
+  <div class="row">
+    <div class="col-10">
+        <table class="table table-hover">
           <thead>
             <tr>
               <th scope="col">Growing Season Observations</th>
@@ -59,7 +68,20 @@
               <td>{{ t.Harvest_Observations| lower }}</td>
             </tr>
           </tbody>
- </table>
+        </table>
+    </div>
+    <div class="col-2">
+            <div class="details-header">
+                <p>Garden Tracker</p>
+                 <div class="btn-container text-center">
+                    <a class="btn btn-default" href="{% url 'trackeredit' t.id %}">EDIT</a>
+                    <a class="btn btn-default" href="{% url 'trackerdelete' t.id %}">DELETE</a>
+                 </div>
+            </div>
+    </div>
+  </div>
+</div>
+
         {% endif %}
     {% endfor %}
     {% endif %}
