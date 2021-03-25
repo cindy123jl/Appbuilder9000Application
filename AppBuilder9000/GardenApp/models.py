@@ -25,7 +25,7 @@ class Planner(models.Model):
         return self.Vegetable_Name
 
 
-class Eval(models.Model):
+class Tracker(models.Model):
     Vegetable_Name = models.ForeignKey(Planner, on_delete=models.CASCADE)
     Growing_Season_Observations = models.TextField(max_length=500, default='', blank=True)
     Harvest_Weight = models.CharField(max_length=30, blank=True)
@@ -33,7 +33,8 @@ class Eval(models.Model):
 
     objects = models.Manager()
 
-    db_table = "Garden_Tracker"
+    class Meta:
+        db_table = "Garden_Tracker"
 
     def __str__(self):
         return self.Vegetable_Name
