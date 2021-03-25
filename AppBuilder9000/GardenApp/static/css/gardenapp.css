@@ -6,6 +6,7 @@
 
 body {
     background-color: #D8D174;
+    background-image: url('/static/images/otis-redding.png');
     height: 100%;
     margin: 0;
 	padding: 0;
@@ -46,6 +47,7 @@ h1 {
 
 .btn {
     background-color: #C24A2B;
+    color: white;
     border: #C24A2B;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     font-weight: bold;
@@ -57,7 +59,6 @@ h1 {
     background-color: rgba(194, 74, 43, .5);
     transform: scale(1.1);
 }
-
 
 
 /*-------HOME PAGE: BOOTSTRAP CARDS--------*/
@@ -99,7 +100,7 @@ h1 {
 
 /*-------BOOTSTRAP JUMBOTRON: GARDEN PLANNER & GARDEN TRACKER--------*/
 .jumbotron {
-    background-image: url('/static/images/garden12.jpg');
+ background-image: url('/static/images/garden12.jpg');
 }
 
 /*-------FORMS STYLING: GARDEN PLANNER & GARDEN TRACKER--------*/
@@ -143,3 +144,30 @@ h1 {
     transform: scale(1.1);
     color: rgba(86, 46, 49, 1);
 }
+
+.container-care p {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 20px;
+}
+/*-------DETAILS TEMPLATES FORMATTING--------*/
+
+.details-header {
+    border-radius: 10px;
+    background: rgba(194, 74, 43, .1);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin: 2vw auto 50px auto;
+}
+
+.details-header p {
+     text-align: center;
+     margin-left: auto;
+     margin-right: auto;
+}
+
+.btn-container {
+    padding-bottom: 1em;
+}
+
+
