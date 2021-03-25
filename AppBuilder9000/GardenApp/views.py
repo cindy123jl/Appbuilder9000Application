@@ -59,27 +59,27 @@ def trackerdetails(request, pk):
 def planneredit(request, pk):
     pk = int(pk)
     plan = get_object_or_404(Planner, pk=pk)
-    form = PlannerForm(request.POST or None, instance=plan)
+    form = PlannerForm(request.POST, instance=plan)
     if request.method == "POST":
         if form.is_valid():
             form = form.save(commit=False)
             form.save()
             return redirect('plannerdetails', pk)
     else:
-        form = PlannerForm()
+        form = PlannerForm(None, instance=plan)
     return render(request, 'GardenApp/planner_edit.html', {'plan':plan, 'form': form})
 
 def trackeredit(request, pk):
     pk = int(pk)
     track = get_object_or_404(Tracker, pk=pk)
-    form = TrackerForm(request.POST or None, instance=track)
+    form = TrackerForm(request.POST, instance=track)
     if request.method == "POST":
         if form.is_valid():
             form = form.save(commit=False)
             form.save()
             return redirect('trackerdetails', pk)
     else:
-        form = TrackerForm()
+        form = TrackerForm(None, instance=track)
     return render(request, 'GardenApp/tracker_edit.html', {'track':track, 'form': form})
 
 def plannerdelete(request, pk):
