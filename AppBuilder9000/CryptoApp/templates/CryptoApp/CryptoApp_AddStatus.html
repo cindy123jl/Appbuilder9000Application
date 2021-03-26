@@ -4,11 +4,11 @@
 
 {% block content %}
 
-    <div class="new-status-form">
+    <div class="new-crypto-form">
         <form method="POST">
             {% csrf_token %}
             {{ form.as_ul }}
-            <button id="new-status-button" type="submit" name="Save_Status">Add Update</button>
+            <button class="new-crypto-button" type="submit" name="Save_Status">Add Update</button>
         </form>
     </div>
 
