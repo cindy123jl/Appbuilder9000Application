@@ -1,7 +1,13 @@
 from django import forms
-from .models import Planner, zone_type, Eval
+from .models import Planner, zone_type, Tracker
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout, Row, Column
+from crispy_forms.bootstrap import FormActions
+from crispy_forms.layout import Submit, Layout, Row, Column, HTML
+from crispy_forms.helper import FormHelper
+
+
+
 
 
 class PlannerForm(forms.ModelForm):
@@ -22,22 +28,23 @@ class PlannerForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
-        self.helper.add_input(Submit('save', 'Save'))
-        self.helper.add_input(Submit('cancel', 'Cancel', css_class='btn btn-dnager'))
-
         self.helper.layout = Layout(
-            Column('Vegetable_Name'),
+            'Vegetable_Name',
             Row(
                 Column('Growing_Year'),
                 Column('Growing_Zone')
             ),
-            Column('Sowing_Time_Frame'),
-            Column('Harvest_Tips'),
-            Column('General_Care_Tips')
+            'Sowing_Time_Frame',
+            'Harvest_Tips',
+            'General_Care_Tips',
+            FormActions(
+                Submit('save', 'Save'),
+                HTML('<a class="btn btn-primary" onclick="window.history.back();">Cancel</a>')
+            )
         )
 
 
-class EvalForm(forms.ModelForm):
+class TrackerForm(forms.ModelForm):
     Growing_Season_Observations = forms.CharField(widget=forms.Textarea(
         attrs={'placeholder': 'seasonal notes: when did seeds sprout? new cover crop? new companion planting method?'}))
     Harvest_Weight = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'weight in lbs'}))
@@ -48,16 +55,18 @@ class EvalForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
-        self.helper.add_input(Submit('save', 'Save'))
-        self.helper.add_input(Submit('cancel', 'Cancel', css_class='btn btn-dnager'))
-
         self.helper.layout = Layout(
-            Column('Vegetable_Name'),
-            Column('Growing_Season_Observations'),
-            Column('Harvest_Weight'),
-            Column('Harvest_Observations')
+            'Vegetable_Name',
+            'Growing_Season_Observations',
+            'Harvest_Weight',
+            'Harvest_Observations',
+            FormActions(
+                Submit('save', 'Save'),
+                HTML('<a class="btn btn-primary" onclick="window.history.back();">Cancel</a>')
+            )
         )
 
+
     class Meta:
-        model = Eval
+        model = Tracker
         fields = '__all__'

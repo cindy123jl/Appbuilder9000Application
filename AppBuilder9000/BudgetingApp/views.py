@@ -15,17 +15,13 @@ def login(request):
 
 
 def create_budget(request):
-
+    form = BudgetForm()
     # If this is a POST request then process the Form data
     if request.method == 'POST':
 
         # Create a form instance and populate it with data from the request
         form = BudgetForm(request.POST)
         form.save()  # will validate form and save
-
-    form = BudgetForm()
-
-    budget = BudgetInfo.objects.all()
 
     context = {
         'form': form
@@ -42,6 +38,12 @@ def account(request):
     }
 
     return render(request, 'BudgetingApp/BudgetingApp_account.html', context)
+
+
+def details(request, pk):
+    item = get_object_or_404(BudgetInfo, pk=pk)
+    context = {'item': item}
+    return render(request, 'BudgetingApp/BudgetingApp_details.html', context)
 
 
 
