@@ -2,3 +2,8 @@ html {
     background-color: #f8edc3;
     }
 
+table, th, td {
+    border: 1px solid black;
+    background-color: #FFF;
+    text-align: center;
+    }
