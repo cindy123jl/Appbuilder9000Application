@@ -12,3 +12,4 @@ class CoinStatusForm(ModelForm):
     class Meta:
         model = CoinStatus
         fields = '__all__'
+
