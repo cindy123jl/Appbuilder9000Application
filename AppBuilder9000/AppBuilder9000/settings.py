@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'GardenApp',
     'NovakaneWeather',
     'CryptoApp',
+    'ItemsApp',
 ]
 
 MIDDLEWARE = [
