@@ -1,0 +1,15 @@
+body {
+    background: black url(https://www.runescape.com/img/rsp777/bg2.jpg) repeat-y center top;
+    margin: 0 auto;
+    overflow-y: hidden;
+    padding: 0 50px;
+    width: 815px;
+}
+
+.banner {
+    background: url(https://www.runescape.com/img/rsp777/title2/rslogo3.png) no-repeat center;
+    display: block;
+    margin-bottom: 25px;
+    min-height: 135px;
+    text-align: center;
+}
