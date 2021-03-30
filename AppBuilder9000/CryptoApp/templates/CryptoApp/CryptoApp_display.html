@@ -10,11 +10,14 @@
                 <th>Currency</th>
                 <th>Coin/Token</th>
                 <th>Type</th>
-                <th>Launch Year</th>
+                <th>Launch Date</th>
                 <th>Value</th>
                 <th>Total Supply</th>
                 <th>Market Cap</th>
                 <th>Transactions/Second</th>
+                <th>Edit Currency</th>
+                <th>Update Status</th>
+                <th>Delete</th>
             </tr>
             {% for record in cryptos %}
             <tr>
@@ -22,11 +25,14 @@
                 <td><a href="/CryptoApp/details/{{ record.id }}/"> {{ record.currency.chain_name }} </a></td>
                 <td>{{ record.currency.coin_unit }}</td>
                 <td>{{ record.currency.chain_type }}</td>
-                <td>{{ record.currency.launch_year }}</td>
+                <td>{{ record.currency.launch_date }}</td>
                 <td>{{ record.value }}</td>
                 <td>{{ record.supply }}</td>
                 <td>{{ record.market_cap }}</td>
                 <td>{{ record.transactions_per_sec }}</td>
+                <td><a href="/CryptoApp/edit/{{ record.id }}/">Edit</a></td>
+                <td><a href="/CryptoApp/update/{{ record.id }}/">Update</a></td>
+                <td><a href="/CryptoApp/delete/{{ record.id }}/">Delete</a></td>
             </tr>
             {% endfor %}
         </table>
