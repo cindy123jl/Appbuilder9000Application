@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Currency, CoinStatus
 from .forms import CurrencyForm, CoinStatusForm
 
@@ -34,6 +34,7 @@ def display(request):
 
 
 def details(request, record_id):
+    # TODO: Try doing this with get_object_or_404() method.
     coins = CoinStatus.CoinStatuses.filter(id=record_id)
     this_coin = coins[0]
     # Create dictionary for use on details page
@@ -41,7 +42,7 @@ def details(request, record_id):
         'coin_name': this_coin.currency.chain_name,
         'coin_unit': this_coin.currency.coin_unit,
         'chain_type': this_coin.currency.chain_type,
-        'launch_year': this_coin.currency.launch_year,
+        'launch_date': this_coin.currency.launch_date,
         'value': this_coin.value,
         'as_of_date': this_coin.as_of_date,
         'supply': this_coin.supply,
@@ -51,3 +52,35 @@ def details(request, record_id):
     context = {'coin_detail': coin_detail}
     return render(request, 'CryptoApp/CryptoApp_details.html', context)
 
+
+def edit(request, record_id):
+    coin = get_object_or_404(Currency, pk=record_id)
+    if request.method == "POST":
+        edit_currency_form = CurrencyForm(request.POST, instance=coin)
+        if edit_currency_form.is_valid():
+            coin.save()
+            return redirect('CryptoApp_details', record_id=coin.id)
+    else:
+        edit_currency_form = CurrencyForm(instance=coin)
+    return render(request, 'CryptoApp/CryptoApp_edit.html', {'form': edit_currency_form})
+
+
+def update(request, record_id):
+    coin = get_object_or_404(CoinStatus, pk=record_id)
+    if request.method == "POST":
+        update_status_form = CoinStatusForm(request.POST, instance=coin)
+        if update_status_form.is_valid():
+            coin.save()
+            return redirect('CryptoApp_details', record_id=coin.id)
+    else:
+        update_status_form = CoinStatusForm(instance=coin)
+    return render(request, 'CryptoApp/CryptoApp_update.html', {'form': update_status_form})
+
+
+def delete(request, record_id):
+    coin = get_object_or_404(Currency, pk=record_id)
+    if request.method == 'POST':
+        coin.delete()
+        return redirect('CryptoApp_display')
+    context = {'coin': coin}
+    return render(request, 'CryptoApp/CryptoApp_delete.html', context)
