@@ -3,6 +3,8 @@ from django import forms
 from .models import Recipe
 
 
+
+
 # Creating form class
 class RecipeForm(ModelForm):
     class Meta:
