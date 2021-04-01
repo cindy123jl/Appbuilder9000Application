@@ -1,0 +1,15 @@
+{% extends "ItemsApp/base.html" %}
+
+{% block title %}Add Item{% endblock %}
+
+{% block content %}
+<form method="POST" action="">
+    <div>
+        {% csrf_token %}
+        {{ form.ItemForm }}
+        <button type="submit">Submit</button>
+    </div>
+</form>
+{% endblock %}
+
+

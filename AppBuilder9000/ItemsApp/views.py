@@ -1,7 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 
 # Create your views here.
 def home(request):
-    return render(request, 'ItemsApp/ItemsApp_home.html')
+    return render(request, 'ItemsApp/home.html')
+
+
+def new_item(request):
+    return render(request, 'ItemsApp/new_item.html')
