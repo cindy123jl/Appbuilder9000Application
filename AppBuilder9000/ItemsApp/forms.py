@@ -6,3 +6,4 @@ class ItemForm(ModelForm):
     class Meta:
         model = Item
         fields = '__all__'
+
