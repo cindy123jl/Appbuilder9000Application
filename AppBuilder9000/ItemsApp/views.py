@@ -5,7 +5,7 @@ from .models import Item
 
 # Create your views here.
 def home(request):
-    return render(request, 'ItemsApp/home.html')
+    return render(request, 'ItemsApp/itemsapp_home.html')
 
 
 def new_item(request):
@@ -32,5 +32,10 @@ def createItem(request):
     return render(request, 'ItemsApp/createItem.html', context)
 
 
+def viewItem(request):
+    return render(request, 'ItemsApp/displayItems.html')
 
 
+def details(request, pk):
+    items = Item.objects.all()
+    return render(request, 'ItemsApp/displayItems.html', {'items': items})

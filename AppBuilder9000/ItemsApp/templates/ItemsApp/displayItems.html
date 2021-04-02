@@ -1,0 +1,19 @@
+{% extends "ItemsApp/base.html" %}
+
+{% block title %}View Items{% endblock %}
+
+{% block content %}
+
+<div class="item_panel">
+    <form name="item_form" method="POST" action="">
+            {% csrf_token %}
+            <label for="menu_id">Select an item from the list to view:</label>
+            <select id="menu_id" name="menu" onChange="top.location.href=this.options[this.selectedIndex].value;">
+            {% for item in ItemsApp %}
+                <option value="../{{ item.pk }}/details/">{{ item.name }}</option>
+            {% endfor %}
+            </select>
+    </form>
+</div>
+
+{% endblock %}
