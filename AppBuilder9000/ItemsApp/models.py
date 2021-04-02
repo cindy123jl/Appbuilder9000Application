@@ -3,8 +3,8 @@ from django.db import models
 
 class Item(models.Model):
     # General Information
-    type = models.CharField(max_length=20, default="", blank=True)
-    name = models.CharField(max_length=20, default="", blank=True)
+    type = models.CharField(max_length=20, default="")
+    name = models.CharField(max_length=20, default="")
     # Attack Bonuses
     atk_stab = models.IntegerField()
     atk_slash = models.IntegerField()
@@ -23,13 +23,13 @@ class Item(models.Model):
     bns_magic = models.IntegerField()
     bns_prayer = models.IntegerField()
     # Weapon Slot
-    slot = models.CharField(max_length=60, default="", blank=True)
+    slot = models.CharField(max_length=60, default="")
     # Weapon Speed
     speed = models.IntegerField()
     # Range
     range = models.IntegerField()
     # Images
-    image = models.CharField(max_length=255, default="", blank=True)
+    image = models.URLField(max_length=255, default="")
 
     # Renaming the models manager to a new variable
     objects = models.Manager()

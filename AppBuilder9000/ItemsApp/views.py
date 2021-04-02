@@ -32,20 +32,5 @@ def createItem(request):
     return render(request, 'ItemsApp/createItem.html', context)
 
 
-def viewItem(request):
-    return render(request, 'ItemsApp/displayItems.html')
 
 
-def details(request, pk):
-    pk = int(pk)
-    item = get_object_or_404(Item, pk=pk)
-    form = ItemForm(data=request.POST or None, instance=item)
-    if request.method == 'POST':
-        if form.is_valid():
-            form2 = form.save(commit=False)
-            form2.save()
-            return redirect('home')
-        else:
-            print(form.errors)
-    else:
-        return render(request, 'ItemsApp/new_item.html', {'form': form})
