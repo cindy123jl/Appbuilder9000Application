@@ -12,8 +12,7 @@ class Currency(models.Model):
     chain_name = models.CharField(max_length=60)
     coin_unit = models.CharField(max_length=60)
     chain_type = models.CharField(max_length=200, choices=chain_types)
-    # Convert to datefield and use widget for create page (HTML attribute " 'type':'date' ")
-    launch_year = models.IntegerField(default=0)
+    launch_date = models.DateField(auto_now=False, auto_now_add=False, default="2021-03-30")
 
     Currencies = models.Manager()
 
