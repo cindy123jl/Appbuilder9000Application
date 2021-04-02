@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponseRedirect
 from .models import Currency, CoinStatus
-from .forms import CurrencyForm, CoinStatusForm
+from .forms import CurrencyForm, CoinStatusForm, SearchForm
+import requests
+import json
 
 
 def home(request):
@@ -84,3 +87,59 @@ def delete(request, record_id):
         return redirect('CryptoApp_display')
     context = {'coin': coin}
     return render(request, 'CryptoApp/CryptoApp_delete.html', context)
+
+
+def trending(request):
+    response = requests.get('https://api.coingecko.com/api/v3/search/trending')
+    print(response.status_code)
+    # Response from coingecko.com comes as dictionary where we want only the 'coins' value
+    # That value is a list of the currencies with info stored as key-value pairs
+    coins = response.json()['coins']  # Now we have a list of dictionaries each with one key: 'item'
+    trend = {}
+    counter = 1
+    for items in coins:
+        name = 'name' + str(counter)
+        symbol = 'symbol' + str(counter)
+        market_cap_rank = 'market_cap_rank' + str(counter)
+        item = items.get('item') # Getting the value from each dictionary 'item'
+        trend.update({name: item.get('name'), symbol: item.get('symbol'),
+                      market_cap_rank: item.get('market_cap_rank')})
+        counter += 1
+    context = {'trend': trend}
+    return render(request, 'CryptoApp/CryptoApp_trending.html', context)
+
+
+def lookup(request):
+    form = SearchForm(data=request.POST or None)
+    if request.method == 'POST':
+        if form.is_valid():
+            return render(request, 'CryptoApp/CryptoApp_results.html')
+    content = {'form': form}
+    return render(request, 'CryptoApp/CryptoApp_lookup.html', content)
+
+
+def results(request):
+    if request.method == "POST":
+        get_coin = request.POST["search_name"].lower()
+        try:
+            api_request = ("https://api.coingecko.com/api/v3/coins/{}?localization=false&tickers=false&market_data"
+                       "=false&community_data=false&developer_data=false&sparkline=false".format(get_coin))
+            answer = requests.get(api_request)
+            print(answer.status_code)
+            all_info = answer.json()
+            description = all_info.get("description")
+            # Selecting which elements from json response to present in template
+            coin_info = {
+                "name": all_info.get("name"),
+                "symbol": all_info.get("symbol"),
+                "description": description.get("en"),  # Description of currency.
+                "block_time_in_minutes": all_info.get("block_time_in_minutes"),
+                "genesis_date": all_info.get("genesis_date"),
+                "hashing_algorithm": all_info.get("hashing_algorithm"),
+                "liquidity_score": all_info.get("liquidity_score"),
+                "market_cap_rank": all_info.get("market_cap_rank")
+            }
+        except:
+            coin_info = {'name': "No record found"}
+        response = {'coin_info': coin_info}
+    return render(request, 'CryptoApp/CryptoApp_results.html', response)

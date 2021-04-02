@@ -1,7 +1,9 @@
-from django.forms import ModelForm, DateField, DateInput
+from django.forms import ModelForm, DateInput
+from django import forms
 from .models import Currency, CoinStatus
 
 
+# For use in widgets below
 class DateInput(DateInput):
     input_type = 'date'
 
@@ -18,3 +20,7 @@ class CoinStatusForm(ModelForm):
         model = CoinStatus
         fields = ['currency', 'value', 'as_of_date', 'supply', 'market_cap', 'transactions_per_sec']
         widgets = {'as_of_date': DateInput()}
+
+
+class SearchForm(forms.Form):
+    search_name = forms.CharField(label='Search name', max_length=100)

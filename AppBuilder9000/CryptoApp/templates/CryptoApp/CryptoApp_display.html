@@ -5,7 +5,7 @@
 {% block content %}
 
     <div class="display-table">
-        <table>
+        <table class="cryptoapp-display--table">
             <tr>
                 <th>Currency</th>
                 <th>Coin/Token</th>
@@ -21,7 +21,7 @@
             </tr>
             {% for record in cryptos %}
             <tr>
-                <!-- Using record.currency from CoinStatus ForeignKey to get Currency method values -->
+                {# Using record.currency from CoinStatus ForeignKey to get Currency method values #}
                 <td><a href="/CryptoApp/details/{{ record.id }}/"> {{ record.currency.chain_name }} </a></td>
                 <td>{{ record.currency.coin_unit }}</td>
                 <td>{{ record.currency.chain_type }}</td>
