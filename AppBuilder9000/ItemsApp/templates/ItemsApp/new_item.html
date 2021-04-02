@@ -5,19 +5,14 @@
 {% block content %}
 
     <div class="item_panel">
-        <form name="item_form" method="POST">
-                <table>
-                    {% csrf_token %}
-                    {{ form.non_field_errors }}
-                    {{form.as_table}}
-                </table>
-                <div class="frmBtn_container">
-                    <input type="submit">
-                    <div class="frmBtn_container">
-                        <button class="btn">Delete</button>
-                        <button class="btn"><a href="{% url 'home' %}">Cancel</a></button>
-                    </div>
-                </div>
+        <form name="item_form" method="POST" action="../details/">
+            <table>
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                {{form.as_table}}
+            </table>
+            <div class="frmBtn_container">
+                <input type="submit">
             </div>
         </form>
     </div>
