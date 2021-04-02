@@ -7,10 +7,11 @@
     }
 
 .cryptoapp-base--body {
-    padding-bottom: 2.5rem;
+    padding-bottom: 2.5rem;  /* Leave space for footer */
 }
 
 .cryptoapp-base--footer {
+   /* Keeping footer at bottom */
     position: absolute;
     bottom: 0;
     padding-bottom: 1.6rem;
@@ -20,7 +21,7 @@
 }
 
 .cryptoapp-base--h2 {
-    margin-top: 0px;
+    margin-top: 0px;  /* Removing unwanted space between nav and heading */
 }
 
 /* -------------- Navbar ------------------- */
@@ -51,7 +52,7 @@
 /* -------------- Home Page ------------------- */
 
 .cryptoapp-home--list {
-    padding-top: 0px;
+    padding-top: 0px;   /* Removing unwanted space */
 }
 
 
@@ -59,7 +60,7 @@
 .cryptoapp-addcurrency--form {
     margin-top: 20px;
     margin-left: 10px;
-    list-style: none;
+    list-style: none;   /* Removes bullets */
 }
 
 .cryptoapp-addcurrency--button {
@@ -72,7 +73,7 @@
 .cryptoapp-addstatus--form {
     margin-top: 20px;
     margin-left: 10px;
-    list-style: none;
+    list-style: none;   /* Removes bullets */
 }
 
 .new-crypto-button {
@@ -88,10 +89,10 @@
 
 .cryptoapp-display--table, .cryptoapp-display--th, .cryptoapp-display--td {
     border: 2px solid black;
-    border-collapse: collapse;
+    border-collapse: collapse;  /* Eliminates double-border between cells */
     background-color: #FFF;
     text-align: center;
-    padding: 5px 5px;
+    padding: 5px 5px;  /* Adding some spacing in table */
     }
 
 .cryptoapp-display--th {
@@ -106,5 +107,5 @@
 
 /* -------------- Details Page ------------------- */
 .cryptoapp-details--list{
-    list-style: none;
+    list-style: none;   /* Removes bullets */
 }
