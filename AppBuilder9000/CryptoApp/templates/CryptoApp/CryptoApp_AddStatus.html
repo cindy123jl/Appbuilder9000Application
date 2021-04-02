@@ -8,8 +8,9 @@
         <form method="POST">
             {% csrf_token %}
             {{ form.as_ul }}
-            <button class="new-crypto-button" type="submit" name="Save_Crypto">Create Cryptocurrency</button>
+            <button class="new-crypto-button" type="submit" name="Save_Status">Create Status</button>
         </form>
+        <p>To update an existing status, go to Summary Data and click the 'Update' link.</p>
     </div>
 
 {% endblock %}

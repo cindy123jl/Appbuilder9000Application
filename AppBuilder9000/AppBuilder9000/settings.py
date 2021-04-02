@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'BudgetingApp',
     'GardenApp',
     'CryptoApp',
+    'ItemsApp',
     'WorldRecipes',
 ]
 

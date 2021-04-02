@@ -11,25 +11,28 @@
         <title>{% block title %}{% endblock %}</title>
     </head>
 
-    <header>
-        <!-- Inserting navbar from separate file -->
-        {% include "CryptoApp/CryptoApp_navbar.html" %}
-    </header>
 
     <body>
+
+        <header>
+            <nav>
+                <!-- Inserting navbar from separate file -->
+                {% include "CryptoApp/CryptoApp_navbar.html" %}
+            </nav>
+        </header>
+
+
         <div class="cryptoapp-container">
             <!-- Placeholder for individual page content -->
             {% block content %}{% endblock %}
         </div>
 
-        <navbar>
-
-        </navbar>
 
         <footer>
+            <br>
+            &#169; 2021 The Cryptocurrency App |
             <!-- Link back to project main page -->
             <a href="{% url 'home' %}">Back to AppBuilder9000</a>
-            <p> &#169; 2021 The Cryptocurrency App</p>
         </footer>
 
     </body>

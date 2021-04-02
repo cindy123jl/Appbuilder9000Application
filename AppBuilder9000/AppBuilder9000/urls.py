@@ -27,6 +27,7 @@ urlpatterns = [
     path('BudgetingApp/', include('BudgetingApp.urls')),
     path('GardenApp/', include('GardenApp.urls')),
     path('CryptoApp/', include('CryptoApp.urls')),
+    path('ItemsApp/', include('ItemsApp.urls')),
     path('WorldRecipes/', include('WorldRecipes.urls')),
 ]
 
