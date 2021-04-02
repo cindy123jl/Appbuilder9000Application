@@ -18,4 +18,15 @@ def new_item(request):
     return render(request, 'ItemsApp/new_item.html', content)
 
 
-
+def createItem(request):
+    form = ItemForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('home')
+    else:
+        print(form.errors)
+        form = ItemForm()
+    context = {
+        'form': form,
+    }
+    return render(request, 'ItemsApp/createItem.html', context)
