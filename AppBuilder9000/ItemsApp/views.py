@@ -13,29 +13,6 @@ def new_item(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('itemsApp_home')
     content = {'form': form}
     return render(request, 'ItemsApp/new_item.html', content)
-
-
-def createItem(request):
-    form = ItemForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        return redirect('home')
-    else:
-        print(form.errors)
-        form = ItemForm()
-    context = {
-        'form': form,
-    }
-    return render(request, 'ItemsApp/createItem.html', context)
-
-
-def viewItem(request):
-    return render(request, 'ItemsApp/displayItems.html')
-
-
-def details(request, pk):
-    items = Item.objects.all()
-    return render(request, 'ItemsApp/displayItems.html', {'items': items})
