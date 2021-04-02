@@ -11,8 +11,8 @@
         <title>{% block title %}{% endblock %}</title>
     </head>
 
-
     <body>
+    {% block content %}{% endblock %}
         <div class="topnav">
             <a href="MovieReviewsApp/MovieReviewsApp_home.html">Home</a>
             <a href="#">Movies</a>
@@ -30,8 +30,6 @@
                 {% include "MovieReviewsApp/MovieReviewsApp_navbar.html" %}
             </nav>
         </header>
-
-    </head>
 
 </body>
 </html>
