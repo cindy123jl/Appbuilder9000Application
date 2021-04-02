@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en" class="background">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/WR_css.css' %}">
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+
+    <header>
+        {% include "WorldRecipes/WR_navbar.html" %}
+    </header>
+
+    <body>
+        <div class="container">
+
+            {% block content %}{% endblock %}
+
+        </div>
+
+
+        <footer>
+            <p>Steven R. Novak 2021</p>
+        </footer>
+
+    </body>
+
+</html>
