@@ -24,4 +24,4 @@ def display_items(request):
     """Creates a form displaying the current items in the database."""
     items = Item.objects.values_list()
     content = {'items': items}  # Dictionary for the items inside of the database.
-    return render(request,'ItemsApp/display_items.html', content)
+    return render(request, 'ItemsApp/display_items.html', content)
