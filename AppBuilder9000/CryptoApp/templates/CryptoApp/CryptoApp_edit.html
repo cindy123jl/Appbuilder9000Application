@@ -2,9 +2,10 @@
 
 {% block title %} Edit Cryptocurrency {% endblock %}
 
+{% block header %}Edit Currency Basic Information{% endblock %}
+
 {% block content %}
 
-    <h2>Edit Currency Basic Information</h2>
     <form method="POST" class="edit-form">
         {% csrf_token %}
         {{ form.as_p }}
