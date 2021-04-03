@@ -22,6 +22,6 @@ def new_item(request):
 
 def display_items(request):
     """Creates a form displaying the current items in the database."""
-    item = Item.objects.all()
+    item = Item.objects.all().values()
     content = {'item': item}
     return render(request, 'ItemsApp/display_items.html', content)

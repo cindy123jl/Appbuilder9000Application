@@ -6,13 +6,10 @@
 
     <div class="item_panel">
         <h2><u>Items</u></h2>
-        <h6><u>ID | Name | Slot | Type</u></h6>
-            <table>
-                <tr>
-                    {% for item in item %}
-                        {{ item.id }} - {{ item }} - {{ item.slot }} - {{ item.type }}
-                    {% endfor %}
-                </tr>
-            </table>
+            {% for item in item %}
+                <ul>
+                    <li>{{ item }}</li>
+                </ul>
+            {% endfor %}
     </div>
 {% endblock %}

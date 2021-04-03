@@ -33,7 +33,7 @@ body {
 .item_panel {
     text-align: center;
     margin: 5px auto;
-    width: 75%;
+    width: 100%;
     height: auto;
     background: url(https://www.runescape.com/img/rsp777/scroll/backdrop_745.gif) repeat-y top center;
 	border: 1px solid #d6d6d6;
@@ -109,7 +109,7 @@ input[type="submit"]:hover {
 	transition: opacity 0.3s ease-in-out;
 }
 
-ul {
+.nav {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -117,11 +117,11 @@ ul {
   background-color: #333;
 }
 
-li {
+.nav_2 {
   float: left;
 }
 
-li a {
+.nav_2 a {
   display: block;
   color: white;
   text-align: center;
@@ -130,7 +130,7 @@ li a {
 }
 
 /* Change the link color to #111 (black) on hover */
-li a:hover {
+.nav_2 a:hover {
   background: transparent;
 }
 
