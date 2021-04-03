@@ -5,9 +5,14 @@
 {% block content %}
 
     <div class="item_panel">
-        {% for items in item %}
-            <p>{{ item }}</p>
-        {% endfor %}
+        <h2><u>Items</u></h2>
+        <h6><u>ID | Name | Slot | Type</u></h6>
+            <table>
+                <tr>
+                    {% for item in item %}
+                        {{ item.id }} - {{ item }} - {{ item.slot }} - {{ item.type }}
+                    {% endfor %}
+                </tr>
+            </table>
     </div>
-
 {% endblock %}
