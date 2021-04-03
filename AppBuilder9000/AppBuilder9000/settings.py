@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'CryptoApp',
     'ItemsApp',
     'WorldRecipes',
+    'MovieReviewsApp',
 ]
 
 MIDDLEWARE = [
