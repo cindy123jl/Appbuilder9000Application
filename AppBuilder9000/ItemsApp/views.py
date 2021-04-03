@@ -5,14 +5,23 @@ from .models import Item
 
 # Create your views here.
 def home(request):
-    return render(request, 'ItemsApp/itemsapp_home.html')
+    """Function to open the homepage."""
+    return render(request, 'ItemsApp/home.html')
 
 
 def new_item(request):
-    form = ItemForm(data=request.POST or None)
+    """Creates the form used for user input"""
+    form = ItemForm(data=request.POST or None) # Creates the form from forms.py
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('itemsApp_home')
-    content = {'form': form}
+            return redirect('itemsApp_home') # When the form is created, redirect to the home page.
+    content = {'form': form} # Dictionary for form data entry.
     return render(request, 'ItemsApp/new_item.html', content)
+
+
+def display_items(request):
+    """Creates a form displaying the current items in the database."""
+    items = Item.objects.values_list()
+    content = {'items': items} # Dictionary for the items inside of the database.
+    return render(request,'ItemsApp/display_items.html', content)

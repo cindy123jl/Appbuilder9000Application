@@ -1,0 +1,13 @@
+{% extends 'ItemsApp/base.html' %}
+
+{% block title %}Views Items{% endblock %}
+
+{% block content %}
+
+<div class="item_panel">
+    {% for items in item %}
+        <p>{{item.as_table}}</p>
+    {% endfor %}
+</div>
+
+{% endblock %}
