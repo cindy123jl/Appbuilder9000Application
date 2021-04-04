@@ -11,7 +11,7 @@ def home(request):
 
 def new_item(request):
     """Creates the form used for user input"""
-    form = ItemForm(data=request.POST or None)  # Creates the form from forms.py
+    form = ItemForm(data=request.POST or None)  # Creates the form from forms.py.
     if request.method == 'POST':
         if form.is_valid():
             form.save()
@@ -22,6 +22,6 @@ def new_item(request):
 
 def display_items(request):
     """Creates a form displaying the current items in the database."""
-    item = Item.objects.all().values()
-    content = {'item': item}
+    item = Item.objects.all().values()  # Grabs all values from all items in the database.
+    content = {'item': item}  # Dictionary for the items.
     return render(request, 'ItemsApp/display_items.html', content)
