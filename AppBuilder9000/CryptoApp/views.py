@@ -1,9 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponseRedirect
 from .models import Currency, CoinStatus
 from .forms import CurrencyForm, CoinStatusForm, SearchForm
 import requests
-import json
 
 
 def home(request):
@@ -131,7 +129,7 @@ def results(request):
             # Selecting which elements from json response to present in template
             coin_info = {
                 "name": all_info.get("name"),
-                "symbol": all_info.get("symbol"),
+                "symbol": all_info.get("symbol").upper(),
                 "description": description.get("en"),  # Description of currency.
                 "block_time_in_minutes": all_info.get("block_time_in_minutes"),
                 "genesis_date": all_info.get("genesis_date"),

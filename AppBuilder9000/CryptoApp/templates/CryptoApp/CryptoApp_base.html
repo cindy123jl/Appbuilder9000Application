@@ -19,6 +19,11 @@
                 {# Inserting navbar from separate file #}
                 {% include "CryptoApp/CryptoApp_navbar.html" %}
             </nav>
+
+            {# Placeholder for uniform header #}
+            <h2 class="cryptoapp-base--h2">
+                {% block header %}{% endblock %}
+            </h2>
         </header>
 
 
