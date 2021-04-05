@@ -1,9 +1,15 @@
 from django.db import models
 
+STYLES = [
+    ('Melee', 'Melee'),
+    ('Ranged', 'Ranged'),
+    ('Magic', 'Magic'),
+]
+
 
 class Item(models.Model):
     # General Information
-    type = models.CharField(max_length=20, default="")
+    type = models.CharField(max_length=20, default="", choices=STYLES )
     name = models.CharField(max_length=20, default="")
     # Attack Bonuses
     atk_stab = models.IntegerField()
