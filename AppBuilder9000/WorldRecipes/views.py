@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import RecipeForm
+from .models import Recipe
 
 
 def home(request):
@@ -14,4 +15,10 @@ def create_recipes(request):
             return redirect('WR_create_recipes')
     context = {'form': form}
     return render(request, 'WorldRecipes/WR_create_recipes.html', context)
+
+
+def view_recipes(request):
+    all_recipes = Recipe.objects.all()
+    context = {'all_recipes': all_recipes}
+    return render(request, 'WorldRecipes/WR_view_recipes.html', context)
 
