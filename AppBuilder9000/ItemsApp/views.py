@@ -15,7 +15,7 @@ def new_item(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('itemsApp_home')  # When the form is created, redirect to the home page.
+            return redirect('select_item')  # When the form is created, redirect to the home page.
     content = {'form': form}  # Dictionary for form data entry.
     return render(request, 'ItemsApp/new_item.html', content)
 
@@ -42,6 +42,46 @@ def item_details(request, pk):
     return render(request, "ItemsApp/details_page.html", content)
 
 
+def edit_page(request):
+    """Page that displays a drop-down menu for editing items in the database."""
+    items = Item.objects.all()
+    return render(request, 'ItemsApp/edit_page.html', {'items': items})
 
 
+def edit_form(request, pk):
+    """Renders a new page for input and edit form."""
+    pk = int(pk)
+    item = get_object_or_404(Item, pk=pk)
+    form = ItemForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        if form.is_valid():
+            form2 = form.save(commit=False)
+            form2.save()
+            return redirect('edit_page')
+        else:
+            print(form.errors)
+    else:
+        return render(request, 'ItemsApp/edit_items.html', {'form': form})
 
+
+def delete_item(request, pk):
+    """Grabs the information from the primary key of the item to delete."""
+    pk = int(pk)
+    item = get_object_or_404(Item, pk=pk)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('select_item')
+    context = {"item": item}
+    return render(request, "ItemsApp/confirm_delete.html", context)
+
+
+def confirm_delete(request):
+    """Creates a page got the user to confirm the deletion of the item from the database."""
+    if request.method == 'POST':
+        # Creates form instance and binds data to it
+        form = ItemForm(request.POST or None)
+        if form.is_valid():
+            form.delete()
+            return redirect('select_item')
+    else:
+        return redirect(home)

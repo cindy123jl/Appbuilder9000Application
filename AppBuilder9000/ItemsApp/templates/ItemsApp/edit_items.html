@@ -1,0 +1,20 @@
+{% extends 'ItemsApp/base.html' %}
+
+{% block title %}Edit Items{% endblock %}
+
+{% block content %}
+    <div class="view_panel">
+        <form name="itemForm" method="POST" action="../edit_form/">
+            <table>
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                {{ form.as_table }}
+            </table>
+            <input type="submit">
+            <div class="frmBtn_container">
+                <button class="btn"><a href="../{{ form.pk }}delete/">Delete</a></button>
+                <button class="btn"><a href="{% url 'itemsApp_home' %}">Cancel</a></button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
