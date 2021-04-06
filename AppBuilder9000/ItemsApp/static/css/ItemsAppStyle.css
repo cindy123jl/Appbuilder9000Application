@@ -85,7 +85,7 @@ body {
 input[type="submit"] {
     background-color: white;
     flex-grow: 1;
-    width: 10%;
+    width: 150px;
     justify-content: center;
     text-align: center;
     display: inline-block;

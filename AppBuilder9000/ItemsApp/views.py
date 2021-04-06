@@ -57,7 +57,7 @@ def edit_form(request, pk):
         if form.is_valid():
             form2 = form.save(commit=False)
             form2.save()
-            return redirect('edit_page')
+            return redirect('select_item')
         else:
             print(form.errors)
     else:

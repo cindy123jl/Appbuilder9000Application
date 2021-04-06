@@ -10,11 +10,9 @@
                 {{ form.non_field_errors }}
                 {{ form.as_table }}
             </table>
-            <input type="submit">
-            <div class="frmBtn_container">
-                <button class="btn"><a href="../{{ form.pk }}delete/">Delete</a></button>
-                <button class="btn"><a href="{% url 'itemsApp_home' %}">Cancel</a></button>
-            </div>
+                <input type="submit">
+                <a href="../{{ form.pk }}delete/"><button class="btn" type="button">Delete</button></a>
+                <a href="{% url 'itemsApp_home' %}"><button class="btn" type="button">Cancel</button></a>
         </form>
     </div>
 {% endblock %}

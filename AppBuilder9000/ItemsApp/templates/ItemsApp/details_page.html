@@ -4,9 +4,8 @@
 
 {% block content %}
     <div class="item_panel" method="POST" action="../details/">
-        <h3><u>General Information</u></h3>
             {% for item in item_get %}
-                <li>Name: {{ item.name|title }}</li>
+                <h1><b><u>{{ item.name }}</u></b></h1>
                 <li>Type: {{ item.type|title }}</li>
                 <li>Equipment Slot: {{ item.slot|title }}</li>
                 <li>Speed: {{ item.speed }}</li>
