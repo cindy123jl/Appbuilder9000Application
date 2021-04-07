@@ -1,3 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def WordNerd_home(request):
+    return render(request, 'wordnerd/WordNerd_home.html')
