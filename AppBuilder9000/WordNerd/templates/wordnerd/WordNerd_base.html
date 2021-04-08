@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="en">
+<!--place charset, title dtl block, view port and css dtl block in head-->
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %} {% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/WordNerd.css' %}">
+    </head>
+    <body>
+        <div>
+            <header>
+                <h1>WELCOME TO WORD NERD</h1>
+                    <nav>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Create Word</a></li>
+                            <li><a href="#">About</a></li>
+                        </ul>
+                    </nav>
+            </header>
+             {% block content %}{% endblock %}
+        </div>
+    </body>
+</html>
