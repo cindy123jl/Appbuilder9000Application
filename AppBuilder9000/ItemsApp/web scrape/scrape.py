@@ -1,6 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-import pandas as pd
 
 
 # Webpage request to grab the skeleton of the web page.
@@ -27,11 +26,12 @@ book_img = books.select('img')
 book_covers = [bc["src"] for bc in book_img]
 
 
-"""Pandas data frame"""
-book_list = pd.DataFrame({
-    "Titles": titles,
-    "Covers": book_covers,
-    "Prices": prices
-})
+# Prints a formatted HTML copy of the page we are scraping.
+print(soup.prettify())
+
+# Prints for the scraped information
+print(prices)
+print(titles)
+print(book_covers)
 
 
