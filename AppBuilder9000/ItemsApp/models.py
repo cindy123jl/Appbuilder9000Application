@@ -6,34 +6,49 @@ STYLES = [
     ('Magic', 'Magic'),
 ]
 
+EQUIPMENT_SLOTS = [
+    ('N/A', 'N/A'),
+    ('Head', 'Head'),
+    ('Cape', 'Cape'),
+    ('Neck', 'Neck'),
+    ('Ammunition', 'Ammunition'),
+    ('Weapon', 'Weapon'),
+    ('Shield', 'Shield'),
+    ('Body', 'Body'),
+    ('Legs', 'Legs'),
+    ('Hands', 'Hands'),
+    ('Feet', 'Feet'),
+    ('Ring', 'Ring'),
+]
+
 
 class Item(models.Model):
     # General Information
     type = models.CharField(max_length=20, default="", choices=STYLES )
     name = models.CharField(max_length=20, default="")
     # Attack Bonuses
-    atk_stab = models.IntegerField()
-    atk_slash = models.IntegerField()
-    atk_crush = models.IntegerField()
-    atk_magic = models.IntegerField()
-    atk_range = models.IntegerField()
+    atk_stab = models.IntegerField(default=0)
+    atk_slash = models.IntegerField(default=0)
+    atk_crush = models.IntegerField(default=0)
+    atk_magic = models.IntegerField(default=0)
+    atk_range = models.IntegerField(default=0)
     # Defence Bonuses
-    def_stab = models.IntegerField()
-    def_slash = models.IntegerField()
-    def_crush = models.IntegerField()
-    def_magic = models.IntegerField()
-    def_range = models.IntegerField()
+    def_stab = models.IntegerField(default=0)
+    def_slash = models.IntegerField(default=0)
+    def_crush = models.IntegerField(default=0)
+    def_magic = models.IntegerField(default=0)
+    def_range = models.IntegerField(default=0)
     # Other Bonuses
-    bns_strength = models.IntegerField()
-    bns_range = models.IntegerField()
-    bns_magic = models.IntegerField()
-    bns_prayer = models.IntegerField()
+    bns_strength = models.IntegerField(default=0)
+    bns_range = models.IntegerField(default=0)
+    bns_magic = models.IntegerField(default=0)
+    bns_prayer = models.IntegerField(default=0)
     # Weapon Slot
-    slot = models.CharField(max_length=60, default="")
+    slot = models.CharField(max_length=60, default="", choices=EQUIPMENT_SLOTS)
     # Weapon Speed
-    speed = models.IntegerField()
+    speed = models.IntegerField(default=0)
     # Range
-    range = models.IntegerField()
+    range = models.IntegerField(default=0)
     # Images
     image = models.URLField(max_length=255, default="")
 

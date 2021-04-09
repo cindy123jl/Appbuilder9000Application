@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'ItemsApp',
     'WorldRecipes',
     'MovieReviewsApp',
+    'SharksApp',
+    'WordNerd',
     'GuitarReviewsApp',
 ]
 
