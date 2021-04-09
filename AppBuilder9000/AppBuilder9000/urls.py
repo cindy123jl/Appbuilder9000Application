@@ -32,6 +32,7 @@ urlpatterns = [
     path('MovieReviewsApp/', include('MovieReviewsApp.urls')),
     path('SharksApp/', include('SharksApp.urls')),
     path('WordNerd/', include('WordNerd.urls')),
+    path('GuitarReviewsApp/', include('GuitarReviewsApp.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
