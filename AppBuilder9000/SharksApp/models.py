@@ -1,18 +1,18 @@
 from django.db import models
 
 
-OCEAN_TYPES = {
+OCEAN_TYPES = [
     ('Atlantic', 'Atlantic'),
     ('Pacific', 'Pacific'),
     ('Indian', 'Indian'),
     ('Arctic', 'Arctic'),
-}
+]
 
 
-CHOICE = {
+CHOICE = [
     ('Yes', 'Yes'),
     ('No', 'No'),
-}
+]
 
 class Sharks(models.Model):
     species = models.CharField(max_length=50)
