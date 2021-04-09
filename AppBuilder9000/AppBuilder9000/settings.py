@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'ItemsApp',
     'WorldRecipes',
     'MovieReviewsApp',
+    'GuitarReviewsApp',
 ]
 
 MIDDLEWARE = [
