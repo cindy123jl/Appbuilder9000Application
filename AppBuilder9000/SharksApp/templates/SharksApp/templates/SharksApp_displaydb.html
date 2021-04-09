@@ -1,0 +1,30 @@
+{% extends "SharksApp_base.html" %}
+
+{% block title %} Shark Database {% endblock %}
+
+{% block header %} All About Your Favorite Sharks! {% endblock %}
+
+{% block content %}
+        <table>
+            <tr>
+                <th>Species</th>
+                <th>Family</th>
+                <th>Diet</th>
+                <th>Description</th>
+                <th>Location</th>
+                <th>Endangered</th>
+            </tr>
+            {% for item in content %}
+                <tr>
+                    <td>{{ item.species }}</td>
+                    <td>{{ item.family }}</td>
+                    <td>{{ item.diet }}</td>
+                    <td>{{ item.description }}</td>
+                    <td>{{ item.location }}</td>
+                    <td>{{ item.endangered }}</td>
+                    <td>{{ item.endangered }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

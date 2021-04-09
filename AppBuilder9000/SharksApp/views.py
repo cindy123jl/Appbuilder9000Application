@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .forms import SharksForm
+from .models import Sharks
 
 
 def SharksApp_home(request):
@@ -21,3 +22,9 @@ def Create_Shark(request):
     return render(request, 'SharksApp/templates/SharksApp_newitem.html', context)
 
 
+def Display_DB(request):
+    query_all = Sharks.objects.all()
+    content = {
+        'query_all': query_all
+    }
+    return render(request, 'SharksApp/templates/SharksApp_displaydb.html', content)
