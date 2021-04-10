@@ -14,16 +14,16 @@
                 <th>Location</th>
                 <th>Endangered</th>
             </tr>
-            {% for item in content %}
-                <tr>
-                    <td>{{ item.species }}</td>
-                    <td>{{ item.family }}</td>
-                    <td>{{ item.diet }}</td>
-                    <td>{{ item.description }}</td>
-                    <td>{{ item.location }}</td>
-                    <td>{{ item.endangered }}</td>
-                    <td>{{ item.endangered }}</td>
-                </tr>
+            {% for shark in all_sharks %}
+            <tr>
+                <td>{{ shark.species }}</td>
+                <td>{{ shark.family }}</td>
+                <td>{{ shark.diet }}</td>
+                <td>{{ shark.description }}</td>
+                <td>{{ shark.location }}</td>
+                <td>{{ shark.endangered }}</td>
+                <td>{{ shark.endangered }}</td>
+            </tr>
             {% endfor %}
         </table>
     </div>
