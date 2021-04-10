@@ -113,6 +113,11 @@ td {
     color: black;
 }
 
+td:hover {
+    background-color: #F5F5F5;
+    color: black;
+}
+
 /* footer styles */
 .footer {
     position: fixed;
@@ -121,5 +126,4 @@ td {
     bottom: 0;
     width: 100%;
     color: white;
-    padding: 60px;
 }
