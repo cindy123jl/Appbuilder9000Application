@@ -83,6 +83,41 @@ input[type="submit"]:hover {
     color: black;
 }
 
+/* table styles */
+table {
+    border-collapse: collapse;
+    border: 1px solid black;
+    width: 80%;
+    box-shadow: 0 0 5px 5px black;
+    -moz-box-shadow: 0 0 5px 5px black;
+    -webkit-box-shadow: 0 0 5px 5px black;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th {
+    height: 50px;
+    text-align: left;
+    background-color: #008080;
+    color: white;
+}
+
+td, th {
+    vertical-align: bottom;
+    padding: 15px;
+    border: 1px solid black;
+}
+
+td {
+    background-color: #D3D3D3;
+    color: black;
+}
+
+td:hover {
+    background-color: #F5F5F5;
+    color: black;
+}
+
 /* footer styles */
 .footer {
     position: fixed;

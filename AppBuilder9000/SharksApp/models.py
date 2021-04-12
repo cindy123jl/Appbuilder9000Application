@@ -14,6 +14,7 @@ CHOICE = [
     ('No', 'No'),
 ]
 
+
 class Sharks(models.Model):
     species = models.CharField(max_length=50)
     family = models.CharField(max_length=50)
