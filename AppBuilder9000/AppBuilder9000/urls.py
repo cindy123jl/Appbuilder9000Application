@@ -34,6 +34,7 @@ urlpatterns = [
     path('WordNerd/', include('WordNerd.urls')),
     path('GuitarReviewsApp/', include('GuitarReviewsApp.urls')),
     path('SeaShanties/', include('SeaShanties.urls')),
+    path('MyThai/', include('MyThai.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
