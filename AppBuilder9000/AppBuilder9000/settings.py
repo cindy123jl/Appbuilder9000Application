@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'SharksApp',
     'WordNerd',
     'GuitarReviewsApp',
+    'MyThai',
 ]
 
 MIDDLEWARE = [
