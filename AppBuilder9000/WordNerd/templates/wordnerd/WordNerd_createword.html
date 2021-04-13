@@ -10,15 +10,9 @@
 <form action="" method="POST">
     {% csrf_token %}
     {{wform.as_p}}
-    <input type="submit">
+    <input type="submit" name="submitW">
 </form>
-<!--This is the section where on can optionally add the etymology of a word-->
-<h2>Etymology Form (<i>optional</i>)</h2>
-<hr>
-<form action="" method="POST">
-    {% csrf_token %}
-    {{eform.as_p}}
-    <input type="submit">
-</form>
+
+
 
 {% endblock %}

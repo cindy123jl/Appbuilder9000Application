@@ -1,0 +1,25 @@
+{% extends "wordnerd/WordNerd_base.html" %}
+{% block title %}View your words{% endblock %}
+<!--For loop that displays all the data with all-->
+{% block content %}
+<hr>
+{% for words in wAll %}
+
+    Name: {{ words.word_name }} <br>
+
+    Definition: {{ words.word_definition }} <br>
+
+    Sentence Example: {{ words.word_in_a_sentence }} <br>
+
+    Parent Langauge(s): {{ words.origin }}<br>
+
+    Where You Heard The Word: {{ words.where_did_you_find_the_word }} <br>
+<hr>
+{% endfor %}
+
+
+
+{% endblock %}
+
+
+<!---->
