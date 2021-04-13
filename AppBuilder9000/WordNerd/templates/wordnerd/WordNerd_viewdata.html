@@ -3,7 +3,7 @@
 <!--For loop that displays all the data with all-->
 {% block content %}
 <hr>
-{% for words in wAll %}
+{% for words in allWords %}
 
     Name: {{ words.word_name }} <br>
 
@@ -11,7 +11,7 @@
 
     Sentence Example: {{ words.word_in_a_sentence }} <br>
 
-    Parent Langauge(s): {{ words.origin }}<br>
+    Parent Language(s): {{ words.parent_languages }}<br>
 
     Where You Heard The Word: {{ words.where_did_you_find_the_word }} <br>
 <hr>
