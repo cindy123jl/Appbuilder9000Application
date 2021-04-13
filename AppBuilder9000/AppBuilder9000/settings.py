@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'GuitarReviewsApp',
     'SeaShanties',
     'MyThai',
+    'StockApp',
 ]
 
 MIDDLEWARE = [
