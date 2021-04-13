@@ -33,6 +33,7 @@ urlpatterns = [
     path('SharksApp/', include('SharksApp.urls')),
     path('WordNerd/', include('WordNerd.urls')),
     path('GuitarReviewsApp/', include('GuitarReviewsApp.urls')),
+    path('SeaShanties/', include('SeaShanties.urls')),
     path('MyThai/', include('MyThai.urls')),
 ]
 
