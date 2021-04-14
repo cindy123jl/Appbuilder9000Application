@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import GuitarForm
+from .models import GuitarInfo
 
 
 # Create your views here.
@@ -18,3 +19,8 @@ def create(request):
 
     context = {'form': form}
     return render(request, "GuitarReviewsApp/GuitarReviewsApp_create.html", context)
+
+def review(request):
+    reviews = GuitarInfo.objects.all()
+    context = {'reviews': reviews}
+    return render(request, 'GuitarReviewsApp/GuitarReviewsApp_reviews.html', context)
