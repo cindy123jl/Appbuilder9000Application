@@ -152,7 +152,10 @@ form input[type=submit] {
     cursor: pointer;
     float: right;
 }
-
+textarea {
+    resize: none;
+    margin-bottom: 10px;
+}
 form input[type=text],
 input[type=number],
 #id_dishType,
@@ -173,6 +176,10 @@ form button {
     font-weight: bold;
 }
 
+#dish-form button {
+    position: relative;
+    float: left;
+}
 
 /*      FOOTER    */
 footer {
