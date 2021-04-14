@@ -28,6 +28,10 @@
 }
 
 /* general styles */
+html, body {
+    height: 100%
+}
+
 h1 {
     padding: 60px;
     text-align: center;
@@ -37,7 +41,7 @@ h1 {
 }
 
 /* form container */
-.add_item {
+.form_container {
     display: block;
     margin: 0 auto;
     width: 50%;
@@ -119,11 +123,26 @@ td:hover {
 }
 
 /* footer styles */
+.page_wrap {
+    min-height: 100%;
+    margin-bottom: -100px;
+}
+
+.page_wrap:after {
+    content: "";
+    display: block;
+}
+
+.footer, .page_wrap:after{
+    height: 100px;
+}
+
 .footer {
-    position: fixed;
+    position: relative;
     text-align: center;
     left: 0;
     bottom: 0;
     width: 100%;
     color: white;
+    padding-top: 50px;
 }
