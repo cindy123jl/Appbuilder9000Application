@@ -135,7 +135,8 @@ header .highlight {
 
 #restaurant-form p,
 #dish-form p,
-#errorList {
+#errorList,
+.myRestaurants {
     text-transform: capitalize; /* Make first letter big and all text caps  */
     font-variant: small-caps;
     font-weight: bold;
@@ -194,6 +195,9 @@ footer {
     border-radius: 5px;
     text-align: center;
 }
+
+
+/*      MY RESTAURANTS      */
 
 
 

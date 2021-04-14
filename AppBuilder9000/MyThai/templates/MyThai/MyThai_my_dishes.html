@@ -1,0 +1,25 @@
+{% load staticfiles %}
+
+    <h1>My Dishes!</h1>
+    <div class="dishes-panel">
+        <table>
+            <tr>
+                <td>Dish Name</td>
+                <td>Dish Type</td>
+                <td>Description</td>
+                <td>Restaurant</td>
+                <td>Rating</td>
+            </tr>
+
+            {% for dish in dishes %}
+            <tr>
+                <td>{{ dish.dishName }}</td>
+                <td>{{ dish.dishType }}</td>
+                <td>{{ dish.description }}</td>
+                <td>{{ dish.restaurant }}</td>
+                <td>{{ dish.rating }}</td>
+
+            </tr>
+            {% endfor %}
+        </table>
+    </div>

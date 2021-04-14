@@ -5,17 +5,17 @@ DISH_TYPES = [
     ('Curry', 'Curry'),
     ('Noodles', 'Noodles'),
     ('Soup', 'Soup'),
-    ('Appetizers', 'Appetizers')
+    ('Appetizers', 'Appetizers'),
+    ('Other', 'Other'),
 ]
 
 
 class Restaurant(models.Model):
-    name = models.CharField(max_length=40, default='')
+    name = models.CharField(max_length=40)
     phone = models.CharField(max_length=13, default='(000)000-0000')
-    address = models.CharField(max_length=95, default='')
+    address = models.CharField(max_length=95)
     city = models.CharField(max_length=15, default='Portland')
     rating = models.IntegerField(
-        default='',
         validators=[MaxValueValidator(10), MinValueValidator(0)]  # Check to make sure rating in range.
     )
 
@@ -26,14 +26,13 @@ class Restaurant(models.Model):
 
 
 class Dish(models.Model):
-    dishName = models.CharField(max_length=40, default='')
-    dishType = models.CharField(max_length=10, default='', choices=DISH_TYPES)
+    dishName = models.CharField(max_length=40)
+    dishType = models.CharField(max_length=10, choices=DISH_TYPES)
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
     rating = models.IntegerField(
-        default='',
         validators=[MaxValueValidator(10), MinValueValidator(0)]  # Check to make sure rating in range.
     )
-    description = models.CharField(max_length=255, default='')
+    description = models.CharField(max_length=255)
 
     objects = models.Manager()
 

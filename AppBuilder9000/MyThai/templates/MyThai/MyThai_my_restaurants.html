@@ -1,0 +1,36 @@
+{% extends 'MyThai/MyThai_base.html' %}
+
+{% block title %}MyThai! | My Restaurants{% endblock %}
+
+{% block content %}
+
+    <div class="myRestaurants">
+        <h1>My Restaurants!</h1>
+
+        <div class="restaurant-panel">
+            <table>
+                <tr>
+                    <td>Restaurant Name</td>
+                    <td>Phone</td>
+                    <td>Address</td>
+                    <td>City</td>
+                    <td>Rating</td>
+                </tr>
+                {% for restaurant in restaurants %}
+                <tr>
+                    <td>{{ restaurant.name }}</td>
+                    <td>{{ restaurant.phone }}</td>
+                    <td>{{ restaurant.address }}</td>
+                    <td>{{ restaurant.city }}</td>
+                    <td>{{ restaurant.rating }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="dishes">
+            {% include 'MyThai/MyThai_my_dishes.html' %}
+        </div>
+
+    </div>
+{% endblock %}
