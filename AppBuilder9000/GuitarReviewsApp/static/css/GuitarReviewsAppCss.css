@@ -5,6 +5,10 @@ body {
 h2 {
     color: black;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 35px;
+}
+h3 {
+    font- 30px;
 }
 
 #form-container {
@@ -31,5 +35,19 @@ h2 {
 .navlink {
     font-size: 25px;
     padding: 12px;
+}
 
+.rlable {
+    font-size: 20px;
+    color: #290bcf;
+    font: bold;
+}
+
+ul {
+    list-style-type: none;
+    padding: 5px
+}
+li {
+    font-size: 16px;
+    padding: 2px
 }
