@@ -1,0 +1,29 @@
+{% extends "SharksApp_base.html" %}
+
+{% block title %} Add Shark {% endblock %}
+
+{% block header %} More About Your Favorite Shark! {% endblock %}
+
+{% block content %}
+
+    <table>
+        <tr>
+            <th>Species</th>
+            <th>Family</th>
+            <th>Diet</th>
+            <th>Description</th>
+            <th>Location</th>
+            <th>Endangered</th>
+
+        </tr>
+        <tr>
+            <td>{{ shark.species }}</td>
+            <td>{{ shark.family }}</td>
+            <td>{{ shark.diet }}</td>
+            <td>{{ shark.description }}</td>
+            <td>{{ shark.location }}</td>
+            <td>{{ shark.endangered }}</td>
+        </tr>
+    </table>
+
+{% endblock %}
