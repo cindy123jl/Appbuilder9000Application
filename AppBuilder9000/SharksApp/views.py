@@ -38,3 +38,20 @@ def Shark_Details(request, pk):
     }
     return render(request, 'SharksApp/SharksApp_detailspage.html', content)
 
+
+def Edit_Shark(request, pk):
+    pk = int(pk)
+    shark = get_object_or_404(Sharks, pk=pk)
+    if request.method == "POST":
+        form = SharksForm(request.POST, instance=shark)
+        if form.is_valid():
+            shark = form.save(commit=False)
+            shark.save()
+            return redirect('SharksApp_editpage', pk=shark.pk)
+    else:
+        form = SharksForm(instance=shark)
+        content = {
+            'form': form
+        }
+    return render(request, 'SharksApp/SharksApp_editpage.html', content)
+

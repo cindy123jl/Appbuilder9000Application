@@ -1,0 +1,22 @@
+{% extends "SharksApp_base.html" %}
+
+{% block title %} Edits {% endblock %}
+
+{% block header %} Make Edits to Your Favorite! {% endblock %}
+
+{% block content %}
+
+    <div class="form_container">
+        <form name="SharksForm" method="POST" action="../{{ shark.pk }}/SharksApp_editpage/">
+            <div class="formObject_container">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="btn">
+                    <button type="button"><a href="#">Update</a></button>
+                    <button type="button"><a href="#">Delete</a></button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
