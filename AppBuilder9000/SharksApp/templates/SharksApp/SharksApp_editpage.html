@@ -7,12 +7,12 @@
 {% block content %}
 
     <div class="form_container">
-        <form name="SharksForm" method="POST" action="../{{ shark.pk }}/SharksApp_editpage/">
+        <form name="SharksForm" method="POST" action="../{{ shark.pk }}SharksApp_editpage/">
             <div class="formObject_container">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <div class="btn">
-                    <button type="button"><a href="#">Update</a></button>
+                    <input type="submit" value="Update">
                     <button type="button"><a href="#">Delete</a></button>
                 </div>
             </div>
