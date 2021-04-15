@@ -1,4 +1,4 @@
-/*  GENERAL STYLING & BACKGROUND*/
+/*      GENERAL STYLING & BACKGROUND        */
 body {
     font-family: "Segoe UI", Helvetica, sans-serif;
     font-size: 15px;
@@ -7,53 +7,54 @@ body {
     margin: 0;
 }
 
-#bgimg {
-    background-image: url('../../static/images/MyThai1.jpg');
+.bgimg {
     background-size: cover;     /* Set background image to the full screen */
     width: 100%;
     height: 100%;
     position: fixed;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
     z-index: -1;
     -webkit-transform: scaleX(-1);      /* Flip background image */
     transform: scaleX(-1)
 }
 
 ul {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
-/*  HEADER  */
-header {
+
+/*      HEADER & NAVBAR   */
+header{
     background: #253f3f;
     color: #fff;
-    padding-top: 25px;
+    padding-top: 5px;
     min-height: 50px;
     border-bottom: #de3206 1px solid;
+
+}
+
+header a, .dropdown-btn {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    background-color: rgba(0,0,0,0);
     text-transform: capitalize; /* Make first letter big and all text caps  */
     font-variant: small-caps;
     font-weight: bold;
 }
 
-header a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-}
-
 header li {
     float: left;
     display: inline;
-    padding: 0 20px 0 20px;
-    border-radius: 5%;
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
 }
 
-header li:hover a {
+header li:hover {
     color: #253f3f;
     background-color: #f94b1e;
-    padding: 10px;
     border-radius: 5%;
     -webkit-transition-duration: .5s;
     transition-duration: .5s;
@@ -61,7 +62,6 @@ header li:hover a {
 
 header #brand {
     float: right;
-
 }
 
 header #brand h1 {
@@ -77,20 +77,132 @@ header .highlight {
     font-weight: bolder;
 }
 
-/*  FOOTER  */
+.dropdown {
+    position: relative;
+    margin: auto;
+}
+
+.dropdown-btn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.8);
+    z-index: 1;
+    text-align: center;
+    border-radius: 5px;
+    border-bottom: black 1px solid;
+    border-right: black 1px solid;
+    }
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    position: relative;
+}
+
+.dropdown-content a:hover {
+    background-color: #253f3f;
+    color: #f94b1e;
+    border-radius: 5px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+
+/*      FORM STYLING        */
+#restaurant-form, #dish-form {
+    background-color: #253f3f;
+    color: #fff;
+    width: 50%;
+    margin: 50px auto 50px auto;
+    border-radius: 5px;
+    border: rgba(249, 75, 30, .8)  1px solid;
+    overflow-x: hidden;
+}
+
+#restaurant-form p,
+#dish-form p,
+#errorList {
+    text-transform: capitalize; /* Make first letter big and all text caps  */
+    font-variant: small-caps;
+    font-weight: bold;
+    margin: 4px 5px 0 5px;
+    padding: 3px 10px;
+}
+
+form input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+textarea {
+    resize: none;
+    margin-bottom: 10px;
+}
+form input[type=text],
+input[type=number],
+#id_dishType,
+textarea,
+#id_restaurant {
+    float: right;
+}
+
+form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px 14px;
+    float: right;
+    font-weight: bold;
+}
+
+#dish-form button {
+    position: relative;
+    float: left;
+}
+
+/*      FOOTER    */
 footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
     padding: 20px;
     margin-top: 20px;
     color: #fff;
     background-color: #de3206;
+    border-radius: 5px;
     text-align: center;
 }
 
-/*  MEDIA QUERIES*/
+
+
+/*      MEDIA QUERIES       */
 @media(max-width: 768px) {
     header #brand,
     header nav,
-    header nav li {
+    header nav li,
+    header .dropdown-content{
         float: none;
         text-align: center;
         width:100%;

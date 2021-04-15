@@ -6,7 +6,7 @@
 
 {% block content %}
 
-    <div class="add_item">
+    <div class="form_container">
         <form name="SharksForm" method="POST" action="{% url 'SharksApp_newitem' %}">
             <div class="formObject_container">
                 {% csrf_token %}

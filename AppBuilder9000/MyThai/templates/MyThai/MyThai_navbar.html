@@ -3,9 +3,17 @@
 
 <nav>
   <ul>
-    <li><a class="nav-link" href="{% url 'MyThai_home' %}">Home</a></li>
-    <li><a class="nav-link" href="#">My Restaurants</a></li>
-    <li><a class="nav-link" href="#">Add Restaurant</a></li>
-    <li><a class="nav-link" href="{% url 'home' %}"><span>App Builder 9000</span></a></li>
+    <li><span><a class="nav-link" href="{% url 'MyThai_home' %}">Home</a></span></li>
+    <li><span><a class="nav-link" href="#">My Restaurants</a></span></li>
+    <li>
+      <div class="dropdown">
+        <span><button class="dropdown-btn">Add <i class="fa fa-caret-down"></i></button></span>
+        <div class="dropdown-content">
+          <a class="nav-link" href="{% url 'MyThai_add_restaurant' %}">Restaurant</a>
+          <a class="nav-link" href="{% url 'MyThai_add_dish' %}">Dish</a>
+        </div>
+      </div>
+    </li>
+    <li><span><a class="nav-link" href="{% url 'home' %}">App Builder 9000</a></span></li>
   </ul>
 </nav>

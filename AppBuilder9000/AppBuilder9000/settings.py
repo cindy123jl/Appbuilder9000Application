@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'GuitarReviewsApp',
     'SeaShanties',
     'MyThai',
+    'StockApp',
     'MusicApp',
 ]
 
@@ -134,7 +135,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-# static files (css, JavaScript, Images)
+# Static files (css, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
