@@ -5,16 +5,17 @@
 {% block content %}
 
     <div class="myRestaurants">
-        <h1>My Restaurants!</h1>
 
+        <h1>My Restaurants!</h1>
         <div class="restaurant-panel">
-            <table>
+
+            <table id="restaurant-table">
                 <tr>
-                    <td>Restaurant Name</td>
-                    <td>Phone</td>
-                    <td>Address</td>
-                    <td>City</td>
-                    <td>Rating</td>
+                    <th>Restaurant Name</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>Rating</th>
                 </tr>
                 {% for restaurant in restaurants %}
                 <tr>
@@ -28,7 +29,7 @@
             </table>
         </div>
 
-        <div class="dishes">
+        <div class="dishes-panel">
             {% include 'MyThai/MyThai_my_dishes.html' %}
         </div>
 

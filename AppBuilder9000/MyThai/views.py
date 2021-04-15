@@ -12,7 +12,7 @@ def new_restaurant(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('MyThai_home')
+            return redirect('MyThai_my_restaurants')
         else:
             content = {'form': form}
             return render(request, 'MyThai/MyThai_add_restaurant.html', content)
@@ -25,7 +25,7 @@ def new_dish(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('MyThai_home')
+            return redirect('MyThai_my_restaurants')
         else:
             content = {'form': form}
             return render(request, 'MyThai/MyThai_add_dish.html', content)
@@ -35,14 +35,8 @@ def new_dish(request):
 
 def my_restaurants(request):
     restaurants = Restaurant.objects.all()
-    content = {'restaurants': restaurants}
-    return render(request, 'MyThai/MyThai_my_restaurants.html', content)
-
-
-def my_dishes(request):
     dishes = Dish.objects.all()
-    content2 = {'dishes': dishes}
-    return render(request, 'MyThai/MyThai_my_dishes.html', content2)
+    return render(request, 'MyThai/MyThai_my_restaurants.html', {'restaurants': restaurants, 'dishes': dishes})
 
 
 # def display_restaurants(request, pk):

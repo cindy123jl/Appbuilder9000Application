@@ -135,8 +135,7 @@ header .highlight {
 
 #restaurant-form p,
 #dish-form p,
-#errorList,
-.myRestaurants {
+#errorList {
     text-transform: capitalize; /* Make first letter big and all text caps  */
     font-variant: small-caps;
     font-weight: bold;
@@ -188,7 +187,7 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
-    padding: 20px;
+    padding: 10px;
     margin-top: 20px;
     color: #fff;
     background-color: #de3206;
@@ -198,7 +197,32 @@ footer {
 
 
 /*      MY RESTAURANTS      */
+.myRestaurants {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.restaurant-panel,
+.dishes-panel,
+.myRestaurants h1{
+    justify-content: center;
+    align-self: center;
+}
+
+table {
+    min-width: 500px;
+    max-width: 800px;
+    background-color: #253f3f;
+    color: #fff;
+    border: 1px solid #de3206;
+    margin-bottom: 20px;
+}
+
+td, th {
+    padding: 1rem;
+    text-align: center;
+}
 
 
 /*      MEDIA QUERIES       */
