@@ -32,7 +32,8 @@ html, body {
     height: 100%
 }
 
-h1 {
+.header_style {
+    display: block;
     padding: 60px;
     text-align: center;
     background-color: #008080;
@@ -44,6 +45,7 @@ h1 {
 .form_container {
     display: block;
     margin: 0 auto;
+    margin-top: 50px;
     width: 50%;
     height: 80%;
     background-color: gray;
@@ -57,7 +59,6 @@ h1 {
     text-align: center;
     width: 80%;
     margin: 0 auto;
-    padding: 0;
 }
 
 input[type="text"] {
@@ -87,9 +88,6 @@ input[type="submit"]:hover {
     color: black;
 }
 
-/* delete button */
-
-
 /* table styles */
 table {
     border-collapse: collapse;
@@ -100,6 +98,7 @@ table {
     -webkit-box-shadow: 0 0 5px 5px black;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 50px;
 }
 
 th {
@@ -149,3 +148,20 @@ td:hover {
     color: white;
     padding-top: 50px;
 }
+
+
+/* delete button */
+.delete_btn {
+    text-align: center;
+    cursor: pointer;
+    width: 50%;
+    background-color: #191970;
+    color: white;
+    margin: 8px 0;
+    padding: 14px 20px;
+    border-radius: 4px;
+}
+
+.delete_btn:hover {
+    background-color: #F5F5F5;
+    color: black;

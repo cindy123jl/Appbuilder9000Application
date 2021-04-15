@@ -2,7 +2,11 @@
 
 {% block title %} Edits {% endblock %}
 
-{% block header %} Make Edits to Your Favorite! {% endblock %}
+{% block header %}
+
+    Make Edits to Your Favorite!
+
+{% endblock %}
 
 {% block content %}
 
@@ -13,7 +17,7 @@
                 {{ form.as_p }}
                 <div class="btn">
                     <input type="submit" value="Update">
-                    <button class="delete" type="button"><a href="#">Delete</a></button>
+                    <button class="delete_btn" type="button"><a href="#">Delete</a></button>
                 </div>
             </div>
         </form>
