@@ -19,9 +19,9 @@ RATING = [
 # Create your models here.
 class GuitarInfo(models.Model):
     # fields of the model
-    type = models.CharField(max_length=50, null=False, blank=True, choices=TYPES)
-    brand = models.CharField(max_length=50, null=False, blank=True)
-    model = models.CharField(max_length=50, null=False, blank=True)
+    type = models.CharField(max_length=50, choices=TYPES)
+    brand = models.CharField(max_length=50)
+    model = models.CharField(max_length=50)
     stars = models.IntegerField(choices=RATING)
     review = models.TextField(max_length=2000)
 

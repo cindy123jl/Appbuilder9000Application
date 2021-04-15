@@ -28,3 +28,13 @@ def Display_DB(request):
         'all_sharks': all_sharks
     }
     return render(request, 'SharksApp/SharksApp_displaydb.html', content)
+
+
+def Shark_Details(request, pk):
+    pk = int(pk)
+    shark = get_object_or_404(Sharks, pk=pk)
+    content = {
+        'shark': shark
+    }
+    return render(request, 'SharksApp/SharksApp_detailspage.html', content)
+
