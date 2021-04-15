@@ -5,8 +5,13 @@ h1 {
    color: white;
 }
 
+h3 {
+   color: white;
+}
 
-body {
+
+
+ body {
    background-image: url(https://m.foolcdn.com/media/dubs/images/stock_chart_up_2.original.jpg);
    background-color: transparent;
 
@@ -16,4 +21,13 @@ ul {
    text-align: center;
    font-size: 20px;
    font-style: italic;
+}
+
+
+BLANK {
+    text-color: white;
+}
+
+h3{
+    text-color: white;
 }
