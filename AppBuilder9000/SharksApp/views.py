@@ -47,7 +47,7 @@ def Edit_Shark(request, pk):
         if form.is_valid():
             form_update = form.save(commit=False)
             form_update.save()
-            return redirect('SharksApp_detailspage')
+            return redirect('SharksApp_detailspage', pk=shark.pk)
     else:
         form = SharksForm(instance=shark)
         content = {
