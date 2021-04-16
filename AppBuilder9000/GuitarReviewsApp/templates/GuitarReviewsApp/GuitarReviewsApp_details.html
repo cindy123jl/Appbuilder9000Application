@@ -1,0 +1,18 @@
+{% extends 'GuitarReviewsApp/GuitarReviewsApp_base.html'%}
+{% load static %}
+
+{% block title %} Details {% endblock %}
+
+{% block content %}
+    <div id="details">
+        {% for item in list %}
+            <ul>
+                <li>Brand: {{ item.brand }}</li>
+                <li>Model: {{ item.type }}</li>
+                <li>Type: {{ item.type }}</li>
+                <li>Stars: {{ item.stars }}</li>
+                <li>Review: {{ item.review }}</li>
+            </ul>
+        {% endblock %}
+    </div>
+{% endblock %}
