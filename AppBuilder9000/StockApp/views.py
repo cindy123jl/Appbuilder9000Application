@@ -21,6 +21,11 @@ def new(request):
     content = {'form': form}
     return render(request, 'StockApp/StockApp_newstock.html', content)
 
-#   'StockApp/StockApp_home.html'
 
-#   'StockApp/StockApp_base.html'
+def watchlist(request):
+    items = Stock.objects.all()
+    context = {
+        'items': items
+    }
+    return render(request, 'StockApp/StockApp_Watchlist.html', context)
+

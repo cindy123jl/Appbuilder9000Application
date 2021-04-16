@@ -1,15 +1,14 @@
 {% extends 'StockApp/StockApp_base.html' %}
 
-{% block title %}Add A Stock{% endblock %}
+{% block title %}Watchlist{% endblock %}
 
 {% block content %}
-
 	<h3>Add A Stock</h3>
 	<div id="Add-Form">
 		<form method="POST" >
 			{% csrf_token %}
 			{{form.as_p}}
-			<button id="new-stock" type="submit" name="AddStock">Add A Stock</button>
+			<button id="new-stock" type="submit" name="AddStock">STOCKAPP_WATCHLIST</button>
 		</form>
 	</div>
 {% endblock %}
