@@ -11,4 +11,5 @@ urlpatterns = [
     path('SharksApp_displaydb/', views.Display_DB, name="SharksApp_displaydb"),
     path('<int:pk>/SharksApp_detailspage/', views.Shark_Details, name="SharksApp_detailspage"),
     path('<int:pk>/SharksApp_editpage/', views.Edit_Shark, name="SharksApp_editpage"),
+    path('<int:pk>/SharksApp_deletepage/', views.Delete_Shark, name="delete"),
 ]

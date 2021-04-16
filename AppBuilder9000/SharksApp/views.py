@@ -55,3 +55,12 @@ def Edit_Shark(request, pk):
         }
     return render(request, 'SharksApp/SharksApp_editpage.html', content)
 
+
+def Delete_Shark(request, pk):
+    pk = int(pk)
+    shark = get_object_or_404(Sharks, pk=pk)
+    if request.method == "POST":
+        shark.delete()
+        return redirect('SharksApp_displaydb')
+
+

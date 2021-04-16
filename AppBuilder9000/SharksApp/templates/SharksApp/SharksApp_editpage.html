@@ -24,7 +24,7 @@
     </div>
 
     <div id="delete_modal" class="modal">
-        <span onclick="document.getElementbyId('delete_modal').style.display='none'" class="close">x</span>
+        <span onclick="document.getElementById('delete_modal').style.display='none'" class="close">x</span>
         <form class="modal_content" action="">
             <div class="modal_container">
                 <h1>Delete Species</h1>
@@ -32,7 +32,7 @@
 
                 <div class="clearfix">
                     <button class="other_btn" type="button" onclick="document.getElementById('delete_modal').style.display='none'">No</button>
-                    <button class="other_btn" type="button" onclick="document.getElementById('delete_modal').style.display='none'">Yes</button>
+                    <button class="other_btn" type="button" onclick="{{ Delete_Shark }}">Yes</button>
                 </div>
             </div>
         </form>
