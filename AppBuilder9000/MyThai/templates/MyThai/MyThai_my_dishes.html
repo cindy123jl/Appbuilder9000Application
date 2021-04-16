@@ -1,30 +1,52 @@
 {% load staticfiles %}
 
-
+    <div class="search-container">
+        <form method="GET" action="">
+            <input type="search" placeholder="Search for a Dish/Restaurant.." name="get_dish">
+                <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
     <div class="dishes-panel">
         <h1>My Dishes!</h1>
-        <table id="restaurant-table">
+        <table id="dishes-table">
             <thead>
                     <tr>
-                        <span><th colspan="2">Dish Name</th></span>
+                       <th><span>Dish Name</span></th>
                         <th>Dish Type</th>
                         <th>Description</th>
-                        <th colspan="2">Restaurant</th>
+                        <th>Restaurant</th>
                         <th>Rating</th>
                     </tr>
             </thead>
 
             <tbody>
                 {% for dish in dishes %}
-                <tr>
-                    <span><td colspan="2">{{ dish.dishName }}</td></span>
-                    <td>{{ dish.dishType }}</td>
-                    <td>{{ dish.description }}</td>
-                    <td>{{ dish.restaurant }}</td>
-                    <td>{{ dish.rating }}</td>
 
+                <tr>
+                   <td><span>{{ dish.dishName|capfirst }}</span></td>
+                    <td>{{ dish.dishType|capfirst }}</td>
+                    <td>{{ dish.description }}</td>
+                    <td>{{ dish.restaurant|capfirst }}</td>
+                    <td>{{ dish.rating }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
+        <div class="pagination">
+            <span class="step-links">
+                {% if dishes.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ dishes.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ dishes.number }} of {{ dishes.paginator.num_pages }}.
+                </span>
+
+                {% if contacts.has_next %}
+                    <a href="?page={{ dishes.next_page_number }}">next</a>
+                    <a href="?page={{ dishes.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
     </div>

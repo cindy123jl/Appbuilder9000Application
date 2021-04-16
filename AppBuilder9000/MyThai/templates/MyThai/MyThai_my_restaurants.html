@@ -19,14 +19,31 @@
                 </tr>
                 {% for restaurant in restaurants %}
                 <tr>
-                    <td>{{ restaurant.name }}</td>
+                    <td>{{ restaurant.name|capfirst }}</td>
                     <td>{{ restaurant.phone }}</td>
                     <td>{{ restaurant.address }}</td>
-                    <td>{{ restaurant.city }}</td>
+                    <td>{{ restaurant.city|capfirst }}</td>
                     <td>{{ restaurant.rating }}</td>
                 </tr>
                 {% endfor %}
             </table>
+            <div class="pagination">
+                <span class="step-links">
+                    {% if restaurants.has_previous %}
+                        <a href="?page=1">&laquo;</a>
+                        <a href="?page={{ restaurants.previous_page_number }}">previous</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{ restaurants.number }} of {{ restaurants.paginator.num_pages }}.
+                    </span>
+
+                    {% if restaurants.has_next %}
+                        <a href="?page={{ restaurants.next_page_number }}">next</a>
+                        <a href="?page={{ restaurants.paginator.num_pages }}">&raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
         </div>
 
         <div class="dishes-panel">
