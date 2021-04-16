@@ -3,6 +3,7 @@ from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from .forms import RestaurantForm, DishForm
 from .models import Restaurant, Dish
+from operator import attrgetter
 
 
 def MyThai_home(request):
@@ -40,11 +41,14 @@ def my_restaurants_view(request):
     dish_list = Dish.objects.all()
 
     get_dish_query = request.GET.get('get_dish')
+    my_sort = request.GET.get('dishes')
 
     if is_valid_query(get_dish_query):     # If is valid = True, filter queryset
         dish_list = dish_list.filter(
             Q(dishName__icontains=get_dish_query) |
             Q(restaurant__name__icontains=get_dish_query)).distinct()   # Only return distinct entries
+
+    dish_list = my_sorted(dish_list, my_sort)                # Sort Dict
 
     paginator1 = Paginator(restaurant_list, 10)     # Create paginator object with 10 restaurants per page
     paginator2 = Paginator(dish_list, 15)
@@ -61,3 +65,11 @@ def my_restaurants_view(request):
 def is_valid_query(param):
     return param != '' and param is not None    # Makes sure search is valid query, if not return false
 
+
+def my_sorted(dish_list, my_sort):
+    if my_sort == 'rating':             # If sorted by rating, reverse so highest goes at the top.
+        asc = True
+    else:
+        asc = False
+    dish_list = sorted(dish_list, key=attrgetter(my_sort), reverse=asc)     # Sort dict by model attribute = 'my_sort'
+    return dish_list
