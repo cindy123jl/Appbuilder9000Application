@@ -4,7 +4,7 @@
 
 	<head>
         <meta charset="utf-8">
-        <title>The Sea Shanty App</title>
+        <title>{% block title %}{% endblock %}</title>
         <meta name="description" content="An App for Displaying And Singing Along to Sea Shanties">
         <meta name="author" content="Keen Little">
 		<link rel="stylesheet" type="text/css" href="{% static 'css/shanty.css' %}">
@@ -16,10 +16,10 @@
 
         <div class="navbar">
             <ul>
-                <li><a class="active" href="#home"> Home </a></li>
-                <li><a href="#"> Songs </a></li>
-                <li><a href="#"> Submit </a></li>
-                <li><a href="#"> Admin </a></li>
+                <li><a class="{% url 'shanties_home' %}" href="#home"> Home </a></li>
+                <li><a href="{% url 'shanties_add' %}"> Add Song </a></li>
+                <li><a href="#"> ##### </a></li>
+                <li><a href="#"> ##### </a></li>
             </ul>
         </div>
 
