@@ -1,25 +1,18 @@
 {% extends "wordnerd/WordNerd_base.html" %}
 {% block title %}View your words{% endblock %}
 <!--For loop that displays all the data with all-->
+{% block header %} <h2>Please Select a word to view its details!</h2>{% endblock%}
 {% block content %}
+
 <hr>
+<!--Lists all word names in a list that allows the user to click them and be redirected to a details page (WordNerd_worddetails.html)-->
 {% for words in allWords %}
 
-    Name: {{ words.word_name }} <br>
+Name: <a id="Name_Select" href="{% url 'WordNerd_worddetails' words.id %}">{{ words.word_name }}</a> <br>
 
-    Definition: {{ words.word_definition }} <br>
-
-    Sentence Example: {{ words.word_in_a_sentence }} <br>
-
-    Parent Language(s): {{ words.parent_languages }}<br>
-
-    Where You Heard The Word: {{ words.where_did_you_find_the_word }} <br>
 <hr>
 {% endfor %}
-
-
 
 {% endblock %}
 
 
-<!---->
