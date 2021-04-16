@@ -17,10 +17,29 @@
                 {{ form.as_p }}
                 <div class="btn">
                     <input type="submit" value="Update">
-                    <button class="delete_btn" type="button"><a href="#">Delete</a></button>
+                    <button class="delete_btn" type="button" onclick="document.getElementById('delete_modal').style.display='block'">Delete</button>
                 </div>
             </div>
         </form>
     </div>
+
+    <div id="delete_modal" class="modal">
+        <span onclick="document.getElementbyId('delete_modal').style.display='none'" class="close">x</span>
+        <form class="modal_content" action="">
+            <div class="modal_container">
+                <h1>Delete Species</h1>
+                <p>Are you sure you want to delete this species from the database?</p>
+
+                <div class="clearfix">
+                    <button class="other_btn" type="button" onclick="document.getElementById('delete_modal').style.display='none'">No</button>
+                    <button class="other_btn" type="button" onclick="document.getElementById('delete_modal').style.display='none'">Yes</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        var modal = document.getElementById('delete_modal');
+    </script>
 
 {% endblock %}
