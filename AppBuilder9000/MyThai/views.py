@@ -11,12 +11,15 @@ def MyThai_home(request):
 
 
 def new_restaurant(request):
+    # Store Restaurant form as form
     form = RestaurantForm(data=request.POST or None)
     if request.method == 'POST':
+        # If form is valid save and return to dishes page.
         if form.is_valid():
             form.save()
             return redirect('MyThai_my_restaurants')
         else:
+            # If form isn't valid return to the add page with the content entered.
             content = {'form': form}
             return render(request, 'MyThai/MyThai_add_restaurant.html', content)
     content = {'form': form}
