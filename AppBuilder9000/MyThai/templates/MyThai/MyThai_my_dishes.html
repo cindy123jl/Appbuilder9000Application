@@ -8,8 +8,8 @@
     </div>
     <div class="orderby-container">
         <form method="GET" action="">
-            <label for="cars">Choose a car:</label>
-            <select id="cars" name="dishes">
+            <label for="dishes">Order By: </label>
+            <select id="dishes" name="dishes">
                 <option value="dishName">Dish Name</option>
                 <option value="dishType">Dish Type</option>
                 <option value="restaurant">Restaurant</option>
@@ -35,7 +35,7 @@
                 {% for dish in dishes %}
 
                 <tr>
-                   <td><span>{{ dish.dishName|capfirst }}</span></td>
+                   <td><span><a href="{% url 'MyThai_details' dish.id %}">{{ dish.dishName|capfirst }}</a></span></td>
                     <td>{{ dish.dishType|capfirst }}</td>
                     <td>{{ dish.description }}</td>
                     <td>{{ dish.restaurant|capfirst }}</td>
