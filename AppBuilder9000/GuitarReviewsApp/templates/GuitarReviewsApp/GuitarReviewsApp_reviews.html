@@ -1,4 +1,4 @@
-{% extends 'GuitarReviewsApp/GuitarReviewsApp_base.html' %}
+{% extends 'GuitarReviewsApp/GuitarReviewsApp_base.html'%}
 {% load static %}
 
 {% block title %} Details {% endblock %}
@@ -10,7 +10,8 @@
     <div id="review_list">
         {% for item in reviews %}
         <ul>
-            <li><a href="{% url 'GuitarReviews_details' %}">{{ item.brand }} {{ item.model }}</a></li>
-        </ul>>
+            <li><h4>Guitar:</h4><a href="{% url 'GuitarReviews_details' item.id  %}"> {{ item.brand }} - {{ item.model }}</a></li>
+        </ul>
+    </div>
         {% endfor %}
 {% endblock %}
