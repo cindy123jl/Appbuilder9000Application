@@ -50,9 +50,9 @@ def Edit_Shark(request, pk):
             return redirect('SharksApp_detailspage', pk=shark.pk)
     else:
         form = SharksForm(instance=shark)
-        content = {
-            'form': form
-        }
+    content = {
+         'form': form
+    }
     return render(request, 'SharksApp/SharksApp_editpage.html', content)
 
 
@@ -62,5 +62,5 @@ def Delete_Shark(request, pk):
     if request.method == "POST":
         shark.delete()
         return redirect('SharksApp_displaydb')
-
+    return render(request, 'SharksApp/SharksApp_deletepage.html')
 
