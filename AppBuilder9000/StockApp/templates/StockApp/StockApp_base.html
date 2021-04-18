@@ -10,20 +10,24 @@
 		<title>{% block title%}{% endblock %}</title>
 	</head>
 	<header>
-			<div class="">
-				   <div>
-					  <ul>
-						<ul><a href="{%url 'StockApp_home'%}">Home Page</a></ul>
-						<ul><a href="{%url 'StockApp_Watchlist' %}">View Watchlist Stocks</a></ul>
-						<ul><a href="{%url 'StockApp_newstock'%}">Add a stock</a></ul>
-					  </ul>
-				   </div>
-			</div>
+		   <div>
+			  <ul>
+				<ul><a href="{%url 'StockApp_home'%}">Home Page</a></ul>
+				<ul><a href="{%url 'StockApp_Watchlist' %}">View Watchlist Stocks</a></ul>
+				<ul><a href="{%url 'StockApp_newstock'%}">Add a stock</a></ul>
+			  </ul>
+		   </div>
 	</header>
-	<body id="">
-		<div class="">
+	<body id="p">
+		<div class="p">
+			<body>
+
+
 			{% block content %}{% endblock %}
-			<br><br>
+
+
+
+			</body>
 		</div>
 	</body>
 </html>

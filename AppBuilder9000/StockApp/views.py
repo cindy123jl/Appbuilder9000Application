@@ -1,9 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Stock
 from .form import StockForm
-import requests
+from .models import WatchStock
 
-# Create your views here.
 def home(request):
     return render(request, 'StockApp/StockApp_home.html')
 
@@ -23,9 +21,6 @@ def new(request):
 
 
 def watchlist(request):
-    items = Stock.objects.all()
-    context = {
-        'items': items
-    }
-    return render(request, 'StockApp/StockApp_Watchlist.html', context)
-
+    all_stocks = WatchStock.objects.all()
+    context = {'all_stocks': all_stocks}
+    return render(request, "StockApp/StockApp_Watchlist.html", context)

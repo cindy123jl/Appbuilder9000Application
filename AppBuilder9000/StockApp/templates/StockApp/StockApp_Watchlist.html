@@ -3,12 +3,22 @@
 {% block title %}Watchlist{% endblock %}
 
 {% block content %}
-	<h3>Add A Stock</h3>
-	<div id="Add-Form">
-		<form method="POST" >
-			{% csrf_token %}
-			{{form.as_p}}
-			<button id="new-stock" type="submit" name="AddStock">STOCKAPP_WATCHLIST</button>
-		</form>
-	</div>
+<div style="text-color: white; " >
+    <ul>
+        <div id="content" class="grid-container" >
+
+        {% for item in all_stocks %}
+            <div id="content">
+            <br>
+            <ul>{{ item.name }}</ul>
+            <ul>{{ item.market_cap }}</ul>
+            <ul>{{ item.time_stamp }}</ul>
+            <ul>{{ item.price }}</ul>
+            <br>
+            </div>
+            {% endfor %}
+        </div>
+    </ul>
+</div>
+
 {% endblock %}
