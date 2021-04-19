@@ -40,19 +40,14 @@ INSTALLED_APPS = [
     'rest_framework',
     'bootstrap4',
     'crispy_forms',
-    'AwesomeWeather',
-    'BudgetingApp',
-    'GardenApp',
-    'CryptoApp',
-    'ItemsApp',
     'WorldRecipes',
-    'MovieReviewsApp',
     'SharksApp',
     'WordNerd',
     'GuitarReviewsApp',
     'SeaShanties',
     'MyThai',
     'StockApp',
+    'MusicApp',
 ]
 
 MIDDLEWARE = [

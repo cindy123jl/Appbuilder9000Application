@@ -12,6 +12,7 @@ class RestaurantForm(ModelForm):
 class DishForm(ModelForm):
     description = forms.CharField(widget=forms.Textarea)
 
+
     class Meta:
         model = Dish
         fields = '__all__'

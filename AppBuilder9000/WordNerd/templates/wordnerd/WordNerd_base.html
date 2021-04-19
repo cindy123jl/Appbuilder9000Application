@@ -14,12 +14,13 @@
                 <h1>WELCOME TO WORD NERD</h1>
                     <nav>
                         <ul>
-                            <li><a href="{% url 'WordNerd_home' %}">Home</a></li>
-                            <li><a href="{% url 'WordNerd_createword' %}">Create Word</a></li>
-                            <li><a href="{% url 'WordNerd_viewdata' %}">View Words</a></li>
+                            <li><a id="Nav_Link" href="{% url 'WordNerd_home' %}">Home</a></li>
+                            <li><a id="Nav_Link" href="{% url 'WordNerd_createword' %}">Create Word</a></li>
+                            <li><a id="Nav_Link" href="{% url 'WordNerd_viewdata' %}">View Words</a></li>
                         </ul>
                     </nav>
             </header>
+            {% block header %} {% endblock %}
              {% block content %}{% endblock %}
         </div>
     </body>
