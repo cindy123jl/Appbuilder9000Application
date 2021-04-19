@@ -38,3 +38,29 @@ def Shark_Details(request, pk):
     }
     return render(request, 'SharksApp/SharksApp_detailspage.html', content)
 
+
+def Edit_Shark(request, pk):
+    pk = int(pk)
+    shark = get_object_or_404(Sharks, pk=pk)
+    if request.method == "POST":
+        form = SharksForm(data=request.POST, instance=shark)
+        if form.is_valid():
+            form_update = form.save(commit=False)
+            form_update.save()
+            return redirect('SharksApp_detailspage', pk=shark.pk)
+    else:
+        form = SharksForm(instance=shark)
+    content = {
+         'form': form
+    }
+    return render(request, 'SharksApp/SharksApp_editpage.html', content)
+
+
+def Delete_Shark(request, pk):
+    pk = int(pk)
+    shark = get_object_or_404(Sharks, pk=pk)
+    if request.method == "POST":
+        shark.delete()
+        return redirect('SharksApp_displaydb')
+    return render(request, 'SharksApp/SharksApp_deletepage.html')
+
