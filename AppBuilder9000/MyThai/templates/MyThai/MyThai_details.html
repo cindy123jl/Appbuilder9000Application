@@ -1,9 +1,19 @@
-{% extends 'MyThai/MyThai_base.html' %}
+{% extends 'MyThai_base.html' %}
 
 {% block tile %} MyThai! | Dish Details {% endblock %}
 
 {% block content %}
 
-
+    <div class="dsh-details">
+        {% for dish in dish %}
+            <div>
+                <p>Dish Name: {{ dish.dishName|capfirst }}</p>
+                <p>Type: {{ dish.dishType|capfirst }}</p>
+                <p>Restaurant: {{ dish.restaurant|capfirst }}</p>
+                <p>Description: {{ dish.description }}</p>
+                <p>Rating (1-10): {{ dish.rating }} </p>
+            </div>
+        {% endfor %}
+    </div>
 
 {% endblock %}

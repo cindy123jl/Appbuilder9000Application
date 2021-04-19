@@ -67,7 +67,7 @@ def my_restaurants_view(request):
     dishes = paginator2.get_page(page)
     context = {'restaurants': restaurants, 'dishes': dishes}
 
-    return render(request, 'MyThai/MyThai_my_restaurants.html', context)
+    return render(request, 'MyThai/MyThai_my_dishes.html', context)
 
 
 def is_valid_query(param):
@@ -85,6 +85,6 @@ def my_sorted(dish_list, my_sort):
 
 def details(request, pk):
     pk = int(pk)
-    dish = get_object_or_404(Dish, pk=pk)
+    dish = Dish.objects.filter(pk=pk)
     context = {'dish': dish}
     return render(request, 'MyThai/MyThai_details.html', context)
