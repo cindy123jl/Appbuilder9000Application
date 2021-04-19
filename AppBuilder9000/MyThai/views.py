@@ -88,3 +88,10 @@ def details(request, pk):
     dish = Dish.objects.filter(pk=pk)
     context = {'dish': dish}
     return render(request, 'MyThai/MyThai_details.html', context)
+
+
+def restaurant_details(request, pk):
+    pk = int(pk)
+    restaurant = Restaurant.objects.filter(pk=pk)
+    context = {'restaurant': restaurant}
+    return render(request, 'MyThai/MyThai_rest_details.html', context)

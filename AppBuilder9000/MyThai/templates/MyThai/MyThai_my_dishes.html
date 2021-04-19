@@ -1,4 +1,4 @@
-{% extends 'MyThai_base.html' %}
+{% extends 'MyThai/MyThai_base.html' %}
 
 {% block title %}MyThai! | My Restaurants{% endblock %}
 
@@ -38,7 +38,7 @@
                        <td><span><a href="{% url 'MyThai_details' dish.id %}">{{ dish.dishName|capfirst }}</a></span></td>
                         <td>{{ dish.dishType|capfirst }}</td>
                         <td>{{ dish.description }}</td>
-                        <td>{{ dish.restaurant|capfirst }}</td>
+                        <td><span><a href="{% url 'MyThai_rest_details' dish.restaurant_id %}">{{ dish.restaurant|capfirst }}</a></span></td>
                         <td>{{ dish.rating }}</td>
                     </tr>
                     {% endfor %}

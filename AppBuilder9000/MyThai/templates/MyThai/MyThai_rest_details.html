@@ -1,0 +1,19 @@
+{% extends 'MyThai/MyThai_base.html' %}
+
+{% block tile %} MyThai! | Restaurant Details {% endblock %}
+
+{% block content %}
+
+    <div class="dsh-details">
+        {% for restaurant in restaurant %}
+            <div>
+                <p>Restaurant Name: {{ restaurant.name}}</p>
+                <p>Phone: {{ restaurant.phone}}</p>
+                <p>Address: {{ restaurant.address}}</p>
+                <p>City: {{ restaurant.city}}</p>
+                <p>Rating: {{ restaurant.rating}}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
