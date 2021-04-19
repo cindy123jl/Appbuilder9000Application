@@ -15,7 +15,9 @@
                     <a href="{% url 'SharksApp_displaydb' %}">Your Favorites</a>
                     <a href="{% url 'SharksApp_newitem' %}">Add A Species</a>
                 </div>
+                <div class="header_style">
                 <h1>{% block header %} {% endblock %}</h1>
+                </div>
             </header>
             <div>
             {% block content %} {% endblock %}
