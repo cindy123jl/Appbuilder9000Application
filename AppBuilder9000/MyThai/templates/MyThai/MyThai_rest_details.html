@@ -4,9 +4,9 @@
 
 {% block content %}
 
-    <div class="dsh-details">
+    <div class="details-container">
         {% for restaurant in restaurant %}
-            <div>
+            <div class="restaurant-details">
                 <p>Restaurant Name: {{ restaurant.name}}</p>
                 <p>Phone: {{ restaurant.phone}}</p>
                 <p>Address: {{ restaurant.address}}</p>

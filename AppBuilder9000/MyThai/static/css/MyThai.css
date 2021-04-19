@@ -163,14 +163,19 @@ header .highlight {
     margin-top: 10px;
 }
 
+#search-btn {
+    margin: 10px 0;
+}
+
 /*      ORDER BY        */
 .orderby-container{
-    position: absolute;
+    position: relative;
     left: 0;
 }
 
 .orderby-wrapper {
     display: inline-block;
+    margin-left: 10px;
 }
 
 .orderby-wrapper input {
@@ -282,6 +287,36 @@ td, th {
     text-align: center;
 }
 
+td a {
+    text-decoration: none;
+    color: #fff;
+}
+
+td a:hover {
+    color: #de3206;
+    font-weight: bolder;
+}
+
+
+/*      DISH & RESTAURANT DETAILS       */
+.details-container {
+    text-align: center;
+    background-color: #253f3f;
+    color: #fff;
+    width: 50%;
+    margin: 50px auto 50px auto;
+    border-radius: 5px;
+    border: rgba(249, 75, 30, .8)  1px solid;
+    overflow-x: hidden;
+}
+
+.restaurant-details {
+
+}
+
+.dish-details {
+
+}
 
 /*      MEDIA QUERIES       */
 @media(max-width: 768px) {
@@ -291,7 +326,7 @@ td, th {
         text-align: center;
         width:100%;
     }
-    header nav li {
+    header nav a, header nav li {
         display: flex;
         width: 100%;
         align-items: center;

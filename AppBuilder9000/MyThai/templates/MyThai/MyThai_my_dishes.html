@@ -37,7 +37,7 @@
                     <tr>
                        <td><span><a href="{% url 'MyThai_details' dish.id %}">{{ dish.dishName|capfirst }}</a></span></td>
                         <td>{{ dish.dishType|capfirst }}</td>
-                        <td>{{ dish.description }}</td>
+                        <td>{{ dish.description|capfirst }}</td>
                         <td><span><a href="{% url 'MyThai_rest_details' dish.restaurant_id %}">{{ dish.restaurant|capfirst }}</a></span></td>
                         <td>{{ dish.rating }}</td>
                     </tr>
@@ -70,7 +70,6 @@
                         <select id="dishes" name="dishes">
                             <option value="dishName">Dish Name</option>
                             <option value="dishType">Dish Type</option>
-                            <option value="restaurant">Restaurant</option>
                             <option value="rating">Rating</option>
                         </select>
                         <input type="submit">
