@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import GuitarForm
 from .models import GuitarInfo
 
@@ -20,7 +20,14 @@ def create(request):
     context = {'form': form}
     return render(request, "GuitarReviewsApp/GuitarReviewsApp_create.html", context)
 
+
 def review(request):
     reviews = GuitarInfo.objects.all()
     context = {'reviews': reviews}
     return render(request, 'GuitarReviewsApp/GuitarReviewsApp_reviews.html', context)
+
+
+def details(request, pk):
+    info = get_object_or_404(GuitarInfo, pk=pk)
+    context = {'info': info}
+    return render(request, 'GuitarReviewsApp/GuitarReviewsApp_details.html', context)
