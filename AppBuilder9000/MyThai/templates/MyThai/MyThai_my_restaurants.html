@@ -4,50 +4,81 @@
 
 {% block content %}
 
+    <div class="search-container">
+        <form method="GET" action="">
+            <div class="search-wrapper">
+                <span>
+                    <input type="search"  id="search-terms" placeholder="Search for a Dish/Restaurant.." name="get_dish">
+                    <button type="submit" id="search-btn"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </form>
+
+    </div>
+
     <div class="myRestaurants">
 
-        <h1>My Restaurants!</h1>
-        <div class="restaurant-panel">
+        <div class="dishes-panel">
+            <h1>My Dishes!</h1>
+            <table id="dishes-table">
+                <thead>
+                        <tr>
+                           <th><span>Dish Name</span></th>
+                            <th>Dish Type</th>
+                            <th>Description</th>
+                            <th>Restaurant</th>
+                            <th>Rating</th>
+                        </tr>
+                </thead>
 
-            <table id="restaurant-table">
-                <tr>
-                    <th>Restaurant Name</th>
-                    <th>Phone</th>
-                    <th>Address</th>
-                    <th>City</th>
-                    <th>Rating</th>
-                </tr>
-                {% for restaurant in restaurants %}
-                <tr>
-                    <td>{{ restaurant.name|capfirst }}</td>
-                    <td>{{ restaurant.phone }}</td>
-                    <td>{{ restaurant.address }}</td>
-                    <td>{{ restaurant.city|capfirst }}</td>
-                    <td>{{ restaurant.rating }}</td>
-                </tr>
-                {% endfor %}
+                <tbody>
+                    {% for dish in dishes %}
+
+                    <tr>
+                       <td><span><a href="{% url 'MyThai_details' dish.id %}">{{ dish.dishName|capfirst }}</a></span></td>
+                        <td>{{ dish.dishType|capfirst }}</td>
+                        <td>{{ dish.description }}</td>
+                        <td>{{ dish.restaurant|capfirst }}</td>
+                        <td>{{ dish.rating }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
             </table>
+
             <div class="pagination">
                 <span class="step-links">
-                    {% if restaurants.has_previous %}
-                        <a href="?page=1">&laquo;</a>
-                        <a href="?page={{ restaurants.previous_page_number }}">previous</a>
+                    {% if dishes.has_previous %}
+                        <a href="?page=1">&laquo; first</a>
+                        <a href="?page={{ dishes.previous_page_number }}">previous</a>
                     {% endif %}
 
                     <span class="current">
-                        Page {{ restaurants.number }} of {{ restaurants.paginator.num_pages }}.
+                        Page {{ dishes.number }} of {{ dishes.paginator.num_pages }}.
                     </span>
 
-                    {% if restaurants.has_next %}
-                        <a href="?page={{ restaurants.next_page_number }}">next</a>
-                        <a href="?page={{ restaurants.paginator.num_pages }}">&raquo;</a>
+                    {% if contacts.has_next %}
+                        <a href="?page={{ dishes.next_page_number }}">next</a>
+                        <a href="?page={{ dishes.paginator.num_pages }}">last &raquo;</a>
                     {% endif %}
                 </span>
             </div>
-        </div>
 
-        <div class="dishes-panel">
-            {% include 'MyThai/MyThai_my_dishes.html' %}
+            <div class="orderby-container">
+                <form method="GET" action="">
+                    <div class="orderby-wrapper">
+                        <label for="dishes">Order By: </label>
+                        <select id="dishes" name="dishes">
+                            <option value="dishName">Dish Name</option>
+                            <option value="dishType">Dish Type</option>
+                            <option value="restaurant">Restaurant</option>
+                            <option value="rating">Rating</option>
+                        </select>
+                        <input type="submit">
+                    </div>
+                </form>
+            </div>
+
+
         </div>
 
     </div>

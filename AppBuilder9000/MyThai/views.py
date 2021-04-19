@@ -40,31 +40,33 @@ def new_dish(request):
 
 
 def my_restaurants_view(request):
+    # Store objects from DB in object as dict.
     restaurant_list = Restaurant.objects.all()
     dish_list = Dish.objects.all()
-
+    # GET search & sort data for table
     get_dish_query = request.GET.get('get_dish')
     my_sort = request.GET.get('dishes')
 
-    if is_valid_query(get_dish_query):  # If is valid = True, filter queryset
+    if is_valid_query(get_dish_query):  # If 'is valid' = True, filter the queryset
         dish_list = dish_list.filter(
-            Q(dishName__icontains=get_dish_query) |
-            Q(restaurant__name__icontains=get_dish_query)).distinct()  # Only return distinct entries
+            # Turn filters into objects to pass to filter()
+            Q(dishName__icontains=get_dish_query) |  # Search by dish name & restaurant name
+            Q(restaurant__name__icontains=get_dish_query)).distinct()  # Returning only distinct entries
 
+    # If there is no sort set by, sort by dish name.
     if my_sort is None:
         my_sort = 'dishName'
 
-    dish_list = my_sorted(dish_list, my_sort)  # Sort Dict
+    dish_list = my_sorted(dish_list, my_sort)  # Sort qs
 
     paginator1 = Paginator(restaurant_list, 10)  # Create paginator object with 10 restaurants per page
     paginator2 = Paginator(dish_list, 15)
-
-    page = request.GET.get('page')  # Store paginator object with page number
+    page = request.GET.get('page')  # Store paginator object with current page
 
     restaurants = paginator1.get_page(page)
     dishes = paginator2.get_page(page)
-
     context = {'restaurants': restaurants, 'dishes': dishes}
+
     return render(request, 'MyThai/MyThai_my_restaurants.html', context)
 
 
