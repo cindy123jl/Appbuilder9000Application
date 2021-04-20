@@ -1,6 +1,6 @@
 from django.db.models import Q
 from django.core.paginator import Paginator
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from .forms import RestaurantForm, DishForm
 from .models import Restaurant, Dish
 from operator import attrgetter
@@ -41,7 +41,6 @@ def new_dish(request):
 
 def my_restaurants_view(request):
     # Store objects from DB in object as dict.
-    restaurant_list = Restaurant.objects.all()
     dish_list = Dish.objects.all()
     # GET search & sort data for table
     get_dish_query = request.GET.get('get_dish')
@@ -53,19 +52,12 @@ def my_restaurants_view(request):
             Q(dishName__icontains=get_dish_query) |  # Search by dish name & restaurant name
             Q(restaurant__name__icontains=get_dish_query)).distinct()  # Returning only distinct entries
 
-    # If there is no sort set by, sort by dish name.
-    if my_sort is None:
-        my_sort = 'dishName'
-
     dish_list = my_sorted(dish_list, my_sort)  # Sort qs
-
-    paginator1 = Paginator(restaurant_list, 10)  # Create paginator object with 10 restaurants per page
-    paginator2 = Paginator(dish_list, 15)
+    paginator = Paginator(dish_list, 10)   # Create paginator object with 10 restaurants per page
     page = request.GET.get('page')  # Store paginator object with current page
+    dishes = paginator.get_page(page)
 
-    restaurants = paginator1.get_page(page)
-    dishes = paginator2.get_page(page)
-    context = {'restaurants': restaurants, 'dishes': dishes}
+    context = {'dishes': dishes}
 
     return render(request, 'MyThai/MyThai_my_dishes.html', context)
 
@@ -75,6 +67,7 @@ def is_valid_query(param):
 
 
 def my_sorted(dish_list, my_sort):
+    my_sort = 'dishName'
     if my_sort == 'rating':  # If sorted by rating, reverse so highest goes at the top.
         asc = True
     else:

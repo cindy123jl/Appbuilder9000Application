@@ -168,9 +168,14 @@ header .highlight {
 }
 
 /*      ORDER BY        */
-.orderby-container{
+.orderby-container {
     position: relative;
     left: 0;
+    width: 50%;
+}
+
+.orderby-container form{
+    width: 50%;
 }
 
 .orderby-wrapper {
@@ -181,6 +186,7 @@ header .highlight {
 .orderby-wrapper input {
     margin: 0 5px;
 }
+
 
 /*      ADD DISH/RESTAURANT FORM STYLING        */
 #restaurant-form, #dish-form {
