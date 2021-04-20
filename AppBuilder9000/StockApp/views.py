@@ -28,11 +28,13 @@ def watchlist(request):
 
 
 def details(request, pk):
-    pk = pk
-    this_stock = WatchStock.objects.filter(pk=pk)
+    this_stock = get_object_or_404(WatchStock, pk=pk)
     all_stocks = {'this_stock': this_stock}
-    context = this_stock
+    context = all_stocks
     return render(request, "StockApp/StockApp_Details.html", context)
 
 #   def detail(request):
 #      return render(request, "StockApp/StockApp_Details.html")
+# WatchStock.objects.filter(pk=pk)
+#
+#
