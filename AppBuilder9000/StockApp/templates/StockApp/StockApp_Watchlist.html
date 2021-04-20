@@ -3,17 +3,19 @@
 {% block title %}Watchlist{% endblock %}
 
 {% block content %}
-<div style="text-color: white; " >
+<div>
     <ul>
         <div id="content" class="grid-container" >
 
         {% for item in all_stocks %}
-            <div id="content">
+            <div id="content" >
             <br>
-            <ul>{{ item.name }}</ul>
-            <ul>{{ item.market_cap }}</ul>
-            <ul>{{ item.time_stamp }}</ul>
-            <ul>{{ item.price }}</ul>
+            <ul> Stock: {{ item.name }}</ul>
+            <ul>Market Cap:{{ item.market_cap }}</ul>
+            <ul>Time Checked: {{ item.time_stamp }}</ul>
+            <ul> Price: {{ item.price }}</ul>
+            <ul>ID: {{ item.pk }} </ul>
+            <!--<ul><a href="{%url 'StockApp_Details'%}">Details</a></ul>-->
             <br>
             </div>
             {% endfor %}
