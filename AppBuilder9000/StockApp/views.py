@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .form import StockForm
 from .models import WatchStock
 
+
 def home(request):
     return render(request, 'StockApp/StockApp_home.html')
 
@@ -26,13 +27,12 @@ def watchlist(request):
     return render(request, "StockApp/StockApp_Watchlist.html", context)
 
 
-#def details(request, pk):
-#    all_stocks = WatchStock.objects.filter(pk=pk)
-#    this_stock = all_stocks[0]
-#    stock_detail = {'all_stocks': all_stocks}
-#    context = stock_detail
-#    return render(request, "StockApp/StockApp_Details.html", context)
+def details(request, pk):
+    pk = pk
+    this_stock = WatchStock.objects.filter(pk=pk)
+    all_stocks = {'this_stock': this_stock}
+    context = this_stock
+    return render(request, "StockApp/StockApp_Details.html", context)
 
-def detail(request):
-    return render(request, "StockApp/StockApp_Details.html")
-
+#   def detail(request):
+#      return render(request, "StockApp/StockApp_Details.html")

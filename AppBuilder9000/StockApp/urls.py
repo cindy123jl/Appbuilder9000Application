@@ -6,6 +6,8 @@ urlpatterns = [
     path('StockApp_base/', views.base, name='StockApp_base'),
     path('StockApp_newstock/', views.new, name='StockApp_newstock'),
     path('StockApp_Watchlist/', views.watchlist, name='StockApp_Watchlist'),
-    path('StockApp_Details/', views.detail, name='StockApp_Details'),
-#    path('<int:pk>/StockApp_Details/', views.details, name='StockApp_Details'),
+#    path('StockApp_Details/', views.detail, name='StockApp_Details'),
+    path('<int:pk>/StockApp_Details/', views.details, name='StockApp_Details'),
 ]
+
+
