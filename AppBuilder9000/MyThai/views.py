@@ -1,6 +1,6 @@
 from django.db.models import Q
 from django.core.paginator import Paginator
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import RestaurantForm, DishForm
 from .models import Restaurant, Dish
 from operator import attrgetter
@@ -53,12 +53,11 @@ def my_restaurants_view(request):
             Q(restaurant__name__icontains=get_dish_query)).distinct()  # Returning only distinct entries
 
     dish_list = my_sorted(dish_list, my_sort)  # Sort qs
-    paginator = Paginator(dish_list, 10)   # Create paginator object with 10 restaurants per page
+    paginator = Paginator(dish_list, 10)  # Create paginator object with 10 restaurants per page
     page = request.GET.get('page')  # Store paginator object with current page
     dishes = paginator.get_page(page)
 
     context = {'dishes': dishes}
-
     return render(request, 'MyThai/MyThai_my_dishes.html', context)
 
 
@@ -88,3 +87,42 @@ def restaurant_details(request, pk):
     restaurant = Restaurant.objects.filter(pk=pk)
     context = {'restaurant': restaurant}
     return render(request, 'MyThai/MyThai_rest_details.html', context)
+
+
+def dish_edit(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Dish, pk=pk)
+    form = DishForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        if form.is_valid():
+            form2 = form.save(commit=False)
+            form2.save()
+            return redirect('MyThai_my_restaurants')
+        else:
+            print(form.errors)             # If form is valid, save and redirect to all dishes page
+    else:
+        return render(request, 'MyThai/MyThai_dish_edit.html', {'form': form})
+
+
+def restaurant_edit(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Restaurant, pk=pk)
+    form = RestaurantForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        if form.is_valid():
+            form2 = form.save(commit=False)
+            form2.save()
+            return redirect('MyThai_my_restaurants')
+        else:
+            print(form.errors)
+    else:
+        return render(request, 'MyThai/MyThai_rest_edit.html', {'form': form})
+
+
+# def save_edit(form):          # Cant get to work -- Value Error, need http response
+#     if form.is_valid():       # https://docs.djangoproject.com/en/3.2/ref/request-response/#django.http.HttpResponse
+#         form2 = form.save(commit=False)
+#         form2.save()
+#         return redirect('MyThai_my_restaurants')
+#     else:
+#         print(form.errors)
