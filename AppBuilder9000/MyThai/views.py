@@ -79,14 +79,14 @@ def my_sorted(dish_list, my_sort):
 
 def details(request, pk):
     pk = int(pk)
-    dish = Dish.objects.filter(pk=pk)
+    dish = get_object_or_404(Dish, pk=pk)
     context = {'dish': dish}
     return render(request, 'MyThai/MyThai_details.html', context)
 
 
 def restaurant_details(request, pk):
     pk = int(pk)
-    restaurant = Restaurant.objects.filter(pk=pk)
+    restaurant = get_object_or_404(Restaurant, pk=pk)
     context = {'restaurant': restaurant}
     return render(request, 'MyThai/MyThai_rest_details.html', context)
 
@@ -96,12 +96,8 @@ def dish_edit(request, pk):
     item = get_object_or_404(Dish, pk=pk)
     form = DishForm(data=request.POST or None, instance=item)
     if request.method == 'POST':
-        if form.is_valid():
-            form2 = form.save(commit=False)
-            form2.save()
-            return redirect('MyThai_my_restaurants')
-        else:
-            print(form.errors)             # If form is valid, save and redirect to all dishes page
+        save_edit(form)         # If form is valid, save and redirect to all dishes page
+        return redirect('MyThai_my_restaurants')
     else:
         return render(request, 'MyThai/MyThai_dish_edit.html', {'form': form})
 
@@ -111,23 +107,18 @@ def restaurant_edit(request, pk):
     item = get_object_or_404(Restaurant, pk=pk)
     form = RestaurantForm(data=request.POST or None, instance=item)
     if request.method == 'POST':
-        if form.is_valid():
-            form2 = form.save(commit=False)
-            form2.save()
-            return redirect('MyThai_my_restaurants')
-        else:
-            print(form.errors)
+        save_edit(form)
+        return redirect('MyThai_my_restaurants')
     else:
         return render(request, 'MyThai/MyThai_rest_edit.html', {'form': form})
 
 
-# def save_edit(form):          # Cant get to work -- Value Error, need http response
-#     if form.is_valid():       # https://docs.djangoproject.com/en/3.2/ref/request-response/#django.http.HttpResponse
-#         form2 = form.save(commit=False)
-#         form2.save()
-#         return redirect('MyThai_my_restaurants')
-#     else:
-#         print(form.errors)
+def save_edit(form):
+    if form.is_valid():
+        form = form.save(commit=False)
+        form.save()
+    else:
+        print(form.errors)
 
 
 def dish_delete(request, pk):
