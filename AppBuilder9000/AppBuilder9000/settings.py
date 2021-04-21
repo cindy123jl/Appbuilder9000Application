@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'MyThai',
     'StockApp',
     'MusicApp',
+    'Theaters_and_Features',
 ]
 
 MIDDLEWARE = [
