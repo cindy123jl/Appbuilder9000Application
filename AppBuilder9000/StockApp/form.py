@@ -1,8 +1,8 @@
 from django.forms import ModelForm
-from .models import Stock
+from .models import WatchStock
 
 
 class StockForm(ModelForm):
     class Meta:
-        model = Stock
+        model = WatchStock
         fields = '__all__'
