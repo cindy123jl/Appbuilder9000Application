@@ -31,6 +31,7 @@ urlpatterns = [
     path('MyThai/', include('MyThai.urls')),
     path('StockApp/', include('StockApp.urls')),
     path('MusicApp/', include('MusicApp.urls')),
+    path('Theaters_and_Features/', include('Theaters_and_Features.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()

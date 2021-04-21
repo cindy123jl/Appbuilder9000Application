@@ -1,0 +1,26 @@
+{% extends 'SeaShanties/shanties_base.html' %}
+
+{% block title %} Shanties -- View Songs List {% endblock %}
+
+{% block content %}
+
+    <div class="center">
+
+        <table>
+            <tr>
+                <th> | Song Name |</th>
+                <th> | Origin | </th>
+                <th> | Year | </th>
+            </tr>
+            {% for song in songs %}
+            <tr>
+                <td>{{ song.title }}</td>
+                <td>{{ song.artist }}</td>
+                <td>{{ song.year }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+
+{% endblock %}

@@ -16,3 +16,4 @@ class ShantiesForm(ModelForm):
     class Meta:
         model = SeaShanties
         fields = '__all__'
+
