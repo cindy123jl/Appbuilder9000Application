@@ -1,17 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ShantiesForm
-
-# Create your views here.
+from .models import SeaShanties
 
 
 def shantieshome(request):
     context = {}
     return render(request, 'SeaShanties/shanties_home.html', context)
-
-
-def addsong(request):
-    context = {}
-    return render(request, 'SeaShanties/shanties_add.html', context)
 
 
 def shantiesadd(request):
@@ -22,8 +16,13 @@ def shantiesadd(request):
             return redirect('shanties_add')
         else:
             form = ShantiesForm(request.POST)
-            return render(request, 'ShantiesApp/shanties_add.html',
-                          {'form': form})  # pass form to render on gardenplanner.html
+            return render(request, 'SeaShanties/shanties_add.html',
+                          {'form': form})
     else:
         form = ShantiesForm(None)
         return render(request, 'SeaShanties/shanties_add.html', {'form': form})
+
+
+def shantiesdisplay(request):
+    songs = SeaShanties.objects.all()
+    return render(request, 'SeaShanties/shanties_display.html', {'songs': songs})

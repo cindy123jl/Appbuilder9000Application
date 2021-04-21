@@ -16,9 +16,9 @@
 
         <div class="navbar">
             <ul>
-                <li><a class="{% url 'shanties_home' %}" href="#home"> Home </a></li>
+                <li><a href="{% url 'shanties_home' %}"> Home </a></li>
                 <li><a href="{% url 'shanties_add' %}"> Add Song </a></li>
-                <li><a href="#"> ##### </a></li>
+                <li><a href="{% url 'shanties_display' %}"> Song List </a></li>
                 <li><a href="#"> ##### </a></li>
             </ul>
         </div>
