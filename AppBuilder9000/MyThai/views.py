@@ -66,9 +66,11 @@ def is_valid_query(param):
 
 
 def my_sorted(dish_list, my_sort):
-    my_sort = 'dishName'
     if my_sort == 'rating':  # If sorted by rating, reverse so highest goes at the top.
         asc = True
+    elif my_sort is None:       # If my_sort is None, sort by dish name
+        my_sort = 'dishName'
+        asc = False
     else:
         asc = False
     dish_list = sorted(dish_list, key=attrgetter(my_sort), reverse=asc)  # Sort dict by model attribute = 'my_sort'
@@ -126,3 +128,43 @@ def restaurant_edit(request, pk):
 #         return redirect('MyThai_my_restaurants')
 #     else:
 #         print(form.errors)
+
+
+def dish_delete(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Dish, pk=pk)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('MyThai_my_restaurants')
+    context = {"item": item}
+    return render(request, "MyThai/MyThai_delete.html", context)
+
+
+def restaurant_delete(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Restaurant, pk=pk)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('MyThai_my_restaurants')
+    context = {"item": item}
+    return render(request, "MyThai/MyThai_delete.html", context)
+
+
+def dish_confirmed(request):
+    if request.method == 'POST':
+        form = DishForm(request.POST or None)
+        if form.is_valid():
+            form.delete()
+            return redirect('MyThai_my_restaurants')
+        else:
+            return redirect('MyThai_my_restaurants')
+
+
+def restaurant_confirmed(request):
+    if request.method == 'POST':
+        form = RestaurantForm(request.POST or None)
+        if form.is_valid():
+            form.delete()
+            return redirect('MyThai_my_restaurants')
+        else:
+            return redirect('MyThai_my_restaurants')

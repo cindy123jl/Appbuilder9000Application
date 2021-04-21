@@ -13,7 +13,7 @@
                 <p>City: {{ restaurant.city}}</p>
                 <p>Rating: {{ restaurant.rating}}</p>
                 <p><a href="{% url 'MyThai_rest_edit' restaurant.id %}"><i class="fas fa-edit"></i></a></p>
-                <p><button><i class="far fa-trash-alt"></i></button></p>
+                <p><button><a href="{% url 'MyThai_rest_delete' restaurant.id %}"><i class="far fa-trash-alt"></i></a></button></p>
             </div>
         {% endfor %}
     </div>

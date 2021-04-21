@@ -4,18 +4,18 @@
 
 {% block content %}
 
-    <div>
+    <div class="edit-container">
         <form method="POST" action="../dish/edit">
             <table>
                 {% csrf_token %}
                 {{ form.nonfield_errors }}
                 {{ form.as_table }}
             </table>
-            <div>
+            <div class="edit-wrapper">
                 <input type="submit">
                 <div>
-                    <button class="btn">Delete</button>
-                    <button class="btn">Cancel</button>
+                    <button class="edit-btn"><a href="../dish/delete">Delete</a></button>
+                    <button class="edit-btn">Cancel</button>
                 </div>
             </div>
         </form>

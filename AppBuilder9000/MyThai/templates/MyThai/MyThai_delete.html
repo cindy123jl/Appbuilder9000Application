@@ -1,0 +1,18 @@
+{% extends 'MyThai/MyThai_base.html' %}
+
+{% block title %} MyThai! | Delete {% endblock %}
+
+{% block content %}
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <h2>Confirm Delete</h2>
+        <p>Are you sure you would like to delete "{{ item.dishName }} {{ item.name }}" from the database?</p>
+
+            {{ item.as_p }}
+
+        <input type="submit" value="Yes, delete item." class="btn">
+        <a href="{% url 'MyThai_my_restaurants' %}"><button class="btn" type="button">Cancel</button></a>
+    </form>
+
+{% endblock %}
