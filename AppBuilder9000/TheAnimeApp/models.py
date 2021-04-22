@@ -2,16 +2,16 @@ from django.db import models
 
 
 Rating_Choices = (
-    ("1 Star", "1 Star"),
-    ("2 Stars", "2 Stars"),
-    ("3 Stars", "3 Stars"),
-    ("4 Stars", "4 Stars"),
-    ("5 Stars", "5 Stars"),
-    ("6 Stars", "6 Stars"),
-    ("7 Stars", "7 Stars"),
-    ("8 Stars", "8 Stars"),
-    ("9 Stars", "9 Stars"),
-    ("10 Stars", "10 Stars"),
+    ("1", "1"),
+    ("2", "2"),
+    ("3", "3"),
+    ("4", "4"),
+    ("5", "5"),
+    ("6", "6"),
+    ("7", "7"),
+    ("8", "8"),
+    ("9", "9"),
+    ("10", "10"),
 )
 
 
