@@ -12,5 +12,7 @@ class SeaShanties(models.Model):
     year = models.CharField(max_length=60)
     history = models.TextField()
 
+    objects = models.Manager()
+
     def __str__(self):
         return self.title

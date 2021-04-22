@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'SeaShanties',
     'MyThai',
     'StockApp',
+    'Theaters_and_Features',
     'TheAnimeApp',
 ]
 
