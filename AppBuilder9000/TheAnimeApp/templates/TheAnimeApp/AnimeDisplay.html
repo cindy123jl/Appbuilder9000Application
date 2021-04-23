@@ -1,0 +1,24 @@
+% extends ‘TheAnimeApp/AnimeBase.html' %}
+
+{% block title %}Details{% endblock %}
+
+{% block content %}
+<div>
+    <ul>
+        <div id="content" class="grid-container" >
+
+        {% for item in anime_detail %}
+            <div id="content" >
+            <ul> Title: {{ item.AnimeName }}</ul>
+            <ul>Genre: {{ item.Genre }}</ul>
+            <ul>Rating: {{ item.Rating }}</ul>
+            <ul> Review: {{ item.Review }}</ul>
+            <ul>ID: {{ item.pk }} </ul>
+            <ul><a href="{% url ‘AnimeDetails' pk=item.pk %}">Details</a></ul>
+            </div>
+            {% endfor %}
+        </div>
+    </ul>
+</div>
+
+{% endblock %}
