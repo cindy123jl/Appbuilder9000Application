@@ -6,5 +6,5 @@ urlpatterns = [
     path('AnimeReviews/', views.AnimeReviews, name="AnimeReviews"),
     path('AnimeCreate/', views.AnimeCreate, name="AnimeCreate"),
     path('AnimeDisplay/', views.AnimeDisplay, name='AnimeDisplay'),
-    path('AnimeDetails/', views.AnimeDetails, name='AnimeDetails'),
+    path('AnimeDetails/<int:pk>/', views.AnimeDetails, name='AnimeDetails'),
 ]

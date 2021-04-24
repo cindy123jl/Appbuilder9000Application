@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from .models import Person
 from .models import Review
 from .forms import ReviewForm
 from django.contrib import messages

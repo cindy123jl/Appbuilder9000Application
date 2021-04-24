@@ -1,5 +1,5 @@
-{% extends ‘TheAnimeApp/AnimeBase.html' %}
-
+{% extends 'TheAnimeApp/AnimeBase.html' %}
+{% load static %}
 {% block title %}See Details{% endblock %}
 
 {% block content %}
@@ -9,12 +9,14 @@
 
             <div id="content" >
             <br>
-            <ul>Title: {{ anime_detail.AnimeName }}</ul>
-            <ul>Genre:{{ anime_detail.Genre }}</ul>
-            <ul>Rating: {{ anime_detail.Rating }}</ul>
-            <ul>Review: {{ anime_detail.Review}}</ul>
-            <ul>ID: {{ anime_detail.pk }} </ul>
+                <ul>Title: {{ anime_detail.AnimeName }}</ul>
+                <ul>Genre: {{ anime_detail.Genre }}</ul>
+                <ul>About: {{ anime_detail.About }}</ul>
+                <ul>Rating: {{ anime_detail.Rating }}</ul>
+                <ul>Review: {{ anime_detail.Review}}</ul>
+            <ul>id: {{ anime_detail.pk }} </ul>
             <br>
+            <hr>
             </div>
         </div>
     </ul>
