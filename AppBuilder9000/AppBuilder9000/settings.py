@@ -40,14 +40,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'bootstrap4',
     'crispy_forms',
-    'WorldRecipes',
-    'SharksApp',
-    'WordNerd',
-    'GuitarReviewsApp',
-    'SeaShanties',
-    'MyThai',
-    'StockApp',
-    'Theaters_and_Features',
     'TheAnimeApp',
 ]
 
