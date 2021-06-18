@@ -1,20 +1,5 @@
 # Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+Part of the Live Project for the Python Course. An application with an app I created called the AnimeApp.
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
-
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
-
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
-
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+# Application Details for AnimeApp
+The Anime App has many functions. When you click on the AnimeApp on the home screen it will take you to the application I created. It will have a welcome page with a navigation bar where you can navigate to different parts of the application. You will be able to create a review of any Anime and the review you created would be populated to the reviews page, on the reviews page you can see all the reviews ever made. I have another feature where you can look at the details of a specific anime that has been reviewed and that would be under the display tab.
